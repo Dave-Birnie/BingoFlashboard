@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <SolidColorBrush x:Key="FontLight">#F8F8F8</SolidColorBrush>
+    <SolidColorBrush x:Key="FontDark">#222</SolidColorBrush>
+
+
+    <SolidColorBrush x:Key="LightBlack">#111</SolidColorBrush>
+    <SolidColorBrush x:Key="DarkGray">#222</SolidColorBrush>
+    <SolidColorBrush x:Key="MedGray">#555</SolidColorBrush>
+    <SolidColorBrush x:Key="SimpleRed">#FF0000</SolidColorBrush>
+
+    <SolidColorBrush x:Key="Whitesmoke">#F1EDEE</SolidColorBrush>
+    <SolidColorBrush x:Key="Gray">#757780</SolidColorBrush>
+    <SolidColorBrush x:Key="OxfordBlue">#031D44</SolidColorBrush>
+    <SolidColorBrush x:Key="Mint">#03CEA4</SolidColorBrush>
+    <SolidColorBrush x:Key="Bittersweet">#F56960</SolidColorBrush>
+
+    <Color x:Key="C_Whitesmoke">#F1EDEE</Color>
+    <Color x:Key="C_Gray">#757780</Color>
+    <Color x:Key="C_OxfordBlue">#031D44</Color>
+    <Color x:Key="C_Mint">#03CEA4</Color>
+    <Color x:Key="C_Bittersweet">#F56960</Color>
+
+    <Color x:Key="C_FontWhite">#F8F8F8</Color>
+
+    <Color x:Key="C_LightBlack">#111</Color>
+    <Color x:Key="C_DarkGray">#222</Color>
+    <Color x:Key="C_MedGray">#555</Color>
+    <Color x:Key="C_SimpleRed">#FF0000</Color>
+
+
+    <SolidColorBrush x:Key="AccentOrange">#CB532F</SolidColorBrush>
+    <SolidColorBrush x:Key="AccentBlue">#1a9aa8</SolidColorBrush>
+    <SolidColorBrush x:Key="AccentGreen">#0dce00</SolidColorBrush>
+    <SolidColorBrush x:Key="AccentDodgerBlue">#1e90ff</SolidColorBrush>
+    <SolidColorBrush x:Key="BackgroundBlue">#001B3D</SolidColorBrush>
+    <SolidColorBrush x:Key="AccentGray">#333</SolidColorBrush>
+    <SolidColorBrush x:Key="DeleteRed">#FF0000</SolidColorBrush>
+    <SolidColorBrush x:Key="OffWhite">#F8F8F8</SolidColorBrush>
+    <SolidColorBrush x:Key="LightGray">#8e8e8e</SolidColorBrush>
+
+
+    <Color x:Key="C_AccentOrange">#CB532F</Color>
+    <Color x:Key="C_AccentDodgerBlue">#1e90ff</Color>
+    <Color x:Key="C_AccentBlue">#1a9aa8</Color>
+    <Color x:Key="C_AccentGreen">#0dce00</Color>
+    <Color x:Key="C_BackgroundBlue">#001B3D</Color>
+    <Color x:Key="C_AccentGray">#333</Color>
+    <Color x:Key="C_DeleteRed">#FF0000</Color>
+    <Color x:Key="C_OffWhite">#F8F8F8</Color>
+    <Color x:Key="C_LightGray">#8e8e8e</Color>
+</ResourceDictionary>

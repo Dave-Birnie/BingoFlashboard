@@ -1,0 +1,19 @@
+﻿<Application x:Class="BingoFlashboard.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BingoFlashboard"
+             StartupUri="View/StartupWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionary/Colors.xaml" />
+                <ResourceDictionary Source="ResourceDictionary/ErrorTemplate.xaml" />
+                <ResourceDictionary Source="ResourceDictionary/Buttons.xaml" />
+                <ResourceDictionary Source="ResourceDictionary/Labels.xaml" />
+                <ResourceDictionary Source="ResourceDictionary/ModernTextBox.xaml" />
+                <ResourceDictionary Source="ResourceDictionary/ModernComboBox.xaml" />
+                <ResourceDictionary Source="ResourceDictionary/BasicRadioBtn.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
