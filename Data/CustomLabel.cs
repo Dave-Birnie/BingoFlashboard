@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Flashboard.Data
+namespace BingoFlashboard.Data
 {
     public class CustomLabel : Label
     {

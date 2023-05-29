@@ -19,22 +19,54 @@ namespace BingoFlashboard.View
     /// </summary>
     public partial class CallerControlsWindow : Window
     {
+
+        #region CLASS VARIABLES
+        bool maxSize = false;
+
+        #endregion CLASS VARIABLES
+
         public CallerControlsWindow()
         {
             InitializeComponent();
         }
 
-        private void Load_New_Session_Click(object sender, RoutedEventArgs e)
+        #region TOP BAR BUTTONS
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
-
+            App.Exit_Click();
+        }
+        private void Maximize_Click(object sender, RoutedEventArgs e)
+        {
+            if (!maxSize)
+            {
+                this.WindowState = WindowState.Maximized;
+                maxSize = true;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+                maxSize = false;
+            }
         }
 
-        private void Delete_Game_Click(object sender, RoutedEventArgs e)
+        private void Save_FlashboardSize(object sender, RoutedEventArgs e)
         {
+            if (App.flashboardWindow != null)
+            {
+                double width = App.flashboardWindow.Width;
+                double height = App.flashboardWindow.Height;
 
+                App.startup.FlashboardHeight = height;
+                App.startup.FlashboardWidth = width;
+
+              //  App.SaveStartupFile();
+            }
         }
+        #endregion TOP BAR BUTTONS
 
-        private void Update_Click(object sender, RoutedEventArgs e)
+        #region EDIT GAMEDATA BUTTONS 
+
+        private void DesignatedNum_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
@@ -44,17 +76,44 @@ namespace BingoFlashboard.View
 
         }
 
-        private void JackpotPrice_KeyDown(object sender, KeyEventArgs e)
+
+        private void Update_Game_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void Delete_Game_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Load_New_Session_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion EDIT GAMEDATA BUTTONS
+
+        #region EXTRA GAME BUTTONS
+
 
         private void FourBallBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Minutes_KeyDown(object sender, KeyEventArgs e)
+        #endregion EXTRA GAME BUTTONS
+
+        #region INTERMISSION SETTINGS
+
+        private void Intermission_Minutes_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+
+        private void DesignatedPrize_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
@@ -65,6 +124,26 @@ namespace BingoFlashboard.View
         }
 
         private void CheckCardBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GamesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Hide_Jackpot_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CallerType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
         {
 
         }
