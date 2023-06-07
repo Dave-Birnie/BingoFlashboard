@@ -8,7 +8,8 @@ namespace BingoFlashboard.Model
 {
     public class Pattern
     {
-        public string PatternName_ { get; set; } = string.Empty;
+        public int Id_ { get; set; }
+        public string Pattern_Name_ { get; set; } = string.Empty;
         public List<List<string>>? Pattern_ { get; set; }
         public bool Rotating_ { get; set; } = false;
         public List<string>? Alias_ { get; set; }

@@ -1,17 +1,16 @@
-﻿<Window x:Class="BingoFlashboard.View.CallerControlsWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        xmlns:local="clr-namespace:BingoFlashboard.View"
-        mc:Ignorable="d"
-        Title="GameData"
-        MinHeight="700"
-        MinWidth="1200"
-        Background="Transparent"
-        WindowStyle="None"
-        ResizeMode="NoResize">
+﻿<Page x:Class="BingoFlashboard.View.CallerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BingoFlashboard.View"
+      mc:Ignorable="d"
+      MinHeight="700"
+      MinWidth="1200"
+      Background="Transparent"
+      Title="CallerPage">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
@@ -125,6 +124,15 @@
             <!--#region Game Info-->
             <Grid Grid.Column="1">
                 <StackPanel Width="auto">
+                    <Label 
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Background="{StaticResource AccentBlue}"
+                        Foreground="White"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Content="GAME DETAILS"
+                           />
                     <!--#region GameType-->
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Center"
@@ -388,27 +396,7 @@
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
 
-            <!--#region BORDERS-->
-            
-            <Border Grid.Column="0"
-                    Grid.Row="1"
-                    BorderBrush="{StaticResource OxfordBlue}"
-                    BorderThickness="2" />
 
-            <Border Grid.Column="1"
-                    Grid.Row="1"
-                    BorderBrush="{StaticResource OxfordBlue}"
-                    BorderThickness="2" />
-
-            <Border Grid.Column="2"
-                    Grid.ColumnSpan="2"
-                    Grid.Row="1"
-                    Background="LightGray"
-                    BorderBrush="{StaticResource OxfordBlue}"
-                    BorderThickness="2" />
-
-            <!--#endregion BORDERS-->
-            
             <Label Grid.Row="0"
                    Grid.ColumnSpan="4"
                    HorizontalContentAlignment="Center"
@@ -427,9 +415,12 @@
                 </Grid.RowDefinitions>
 
                 <Label Style="{StaticResource H2}"
+                       Background="{StaticResource AccentBlue}"
+                       Foreground="White"
                        Margin="0"
                        Grid.Row="0"
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Stretch"
+                       HorizontalContentAlignment="Center"
                        FontWeight="Bold"
                        Content="EXTRA SETTINGS" />
 
@@ -457,20 +448,24 @@
                 </StackPanel>
 
             </Grid>
-            
+
             <Grid Grid.Column="1"
                   Grid.Row="1">
-                <StackPanel HorizontalAlignment="Center"
+                <StackPanel HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch">
 
                     <!--#region INTERMISSION SETTINGS-->
                     <Label Style="{StaticResource H2}"
-                           HorizontalAlignment="Center"
+                           HorizontalAlignment="Stretch"
+                           HorizontalContentAlignment="Center"
+                           Background="{StaticResource AccentBlue}"
+                           Foreground="White"
+                           Margin="0,0,0,10"
                            FontWeight="Bold"
                            Content="INTERMISSION SETTINGS" />
 
                     <StackPanel Orientation="Horizontal"
-                                Margin="5"
+                                Margin="10,5"
                                 HorizontalAlignment="Left">
 
                         <Label Style="{StaticResource LabelsMain}"
@@ -500,14 +495,19 @@
                                  Style="{StaticResource ModernTextBox}" />
                     </StackPanel>
                     <!--#endregion INTERMISSION SETTINGS-->
-                    <Border Margin="35,15"
+
+                    <Border Margin="0,15,0,0"
                             BorderBrush="{StaticResource OxfordBlue}"
                             BorderThickness="2" />
+
                     <!--#region VERIFY CARD SECTION-->
                     <Label Style="{StaticResource H2}"
-                           HorizontalAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           HorizontalAlignment="Stretch"
+                           Margin="0,0,0,15"
+                           Background="{StaticResource AccentBlue}"
+                           Foreground="White"
                            FontWeight="Bold"
-                           Margin="0,10,0,0"
                            Content="VERIFY CARD" />
 
                     <StackPanel Orientation="Horizontal"
@@ -529,12 +529,12 @@
                         <Label Margin="0,10,20,0"
                                Style="{StaticResource LabelsMain}"
                                Content="Card Number" />
-                        
+
                         <TextBox Name="VerifyTxtBox"
                                  Width="80"
                                  Style="{StaticResource ModernTextBox}"
                                  KeyDown="VerifyTxtBox_KeyDown" />
-                        
+
                         <Button Name="CheckCardBtn"
                                 Margin="20,0,0,0"
                                 Style="{StaticResource ModernBtn}"
@@ -542,11 +542,11 @@
                                 Click="CheckCardBtn_Click" />
                     </StackPanel>
                     <!--#endregion VERIFY CARD SECTION-->
-                    
+
                 </StackPanel>
 
             </Grid>
-            
+
             <!--#region GAME CONTROLS-->
             <Grid Grid.Column="2"
                   Grid.ColumnSpan="2"
@@ -557,7 +557,11 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Label HorizontalAlignment="Center"
+                <Label HorizontalAlignment="Stretch"
+                       HorizontalContentAlignment="Center"
+                       Margin="0"
+                       Background="{StaticResource AccentBlue}"
+                       Foreground="White"
                        Style="{StaticResource H2}"
                        FontWeight="Bold"
                        Content="CURRENT GAME CONTROL" />
@@ -569,11 +573,12 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
                         <Button Style="{StaticResource ModernBtn}"
+                                Margin="0,5"
                                 Content="Hide Jackpot"
                                 Click="Hide_Jackpot_Click" />
 
                         <StackPanel Orientation="Horizontal"
-                                    Margin="0,10,0,0"
+                                    Margin="10,5"
                                     Name="FourBall"
                                     Visibility="{Binding FourBallVisibility}">
 
@@ -585,11 +590,11 @@
                             <TextBox Name="FourBallPrize"
                                      Style="{StaticResource ModernTextBox}"
                                      Margin="20,0,0,0"
-                                     Width="100"/>
+                                     Width="100" />
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal"
-                                    Margin="10,10"
+                                    Margin="10,5"
                                     Visibility="Visible">
 
                             <Label Style="{StaticResource LabelsMain}"
@@ -599,6 +604,7 @@
                             <ComboBox Name="CallerType"
                                       Style="{StaticResource ModernComboBox}"
                                       IsEnabled="{Binding EnableAutoCaller}"
+                                      Margin="10,0"
                                       SelectionChanged="CallerType_SelectionChanged">
                                 <ComboBoxItem Name="ManualCaller"
                                               Content="Manual"
@@ -614,14 +620,79 @@
                                 Click="Reset_Click" />
                     </StackPanel>
 
-                    <Grid Grid.Column="1" Grid.Row="0">
-                        
+                    <Border BorderBrush="{StaticResource OxfordBlue}"
+                            BorderThickness="0,0,4,0"/>
+
+                    <Grid Grid.Column="1"
+                          Grid.Row="0">
+                        <StackPanel Margin="0,0,0,0"
+                                    VerticalAlignment="Stretch">
+                            <Label />
+
+                            <StackPanel Name="ManualCallerEntry"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,20">
+
+                                <Label Style="{StaticResource LabelsMain}"
+                                       Content="Enter Ball Num" />
+
+                                <TextBox Name="Ball"
+                                         Style="{StaticResource ModernTextBox}"
+                                         Margin="20,0"
+                                         KeyDown="Ball_KeyDown" />
+                            </StackPanel>
+                            <Border 
+                                BorderThickness="2"
+                                BorderBrush="{StaticResource OxfordBlue}"/>
+
+                            <Label HorizontalAlignment="Stretch"
+                                   HorizontalContentAlignment="Center"
+                                   Margin="0"
+                                   Background="{StaticResource AccentBlue}"
+                                   Foreground="White"
+                                   Style="{StaticResource H2}"
+                                   FontWeight="Bold"
+                                   Content="GAME SELECTION" />
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Height="60">
+                                <Button Name="PreviousGame"
+                                        Style="{StaticResource ModernBtn}"
+                                        Margin="10"
+                                        Content="Previous"
+                                        Click="PreviousGame_Click" />
+                                <Button Name="NextGameBtn"
+                                        Style="{StaticResource ModernBtn}"
+                                        Margin="10"
+                                        Content="Next"
+                                        Click="NextGameBtn_Click" />
+                            </StackPanel>
+                        </StackPanel>
                     </Grid>
                 </Grid>
-
             </Grid>
             <!--#endregion-->
-        </Grid>
 
+            <!--#region BORDERS-->
+            <Border Grid.Column="0"
+                    Grid.Row="1"
+                    BorderBrush="{StaticResource OxfordBlue}"
+                    BorderThickness="2" />
+
+            <Border Grid.Column="1"
+                    Grid.Row="1"
+                    BorderBrush="{StaticResource OxfordBlue}"
+                    BorderThickness="2" />
+
+            <Border Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="1"
+                    Background="Transparent"
+                    BorderBrush="{StaticResource OxfordBlue}"
+                    BorderThickness="2" />
+            <!--#endregion BORDERS-->
+
+        </Grid>
     </Grid>
-</Window>
+</Page>
