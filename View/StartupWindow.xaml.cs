@@ -41,8 +41,7 @@ namespace BingoFlashboard.View
             LoadSessions();
         }
 
-        #region Error #1
-
+        #region ErrorCode #1: Startup()
         private void Startup()
         {
             try
@@ -72,9 +71,10 @@ namespace BingoFlashboard.View
             }
             catch (Exception ex)
             {
-                string errorMessage = "Error #1: " + ex.Message + "\n Unable to load hall";
+                string errorMessage = "ErrorCode #1: " + ex.Message + "\n Unable to load hall";
                 MessageBox.Show(errorMessage);
-                App.WriteToErrorLog(errorMessage);
+                DateTime dt = DateTime.Now;
+                App.WriteToErrorLog(dt.ToString() + " -- " + errorMessage);
             }
         }
         #endregion
@@ -95,53 +95,16 @@ namespace BingoFlashboard.View
 
         private void StartSession_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (sessionsList.SelectedIndex != -1)
             {
-                if (sessionsList.SelectedIndex != -1)
-                {
-                    App.SelectedSession = (Session) sessionsList.SelectedItem;
-                    CallerWindow cw = new();
-                    App.callerWindow= cw;
-                    this.Hide();
-                    cw.Show();
-                }
-                else
-                    MessageBox.Show("Please select a session");
-
+                App.SelectedSession = (Session) sessionsList.SelectedItem;
+                CallerWindow cw = new();
+                App.callerWindow = cw;
+                this.Hide();
+                cw.Show();
             }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-        private void LoadSessionBtn_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-
-                if (openFileDialog.ShowDialog() == true)
-                {
-                    filepath = openFileDialog.FileName;
-
-                    string[] lines = System.IO.File.ReadAllLines(filepath);
-
-                    string sessionTxt = @"//SESSION//";
-                    if (lines[0] != sessionTxt)
-                    {
-                        MessageBox.Show("File not regonized. Not a recgonized Session");
-                    }
-                    else
-                    {
-                        // svm.FileName = openFileDialog.SafeFileName;
-                    }
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("Error: File not regonized");
-            }
+            else
+                MessageBox.Show("Please select a session");
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

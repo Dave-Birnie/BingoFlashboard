@@ -388,32 +388,32 @@
                   Name="Header7">
                 <Border BorderThickness="5"
                         HorizontalAlignment="Center">
-                    <Image Source="\Images\BBallDark.png" />
+                    <Image Source="\Images\balls\BBallDark.png" />
                 </Border>
 
             </Grid>
             <Grid Grid.Row="2"
                   Grid.Column="1">
                 <Border BorderThickness="5">
-                    <Image Source="\Images\IBallDark.png" />
+                    <Image Source="\Images\balls\IBallDark.png" />
                 </Border>
             </Grid>
             <Grid Grid.Row="3"
                   Grid.Column="1">
                 <Border BorderThickness="5">
-                    <Image Source="\Images\NBall.png" />
+                    <Image Source="\Images\balls\NBall.png" />
                 </Border>
             </Grid>
             <Grid Grid.Row="4"
                   Grid.Column="1">
                 <Border BorderThickness="5">
-                    <Image Source="\Images\GBallDark.png" />
+                    <Image Source="\Images\balls\GBallDark.png" />
                 </Border>
             </Grid>
             <Grid Grid.Row="5"
                   Grid.Column="1">
                 <Border BorderThickness="5">
-                    <Image Source="\Images\OBallDark.png" />
+                    <Image Source="\Images\balls\OBallDark.png" />
                 </Border>
             </Grid>
             <!--#endregion LETTERS-->

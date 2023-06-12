@@ -21,7 +21,7 @@ namespace BingoFlashboard
         #region GLOBAL VARIABLES
         public static string errorlogPath = @".\errorlog.txt";
         public static string startupFile = @".\startupFile.txt";
-        public static string hallFile = @".\DaveHall.txt";
+        public static string hallFile = string.Empty;
 
 
         #region MainVariables
@@ -39,6 +39,7 @@ namespace BingoFlashboard
         public static StartupWindow? startupWindow;
         public static CallerWindow? callerWindow;
         public static MiniGrid? miniGrid;
+        public static TimerWindow? timerWindow;
         #endregion WINDOWS
 
         public static void SaveStartupFile()
@@ -50,12 +51,13 @@ namespace BingoFlashboard
             }
         }
 
-
         //TODO
         public static void WriteToErrorLog(string errorMessage)
         {
-            
-
+            using (StreamWriter sw = File.AppendText(App.errorlogPath))
+            {
+                sw.WriteLine(errorMessage);
+            }
         }
 
 
