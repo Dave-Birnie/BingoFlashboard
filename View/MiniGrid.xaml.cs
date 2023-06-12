@@ -15,7 +15,7 @@ namespace BingoFlashboard.View
     public partial class MiniGrid : Page
     {
         private CancellationTokenSource? animationCancellationTokenSource;
-        string fileName = @"C:\temp\Patterns.txt";
+        string fileName = @".\patterns.txt";
 
         public MiniGrid()
         {

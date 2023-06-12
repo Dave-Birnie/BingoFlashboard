@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Model
 {
-   public class Color
+   public class GameColor
     {
         public int Id_ { get; set; }
         public string Name_ { get; set; } = string.Empty;

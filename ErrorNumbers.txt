@@ -1,0 +1,4 @@
+﻿THIS DOCUMENT IS A LEGEND FOR THE ERROR LOG.
+
+#001 - Unable to load hall
+	- Startup Window, Startup();

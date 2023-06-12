@@ -114,7 +114,7 @@
     <Style x:Key="ModernBtn"
            TargetType="{x:Type Button}">
         <Setter Property="Foreground"
-                Value="{StaticResource FontLight}" />
+                Value="{StaticResource LightGray}" />
         <Setter Property="FontFamily"
                 Value="Helvetica" />
         <Setter Property="FontWeight"
@@ -126,7 +126,7 @@
         <Setter Property="Width"
                 Value="120" />
         <Setter Property="Background"
-                Value="{StaticResource OxfordBlue}" />
+                Value="Transparent" />
 
         <Setter Property="Template">
             <Setter.Value>
@@ -134,7 +134,7 @@
                     <Border Background="{TemplateBinding Background}"
                             CornerRadius="20"
                             BorderThickness="2"
-                            BorderBrush="{StaticResource FontLight}">
+                            BorderBrush="{StaticResource LightGray}">
                         <ContentPresenter HorizontalAlignment="Center"
                                           VerticalAlignment="Center" />
                     </Border>
@@ -146,7 +146,7 @@
             <Trigger Property="IsMouseOver"
                      Value="True">
                 <Setter Property="Background"
-                        Value="{StaticResource FontLight}" />
+                        Value="{StaticResource LightGray}" />
                 <Setter Property="Opacity"
                         Value="0.4" />
                 <Setter Property="Foreground"

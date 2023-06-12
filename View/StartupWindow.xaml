@@ -7,21 +7,23 @@
         xmlns:local="clr-namespace:BingoFlashboard.View"
         mc:Ignorable="d"
         Title="Start"
-        Width="500"
-        Height="350"
+        Width="600"
+        Height="500"
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Border CornerRadius="10"
-                Grid.RowSpan="3"
+                Grid.RowSpan="4"
                 BorderThickness="2"
                 BorderBrush="White">
             <Border.Background>
@@ -34,7 +36,7 @@
             </Border.Background>
         </Border>
 
-        <Grid>
+        <Grid Grid.Row="0">
             <Button Style="{StaticResource TopMenuBtn}"
                     HorizontalAlignment="Left"
                     Margin="20,0"
@@ -63,41 +65,37 @@
                    Content="Flashboard Online" />
         </StackPanel>
 
-        <StackPanel Grid.Row="2"
-                    HorizontalAlignment="Stretch">
-            <!--#region Select Package-->
-            <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center">
-                <Label Margin="10,20"
-                       Content="SESSION"
-                       Foreground="{StaticResource FontLight}"
-                       Style="{StaticResource BasicLbl}" />
+        <StackPanel Grid.Row="2">
+            <Button 
+                x:Name="LoadHallBtn"
+                Width="250"
+                Margin="10"
+                Style="{StaticResource ModernBtn}"
+                Content="Load Hall"
+                Click="LoadHallBtn_Click"/>
+            <Label HorizontalAlignment="Center"
+                   FontWeight="Bold"
+                   FontStyle="Italic"
+                   Foreground="{StaticResource Mint}"
+                   Style="{StaticResource H2}"
+                   Content="Select Session" />
 
-                <TextBox Width="200"
-                         Height="40"
-                         Margin="10,0"
-                         IsEnabled="False"
-                         HorizontalAlignment="Left"
-                         HorizontalContentAlignment="Left"
-                         FontSize="12"
-                         Foreground="{StaticResource LightGray}"
-                         Text="{Binding FileName}"
-                         Style="{StaticResource ModernTextBox}" />
+            <ListView x:Name="sessionsList"
+                      FontWeight="Bold"
+                      FontSize="14"
+                      DisplayMemberPath="Name_"
+                      MinHeight="200"
+                      Margin="20"/>
 
-                <Button Name="LoadSessionBtn"
-                        FontWeight="Regular"
-                        Content="Select Session"
-                        Style="{StaticResource ModernBtnStart}"
-                        Click="LoadSessionBtn_Click" />
+        </StackPanel>
 
-            </StackPanel>
-            <!--#endregion-->
-
+        <Grid Grid.Row="3">
             <Button Width="150"
+                    Margin="10"
                     Style="{StaticResource ModernBtnStart}"
                     Content="START"
                     Click="StartSession_Click" />
-        </StackPanel>
+        </Grid>
     </Grid>
 
 </Window>

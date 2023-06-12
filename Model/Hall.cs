@@ -30,15 +30,5 @@ namespace BingoFlashboard.Model
         public bool? Active_ { get; set; } = true;
 
         public List<Session>? AllSessions_ { get; set; }
-
-        //Needs To Be Removed//
-        public List<string> Cardset_Names_ { get; set; } = new();
-        public List<ComboBoxItem> Cardsets_ { get; set; } = new();
-        public void AddToCardset(string cardset)
-        {
-            ComboBoxItem cbi = new();
-            cbi.Content = cardset;
-            Cardsets_.Add(cbi);
-        }
     }
 }

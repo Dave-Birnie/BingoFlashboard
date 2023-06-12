@@ -13,11 +13,10 @@ namespace BingoFlashboard.Model
         public int Id_ { get; set; }
         public string Name_ { get; set; } = string.Empty;
         public string Date_Time_ { get; set; } = string.Empty;
-        public string Border_Color_ { get; set; } = string.Empty;
-        public string Font_Color_ { get; set; } = string.Empty;
+        public GameColor Border_Color_ { get; set; }
+        public GameColor Font_Color_ { get; set; }
         public string GameType_ { get; set; } = string.Empty;
         public Pattern? Pattern_ { get; set; }
-        public string Patterns_ { get; set; } = string.Empty;
         public string Prize_ { get; set; } = string.Empty;
         public string Min_Prize_Amount_ { get; set; } = string.Empty;
         public string Max_Prize_Amount_ { get; set; } = string.Empty;

@@ -1,6 +1,12 @@
-﻿using Microsoft.Win32;
+﻿using BingoFlashboard.Model;
+using Microsoft.Win32;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
+using System.Linq;
+using System.Windows.Input;
 
 namespace BingoFlashboard.View
 {
@@ -18,188 +24,95 @@ namespace BingoFlashboard.View
         public StartupWindow()
         {
             InitializeComponent();
+
+            App.startupWindow = this;
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        private void LoadHallBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Startup();
+            LoadSessions();
+        }
+
+        #region Error #1
+
+        private void Startup()
+        {
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    filepath = openFileDialog.FileName;
+                    App.hallFile = filepath;
+
+                    string[] lines = System.IO.File.ReadAllLines(filepath);
+
+
+                    if (File.Exists(App.hallFile))
+                    {
+                        string json = File.ReadAllText(App.hallFile);
+
+                        Hall? hall = JsonConvert.DeserializeObject<Hall>(json);
+
+                        if (hall != null)
+                            App.hall = hall;
+                        else
+                            MessageBox.Show("Unable to load hall");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = "Error #1: " + ex.Message + "\n Unable to load hall";
+                MessageBox.Show(errorMessage);
+                App.WriteToErrorLog(errorMessage);
+            }
+        }
+        #endregion
+
+        public void LoadSessions()
+        {
+            if (App.hall != null)
+            {
+                if (App.hall.AllSessions_ is not null && App.hall.AllSessions_.Count <= 1)
+                {
+                    if (sessionsList.ItemsSource != null)
+                        sessionsList.Items.Clear();
+                    sessionsList.ItemsSource = App.hall.AllSessions_;
+                    sessionsList.SelectedIndex = 0;
+                }
+            }
         }
 
         private void StartSession_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    App.cardset = new List<Tuple<string, List<Cards>>>();
-            //    //READ SESSION FILE
-            //    string[] lines = System.IO.File.ReadAllLines(filepath);
+            try
+            {
+                if (sessionsList.SelectedIndex != -1)
+                {
+                    App.SelectedSession = (Session) sessionsList.SelectedItem;
+                    CallerWindow cw = new();
+                    App.callerWindow= cw;
+                    this.Hide();
+                    cw.Show();
+                }
+                else
+                    MessageBox.Show("Please select a session");
 
-            //    Sessions s = new Sessions();
-            //    Game newGame = new Game();
+            }
+            catch (Exception ex)
+            {
 
-            //    foreach (string l in lines)
-            //    {
-            //        string[] words;
-            //        string[] str;
-
-            //        switch (l)
-            //        {
-            //            case "//":
-            //                {
-            //                    newGame = new Game();
-            //                    break;
-            //                }
-            //            case "ENDGAME":
-            //                {
-            //                    if (newGame.FontColor == "")
-            //                    {
-            //                        newGame.FontColor = "White";
-            //                    }
-            //                    s.Games.Add(newGame);
-            //                    break;
-            //                }
-            //            case "ENDSESSION":
-            //                {
-            //                    break;
-            //                }
-            //        }
-
-            //        if (l.Contains('"'))
-            //        {
-            //            words = l.Split(' ');
-            //            str = l.Split('"');
-
-            //            switch (words[0])
-            //            {
-            //                case "SESSIONNAME:":
-            //                    {
-            //                        s.SessionName = str[1];
-            //                        break;
-            //                    }
-            //                case "BORDERCOLOR:":
-            //                    {
-            //                        newGame.BorderColor = str[1];
-            //                        break;
-            //                    }
-            //                case "FONTCOLOR:":
-            //                    {
-            //                        newGame.FontColor = str[1];
-            //                        break;
-            //                    }
-            //                case "GAMENAME:":
-            //                    {
-            //                        newGame.Name = str[1];
-            //                        break;
-            //                    }
-            //                case "GAMETYPE:":
-            //                    {
-            //                        newGame.GameType = str[1];
-            //                        break;
-            //                    }
-            //                case "PATTERN:":
-            //                    {
-            //                        newGame.Patterns = str[1];
-            //                        break;
-            //                    }
-            //                case "CONDITION:":
-            //                    {
-            //                        newGame.Condition = str[1];
-            //                        break;
-            //                    }
-            //                case "PRIZE:":
-            //                    {
-            //                        newGame.Prize = str[1];
-            //                        break;
-            //                    }
-            //                case "JACKPOTPRIZE:":
-            //                    {
-            //                        newGame.JackpotPrize = str[1];
-            //                        break;
-            //                    }
-            //                case "DESIGNATEDNUM:":
-            //                    {
-            //                        newGame.DesignatedNumber = str[1];
-            //                        break;
-            //                    }
-            //                case "COMPORT:":
-            //                    {
-            //                        App.hall.Comport_ = str[1];
-            //                        break;
-            //                    }
-            //                case "BINGOHALL:":
-            //                    {
-            //                        App.hall.Name_ = str[1];
-            //                        break;
-            //                    }
-            //                case "CARDSET:":
-            //                    {
-            //                        //Adds just the name to the bingohall cardset
-            //                        App.hall.CardsetsNames_.Add(str[1]);
-
-            //                        //Adds new combobox item to the bingohall cardset
-            //                        //ComboBoxItem item = new ComboBoxItem { Content = str[1] };
-            //                        App.hall.AddToCardset(str[1]);
-            //                        App.cardset.Add(new Tuple<string, List<Cards>>(str[1], new List<Cards>()));
-            //                        break;
-            //                    }
-            //                case "FLASHBOARDMESSAGE:":
-            //                    {
-            //                        App.hall.Message_ = str[1];
-            //                        break;
-            //                    }
-            //                case "ENABLEAUTOCALLER:":
-            //                    {
-            //                        if (str[1] == "true" || str[1] == "True" || str[1] == "TRUE")
-            //                            App.hall.AutoCaller_ = true;
-            //                        else
-            //                        {
-            //                            App.hall.AutoCaller_ = false;
-            //                        }
-            //                        break;
-            //                    }
-            //                case "PHONENUM:":
-            //                    {
-            //                        App.hall.Phone_ = str[1];
-            //                        break;
-            //                    }
-            //            }
-            //        }
-            //    }
-
-            //    App.session = s;
-
-            //    if (App.hall.Comport_ == "")
-            //        App.hall.Comport_ = "COM3";
-
-            //    App.fbvm = new ViewModel.FlashboardViewModel();
-
-            //    App.flashboardWindow = new FlashboardWindow();
-            //    App.flashboardWindow.Top = 0;
-            //    App.flashboardWindow.Left = 0;
-
-            //    App.gameDataWindow = new GameData();
-            //    App.gameDataWindow.PopulateCards();
-            //    App.gameDataWindow.PopulateGameData();
-            //    App.gameDataWindow.Show();
-            //    App.verifyCardWindow.Show();
-
-            //    //App.timerWindow.Show();
-
-            //    App.flashboardWindow.Show();
-            //    this.Hide();
-
-
-            //    //App.jsonControls.GetAllJsonFileNames();
-
-            //    //App.jsonControls.BingoHallToJson(App.hall);
-            //    //App.jsonControls.ReadJsonFile(App.hall.name + ".json");
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    string s = "Error Code #4: ";
-            //    MessageBox.Show(s + ex.Message);
-
-            //    using (StreamWriter sw = File.AppendText(App.errorlogPath))
-            //    {
-            //        DateTime dt = DateTime.Now;
-            //        sw.WriteLine(dt.ToString() + " -- " + s + ex.Message);
-            //    }
-            //}
+            }
         }
 
         private void LoadSessionBtn_Click(object sender, RoutedEventArgs e)
@@ -233,8 +146,7 @@ namespace BingoFlashboard.View
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.Shutdown();
-
+            App.Exit_Click();
         }
     }
 }

@@ -1,0 +1,1493 @@
+{
+  "Id_": 0,
+  "Name_": "DaveHall",
+  "Logo_": null,
+  "Address_": "101 Ottawa Drive",
+  "City_": "Chatham",
+  "Postal_": "N7L2J5",
+  "Country_": {
+    "Id_": 0,
+    "Country_Name_": ""
+  },
+  "Province_": {
+    "Id_": 0,
+    "Country_": {
+      "Id_": 0,
+      "Country_Name_": ""
+    },
+    "Province_Name_": ""
+  },
+  "Phone_": "226.627.4531",
+  "Website_": "www.dave.ca",
+  "Email_": "dave@email.ca",
+  "Username_": "Dave",
+  "Login_Password_": "",
+  "Temp_Login_Password_": "Dave",
+  "Comport_": "",
+  "Auto_Caller_": false,
+  "Message_": "This is the message",
+  "Master_": true,
+  "Active_": true,
+  "AllSessions_": [
+    {
+      "Id_": 0,
+      "Date_Time_": "",
+      "Name_": "Session 1",
+      "Program_": {
+        "Id_": 0,
+        "Name_": "Program 1",
+        "Games_": [
+          {
+            "Id_": 0,
+            "Name_": "Game 1",
+            "Date_Time_": "",
+            "Border_Color_": {
+              "Id_": 0,
+              "Name_": "Red",
+              "Color_Hash_": "#ff0000"
+            },
+            "Font_Color_": {
+              "Id_": 0,
+              "Name_": "White",
+              "Color_Hash_": "#ffffff"
+            },
+            "GameType_": "Regular",
+            "Pattern_": {
+              "Id_": 0,
+              "Pattern_Name_": "Any Single Line",
+              "Pattern_": [
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5"
+                ],
+                [
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5"
+                ],
+                [
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5"
+                ],
+                [
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5"
+                ],
+                [
+                  "B1",
+                  "I1",
+                  "N1",
+                  "G1",
+                  "O1"
+                ],
+                [
+                  "B2",
+                  "I2",
+                  "N2",
+                  "G2",
+                  "O2"
+                ],
+                [
+                  "B3",
+                  "I3",
+                  "N3",
+                  "G3",
+                  "O3"
+                ],
+                [
+                  "B4",
+                  "I4",
+                  "N4",
+                  "G4",
+                  "O4"
+                ],
+                [
+                  "B5",
+                  "I5",
+                  "N5",
+                  "G5",
+                  "O5"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1"
+                ]
+              ],
+              "Rotating_": true,
+              "Alias_": [
+                "One Line"
+              ]
+            },
+            "Prize_": "",
+            "Min_Prize_Amount_": "",
+            "Max_Prize_Amount_": "",
+            "Jackpot_Prize_": "",
+            "Min_Jackpot_Prize_": "",
+            "Max_Jackpot_Prize_": "",
+            "Designated_Number_": "",
+            "Four_Ball_": null,
+            "Four_Ball_Prize_": null,
+            "Player_List": null,
+            "Winner": null
+          },
+          {
+            "Id_": 0,
+            "Name_": "Game 1",
+            "Date_Time_": "",
+            "Border_Color_": {
+              "Id_": 0,
+              "Name_": "Red",
+              "Color_Hash_": "#ff0000"
+            },
+            "Font_Color_": {
+              "Id_": 0,
+              "Name_": "White",
+              "Color_Hash_": "#ffffff"
+            },
+            "GameType_": "Regular",
+            "Pattern_": {
+              "Id_": 0,
+              "Pattern_Name_": "Any Double Line",
+              "Pattern_": [
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5",
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5"
+                ],
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5",
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5"
+                ],
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5",
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5"
+                ],
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5",
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5"
+                ],
+                [
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5",
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5"
+                ],
+                [
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5",
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5"
+                ],
+                [
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5",
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5",
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5",
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5"
+                ],
+                [
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5",
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5"
+                ],
+                [
+                  "B1",
+                  "I1",
+                  "N1",
+                  "G1",
+                  "O1",
+                  "B2",
+                  "I2",
+                  "N2",
+                  "G2",
+                  "O2"
+                ],
+                [
+                  "B1",
+                  "I1",
+                  "N1",
+                  "G1",
+                  "O1",
+                  "B3",
+                  "I3",
+                  "N3",
+                  "G3",
+                  "O3"
+                ],
+                [
+                  "B1",
+                  "I1",
+                  "N1",
+                  "G1",
+                  "O1",
+                  "B4",
+                  "I4",
+                  "N4",
+                  "G4",
+                  "O4"
+                ],
+                [
+                  "B1",
+                  "I1",
+                  "N1",
+                  "G1",
+                  "O1",
+                  "B5",
+                  "I5",
+                  "N5",
+                  "G5",
+                  "O5"
+                ],
+                [
+                  "B2",
+                  "I2",
+                  "N2",
+                  "G2",
+                  "O2",
+                  "B3",
+                  "I3",
+                  "N3",
+                  "G3",
+                  "O3"
+                ],
+                [
+                  "B2",
+                  "I2",
+                  "N2",
+                  "G2",
+                  "O2",
+                  "B4",
+                  "I4",
+                  "N4",
+                  "G4",
+                  "O4"
+                ],
+                [
+                  "B2",
+                  "I2",
+                  "N2",
+                  "G2",
+                  "O2",
+                  "B5",
+                  "I5",
+                  "N5",
+                  "G5",
+                  "O5"
+                ],
+                [
+                  "B3",
+                  "I3",
+                  "N3",
+                  "G3",
+                  "O3",
+                  "B4",
+                  "I4",
+                  "N4",
+                  "G4",
+                  "O4"
+                ],
+                [
+                  "B3",
+                  "I3",
+                  "N3",
+                  "G3",
+                  "O3",
+                  "B5",
+                  "I5",
+                  "N5",
+                  "G5",
+                  "O5"
+                ],
+                [
+                  "B4",
+                  "I4",
+                  "N4",
+                  "G4",
+                  "O4",
+                  "B5",
+                  "I5",
+                  "N5",
+                  "G5",
+                  "O5"
+                ],
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5",
+                  "I1",
+                  "N1",
+                  "G1",
+                  "O1"
+                ],
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5",
+                  "I2",
+                  "N2",
+                  "G2",
+                  "O2"
+                ],
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5",
+                  "I3",
+                  "N3",
+                  "G3",
+                  "O3"
+                ],
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5",
+                  "I4",
+                  "N4",
+                  "G4",
+                  "O4"
+                ],
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5",
+                  "I5",
+                  "N5",
+                  "G5",
+                  "O5"
+                ],
+                [
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5",
+                  "B1",
+                  "N1",
+                  "G1",
+                  "O1"
+                ],
+                [
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5",
+                  "B2",
+                  "N2",
+                  "G2",
+                  "O2"
+                ],
+                [
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5",
+                  "B3",
+                  "N3",
+                  "G3",
+                  "O3"
+                ],
+                [
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5",
+                  "B4",
+                  "N4",
+                  "G4",
+                  "O4"
+                ],
+                [
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5",
+                  "B5",
+                  "N5",
+                  "G5",
+                  "O5"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5",
+                  "I1",
+                  "B1",
+                  "G1",
+                  "O1"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5",
+                  "I2",
+                  "B2",
+                  "G2",
+                  "O2"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5",
+                  "I3",
+                  "B3",
+                  "G3",
+                  "O3"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5",
+                  "I4",
+                  "B4",
+                  "G4",
+                  "O4"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5",
+                  "I5",
+                  "B5",
+                  "G5",
+                  "O5"
+                ],
+                [
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5",
+                  "I1",
+                  "N1",
+                  "B1",
+                  "O1"
+                ],
+                [
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5",
+                  "I2",
+                  "N2",
+                  "B2",
+                  "O2"
+                ],
+                [
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5",
+                  "I3",
+                  "N3",
+                  "B3",
+                  "O3"
+                ],
+                [
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5",
+                  "I4",
+                  "N4",
+                  "B4",
+                  "O4"
+                ],
+                [
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5",
+                  "I5",
+                  "N5",
+                  "B5",
+                  "O5"
+                ],
+                [
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5",
+                  "I1",
+                  "N1",
+                  "G1",
+                  "B1"
+                ],
+                [
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5",
+                  "I2",
+                  "N2",
+                  "G2",
+                  "B2"
+                ],
+                [
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5",
+                  "I3",
+                  "N3",
+                  "G3",
+                  "B3"
+                ],
+                [
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5",
+                  "I4",
+                  "N4",
+                  "G4",
+                  "B4"
+                ],
+                [
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5",
+                  "I5",
+                  "N5",
+                  "G5",
+                  "B5"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5",
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5",
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5",
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5",
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5",
+                  "B1",
+                  "I1",
+                  "N1",
+                  "G1",
+                  "O1"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5",
+                  "B2",
+                  "I2",
+                  "N2",
+                  "G2",
+                  "O2"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5",
+                  "B3",
+                  "I3",
+                  "N3",
+                  "G3",
+                  "O3"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5",
+                  "B4",
+                  "I4",
+                  "N4",
+                  "G4",
+                  "O4"
+                ],
+                [
+                  "B1",
+                  "I2",
+                  "N3",
+                  "G4",
+                  "O5",
+                  "B5",
+                  "I5",
+                  "N5",
+                  "G5",
+                  "O5"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1",
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1",
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1",
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1",
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1",
+                  "B1",
+                  "I1",
+                  "N1",
+                  "G1",
+                  "O1"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1",
+                  "B2",
+                  "I2",
+                  "N2",
+                  "G2",
+                  "O2"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1",
+                  "B3",
+                  "I3",
+                  "N3",
+                  "G3",
+                  "O3"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1",
+                  "B4",
+                  "I4",
+                  "N4",
+                  "G4",
+                  "O4"
+                ],
+                [
+                  "B5",
+                  "I4",
+                  "N3",
+                  "G2",
+                  "O1",
+                  "B5",
+                  "I5",
+                  "N5",
+                  "G5",
+                  "O5"
+                ]
+              ],
+              "Rotating_": true,
+              "Alias_": [
+                "Two Line"
+              ]
+            },
+            "Prize_": "",
+            "Min_Prize_Amount_": "",
+            "Max_Prize_Amount_": "",
+            "Jackpot_Prize_": "",
+            "Min_Jackpot_Prize_": "",
+            "Max_Jackpot_Prize_": "",
+            "Designated_Number_": "",
+            "Four_Ball_": null,
+            "Four_Ball_Prize_": null,
+            "Player_List": null,
+            "Winner": null
+          },
+          {
+            "Id_": 0,
+            "Name_": "Game 2",
+            "Date_Time_": "",
+            "Border_Color_": {
+              "Id_": 3,
+              "Name_": "Cyan",
+              "Color_Hash_": "#00ad96"
+            },
+            "Font_Color_": {
+              "Id_": 0,
+              "Name_": "White",
+              "Color_Hash_": "#ffffff"
+            },
+            "GameType_": "Designated Number",
+            "Pattern_": {
+              "Id_": 0,
+              "Pattern_Name_": "Floating Six Pack",
+              "Pattern_": [
+                [
+                  "B1",
+                  "B2",
+                  "I1",
+                  "I2",
+                  "N1",
+                  "N2"
+                ],
+                [
+                  "G1",
+                  "G2",
+                  "I1",
+                  "I2",
+                  "N1",
+                  "N2"
+                ],
+                [
+                  "G1",
+                  "G2",
+                  "O1",
+                  "O2",
+                  "N1",
+                  "N2"
+                ],
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "I1",
+                  "I2",
+                  "I3"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "I1",
+                  "I2",
+                  "I3"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "G1",
+                  "G2",
+                  "G3"
+                ],
+                [
+                  "O1",
+                  "O2",
+                  "O3",
+                  "G1",
+                  "G2",
+                  "G3"
+                ],
+                [
+                  "B2",
+                  "B3",
+                  "I2",
+                  "I3",
+                  "N2",
+                  "N3"
+                ],
+                [
+                  "G2",
+                  "G3",
+                  "I2",
+                  "I3",
+                  "N2",
+                  "N3"
+                ],
+                [
+                  "O2",
+                  "O3",
+                  "G2",
+                  "G3",
+                  "N2",
+                  "N3"
+                ],
+                [
+                  "B2",
+                  "B3",
+                  "B4",
+                  "I2",
+                  "I3",
+                  "I4"
+                ],
+                [
+                  "N2",
+                  "N3",
+                  "N4",
+                  "I2",
+                  "I3",
+                  "I4"
+                ],
+                [
+                  "N2",
+                  "N3",
+                  "N4",
+                  "G2",
+                  "G3",
+                  "G4"
+                ],
+                [
+                  "O2",
+                  "O3",
+                  "O4",
+                  "G2",
+                  "G3",
+                  "G4"
+                ],
+                [
+                  "B3",
+                  "B4",
+                  "I3",
+                  "I4",
+                  "N3",
+                  "N4"
+                ],
+                [
+                  "G3",
+                  "G4",
+                  "I3",
+                  "I4",
+                  "N3",
+                  "N4"
+                ],
+                [
+                  "O3",
+                  "O4",
+                  "G3",
+                  "G4",
+                  "N3",
+                  "N4"
+                ],
+                [
+                  "B3",
+                  "B4",
+                  "B5",
+                  "I3",
+                  "I4",
+                  "I5"
+                ],
+                [
+                  "N3",
+                  "N4",
+                  "N5",
+                  "I3",
+                  "I4",
+                  "I5"
+                ],
+                [
+                  "N3",
+                  "N4",
+                  "N5",
+                  "G3",
+                  "G4",
+                  "G5"
+                ],
+                [
+                  "O3",
+                  "O4",
+                  "O5",
+                  "G3",
+                  "G4",
+                  "G5"
+                ],
+                [
+                  "B4",
+                  "B5",
+                  "I4",
+                  "I5",
+                  "N4",
+                  "N5"
+                ],
+                [
+                  "G4",
+                  "G5",
+                  "I4",
+                  "I5",
+                  "N4",
+                  "N5"
+                ],
+                [
+                  "O4",
+                  "O5",
+                  "G4",
+                  "G5",
+                  "N4",
+                  "N5"
+                ]
+              ],
+              "Rotating_": true,
+              "Alias_": null
+            },
+            "Prize_": "",
+            "Min_Prize_Amount_": "",
+            "Max_Prize_Amount_": "",
+            "Jackpot_Prize_": "",
+            "Min_Jackpot_Prize_": "",
+            "Max_Jackpot_Prize_": "",
+            "Designated_Number_": "",
+            "Four_Ball_": null,
+            "Four_Ball_Prize_": null,
+            "Player_List": null,
+            "Winner": null
+          },
+          {
+            "Id_": 0,
+            "Name_": "Game 2",
+            "Date_Time_": "",
+            "Border_Color_": {
+              "Id_": 3,
+              "Name_": "Cyan",
+              "Color_Hash_": "#00ad96"
+            },
+            "Font_Color_": {
+              "Id_": 0,
+              "Name_": "White",
+              "Color_Hash_": "#ffffff"
+            },
+            "GameType_": "Designated Number",
+            "Pattern_": {
+              "Id_": 0,
+              "Pattern_Name_": "Full Card",
+              "Pattern_": [
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "B4",
+                  "B5",
+                  "I1",
+                  "I2",
+                  "I3",
+                  "I4",
+                  "I5",
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5",
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4",
+                  "G5",
+                  "O1",
+                  "O2",
+                  "O3",
+                  "O4",
+                  "O5"
+                ]
+              ],
+              "Rotating_": false,
+              "Alias_": [
+                "Coverall"
+              ]
+            },
+            "Prize_": "",
+            "Min_Prize_Amount_": "",
+            "Max_Prize_Amount_": "",
+            "Jackpot_Prize_": "",
+            "Min_Jackpot_Prize_": "",
+            "Max_Jackpot_Prize_": "",
+            "Designated_Number_": "",
+            "Four_Ball_": null,
+            "Four_Ball_Prize_": null,
+            "Player_List": null,
+            "Winner": null
+          },
+          {
+            "Id_": 0,
+            "Name_": "Game 3",
+            "Date_Time_": "",
+            "Border_Color_": {
+              "Id_": 1,
+              "Name_": "Blue",
+              "Color_Hash_": "#0019ff"
+            },
+            "Font_Color_": {
+              "Id_": 0,
+              "Name_": "White",
+              "Color_Hash_": "#ffffff"
+            },
+            "GameType_": "Regular",
+            "Pattern_": {
+              "Id_": 0,
+              "Pattern_Name_": "4 Corners",
+              "Pattern_": [
+                [
+                  "B1",
+                  "B5",
+                  "O1",
+                  "O5"
+                ]
+              ],
+              "Rotating_": false,
+              "Alias_": null
+            },
+            "Prize_": "",
+            "Min_Prize_Amount_": "",
+            "Max_Prize_Amount_": "",
+            "Jackpot_Prize_": "",
+            "Min_Jackpot_Prize_": "",
+            "Max_Jackpot_Prize_": "",
+            "Designated_Number_": "",
+            "Four_Ball_": null,
+            "Four_Ball_Prize_": null,
+            "Player_List": null,
+            "Winner": null
+          },
+          {
+            "Id_": 0,
+            "Name_": "Game 3",
+            "Date_Time_": "",
+            "Border_Color_": {
+              "Id_": 1,
+              "Name_": "Blue",
+              "Color_Hash_": "#0019ff"
+            },
+            "Font_Color_": {
+              "Id_": 0,
+              "Name_": "White",
+              "Color_Hash_": "#ffffff"
+            },
+            "GameType_": "Regular",
+            "Pattern_": {
+              "Id_": 0,
+              "Pattern_Name_": "Hour Glass",
+              "Pattern_": [
+                [
+                  "B1",
+                  "B5",
+                  "I1",
+                  "I2",
+                  "I4",
+                  "I5",
+                  "N1",
+                  "N2",
+                  "N3",
+                  "N4",
+                  "N5",
+                  "G5",
+                  "G1",
+                  "G2",
+                  "G4",
+                  "G5",
+                  "O1",
+                  "O5"
+                ]
+              ],
+              "Rotating_": false,
+              "Alias_": null
+            },
+            "Prize_": "",
+            "Min_Prize_Amount_": "",
+            "Max_Prize_Amount_": "",
+            "Jackpot_Prize_": "",
+            "Min_Jackpot_Prize_": "",
+            "Max_Jackpot_Prize_": "",
+            "Designated_Number_": "",
+            "Four_Ball_": null,
+            "Four_Ball_Prize_": null,
+            "Player_List": null,
+            "Winner": null
+          },
+          {
+            "Id_": 0,
+            "Name_": "Game 4",
+            "Date_Time_": "",
+            "Border_Color_": {
+              "Id_": 4,
+              "Name_": "Purple",
+              "Color_Hash_": "#4d02fc"
+            },
+            "Font_Color_": {
+              "Id_": 0,
+              "Name_": "White",
+              "Color_Hash_": "#ffffff"
+            },
+            "GameType_": "Money Ball",
+            "Pattern_": {
+              "Id_": 0,
+              "Pattern_Name_": "Top 2 Lines",
+              "Pattern_": [
+                [
+                  "B1",
+                  "I1",
+                  "N1",
+                  "G1",
+                  "O1",
+                  "B2",
+                  "I2",
+                  "N2",
+                  "G2",
+                  "O2"
+                ]
+              ],
+              "Rotating_": false,
+              "Alias_": null
+            },
+            "Prize_": "",
+            "Min_Prize_Amount_": "",
+            "Max_Prize_Amount_": "",
+            "Jackpot_Prize_": "",
+            "Min_Jackpot_Prize_": "",
+            "Max_Jackpot_Prize_": "",
+            "Designated_Number_": "",
+            "Four_Ball_": null,
+            "Four_Ball_Prize_": null,
+            "Player_List": null,
+            "Winner": null
+          },
+          {
+            "Id_": 0,
+            "Name_": "Game 4",
+            "Date_Time_": "",
+            "Border_Color_": {
+              "Id_": 4,
+              "Name_": "Purple",
+              "Color_Hash_": "#4d02fc"
+            },
+            "Font_Color_": {
+              "Id_": 0,
+              "Name_": "White",
+              "Color_Hash_": "#ffffff"
+            },
+            "GameType_": "Toonie Ball",
+            "Pattern_": {
+              "Id_": 0,
+              "Pattern_Name_": "Large Kite Rotating",
+              "Pattern_": [
+                [
+                  "B1",
+                  "B2",
+                  "B3",
+                  "I1",
+                  "I2",
+                  "I3",
+                  "N1",
+                  "N2",
+                  "N3",
+                  "G4",
+                  "O5"
+                ],
+                [
+                  "N1",
+                  "N2",
+                  "N3",
+                  "G1",
+                  "G2",
+                  "G3",
+                  "O1",
+                  "O2",
+                  "O3",
+                  "I4",
+                  "B5"
+                ],
+                [
+                  "N3",
+                  "N4",
+                  "N5",
+                  "G3",
+                  "G4",
+                  "G5",
+                  "O3",
+                  "O4",
+                  "O5",
+                  "I2",
+                  "B1"
+                ],
+                [
+                  "B3",
+                  "B4",
+                  "B5",
+                  "I3",
+                  "I4",
+                  "I5",
+                  "N3",
+                  "N4",
+                  "N5",
+                  "G2",
+                  "O1"
+                ]
+              ],
+              "Rotating_": true,
+              "Alias_": null
+            },
+            "Prize_": "",
+            "Min_Prize_Amount_": "",
+            "Max_Prize_Amount_": "",
+            "Jackpot_Prize_": "",
+            "Min_Jackpot_Prize_": "",
+            "Max_Jackpot_Prize_": "",
+            "Designated_Number_": "",
+            "Four_Ball_": null,
+            "Four_Ball_Prize_": null,
+            "Player_List": null,
+            "Winner": null
+          }
+        ],
+        "Cardsets_": [
+          {
+            "Id_": 0,
+            "Set_Name_": "Bingo75",
+            "Card_": null
+          },
+          {
+            "Id_": 0,
+            "Set_Name_": "BingoDabAll",
+            "Card_": null
+          },
+          {
+            "Id_": 0,
+            "Set_Name_": "DabAll",
+            "Card_": null
+          }
+        ]
+      }
+    }
+  ]
+}
