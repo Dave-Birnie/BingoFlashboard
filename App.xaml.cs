@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.IO;
 using Newtonsoft.Json;
+using System.Security.Policy;
+using BingoFlashboard.ViewModel;
 
 namespace BingoFlashboard
 {
@@ -29,6 +31,10 @@ namespace BingoFlashboard
         public static Hall? hall;
         public static Session? SelectedSession;
         public static Game? SelectedGame;
+        public static List<Pattern> allPatterns = new();
+        private static LoadAllPatterns lap = new();
+        public static List<Card> cardList = new();
+
         #endregion
 
         public static StartupClass startup = new();
@@ -41,6 +47,10 @@ namespace BingoFlashboard
         public static MiniGrid? miniGrid;
         public static TimerWindow? timerWindow;
         #endregion WINDOWS
+
+        #region VIEWMODELS  
+        public static CallerWindowViewModel? callerWindowViewModel;
+        #endregion VIEWMODELS
 
         public static void SaveStartupFile()
         {

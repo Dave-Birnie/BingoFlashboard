@@ -85,8 +85,6 @@ namespace BingoFlashboard.View
             {
                 if (App.hall.AllSessions_ is not null && App.hall.AllSessions_.Count <= 1)
                 {
-                    if (sessionsList.ItemsSource != null)
-                        sessionsList.Items.Clear();
                     sessionsList.ItemsSource = App.hall.AllSessions_;
                     sessionsList.SelectedIndex = 0;
                 }
@@ -98,6 +96,8 @@ namespace BingoFlashboard.View
             if (sessionsList.SelectedIndex != -1)
             {
                 App.SelectedSession = (Session) sessionsList.SelectedItem;
+                sessionsList.ItemsSource = new List<Session>();
+
                 CallerWindow cw = new();
                 App.callerWindow = cw;
                 this.Hide();
