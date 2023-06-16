@@ -1,7 +1,7 @@
 -- WINDOW -- CallerWindow
 
 
--Send pattern info to MiniGrid
+
 -Search Card
 -4 Ball 
 -Send timer info to Timer Window
@@ -16,3 +16,4 @@ COMPLETED
 -Clear Game Details function (if unselected)
 -Enter Ball Number
 -Send game info to flashboard
+-Send pattern info to MiniGrid
