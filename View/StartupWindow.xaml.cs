@@ -97,11 +97,11 @@ namespace BingoFlashboard.View
             {
                 App.SelectedSession = (Session) sessionsList.SelectedItem;
                 sessionsList.ItemsSource = new List<Session>();
-
-                CallerWindow cw = new();
-                App.callerWindow = cw;
+                App.flashboardWindow = new();
+                App.callerWindow = new();
                 this.Hide();
-                cw.Show();
+                App.ShowCallerWindows();
+
             }
             else
                 MessageBox.Show("Please select a session");

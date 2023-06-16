@@ -1,5 +1,6 @@
 ﻿using BingoFlashboard.Data;
 using BingoFlashboard.Model;
+using Flashboard.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -116,10 +117,9 @@ namespace BingoFlashboard.View
         //SELECTS THE GAME
         private void GamesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (gamesList.SelectedIndex is not -1)
+            if (gamesList.SelectedIndex is not -1 && App.flashboardViewModel is not null)
             {
                 game = (Game) gamesList.SelectedItem;
-
                 if (App.callerWindowViewModel is not null)
                 {
                     //SETS GAMENAME TEXTBOX; SETS PRIZE TEXTBOX; SETS DESIGNATED NUMBER TEXTBOX; SETS DESIGNATED NUMBER TEXTBOX;
@@ -132,8 +132,15 @@ namespace BingoFlashboard.View
                             cbi.IsSelected = true;
                     }
 
-                    //SETS BORDER COLOR PICKER
-                    Border_Color_Picker.SelectedColor = (Color) ColorConverter.ConvertFromString(game.Border_Color_.Color_Hash_);
+                    //SETS BORDER COLOR PICKER && FLASHBOARD BACKGROUND COLOR
+                    Color background = (Color) ColorConverter.ConvertFromString(game.Border_Color_.Color_Hash_);
+                    Border_Color_Picker.SelectedColor = background;
+                    App.flashboardViewModel.BackgroundColor = new SolidColorBrush(background);
+
+                    //SETS BORDER COLOR PICKER && FLASHBOARD FONT COLOR 
+                    Color font = (Color) ColorConverter.ConvertFromString(game.Font_Color_.Color_Hash_);
+                    Font_Color_Picker.SelectedColor = font;
+                    App.flashboardViewModel.FontColor = new SolidColorBrush(font);
 
 
                     //SELECTS PATTER FROM PATTERN COMBOBOX
@@ -147,7 +154,9 @@ namespace BingoFlashboard.View
                         }
                         a++;
                     }
-
+                    if(game.Pattern_ is not null && App.miniGrid is not null)
+                        App.miniGrid.StartAnimation(game.Pattern_);
+                    App.flashboardViewModel.CurrentGame = game;
                 }
             }
             else
@@ -172,9 +181,62 @@ namespace BingoFlashboard.View
         }
 
         //CHANGES LABELS TO MAKE IT CLEARER FOR USER
-        private void CallerType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void GameType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ComboBoxItem cbi = (ComboBoxItem)CallerType.SelectedItem;
 
+            //IF YOU HIDE ALL ELEMENTS FIRST, LESS CODE IN THE SWITCH CODE 
+            JackpotGameSection.Visibility = Visibility.Visible;
+            if (App.flashboardViewModel is not null)
+            {
+                App.flashboardViewModel.DesignatedNumVisibility = Visibility.Hidden;
+                App.flashboardViewModel.JackpotSectionVisibility = Visibility.Hidden;
+                App.flashboardViewModel.MoneyBallVisibility = Visibility.Hidden;
+                App.flashboardViewModel.UPikEmVisibility = Visibility.Hidden;
+                App.flashboardViewModel.JackpotVisibility = Visibility.Hidden;
+
+                switch (cbi.Content)
+                {
+                    case "Regular":
+                        {
+                            JackpotGameSection.Visibility = Visibility.Hidden;
+
+                            break;
+                        }
+                    case "Toonie Ball":
+                        {
+                            JackpotLbl.Content = "Tonnie Ball Prize";
+                            DesignatedNumLbl.Content = "Toonie Ball #";
+                            App.flashboardViewModel.MoneyBallVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility= Visibility.Visible;
+                            break;
+                        }
+                    case "Money Ball":
+                        {
+                            JackpotLbl.Content = "Money Ball Prize";
+                            DesignatedNumLbl.Content = "Money Ball #";
+                            App.flashboardViewModel.MoneyBallVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            break;
+                        }
+                    case "Designated Number":
+                        {
+                            JackpotLbl.Content = "Designated # Prize";
+                            DesignatedNumLbl.Content = "Designated #";
+                            App.flashboardViewModel.DesignatedNumVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            break;
+                        }
+                    case "U Pik Em":
+                        {
+                            JackpotLbl.Content = "U Pik Em Prize";
+                            DesignatedNumLbl.Content = "U Pik Em #";
+                            App.flashboardViewModel.DesignatedNumVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            break;
+                        }
+                }
+            }//END CHECK FLASHBOARDVIEWMODEL
         }
 
         //UPDATES GAME INFO
@@ -183,7 +245,8 @@ namespace BingoFlashboard.View
             if (gamesList.SelectedIndex is not -1
                 && App.SelectedSession is not null
                 && App.SelectedSession.Program_ is not null
-                && App.SelectedSession.Program_.Games_ is not null)
+                && App.SelectedSession.Program_.Games_ is not null
+                && App.flashboardViewModel is not null)
             {
                 Pattern pat = (Pattern) PatternCB.SelectedItem;
                 game.Pattern_ = pat;
@@ -191,15 +254,75 @@ namespace BingoFlashboard.View
                 game.GameType_ = cbi.Content.ToString();
                 game.Name_ = GameName.Text;
                 game.Border_Color_.Color_Hash_ = Border_Color_Picker.SelectedColor.ToString();
+                game.Font_Color_.Color_Hash_ = Font_Color_Picker.SelectedColor.ToString();
                 game.Border_Color_.Name_ = BorderColorName.Text;
+                game.Font_Color_.Name_ = FontColorName.Text;
                 game.Prize_ = Prize.Text;
                 game.Designated_Number_ = JackpotNum.Text;
                 game.Jackpot_Prize_ = JackpotPrize.Text;
 
                 App.SelectedSession.Program_.Games_[gamesList.SelectedIndex] = game;
+                if (App.flashboardViewModel is not null)
+                    App.flashboardViewModel.CurrentGame = game;
+
+                //UPDATES FLASHBOARD COLORS
+                //SETS BORDER COLOR PICKER && FLASHBOARD BACKGROUND COLOR
+                Color background = (Color) ColorConverter.ConvertFromString(game.Border_Color_.Color_Hash_);
+                Border_Color_Picker.SelectedColor = background;
+                App.flashboardViewModel.BackgroundColor = new SolidColorBrush(background);
+
+                //SETS BORDER COLOR PICKER && FLASHBOARD FONT COLOR 
+                Color font = (Color) ColorConverter.ConvertFromString(game.Font_Color_.Color_Hash_);
+                Font_Color_Picker.SelectedColor = font;
+                App.flashboardViewModel.FontColor = new SolidColorBrush(font);
+
                 gamesList.Items.Refresh();
+
+
+                //UPDATE FLASHBOARD GAMETYPE
+                App.flashboardViewModel.DesignatedNumVisibility = Visibility.Hidden;
+                App.flashboardViewModel.JackpotSectionVisibility = Visibility.Hidden;
+                App.flashboardViewModel.MoneyBallVisibility = Visibility.Hidden;
+                App.flashboardViewModel.UPikEmVisibility = Visibility.Hidden;
+                App.flashboardViewModel.JackpotVisibility = Visibility.Hidden;
+
+                switch (cbi.Content)
+                {
+                    case "Regular":
+                        {
+                            JackpotGameSection.Visibility = Visibility.Hidden;
+
+                            break;
+                        }
+                    case "Toonie Ball":
+                        {
+                            App.flashboardViewModel.MoneyBallVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            break;
+                        }
+                    case "Money Ball":
+                        {
+                            App.flashboardViewModel.MoneyBallVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            break;
+                        }
+                    case "Designated Number":
+                        {
+                            App.flashboardViewModel.DesignatedNumVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            break;
+                        }
+                    case "U Pik Em":
+                        {
+                            App.flashboardViewModel.DesignatedNumVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            break;
+                        }
+                }
             }
         }
+
+
 
         //DELETES GAME FROM SESSION (for this round -- future programs will still have this game) 
         private void Delete_Game_Click(object sender, RoutedEventArgs e)
@@ -265,12 +388,21 @@ namespace BingoFlashboard.View
 
         private void Reset_Board_Click(object sender, RoutedEventArgs e)
         {
-
+            if(App.flashboardViewModel is not null)
+                App.flashboardViewModel.ResetBoard();
         }
 
         private void Ball_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter && App.flashboardViewModel is not null)
+            {
+                string response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
+                if (response == "Success")
+                    Ball.Text = "";
 
+                else if(response == "Fail")
+                    MessageBox.Show("Ball Error");
+            }
         }
 
         #endregion GAME CONTROL REGION
@@ -286,6 +418,5 @@ namespace BingoFlashboard.View
 
         }
         #endregion GAME SELECTION REGION
-
     }
 }

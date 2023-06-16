@@ -34,6 +34,7 @@ namespace BingoFlashboard
         public static List<Pattern> allPatterns = new();
         private static LoadAllPatterns lap = new();
         public static List<Card> cardList = new();
+       // public static List<Pattern>? patternList_ = new();
 
         #endregion
 
@@ -50,6 +51,7 @@ namespace BingoFlashboard
 
         #region VIEWMODELS  
         public static CallerWindowViewModel? callerWindowViewModel;
+        public static FlashboardViewModel? flashboardViewModel;
         #endregion VIEWMODELS
 
         public static void SaveStartupFile()
@@ -59,6 +61,13 @@ namespace BingoFlashboard
                 string json = JsonConvert.SerializeObject(startup);
                 writer.Write(json);
             }
+        }
+
+        public static void ShowCallerWindows()
+        {
+            startupWindow?.Hide();
+            callerWindow?.Show();
+            flashboardWindow?.Show();
         }
 
         //TODO

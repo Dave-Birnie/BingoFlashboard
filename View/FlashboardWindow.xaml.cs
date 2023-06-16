@@ -22,6 +22,10 @@ namespace BingoFlashboard.View
         public FlashboardWindow()
         {
             InitializeComponent();
+            App.flashboardViewModel = new();
+            DataContext = App.flashboardViewModel;
+            App.miniGrid = new();
+            MiniGrid.Content = App.miniGrid;
         }
     }
 }

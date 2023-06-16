@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BingoFlashboard.ViewModel
 {
@@ -20,6 +21,20 @@ namespace BingoFlashboard.ViewModel
             {
                 selected_game_ = value;
                 OnPropertyChanged(nameof(SelectedGame));
+            }
+        }
+
+        private Visibility jackpotGameSection_;
+        public Visibility JackpotGameSection
+        {
+            get
+            {
+                return jackpotGameSection_;
+            }
+            set
+            {
+                jackpotGameSection_ = value;
+                OnPropertyChanged(nameof(JackpotGameSection));
             }
         }
     }

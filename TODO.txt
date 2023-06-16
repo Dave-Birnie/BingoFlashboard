@@ -1,7 +1,6 @@
 -- WINDOW -- CallerWindow
 
--Enter Ball Number
--Send game info to flashboard
+
 -Send pattern info to MiniGrid
 -Search Card
 -4 Ball 
@@ -15,3 +14,5 @@ COMPLETED
 -Load New Session Btn
 -Delete Game Btn
 -Clear Game Details function (if unselected)
+-Enter Ball Number
+-Send game info to flashboard

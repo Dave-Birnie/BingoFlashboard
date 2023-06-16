@@ -166,6 +166,7 @@
                         <ComboBox Name="GameType"
                                   Margin="20,0,0,0"
                                   HorizontalAlignment="Center"
+                                  SelectionChanged="GameType_SelectionChanged"
                                   Style="{StaticResource ModernComboBox}">
 
                             <ComboBoxItem Name="RegularCB"
@@ -204,8 +205,7 @@
                                Content="Border Color" />
 
                         <xctk:ColorPicker Name="Border_Color_Picker"
-                                          Width="50"
-                                          ></xctk:ColorPicker>
+                                          Width="50" />
 
                         <Label Style="{StaticResource LabelsMain}"
                                Margin="20,0,0,0"
@@ -273,6 +273,8 @@
 
                     <!--#region Prize, Number-->
                     <StackPanel Orientation="Horizontal"
+                                Name="JackpotGameSection"
+                                Visibility="{Binding JackpotGameSection}"
                                 HorizontalAlignment="Center">
 
                         <Label Name="JackpotLbl"
@@ -361,6 +363,26 @@
                    Background="{StaticResource OxfordBlue}"
                    Foreground="{StaticResource OffWhite}"
                    Content="CALLER CONTROLS" />
+
+            <!--#region BORDERS-->
+            <Border Grid.Column="0"
+                    Grid.Row="1"
+                    BorderBrush="{StaticResource OxfordBlue}"
+                    BorderThickness="2" />
+
+            <Border Grid.Column="1"
+                    Grid.Row="1"
+                    BorderBrush="{StaticResource OxfordBlue}"
+                    BorderThickness="2" />
+
+            <Border Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="1"
+                    Background="Transparent"
+                    BorderBrush="{StaticResource OxfordBlue}"
+                    BorderThickness="2" />
+            <!--#endregion BORDERS-->
+
 
             <Grid Grid.Column="0"
                   Grid.Row="1">
@@ -460,7 +482,7 @@
                     <Label Style="{StaticResource H2}"
                            HorizontalContentAlignment="Center"
                            HorizontalAlignment="Stretch"
-                           Margin="0,0,0,15"
+                           Margin="2,1,2,15"
                            Background="{StaticResource AccentBlue}"
                            Foreground="White"
                            FontWeight="Bold"
@@ -559,8 +581,7 @@
                             <ComboBox Name="CallerType"
                                       Style="{StaticResource ModernComboBox}"
                                       IsEnabled="{Binding EnableAutoCaller}"
-                                      Margin="10,0"
-                                      SelectionChanged="CallerType_SelectionChanged">
+                                      Margin="10,0">
                                 <ComboBoxItem Name="ManualCaller"
                                               Content="Manual"
                                               IsSelected="True" />
@@ -576,6 +597,7 @@
                     </StackPanel>
 
                     <Border BorderBrush="{StaticResource OxfordBlue}"
+                            Background="Transparent"
                             BorderThickness="0,0,4,0" />
 
                     <Grid Grid.Column="1"
@@ -595,7 +617,7 @@
                                 <TextBox Name="Ball"
                                          Style="{StaticResource ModernTextBox}"
                                          Margin="20,0"
-                                         KeyDown="Ball_KeyDown" />
+                                         KeyDown="Ball_KeyDown"/>
                             </StackPanel>
                             <Border BorderThickness="2"
                                     BorderBrush="{StaticResource OxfordBlue}" />
@@ -627,26 +649,6 @@
                 </Grid>
             </Grid>
             <!--#endregion-->
-
-            <!--#region BORDERS-->
-            <Border Grid.Column="0"
-                    Grid.Row="1"
-                    BorderBrush="{StaticResource OxfordBlue}"
-                    BorderThickness="2" />
-
-            <Border Grid.Column="1"
-                    Grid.Row="1"
-                    BorderBrush="{StaticResource OxfordBlue}"
-                    BorderThickness="2" />
-
-            <Border Grid.Column="2"
-                    Grid.ColumnSpan="2"
-                    Grid.Row="1"
-                    Background="Transparent"
-                    BorderBrush="{StaticResource OxfordBlue}"
-                    BorderThickness="2" />
-            <!--#endregion BORDERS-->
-
         </Grid>
     </Grid>
 

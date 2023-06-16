@@ -9,11 +9,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using BingoFlashboard;
 using System.Windows.Threading;
+using BingoFlashboard.Model;
 
 namespace BingoFlashboard.ViewModel
 {
     public class FlashboardViewModel : ViewModelBase
     {
+
+        #region VARIABLES
+
+        List<CalledBalls> _lastcalled = new List<CalledBalls>();
+        List<string> lastBallCalled = new List<string>();
+
+        #endregion VARIABLES
+
+
+        #region GETTERS/SETTERS
         private Visibility _jackpotSectionVisibility;
         public Visibility JackpotSectionVisibility
         {
@@ -42,7 +53,37 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
+
         #region Flashboard Setup
+
+        private Game currentGame_;
+        public Game CurrentGame
+        {
+            get
+            {
+                return currentGame_;
+            }
+            set
+            {
+                currentGame_ = value;
+                OnPropertyChanged(nameof(CurrentGame));
+            }
+        }
+
+        private Brush backgroundColor_;
+        public Brush BackgroundColor
+        {
+            get
+            {
+                return backgroundColor_;
+            }
+            set
+            {
+                backgroundColor_ = value;
+                OnPropertyChanged(nameof(BackgroundColor));
+            }
+        }
+
 
         private BitmapImage _lastBallImg = new BitmapImage(new Uri("\\Images\\" + "" + "Ball.png", UriKind.Relative));
         public BitmapImage LastBallImg
@@ -57,6 +98,21 @@ namespace BingoFlashboard.ViewModel
                 OnPropertyChanged(nameof(LastBallImg));
             }
         }
+
+        private Brush _fontColor = new SolidColorBrush(Colors.White);
+        public Brush FontColor
+        {
+            get
+            {
+                return _fontColor;
+            }
+            set
+            {
+                _fontColor = value;
+                OnPropertyChanged(nameof(FontColor));
+            }
+        }
+
 
         private string _moneyBall = "";
         public string MoneyBall
@@ -83,76 +139,6 @@ namespace BingoFlashboard.ViewModel
             {
                 _designatedNumber = value;
                 OnPropertyChanged(nameof(DesignatedNumber));
-            }
-        }
-
-        private string _gameName = "Game Name Goes Here";
-        public string GameName
-        {
-            get
-            {
-                return _gameName;
-            }
-            set
-            {
-                _gameName = value;
-                OnPropertyChanged(nameof(GameName));
-            }
-        }
-
-        private string _patternName = "Pattern";
-        public string PatternName
-        {
-            get
-            {
-                return _patternName;
-            }
-            set
-            {
-                _patternName = value;
-                OnPropertyChanged(nameof(PatternName));
-            }
-        }
-
-        private string _gameType = "";
-        public string GameType
-        {
-            get
-            {
-                return _gameType;
-            }
-            set
-            {
-                _gameType = value;
-                OnPropertyChanged(nameof(GameType));
-            }
-        }
-
-        private string _prize = "";
-        public string Prize
-        {
-            get
-            {
-                return _prize;
-            }
-            set
-            {
-                _prize = value;
-                OnPropertyChanged(nameof(Prize));
-            }
-        }
-
-        private string _jackpotPrize = "";
-        public string JackpotPrize
-        {
-            get
-            {
-                return _jackpotPrize;
-            }
-            set
-            {
-                _jackpotPrize = value;
-                OnPropertyChanged(nameof(JackpotPrize));
             }
         }
 
@@ -184,19 +170,6 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
-        private Brush _fontColor = new SolidColorBrush(Colors.White);
-        public Brush FontColor
-        {
-            get
-            {
-                return _fontColor;
-            }
-            set
-            {
-                _fontColor = value;
-                OnPropertyChanged(nameof(FontColor));
-            }
-        }
 
 
         #region MINI PATTERN
@@ -1744,10 +1717,14 @@ namespace BingoFlashboard.ViewModel
         }
         #endregion O's State 
 
-        #region CalledBall
-        List<CalledBalls> _lastcalled = new List<CalledBalls>();
-        List<string> lastBallCalled = new List<string>();
-        public async void UpdateFlashboardNumbers(string TypedBall)
+        #endregion MainLabel States
+
+        #endregion GETTERS/SETTERS
+
+
+        #region CALLED BALL
+
+        public string UpdateFlashboardNumbers(string TypedBall)
         {
             try
             {
@@ -1755,6 +1732,7 @@ namespace BingoFlashboard.ViewModel
 
                 if (ballnum >= 1 && ballnum <= 75)
                 {
+
                     switch (ballnum)
                     {
                         #region B's
@@ -1767,8 +1745,10 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B1State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
+
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B1State", BallNum_ = 1 });
+
                                             lastBallCalled.Add("B1State");
                                             break;
                                         }
@@ -1801,7 +1781,8 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
+                                //break;                                ChangeLastBallImage();  return "Success";
                             }
                         case 2:
                             {
@@ -1812,7 +1793,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B2State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B2State", BallNum_ = 2 });
                                             lastBallCalled.Add("B2State");
                                             break;
@@ -1846,7 +1827,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ; ChangeLastBallImage();  return "Success";
                             }
                         case 3:
                             {
@@ -1857,7 +1838,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B3State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B3State", BallNum_ = 3 });
                                             lastBallCalled.Add("B3State");
                                             break;
@@ -1891,7 +1872,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 4:
                             {
@@ -1902,7 +1883,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B4State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B4State", BallNum_ = 4 });
                                             lastBallCalled.Add("B4State");
                                             break;
@@ -1936,7 +1917,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 5:
                             {
@@ -1947,7 +1928,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B5State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B5State", BallNum_ = 5 });
                                             lastBallCalled.Add("B5State");
                                             break;
@@ -1981,7 +1962,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 6:
                             {
@@ -1992,7 +1973,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B6State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B6State", BallNum_ = 6 });
                                             lastBallCalled.Add("B6State");
                                             break;
@@ -2026,7 +2007,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 7:
                             {
@@ -2037,7 +2018,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B7State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B7State", BallNum_ = 7 });
                                             lastBallCalled.Add("B7State");
                                             break;
@@ -2071,7 +2052,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 8:
                             {
@@ -2082,7 +2063,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B8State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B8State", BallNum_ = 8 });
                                             lastBallCalled.Add("B8State");
                                             break;
@@ -2116,7 +2097,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 9:
                             {
@@ -2127,7 +2108,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B9State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B9State", BallNum_ = 9 });
                                             lastBallCalled.Add("B9State");
                                             break;
@@ -2161,7 +2142,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 10:
                             {
@@ -2172,7 +2153,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B10State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B10State", BallNum_ = 10 });
                                             lastBallCalled.Add("B10State");
                                             break;
@@ -2206,7 +2187,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 11:
                             {
@@ -2217,7 +2198,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B11State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B11State", BallNum_ = 11 });
                                             lastBallCalled.Add("B11State");
                                             break;
@@ -2251,7 +2232,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 12:
                             {
@@ -2262,7 +2243,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B12State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B12State", BallNum_ = 12 });
                                             lastBallCalled.Add("B12State");
                                             break;
@@ -2296,7 +2277,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 13:
                             {
@@ -2307,7 +2288,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B13State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B13State", BallNum_ = 13 });
                                             lastBallCalled.Add("B13State");
                                             break;
@@ -2341,7 +2322,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 14:
                             {
@@ -2352,7 +2333,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B14State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B14State", BallNum_ = 14 });
                                             lastBallCalled.Add("B14State");
                                             break;
@@ -2386,7 +2367,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 15:
                             {
@@ -2397,7 +2378,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             B15State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "B15State", BallNum_ = 15 });
                                             lastBallCalled.Add("B15State");
                                             break;
@@ -2428,7 +2409,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         #endregion B's    
 
@@ -2442,7 +2423,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I1State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I1State", BallNum_ = 16 });
                                             lastBallCalled.Add("I1State");
                                             break;
@@ -2476,7 +2457,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 17:
                             {
@@ -2487,7 +2468,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I2State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I2State", BallNum_ = 17 });
                                             lastBallCalled.Add("I2State");
                                             break;
@@ -2521,7 +2502,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 18:
                             {
@@ -2532,7 +2513,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I3State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I3State", BallNum_ = 18 });
                                             lastBallCalled.Add("I3State");
                                             break;
@@ -2566,7 +2547,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 19:
                             {
@@ -2577,7 +2558,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I4State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I4State", BallNum_ = 19 });
                                             lastBallCalled.Add("I4State");
                                             break;
@@ -2611,7 +2592,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 20:
                             {
@@ -2622,7 +2603,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I5State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I5State", BallNum_ = 20 });
                                             lastBallCalled.Add("I5State");
                                             break;
@@ -2656,7 +2637,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 21:
                             {
@@ -2667,7 +2648,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I6State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I6State", BallNum_ = 21 });
                                             lastBallCalled.Add("I6State");
                                             break;
@@ -2701,7 +2682,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 22:
                             {
@@ -2712,7 +2693,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I7State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I7State", BallNum_ = 22 });
                                             lastBallCalled.Add("I7State");
                                             break;
@@ -2747,7 +2728,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 23:
                             {
@@ -2758,7 +2739,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I8State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I8State", BallNum_ = 23 });
                                             lastBallCalled.Add("I8State");
                                             break;
@@ -2792,7 +2773,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 24:
                             {
@@ -2803,7 +2784,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I9State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I9State", BallNum_ = 24 });
                                             lastBallCalled.Add("I9State");
                                             break;
@@ -2837,7 +2818,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 25:
                             {
@@ -2848,7 +2829,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I10State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I10State", BallNum_ = 25 });
                                             lastBallCalled.Add("I10State");
                                             break;
@@ -2882,7 +2863,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 26:
                             {
@@ -2893,7 +2874,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I11State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I11State", BallNum_ = 26 });
                                             lastBallCalled.Add("I11State");
                                             break;
@@ -2927,7 +2908,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 27:
                             {
@@ -2938,7 +2919,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I12State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I12State", BallNum_ = 27 });
                                             lastBallCalled.Add("I12State");
                                             break;
@@ -2972,7 +2953,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 28:
                             {
@@ -2983,7 +2964,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I13State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I13State", BallNum_ = 28 });
                                             lastBallCalled.Add("I13State");
                                             break;
@@ -3018,7 +2999,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 29:
                             {
@@ -3029,7 +3010,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I14State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I14State", BallNum_ = 29 });
                                             lastBallCalled.Add("I14State");
                                             break;
@@ -3063,7 +3044,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 30:
                             {
@@ -3074,7 +3055,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             I15State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "I15State", BallNum_ = 30 });
                                             lastBallCalled.Add("I15State");
                                             break;
@@ -3109,7 +3090,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         #endregion I's    
 
@@ -3123,7 +3104,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N1State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N1State", BallNum_ = 31 });
                                             lastBallCalled.Add("N1State");
                                             break;
@@ -3157,7 +3138,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 32:
                             {
@@ -3168,7 +3149,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N2State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N2State", BallNum_ = 32 });
 
                                             lastBallCalled.Add("N2State");
@@ -3205,7 +3186,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 33:
                             {
@@ -3216,7 +3197,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N3State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N3State", BallNum_ = 33 });
                                             lastBallCalled.Add("N3State");
                                             break;
@@ -3252,7 +3233,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 34:
                             {
@@ -3263,7 +3244,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N4State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N4State", BallNum_ = 34 });
                                             lastBallCalled.Add("N4State");
                                             break;
@@ -3298,7 +3279,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 35:
                             {
@@ -3309,7 +3290,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N5State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N5State", BallNum_ = 35 });
                                             lastBallCalled.Add("N5State");
                                             break;
@@ -3345,7 +3326,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 36:
                             {
@@ -3356,7 +3337,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N6State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N6State", BallNum_ = 36 });
                                             lastBallCalled.Add("N6State");
                                             break;
@@ -3390,7 +3371,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 37:
                             {
@@ -3401,7 +3382,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N7State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N7State", BallNum_ = 37 });
                                             lastBallCalled.Add("N7State");
                                             break;
@@ -3435,7 +3416,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 38:
                             {
@@ -3446,7 +3427,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N8State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N8State", BallNum_ = 38 });
                                             lastBallCalled.Add("N8State");
                                             break;
@@ -3480,7 +3461,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 39:
                             {
@@ -3491,7 +3472,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N9State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N9State", BallNum_ = 39 });
                                             lastBallCalled.Add("N9State");
                                             break;
@@ -3526,7 +3507,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 40:
                             {
@@ -3537,7 +3518,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N10State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N10State", BallNum_ = 40 });
                                             lastBallCalled.Add("N10State");
                                             break;
@@ -3571,7 +3552,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 41:
                             {
@@ -3582,7 +3563,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N11State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N11State", BallNum_ = 41 });
                                             lastBallCalled.Add("N11State");
                                             break;
@@ -3617,7 +3598,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 42:
                             {
@@ -3628,7 +3609,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N12State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N12State", BallNum_ = 42 });
                                             lastBallCalled.Add("N12State");
                                             break;
@@ -3662,7 +3643,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 43:
                             {
@@ -3673,7 +3654,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N13State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N13State", BallNum_ = 43 });
                                             lastBallCalled.Add("N13State");
                                             break;
@@ -3707,7 +3688,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 44:
                             {
@@ -3718,7 +3699,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N14State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N14State", BallNum_ = 44 });
                                             lastBallCalled.Add("N14State");
                                             break;
@@ -3753,7 +3734,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 45:
                             {
@@ -3764,7 +3745,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             N15State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "N15State", BallNum_ = 45 });
 
                                             lastBallCalled.Add("N15State");
@@ -3800,7 +3781,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         #endregion N's    
 
@@ -3814,7 +3795,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G1State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G1State", BallNum_ = 46 });
                                             lastBallCalled.Add("G1State");
                                             break;
@@ -3848,7 +3829,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 47:
                             {
@@ -3859,7 +3840,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G2State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G2State", BallNum_ = 47 });
                                             lastBallCalled.Add("G2State");
                                             break;
@@ -3893,7 +3874,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 48:
                             {
@@ -3904,7 +3885,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G3State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G3State", BallNum_ = 48 });
                                             lastBallCalled.Add("G3State");
                                             break;
@@ -3938,7 +3919,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 49:
                             {
@@ -3949,7 +3930,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G4State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G4State", BallNum_ = 49 });
                                             lastBallCalled.Add("G4State");
                                             break;
@@ -3983,7 +3964,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 50:
                             {
@@ -3994,7 +3975,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G5State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G5State", BallNum_ = 50 });
                                             lastBallCalled.Add("G5State");
                                             break;
@@ -4028,7 +4009,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 51:
                             {
@@ -4039,7 +4020,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G6State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G6State", BallNum_ = 51 });
                                             lastBallCalled.Add("G6State");
                                             break;
@@ -4073,7 +4054,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 52:
                             {
@@ -4084,7 +4065,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G7State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G7State", BallNum_ = 52 });
                                             lastBallCalled.Add("G7State");
                                             break;
@@ -4119,7 +4100,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 53:
                             {
@@ -4130,7 +4111,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G8State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G8State", BallNum_ = 53 });
                                             lastBallCalled.Add("G8State");
                                             break;
@@ -4164,7 +4145,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 54:
                             {
@@ -4175,7 +4156,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G9State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G9State", BallNum_ = 54 });
                                             lastBallCalled.Add("G9State");
                                             break;
@@ -4209,7 +4190,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 55:
                             {
@@ -4220,7 +4201,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G10State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G10State", BallNum_ = 55 });
                                             lastBallCalled.Add("G10State");
                                             break;
@@ -4254,7 +4235,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 56:
                             {
@@ -4265,7 +4246,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G11State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G11State", BallNum_ = 56 });
                                             lastBallCalled.Add("G11State");
                                             break;
@@ -4299,7 +4280,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 57:
                             {
@@ -4310,7 +4291,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G12State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G12State", BallNum_ = 57 });
                                             lastBallCalled.Add("G12State");
                                             break;
@@ -4344,7 +4325,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 58:
                             {
@@ -4355,7 +4336,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G13State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G13State", BallNum_ = 58 });
                                             lastBallCalled.Add("G13State");
                                             break;
@@ -4389,7 +4370,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 59:
                             {
@@ -4400,7 +4381,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G14State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G14State", BallNum_ = 59 });
                                             lastBallCalled.Add("G14State");
                                             break;
@@ -4434,7 +4415,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 60:
                             {
@@ -4445,7 +4426,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             G15State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "G15State", BallNum_ = 60 });
                                             lastBallCalled.Add("G15State");
                                             break;
@@ -4480,7 +4461,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         #endregion G's    
 
@@ -4494,7 +4475,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O1State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O1State", BallNum_ = 61 });
                                             lastBallCalled.Add("O1State");
                                             break;
@@ -4528,7 +4509,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 62:
                             {
@@ -4539,7 +4520,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O2State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O2State", BallNum_ = 62 });
                                             lastBallCalled.Add("O2State");
                                             break;
@@ -4575,7 +4556,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 63:
                             {
@@ -4586,7 +4567,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O3State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O3State", BallNum_ = 63 });
                                             lastBallCalled.Add("O3State");
                                             break;
@@ -4620,7 +4601,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 64:
                             {
@@ -4631,7 +4612,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O4State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O4State", BallNum_ = 64 });
                                             lastBallCalled.Add("O4State");
                                             break;
@@ -4665,7 +4646,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 65:
                             {
@@ -4676,7 +4657,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O5State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O5State", BallNum_ = 65 });
                                             lastBallCalled.Add("O5State");
                                             break;
@@ -4710,7 +4691,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 66:
                             {
@@ -4721,7 +4702,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O6State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O6State", BallNum_ = 66 });
                                             lastBallCalled.Add("O6State");
                                             break;
@@ -4755,7 +4736,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 67:
                             {
@@ -4766,7 +4747,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O7State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O7State", BallNum_ = 67 });
                                             lastBallCalled.Add("O7State");
                                             break;
@@ -4802,7 +4783,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 68:
                             {
@@ -4813,7 +4794,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O8State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O8State", BallNum_ = 68 });
                                             lastBallCalled.Add("O8State");
                                             break;
@@ -4847,7 +4828,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 69:
                             {
@@ -4858,7 +4839,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O9State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O9State", BallNum_ = 69 });
                                             lastBallCalled.Add("O9State");
                                             break;
@@ -4892,7 +4873,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 70:
                             {
@@ -4903,7 +4884,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O10State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O10State", BallNum_ = 70 });
                                             lastBallCalled.Add("O10State");
                                             break;
@@ -4938,7 +4919,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 71:
                             {
@@ -4949,7 +4930,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O11State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O11State", BallNum_ = 71 });
                                             lastBallCalled.Add("O11State");
                                             break;
@@ -4983,7 +4964,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 72:
                             {
@@ -4994,7 +4975,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O12State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O12State", BallNum_ = 72 });
                                             lastBallCalled.Add("O12State");
                                             break;
@@ -5028,7 +5009,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 73:
                             {
@@ -5039,7 +5020,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O13State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O13State", BallNum_ = 73 });
                                             lastBallCalled.Add("O13State");
                                             break;
@@ -5073,7 +5054,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 74:
                             {
@@ -5084,7 +5065,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O14State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O14State", BallNum_ = 74 });
                                             lastBallCalled.Add("O14State");
                                             break;
@@ -5118,7 +5099,7 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                         case 75:
                             {
@@ -5129,7 +5110,7 @@ namespace BingoFlashboard.ViewModel
                                         {
                                             O15State = 2;
                                             if (lastBallCalled.Count >= 1)
-                                                await ChangeLastBallState();
+                                                 ChangeLastBallState();
                                             _lastcalled.Add(new CalledBalls { CalledBallState_ = "O15State", BallNum_ = 75 });
                                             lastBallCalled.Add("O15State");
                                             break;
@@ -5163,13 +5144,12 @@ namespace BingoFlashboard.ViewModel
                                             break;
                                         }
                                 }
-                                break;
+                                ChangeLastBallImage();  return "Success";
                             }
                             #endregion O's    
                     }
-
-                    // App.flashboardLabels;
                 };
+                return "Error";
             }//End Try
             catch (Exception ex)
             {
@@ -5182,10 +5162,11 @@ namespace BingoFlashboard.ViewModel
                     DateTime dt = DateTime.Now;
                     sw.WriteLine(dt.ToString() + " -- " + s);
                 }
+                return "Fail";
             }
         }
 
-        private Task ChangeLastBallState()
+        private void ChangeLastBallState()
         {
             string temp = lastBallCalled[lastBallCalled.Count - 1];
 
@@ -5570,8 +5551,19 @@ namespace BingoFlashboard.ViewModel
                     }
             }
 
-            return Task.CompletedTask;
+            //return Task.CompletedTask;
         }
+
+        private void ChangeLastBallImage()
+        {
+            if(_lastcalled.Count ==0)
+                LastBallImg = new BitmapImage(new Uri("..\\Images\\balls\\" + "" + "Ball.png", UriKind.Relative));
+            
+            else
+                LastBallImg = new BitmapImage(new Uri("..\\Images\\balls\\" + _lastcalled[_lastcalled.Count-1].BallNum_ + "Ball.png", UriKind.Relative));
+            
+        }
+
 
         #region Verify Card
 
@@ -6288,13 +6280,8 @@ namespace BingoFlashboard.ViewModel
         }
         #endregion O Bindings
 
-        public void ColorVerify()
-        {
-
-        }
 
         #endregion
-
 
 
         public void ResetBoard()
@@ -6380,11 +6367,12 @@ namespace BingoFlashboard.ViewModel
             O15State = 0;
 
             lastBallCalled = new List<string>();
+            _lastcalled = new();
+            ChangeLastBallImage();
         }
 
         #endregion
 
-        #endregion MainLabel States
 
         #region FourBallSection
 
@@ -6431,6 +6419,7 @@ namespace BingoFlashboard.ViewModel
         }
 
         #endregion
+
 
     }
 }
