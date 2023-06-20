@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace BingoFlashboard.ViewModel
 {
     public class CallerWindowViewModel : ViewModelBase
     {
         private Game selected_game_ = new();
-        internal Game SelectedGame
+        public Game SelectedGame
         {
             get
             {
@@ -37,5 +38,34 @@ namespace BingoFlashboard.ViewModel
                 OnPropertyChanged(nameof(JackpotGameSection));
             }
         }
+
+        private string broadcastingStatus_ = "";
+        public string BroadcastingStatus
+        {
+            get
+            {
+                return broadcastingStatus_ = "";
+            }
+            set
+            {
+                broadcastingStatus_ = value;
+                OnPropertyChanged(nameof(BroadcastingStatus));
+            }
+        }
+
+        private Brush broadcastingColor_;
+        public Brush BroadcastingColor
+        {
+            get
+            {
+                return broadcastingColor_;
+            }
+            set
+            {
+                broadcastingColor_ = value;
+                OnPropertyChanged(nameof(BroadcastingColor));
+            }
+        }
+
     }
 }

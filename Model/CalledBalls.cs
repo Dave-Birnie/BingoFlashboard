@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Flashboard.Model
 {
-    internal class CalledBalls
+    public class CalledBalls
     {
-        internal string CalledBallState_ { get; set; } = "State";
-        internal int BallNum_ { get; set; } = 0;
+        public string CalledBallState_ { get; set; } = "State";
+        public int BallNum_ { get; set; } = 0;
     }
 }

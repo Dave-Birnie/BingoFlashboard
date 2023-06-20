@@ -7,28 +7,28 @@ using System.Windows.Controls;
 
 namespace BingoFlashboard.Model
 {
-    internal class Hall
+    public class Hall
     {
-        internal int Id_ { get; set; }
-        internal string Name_ { get; set; } = string.Empty;
-        internal string? Logo_ { get; set; }
-        internal string? Address_ { get; set; } = string.Empty;
-        internal string? City_ { get; set; } = string.Empty;
-        internal string? Postal_ { get; set; } = string.Empty;
-        internal Country? Country_ { get; set; } = new();
-        internal Province? Province_ { get; set; } = new();
-        internal string? Phone_ { get; set; } = string.Empty;
-        internal string? Website_ { get; set; } = string.Empty;
-        internal string? Email_ { get; set; } = string.Empty;
-        internal string? Username_ { get; set; } = string.Empty;
-        internal string? Login_Password_ { get; set; } = string.Empty;
-        internal string? Temp_Login_Password_ { get; set; } = string.Empty;
-        internal string? Comport_ { get; set; } = string.Empty;
-        internal bool? Auto_Caller_ { get; set; } = false;
-        internal string? Message_ { get; set; } = string.Empty;
-        internal bool? Master_ { get; set; } = false;
-        internal bool? Active_ { get; set; } = true;
+        public int Id_ { get; set; }
+        public string Name_ { get; set; } = string.Empty;
+        public string? Logo_ { get; set; }
+        public string? Address_ { get; set; } = string.Empty;
+        public string? City_ { get; set; } = string.Empty;
+        public string? Postal_ { get; set; } = string.Empty;
+        public Country? Country_ { get; set; } = new();
+        public Province? Province_ { get; set; } = new();
+        public string? Phone_ { get; set; } = string.Empty;
+        public string? Website_ { get; set; } = string.Empty;
+        public string? Email_ { get; set; } = string.Empty;
+        public string? Username_ { get; set; } = string.Empty;
+        public string? Login_Password_ { get; set; } = string.Empty;
+        public string? Temp_Login_Password_ { get; set; } = string.Empty;
+        public string? Comport_ { get; set; } = string.Empty;
+        public bool? Auto_Caller_ { get; set; } = false;
+        public string? Message_ { get; set; } = string.Empty;
+        public bool? Master_ { get; set; } = false;
+        public bool? Active_ { get; set; } = true;
 
-        internal List<Session>? AllSessions_ { get; set; }
+        public List<Session>? AllSessions_ { get; set; }
     }
 }

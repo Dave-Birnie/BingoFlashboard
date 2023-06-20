@@ -25,7 +25,7 @@ namespace BingoFlashboard.View
         }
 
 
-        internal async void StartAnimation(Pattern p)
+        public async void StartAnimation(Pattern p)
         {
             await StopAnimation();
 

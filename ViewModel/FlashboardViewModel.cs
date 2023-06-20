@@ -57,7 +57,7 @@ namespace BingoFlashboard.ViewModel
         #region Flashboard Setup
 
         private Game currentGame_ = new();
-        internal Game CurrentGame
+        public Game CurrentGame
         {
             get
             {

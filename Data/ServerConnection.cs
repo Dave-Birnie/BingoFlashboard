@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Data
 {
-    internal class ServerConnection
+    public class ServerConnection
     {
     }
 }

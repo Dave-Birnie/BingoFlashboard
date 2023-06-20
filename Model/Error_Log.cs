@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Model
 {
-    internal class Error_Log
+    public class Error_Log
     {
-        internal int Id_ { get; set; }
-        internal string Date_Time_ { get; set; } = string.Empty;
-        internal string Message_Request_ { get; set; } = string.Empty;
-        internal string Return_Message_ { get; set; } = string.Empty;
-        internal string Notes_ { get; set; } = string.Empty;
-        internal Hall? Hall_ { get; set; }
+        public int Id_ { get; set; }
+        public string Date_Time_ { get; set; } = string.Empty;
+        public string Message_Request_ { get; set; } = string.Empty;
+        public string Return_Message_ { get; set; } = string.Empty;
+        public string Notes_ { get; set; } = string.Empty;
+        public Hall? Hall_ { get; set; }
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Model
 {
-    internal class Province
+    public class Province
     {
-        internal int Id_ { get; set; }
-        internal Country Country_ { get; set; } = new();
-        internal string Province_Name_ { get; set; } = string.Empty;
+        public int Id_ { get; set; }
+        public Country Country_ { get; set; } = new();
+        public string Province_Name_ { get; set; } = string.Empty;
     }
 }

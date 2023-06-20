@@ -1,6 +1,7 @@
 ﻿using BingoFlashboard.Data;
 using BingoFlashboard.Model;
 using Flashboard.Model;
+using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +28,11 @@ namespace BingoFlashboard.View
         private Program program = new();
         private List<Game> games = new();
         private Game game = new();
+        HubConnection connection;
 
         private bool maxSize = false;
+        private bool Broadcasting = false;
+
         #endregion VARIABLES
 
         #region CONSTRUCTOR
@@ -106,6 +110,33 @@ namespace BingoFlashboard.View
                 App.startup.FlashboardWidth = width;
 
                 App.SaveStartupFile();
+            }
+        }
+
+        private void GoLiveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (connection is null || !Broadcasting)
+            {
+                connection = new HubConnectionBuilder()
+                  .WithUrl("https://bingoappservice.azurewebsites.net/LoginHub")
+                  //.WithUrl("https://localhost:7226/LoginHub")
+                  .WithAutomaticReconnect()
+                  .Build();
+                Broadcasting = true;
+            }
+
+            if (App.callerWindowViewModel is not null && Broadcasting)
+            {
+                App.callerWindowViewModel.BroadcastingStatus = "ON";
+                App.callerWindowViewModel.BroadcastingColor = new SolidColorBrush(Colors.Green);
+            }
+            else
+            {
+                if (App.callerWindowViewModel is not null)
+                {
+                    App.callerWindowViewModel.BroadcastingStatus = "OFF";
+                    App.callerWindowViewModel.BroadcastingColor = new SolidColorBrush(Colors.Red);
+                }
             }
         }
 
@@ -421,5 +452,7 @@ namespace BingoFlashboard.View
 
         }
         #endregion GAME SELECTION REGION
+
+
     }
 }

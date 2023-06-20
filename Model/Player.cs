@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Model
 {
-   internal class Player
+   public class Player
     {
-        internal int? Id_ { get; set; }
-        internal string? Username_ { get; set; }
-        internal string? Email_ { get; set; }
-        internal string? Phone_ { get; set; }
-        internal string? Password_ { get; set; }
-        internal string? Temp_Password_ { get; set; }
-        internal bool? Email_Opt_In_ { get; set; }
-        internal bool? Active_ { get; set; }
+        public int? Id_ { get; set; }
+        public string? Username_ { get; set; }
+        public string? Email_ { get; set; }
+        public string? Phone_ { get; set; }
+        public string? Password_ { get; set; }
+        public string? Temp_Password_ { get; set; }
+        public bool? Email_Opt_In_ { get; set; }
+        public bool? Active_ { get; set; }
     }
 }

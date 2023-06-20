@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Model
 {
-    internal class Cardset
+    public class Cardset
     {
-        internal int Id_ { get; set; }
-        internal string Set_Name_ { get; set; } = string.Empty;
-        internal List<Card>? Card_ { get; set; }
+        public int Id_ { get; set; }
+        public string Set_Name_ { get; set; } = string.Empty;
+        public List<Card>? Card_ { get; set; }
     }
 }

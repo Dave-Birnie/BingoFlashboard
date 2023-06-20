@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Model
 {
-   internal class GameColor
+   public class GameColor
     {
-        internal int Id_ { get; set; }
-        internal string Name_ { get; set; } = string.Empty;
-        internal string Color_Hash_ { get; set; } = string.Empty;
+        public int Id_ { get; set; }
+        public string Name_ { get; set; } = string.Empty;
+        public string Color_Hash_ { get; set; } = string.Empty;
     }
 }

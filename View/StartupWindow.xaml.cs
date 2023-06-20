@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows;
 using System.Linq;
 using System.Windows.Input;
+using Microsoft.AspNetCore.SignalR.Client;
 
 namespace BingoFlashboard.View
 {
@@ -19,6 +20,7 @@ namespace BingoFlashboard.View
         #region classVariables
         //ViewModel.StartViewModel svm;
         public string filepath = "";
+
         #endregion
 
         public StartupWindow()

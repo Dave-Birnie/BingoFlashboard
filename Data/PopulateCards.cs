@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Data
 {
-    internal class PopulateCards
+    public class PopulateCards
     {
         //public PopulateCards() {
 

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Model
 {
-    internal class Winner
+    public class Winner
     {
-        internal int Id_ { get; set; }
-        internal string Date_Time_ { get; set; } = string.Empty;
-        internal string Prize_ { get; set; } = string.Empty;
-        internal List<Player>? Players_ { get; set; }
+        public int Id_ { get; set; }
+        public string Date_Time_ { get; set; } = string.Empty;
+        public string Prize_ { get; set; } = string.Empty;
+        public List<Player>? Players_ { get; set; }
     }
 }
