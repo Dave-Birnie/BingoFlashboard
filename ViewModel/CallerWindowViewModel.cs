@@ -11,7 +11,7 @@ namespace BingoFlashboard.ViewModel
     public class CallerWindowViewModel : ViewModelBase
     {
         private Game selected_game_ = new();
-        public Game SelectedGame
+        internal Game SelectedGame
         {
             get
             {

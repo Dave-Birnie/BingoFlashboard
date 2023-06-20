@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Model
 {
-    public class Country
+    internal class Country
     {
-        public int Id_ { get; set; }
-        public string Country_Name_ { get; set; } = string.Empty;
+        internal int Id_ { get; set; }
+        internal string Country_Name_ { get; set; } = string.Empty;
     }
 }

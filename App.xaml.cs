@@ -28,12 +28,12 @@ namespace BingoFlashboard
 
         #region MainVariables
 
-        public static Hall? hall;
-        public static Session? SelectedSession;
-        public static Game? SelectedGame;
-        public static List<Pattern> allPatterns = new();
+        internal static Hall? hall;
+        internal static Session? SelectedSession;
+        internal static Game? SelectedGame;
+        internal static List<Pattern> allPatterns = new();
         private static LoadAllPatterns lap = new();
-        public static List<Card> cardList = new();
+        internal static List<Card> cardList = new();
        // public static List<Pattern>? patternList_ = new();
 
         #endregion

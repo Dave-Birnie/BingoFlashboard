@@ -56,8 +56,8 @@ namespace BingoFlashboard.ViewModel
 
         #region Flashboard Setup
 
-        private Game currentGame_;
-        public Game CurrentGame
+        private Game currentGame_ = new();
+        internal Game CurrentGame
         {
             get
             {
@@ -70,7 +70,7 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
-        private Brush backgroundColor_;
+        private Brush? backgroundColor_;
         public Brush BackgroundColor
         {
             get

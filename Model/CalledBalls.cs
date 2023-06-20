@@ -8,8 +8,7 @@ namespace Flashboard.Model
 {
     internal class CalledBalls
     {
-        public string CalledBallState_ { get; set; } = "State";
-        public int BallNum_ { get; set; } = 0;
-
+        internal string CalledBallState_ { get; set; } = "State";
+        internal int BallNum_ { get; set; } = 0;
     }
 }

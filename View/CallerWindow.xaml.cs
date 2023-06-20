@@ -156,7 +156,8 @@ namespace BingoFlashboard.View
                     }
                     if(game.Pattern_ is not null && App.miniGrid is not null)
                         App.miniGrid.StartAnimation(game.Pattern_);
-                    App.flashboardViewModel.CurrentGame = game;
+
+                    Update_Flashboard_View();
                 }
             }
             else
@@ -207,36 +208,90 @@ namespace BingoFlashboard.View
                         {
                             JackpotLbl.Content = "Tonnie Ball Prize";
                             DesignatedNumLbl.Content = "Toonie Ball #";
-                            App.flashboardViewModel.MoneyBallVisibility = Visibility.Visible;
-                            App.flashboardViewModel.JackpotSectionVisibility= Visibility.Visible;
                             break;
                         }
                     case "Money Ball":
                         {
                             JackpotLbl.Content = "Money Ball Prize";
                             DesignatedNumLbl.Content = "Money Ball #";
-                            App.flashboardViewModel.MoneyBallVisibility = Visibility.Visible;
-                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
                             break;
                         }
                     case "Designated Number":
                         {
                             JackpotLbl.Content = "Designated # Prize";
                             DesignatedNumLbl.Content = "Designated #";
-                            App.flashboardViewModel.DesignatedNumVisibility = Visibility.Visible;
-                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
                             break;
                         }
                     case "U Pik Em":
                         {
                             JackpotLbl.Content = "U Pik Em Prize";
                             DesignatedNumLbl.Content = "U Pik Em #";
-                            App.flashboardViewModel.DesignatedNumVisibility = Visibility.Visible;
-                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
                             break;
                         }
                 }
             }//END CHECK FLASHBOARDVIEWMODEL
+        }
+
+        private void Update_Flashboard_View()
+        {
+            game = (Game) gamesList.SelectedItem;
+
+            //UPDATE FLASHBOARD
+            if (App.flashboardViewModel is not null)
+            {
+                App.flashboardViewModel.DesignatedNumVisibility = Visibility.Hidden;
+                App.flashboardViewModel.JackpotSectionVisibility = Visibility.Hidden;
+                App.flashboardViewModel.MoneyBallVisibility = Visibility.Hidden;
+                App.flashboardViewModel.UPikEmVisibility = Visibility.Hidden;
+                App.flashboardViewModel.JackpotVisibility = Visibility.Hidden;
+
+                switch (game.GameType_)
+                {
+                    case "Toonie Ball":
+                        {
+                            App.flashboardViewModel.MoneyBallVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotVisibility = Visibility.Visible;
+                            break;
+                        }
+                    case "Money Ball":
+                        {
+                            App.flashboardViewModel.MoneyBallVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotVisibility = Visibility.Visible;
+                            break;
+                        }
+                    case "Designated Number":
+                        {
+                            App.flashboardViewModel.DesignatedNumVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotVisibility = Visibility.Visible;
+                            break;
+                        }
+                    case "U Pik Em":
+                        {
+                            App.flashboardViewModel.DesignatedNumVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
+                            App.flashboardViewModel.JackpotVisibility = Visibility.Visible;
+                            break;
+                        }
+                }
+
+                //UPDATES FLASHBOARD COLORS
+                //SETS BORDER COLOR PICKER && FLASHBOARD BACKGROUND COLOR
+                Color background = (Color) ColorConverter.ConvertFromString(game.Border_Color_.Color_Hash_);
+                Border_Color_Picker.SelectedColor = background;
+                App.flashboardViewModel.BackgroundColor = new SolidColorBrush(background);
+
+                //SETS BORDER COLOR PICKER && FLASHBOARD FONT COLOR 
+                Color font = (Color) ColorConverter.ConvertFromString(game.Font_Color_.Color_Hash_);
+                Font_Color_Picker.SelectedColor = font;
+                App.flashboardViewModel.FontColor = new SolidColorBrush(font);
+
+                App.flashboardViewModel.CurrentGame = game;
+
+            }//END CHECK FLASHBOARDVIEWMODEL
+
         }
 
         //UPDATES GAME INFO
@@ -262,67 +317,14 @@ namespace BingoFlashboard.View
                 game.Jackpot_Prize_ = JackpotPrize.Text;
 
                 App.SelectedSession.Program_.Games_[gamesList.SelectedIndex] = game;
-                if (App.flashboardViewModel is not null)
-                    App.flashboardViewModel.CurrentGame = game;
-
-                //UPDATES FLASHBOARD COLORS
-                //SETS BORDER COLOR PICKER && FLASHBOARD BACKGROUND COLOR
-                Color background = (Color) ColorConverter.ConvertFromString(game.Border_Color_.Color_Hash_);
-                Border_Color_Picker.SelectedColor = background;
-                App.flashboardViewModel.BackgroundColor = new SolidColorBrush(background);
-
-                //SETS BORDER COLOR PICKER && FLASHBOARD FONT COLOR 
-                Color font = (Color) ColorConverter.ConvertFromString(game.Font_Color_.Color_Hash_);
-                Font_Color_Picker.SelectedColor = font;
-                App.flashboardViewModel.FontColor = new SolidColorBrush(font);
-
+             
                 gamesList.Items.Refresh();
 
 
-                //UPDATE FLASHBOARD GAMETYPE
-                App.flashboardViewModel.DesignatedNumVisibility = Visibility.Hidden;
-                App.flashboardViewModel.JackpotSectionVisibility = Visibility.Hidden;
-                App.flashboardViewModel.MoneyBallVisibility = Visibility.Hidden;
-                App.flashboardViewModel.UPikEmVisibility = Visibility.Hidden;
-                App.flashboardViewModel.JackpotVisibility = Visibility.Hidden;
-
-                switch (cbi.Content)
-                {
-                    case "Regular":
-                        {
-                            JackpotGameSection.Visibility = Visibility.Hidden;
-
-                            break;
-                        }
-                    case "Toonie Ball":
-                        {
-                            App.flashboardViewModel.MoneyBallVisibility = Visibility.Visible;
-                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
-                            break;
-                        }
-                    case "Money Ball":
-                        {
-                            App.flashboardViewModel.MoneyBallVisibility = Visibility.Visible;
-                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
-                            break;
-                        }
-                    case "Designated Number":
-                        {
-                            App.flashboardViewModel.DesignatedNumVisibility = Visibility.Visible;
-                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
-                            break;
-                        }
-                    case "U Pik Em":
-                        {
-                            App.flashboardViewModel.DesignatedNumVisibility = Visibility.Visible;
-                            App.flashboardViewModel.JackpotSectionVisibility = Visibility.Visible;
-                            break;
-                        }
-                }
+                //UPDATES FLASHBOARD
+                Update_Flashboard_View();
             }
         }
-
-
 
         //DELETES GAME FROM SESSION (for this round -- future programs will still have this game) 
         private void Delete_Game_Click(object sender, RoutedEventArgs e)
@@ -383,7 +385,8 @@ namespace BingoFlashboard.View
         #region GAME CONTROL REGION
         private void Hide_Jackpot_Click(object sender, RoutedEventArgs e)
         {
-
+            if(App.flashboardViewModel is not null)
+                App.flashboardViewModel.JackpotSectionVisibility = Visibility.Hidden;
         }
 
         private void Reset_Board_Click(object sender, RoutedEventArgs e)

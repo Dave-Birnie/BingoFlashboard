@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Model
 {
-    public class Pattern
+    internal class Pattern
     {
-        public int Id_ { get; set; }
-        public string Pattern_Name_ { get; set; } = string.Empty;
-        public List<List<string>>? Pattern_ { get; set; }
-        public bool Rotating_ { get; set; } = false;
-        public List<string>? Alias_ { get; set; }
+        internal int Id_ { get; set; }
+        internal string Pattern_Name_ { get; set; } = string.Empty;
+        internal List<List<string>>? Pattern_ { get; set; }
+        internal bool Rotating_ { get; set; } = false;
+        internal List<string>? Alias_ { get; set; }
     }
 }

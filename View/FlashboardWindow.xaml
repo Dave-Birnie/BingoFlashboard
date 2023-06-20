@@ -169,16 +169,26 @@
                                         <ColumnDefinition Width="2.2*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0">
-                                        <Label Name="JackpotPrize"
-                                               VerticalAlignment="Top"
-                                               HorizontalAlignment="Left"
-                                               Padding="0,2,0,0"
-                                               Margin="20,0,0,0"
-                                               FontSize="30"
-                                               FontWeight="Bold"
-                                               Visibility="{Binding JackpotVisibility}"
-                                               Foreground="{Binding FontColor}"
-                                               Content="{Binding Game.Jackpot_Prize_}" />
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Label HorizontalAlignment="Right"
+                                                   VerticalAlignment="Top"
+                                                   HorizontalContentAlignment="Right"
+                                                   FontSize="30"
+                                                   FontWeight="Bold"
+                                                   Visibility="{Binding JackpotVisibility}"
+                                                   Foreground="{Binding CurrentGame.Font_Color_.Color_Hash_}"
+                                                   Content="$" />
+                                            <Label Name="JackpotPrize"
+                                                   VerticalAlignment="Top"
+                                                   HorizontalAlignment="Left"
+                                                   Padding="0,2,0,0"
+                                                   Margin="20,0,0,0"
+                                                   FontSize="30"
+                                                   FontWeight="Bold"
+                                                   Visibility="{Binding JackpotVisibility}"
+                                                   Foreground="{Binding FontColor}"
+                                                   Content="{Binding CurrentGame.Jackpot_Prize_}" />
+                                        </StackPanel>
                                     </Grid>
                                     <Grid Grid.Column="1">
                                         <Label HorizontalAlignment="Left"

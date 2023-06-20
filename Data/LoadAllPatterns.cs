@@ -13,7 +13,7 @@ namespace BingoFlashboard.Data
     public class LoadAllPatterns
     {
         string fileName = @"C:\Temp\Patterns.txt";
-        public List<Pattern>? patternList;
+        internal List<Pattern>? patternList;
 
         public LoadAllPatterns()
         {
