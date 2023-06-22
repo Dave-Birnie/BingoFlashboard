@@ -7,7 +7,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:BingoFlashboard.View"
         mc:Ignorable="d"
-        MinHeight="750"
+        MinHeight="950"
         MinWidth="1200"
         WindowStyle="None"
         Background="Transparent"
@@ -18,10 +18,11 @@
             <RowDefinition Height="80" />
             <RowDefinition Height="1.2*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="200" />
         </Grid.RowDefinitions>
 
         <Border CornerRadius="10"
-                Grid.RowSpan="3"
+                Grid.RowSpan="4"
                 Background="{StaticResource Whitesmoke}"
                 BorderThickness="2"
                 BorderBrush="White">
@@ -105,8 +106,8 @@
                         HorizontalAlignment="Center"
                         Grid.Column="2">
                 <Button x:Name="GoLiveBtn"
-                        Style="{StaticResource ModernBtnStart}"
-                        Content="Go Live"
+                        Style="{StaticResource ModernBtn}"
+                        Content="{Binding BroadcastingBtn}"
                         Margin="20"
                         Click="GoLiveBtn_Click" />
 
@@ -689,6 +690,36 @@
                 </Grid>
             </Grid>
             <!--#endregion-->
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   FontSize="30"
+                   FontWeight="ExtraBold"
+                   Background="{StaticResource OxfordBlue}"
+                   Foreground="{StaticResource OffWhite}"
+                   Content="SERVER MESSAGES" />
+
+            <ListView Grid.Row="1"
+                      Name="ServerMessagesList"
+                      FontSize="16"
+                      FontWeight="Bold"
+                      Foreground="Black"
+                      HorizontalContentAlignment="Center">
+                <ListView.View>
+                    <GridView x:Name="grid">
+                        <GridViewColumn Header="| Game |"
+                                        Width="600" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+                     
         </Grid>
     </Grid>
 

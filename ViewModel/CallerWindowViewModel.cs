@@ -39,12 +39,12 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
-        private string broadcastingStatus_ = "";
+        private string broadcastingStatus_ = "OFF";
         public string BroadcastingStatus
         {
             get
             {
-                return broadcastingStatus_ = "";
+                return broadcastingStatus_;
             }
             set
             {
@@ -67,5 +67,32 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
+        private string broadcastingBtn = "Go Live";
+        public string BroadcastingBtn
+        {
+            get
+            {
+                return broadcastingBtn;
+            }
+            set
+            {
+                broadcastingBtn = value;
+                OnPropertyChanged(nameof(BroadcastingBtn));
+            }
+        }
+
+        private List<string> serverMessages_;
+        public List<string> ServerMessages
+        {
+            get
+            {
+                return serverMessages_;
+            }
+            set
+            {
+                serverMessages_ = value;
+                OnPropertyChanged(nameof(ServerMessages));
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ using BingoFlashboard.Model;
 using Flashboard.Model;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.Xml;
@@ -62,6 +63,8 @@ namespace BingoFlashboard.View
             //LOADS ALL PATTERNS INTO THE PATTERN COMBOBOX
             App.callerWindow = this;
             DataContext = App.callerWindowViewModel;
+            ServerMessagesList.ItemsSource = App.callerWindowViewModel.ServerMessages;
+
         }
         #endregion CONSTRUCTOR
 
@@ -113,29 +116,31 @@ namespace BingoFlashboard.View
             }
         }
 
-        private void GoLiveBtn_Click(object sender, RoutedEventArgs e)
+        private async void GoLiveBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (connection is null || !Broadcasting)
+            if(App.server is null)
             {
-                connection = new HubConnectionBuilder()
-                  .WithUrl("https://bingoappservice.azurewebsites.net/LoginHub")
-                  //.WithUrl("https://localhost:7226/LoginHub")
-                  .WithAutomaticReconnect()
-                  .Build();
-                Broadcasting = true;
+                App.server = new();
             }
 
             if (App.callerWindowViewModel is not null && Broadcasting)
             {
-                App.callerWindowViewModel.BroadcastingStatus = "ON";
-                App.callerWindowViewModel.BroadcastingColor = new SolidColorBrush(Colors.Green);
+                App.callerWindowViewModel.BroadcastingStatus = "OFF";
+                App.callerWindowViewModel.BroadcastingBtn = "Start Broadcast";
+                App.callerWindowViewModel.BroadcastingColor = new SolidColorBrush(Colors.Red);
+                Broadcasting = false;
+                App.server.CloseConnection();
+                App.server = null;
             }
             else
             {
-                if (App.callerWindowViewModel is not null)
+                if (App.callerWindowViewModel is not null )
                 {
-                    App.callerWindowViewModel.BroadcastingStatus = "OFF";
-                    App.callerWindowViewModel.BroadcastingColor = new SolidColorBrush(Colors.Red);
+                    App.callerWindowViewModel.BroadcastingStatus = "ON";
+                    App.callerWindowViewModel.BroadcastingBtn = "Stop Broadcast";
+                    App.callerWindowViewModel.BroadcastingColor = new SolidColorBrush(Colors.Green);
+                    Broadcasting = true;
+                    App.server.SendToServer();
                 }
             }
         }

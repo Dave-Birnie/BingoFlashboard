@@ -24,6 +24,7 @@ namespace BingoFlashboard
         public static string errorlogPath = @".\errorlog.txt";
         public static string startupFile = @".\startupFile.txt";
         public static string hallFile = string.Empty;
+        public static ServerConnection? server;
 
 
         #region MainVariables
