@@ -107,7 +107,7 @@
                         Grid.Column="2">
                 <Button x:Name="GoLiveBtn"
                         Style="{StaticResource ModernBtn}"
-                        Content="{Binding BroadcastingBtn}"
+                        Content="{Binding BroadcastingStatus.BroadcastingBtn}"
                         Margin="20"
                         Click="GoLiveBtn_Click" />
 
@@ -130,14 +130,14 @@
                         <Label HorizontalContentAlignment="Center"
                                HorizontalAlignment="Center"
                                VerticalContentAlignment="Center"
-                               BorderBrush="{Binding BroadcastingColor}"
+                               BorderBrush="{Binding BroadcastingStatus.BroadcastingColor}"
                                BorderThickness="5"
                                Background="White"
                                FontSize="16"
                                Padding="10,0"
-                               Foreground="{Binding BroadcastingColor}"
+                               Foreground="{Binding BroadcastingStatus.BroadcastingColor}"
                                FontWeight="Bold"
-                               Content="{Binding BroadcastingStatus}" />
+                               Content="{Binding BroadcastingStatus.BroadcastingStatus}" />
                     </StackPanel>
                 </Border>
             </StackPanel>
@@ -711,6 +711,7 @@
                       FontSize="16"
                       FontWeight="Bold"
                       Foreground="Black"
+                      ItemsSource="{Binding ServerMessages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       HorizontalContentAlignment="Center">
                 <ListView.View>
                     <GridView x:Name="grid">

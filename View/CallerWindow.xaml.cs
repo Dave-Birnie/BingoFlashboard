@@ -34,6 +34,8 @@ namespace BingoFlashboard.View
         private bool maxSize = false;
         private bool Broadcasting = false;
 
+        private List<string> messages = new List<string>() { "Welcome to Bingo Flashboard" };
+
         #endregion VARIABLES
 
         #region CONSTRUCTOR
@@ -63,7 +65,8 @@ namespace BingoFlashboard.View
             //LOADS ALL PATTERNS INTO THE PATTERN COMBOBOX
             App.callerWindow = this;
             DataContext = App.callerWindowViewModel;
-            ServerMessagesList.ItemsSource = App.callerWindowViewModel.ServerMessages;
+            App.callerWindowViewModel.ServerMessages = messages;
+            //ServerMessagesList.ItemsSource = App.callerWindowViewModel.ServerMessages;
 
         }
         #endregion CONSTRUCTOR
@@ -121,27 +124,6 @@ namespace BingoFlashboard.View
             if(App.server is null)
             {
                 App.server = new();
-            }
-
-            if (App.callerWindowViewModel is not null && Broadcasting)
-            {
-                App.callerWindowViewModel.BroadcastingStatus = "OFF";
-                App.callerWindowViewModel.BroadcastingBtn = "Start Broadcast";
-                App.callerWindowViewModel.BroadcastingColor = new SolidColorBrush(Colors.Red);
-                Broadcasting = false;
-                App.server.CloseConnection();
-                App.server = null;
-            }
-            else
-            {
-                if (App.callerWindowViewModel is not null )
-                {
-                    App.callerWindowViewModel.BroadcastingStatus = "ON";
-                    App.callerWindowViewModel.BroadcastingBtn = "Stop Broadcast";
-                    App.callerWindowViewModel.BroadcastingColor = new SolidColorBrush(Colors.Green);
-                    Broadcasting = true;
-                    App.server.SendToServer();
-                }
             }
         }
 
