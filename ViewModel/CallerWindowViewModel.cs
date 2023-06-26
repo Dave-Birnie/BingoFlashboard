@@ -40,48 +40,6 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
-        //private string broadcastingStatus_ = "OFF";
-        //public string BroadcastingStatus
-        //{
-        //    get
-        //    {
-        //        return broadcastingStatus_;
-        //    }
-        //    set
-        //    {
-        //        broadcastingStatus_ = value;
-        //        OnPropertyChanged(nameof(BroadcastingStatus));
-        //    }
-        //}
-
-        //private Brush broadcastingColor_;
-        //public Brush BroadcastingColor
-        //{
-        //    get
-        //    {
-        //        return broadcastingColor_;
-        //    }
-        //    set
-        //    {
-        //        broadcastingColor_ = value;
-        //        OnPropertyChanged(nameof(BroadcastingColor));
-        //    }
-        //}
-
-        //private string broadcastingBtn = "Go Live";
-        //public string BroadcastingBtn
-        //{
-        //    get
-        //    {
-        //        return broadcastingBtn;
-        //    }
-        //    set
-        //    {
-        //        broadcastingBtn = value;
-        //        OnPropertyChanged(nameof(BroadcastingBtn));
-        //    }
-        //}
-
         private Broadcasting broadcastingStatus_ = new Broadcasting();
         public Broadcasting BroadcastingStatus
         {
@@ -96,7 +54,7 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
-        private List<string> serverMessages_;//= new List<string>() { "Welcome to Bingo Flashboard"};
+        private List<string> serverMessages_= new List<string>() { "Welcome to Bingo Flashboard"};
         public List<string> ServerMessages
         {
             get

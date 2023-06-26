@@ -9,36 +9,55 @@ namespace BingoFlashboard.Model.FlashboardModels
 {
     public class Broadcasting
     {
-        public bool BroadcastingLive { get; private set; }
+        public string BroadcastingLive { get; private set; }
         public string BroadcastingStatus { get; private set; } = string.Empty;
-        public string BroadcastingBtn { get; private set; } = string.Empty;
+        public string BroadcastingBtn { get; set; } = string.Empty;
+        public bool BroadcastingEnabled { get; set; } = true;
         public Brush? BroadcastingColor { get; private set; }
 
 
-        public void BroadcastingBoolSet(bool status)
+        public void BroadcastingStatusSet(string status)
         {
             BroadcastingLive = status;
             ChangeBroadcasting();
         }
         public void ChangeBroadcasting()
         {
-            if (BroadcastingLive)
+            switch (BroadcastingLive)
             {
-                BroadcastingBtn = "Stop Broadcast";
-                BroadcastingStatus = "On";
-                BroadcastingColor = new SolidColorBrush(Colors.Green);
+
+                case "On":
+                    {
+                        BroadcastingBtn = "Stop Broadcast";
+                        BroadcastingStatus = "On";
+                        BroadcastingEnabled = true;
+                        BroadcastingColor = new SolidColorBrush(Colors.Green);
+                        break;
+                    }
+                case "Off":
+                    {
+                        BroadcastingBtn = "Start Broadcast";
+                        BroadcastingStatus = "Off";
+                        BroadcastingEnabled = true;
+                        BroadcastingColor = new SolidColorBrush(Colors.Red);
+                        break;
+                    }
+                case "Waiting":
+                    {
+                        BroadcastingBtn = "Connecting...";
+                        BroadcastingStatus = "Waiting..";
+                        BroadcastingEnabled = true;
+                        BroadcastingColor = new SolidColorBrush(Colors.Blue);
+                        break;
+                    }
             }
-            else
-            {
-                BroadcastingBtn = "Start Broadcast";
-                BroadcastingStatus = "Off";
-                BroadcastingColor = new SolidColorBrush(Colors.Red);
-            }
+            if(App.callerWindowViewModel is not null)
+                App.callerWindowViewModel.BroadcastingStatus = this;
         }
-        
+
         public Broadcasting()
         {
-            BroadcastingLive = false;
+            BroadcastingLive = "Off";
             ChangeBroadcasting();
         }
     }

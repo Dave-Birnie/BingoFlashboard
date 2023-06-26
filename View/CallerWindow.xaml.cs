@@ -1,22 +1,12 @@
-﻿using BingoFlashboard.Data;
-using BingoFlashboard.Model;
-using Flashboard.Model;
+﻿using BingoFlashboard.Model;
 using Microsoft.AspNetCore.SignalR.Client;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.Xml;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+using System.Windows.Threading;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Threading.Tasks;
 
 namespace BingoFlashboard.View
 {
@@ -121,9 +111,19 @@ namespace BingoFlashboard.View
 
         private async void GoLiveBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(App.server is null)
+            if (App.callerWindowViewModel is not null)
             {
-                App.server = new();
+                App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Waiting");
+
+                if (App.server is null)
+                {
+                    App.server = new();
+                }
+                else
+                {
+                    App.server.CloseConnection();
+                    App.server = new();
+                }
             }
         }
 

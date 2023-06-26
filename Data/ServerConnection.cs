@@ -23,6 +23,13 @@ namespace BingoFlashboard.Data
             .Build();
 
             ///LISTENER
+            StartAsync();
+
+            
+        }//END Constructor
+
+        private async void StartAsync()
+        {
             hubConnection.On<DataTransfer>("HostResponse", responseMessage =>
             {
                 // Handle the response message received from the server
@@ -32,7 +39,7 @@ namespace BingoFlashboard.Data
                     {
                         messages.Add(responseMessage.TransferMessage_);
                         App.callerWindowViewModel.ServerMessages = messages;
-                        App.callerWindowViewModel.BroadcastingStatus.BroadcastingBoolSet(true);
+                        App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("On");
                     }
                     MessageBox.Show(responseMessage.TransferMessage_);
                 }
@@ -42,14 +49,35 @@ namespace BingoFlashboard.Data
                     {
                         messages.Add(responseMessage.TransferMessage_);
                         App.callerWindowViewModel.ServerMessages = messages;
-                        App.callerWindowViewModel.BroadcastingStatus.BroadcastingBoolSet(false);
+                        App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Off");
                     }
                     MessageBox.Show(responseMessage.TransferMessage_);
                 }
             });
             // Start the SignalR connection
-            hubConnection.StartAsync();
-        }//END Constructor
+            try
+            {
+                await hubConnection.StartAsync();
+
+
+            }
+            catch (Exception ex)
+            {
+                if (App.callerWindowViewModel is not null)
+                {
+                    messages.Add("Unable to connect to server.");
+                    messages.Add(ex.Message);
+                    App.callerWindowViewModel.ServerMessages = messages;
+                    App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Off");
+                }
+            }
+        }
+
+        public HubConnection GetHubConnection()
+        {
+            return hubConnection;
+        }
+
 
         public async void HostNewGame()
         {

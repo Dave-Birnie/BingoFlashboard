@@ -109,6 +109,7 @@
                         Style="{StaticResource ModernBtn}"
                         Content="{Binding BroadcastingStatus.BroadcastingBtn}"
                         Margin="20"
+                        IsEnabled="{Binding BroadcastingStatus.BroadcastingEnabled}"
                         Click="GoLiveBtn_Click" />
 
                 <Border BorderBrush="{StaticResource Mint}"
