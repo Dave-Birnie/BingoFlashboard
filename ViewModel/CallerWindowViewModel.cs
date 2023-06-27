@@ -2,6 +2,7 @@
 using BingoFlashboard.Model.FlashboardModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,19 +54,27 @@ namespace BingoFlashboard.ViewModel
                 OnPropertyChanged(nameof(BroadcastingStatus));
             }
         }
-
-        private List<string> serverMessages_= new List<string>() { "Welcome to Bingo Flashboard"};
-        public List<string> ServerMessages
+        private ObservableCollection<string> serverMessages_ = new ObservableCollection<string>() { "Welcome to Bingo Flashboard" };
+        public ObservableCollection<string> ServerMessages
         {
-            get
-            {
-                return serverMessages_;
-            }
+            get { return serverMessages_; }
             set
             {
                 serverMessages_ = value;
                 OnPropertyChanged(nameof(ServerMessages));
             }
+        }
+
+        public void AddServerMessage(string message)
+        {
+            string timestamp = DateTime.Now.ToString("HH:mm:ss");
+            string formattedMessage = $"{timestamp} - \t{message}";
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                serverMessages_.Insert(0, formattedMessage);
+                OnPropertyChanged(nameof(ServerMessages));
+            });
         }
     }
 }

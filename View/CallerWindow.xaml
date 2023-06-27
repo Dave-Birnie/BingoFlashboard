@@ -34,7 +34,7 @@
               Background="{StaticResource OxfordBlue}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal"
@@ -107,10 +107,18 @@
                         Grid.Column="2">
                 <Button x:Name="GoLiveBtn"
                         Style="{StaticResource ModernBtn}"
+                        Width="160"
                         Content="{Binding BroadcastingStatus.BroadcastingBtn}"
                         Margin="20"
                         IsEnabled="{Binding BroadcastingStatus.BroadcastingEnabled}"
                         Click="GoLiveBtn_Click" />
+
+                <Button x:Name="StartHosting"
+                        Style="{StaticResource ModernBtn}"
+                        Content="Start Game"
+                        Margin="20"
+                        Visibility="Visible"
+                        Click="StartGame_Click" />
 
                 <Border BorderBrush="{StaticResource Mint}"
                         BorderThickness="2"
@@ -713,15 +721,8 @@
                       FontWeight="Bold"
                       Foreground="Black"
                       ItemsSource="{Binding ServerMessages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      HorizontalContentAlignment="Center">
-                <ListView.View>
-                    <GridView x:Name="grid">
-                        <GridViewColumn Header="| Game |"
-                                        Width="600" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-                     
+                      HorizontalContentAlignment="Left" />
+            
         </Grid>
     </Grid>
 

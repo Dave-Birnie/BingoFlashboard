@@ -55,8 +55,6 @@ namespace BingoFlashboard.View
             //LOADS ALL PATTERNS INTO THE PATTERN COMBOBOX
             App.callerWindow = this;
             DataContext = App.callerWindowViewModel;
-            App.callerWindowViewModel.ServerMessages = messages;
-            //ServerMessagesList.ItemsSource = App.callerWindowViewModel.ServerMessages;
 
         }
         #endregion CONSTRUCTOR
@@ -122,9 +120,14 @@ namespace BingoFlashboard.View
                 else
                 {
                     App.server.CloseConnection();
-                    App.server = new();
+                    App.server = null;
                 }
             }
+        }
+
+        private void StartGame_Click(object sender, RoutedEventArgs e)
+        {
+            App.server.HostNewGame();
         }
 
         #endregion TOP BUTTONS
@@ -172,7 +175,7 @@ namespace BingoFlashboard.View
                         }
                         a++;
                     }
-                    if(game.Pattern_ is not null && App.miniGrid is not null)
+                    if (game.Pattern_ is not null && App.miniGrid is not null)
                         App.miniGrid.StartAnimation(game.Pattern_);
 
                     Update_Flashboard_View();
@@ -202,7 +205,7 @@ namespace BingoFlashboard.View
         //CHANGES LABELS TO MAKE IT CLEARER FOR USER
         private void GameType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem cbi = (ComboBoxItem)CallerType.SelectedItem;
+            ComboBoxItem cbi = (ComboBoxItem) CallerType.SelectedItem;
 
             //IF YOU HIDE ALL ELEMENTS FIRST, LESS CODE IN THE SWITCH CODE 
             JackpotGameSection.Visibility = Visibility.Visible;
@@ -335,7 +338,7 @@ namespace BingoFlashboard.View
                 game.Jackpot_Prize_ = JackpotPrize.Text;
 
                 App.SelectedSession.Program_.Games_[gamesList.SelectedIndex] = game;
-             
+
                 gamesList.Items.Refresh();
 
 
@@ -403,13 +406,13 @@ namespace BingoFlashboard.View
         #region GAME CONTROL REGION
         private void Hide_Jackpot_Click(object sender, RoutedEventArgs e)
         {
-            if(App.flashboardViewModel is not null)
+            if (App.flashboardViewModel is not null)
                 App.flashboardViewModel.JackpotSectionVisibility = Visibility.Hidden;
         }
 
         private void Reset_Board_Click(object sender, RoutedEventArgs e)
         {
-            if(App.flashboardViewModel is not null)
+            if (App.flashboardViewModel is not null)
                 App.flashboardViewModel.ResetBoard();
         }
 
@@ -421,7 +424,7 @@ namespace BingoFlashboard.View
                 if (response == "Success")
                     Ball.Text = "";
 
-                else if(response == "Fail")
+                else if (response == "Fail")
                     MessageBox.Show("Ball Error");
             }
         }
@@ -438,6 +441,7 @@ namespace BingoFlashboard.View
         {
 
         }
+
         #endregion GAME SELECTION REGION
 
 

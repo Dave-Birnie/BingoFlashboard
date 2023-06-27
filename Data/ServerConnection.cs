@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,14 +19,15 @@ namespace BingoFlashboard.Data
         public ServerConnection()
         {
             hubConnection = new HubConnectionBuilder()
-            .WithUrl("https://localhost:7226/GameHub") // Replace with the appropriate URL
+            .WithUrl("http://192.168.2.16:7226/GameHub") // Replace with the appropriate URL
+            //.WithUrl("https://localhost:7226/GameHub") // Replace with the appropriate URL
             .WithAutomaticReconnect()
             .Build();
 
             ///LISTENER
             StartAsync();
 
-            
+
         }//END Constructor
 
         private async void StartAsync()
@@ -33,24 +35,9 @@ namespace BingoFlashboard.Data
             hubConnection.On<DataTransfer>("HostResponse", responseMessage =>
             {
                 // Handle the response message received from the server
-                if (responseMessage.Success_)
+                if (responseMessage.Success_ && App.callerWindowViewModel is not null)
                 {
-                    if (App.callerWindowViewModel is not null)
-                    {
-                        messages.Add(responseMessage.TransferMessage_);
-                        App.callerWindowViewModel.ServerMessages = messages;
-                        App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("On");
-                    }
-                    MessageBox.Show(responseMessage.TransferMessage_);
-                }
-                else
-                {
-                    if (App.callerWindowViewModel is not null)
-                    {
-                        messages.Add(responseMessage.TransferMessage_);
-                        App.callerWindowViewModel.ServerMessages = messages;
-                        App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Off");
-                    }
+                    App.callerWindowViewModel.AddServerMessage(responseMessage.TransferMessage_.ToString());
                     MessageBox.Show(responseMessage.TransferMessage_);
                 }
             });
@@ -59,7 +46,11 @@ namespace BingoFlashboard.Data
             {
                 await hubConnection.StartAsync();
 
-
+                if (App.callerWindowViewModel is not null)
+                {
+                    App.callerWindowViewModel.AddServerMessage("Connected to server");
+                    App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("On");
+                }
             }
             catch (Exception ex)
             {
@@ -67,7 +58,7 @@ namespace BingoFlashboard.Data
                 {
                     messages.Add("Unable to connect to server.");
                     messages.Add(ex.Message);
-                    App.callerWindowViewModel.ServerMessages = messages;
+                    App.callerWindowViewModel.AddServerMessage("Unable to connect to server");
                     App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Off");
                 }
             }
@@ -125,8 +116,8 @@ namespace BingoFlashboard.Data
             {
                 if (App.callerWindowViewModel is not null)
                 {
-                    messages.Add("Server Unavailable, please contact administrator.\n" + ex.Message);
-                    App.callerWindowViewModel.ServerMessages = messages;
+                    //messages.Add("Server Unavailable, please contact administrator.\n" + ex.Message);
+                    App.callerWindowViewModel.AddServerMessage("Server Unavailable, please contact administrator.\n" + ex.Message);
                 }
             }
         }
@@ -138,12 +129,19 @@ namespace BingoFlashboard.Data
                 TransferMessage_ = "Game",
                 JsonString_ = JsonConvert.SerializeObject(App.SelectedGame, Formatting.Indented)
             };
-            
+
             await hubConnection.SendAsync("NewGameInfo", dt);
         }
         public async void CloseConnection()
         {
+            await hubConnection.StopAsync();
             await hubConnection.DisposeAsync();
+
+            if (App.callerWindowViewModel is not null)
+            {
+                App.callerWindowViewModel.AddServerMessage("Disconnected from server");
+                App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Off");
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace BingoFlashboard.Model.FlashboardModels
@@ -23,6 +24,7 @@ namespace BingoFlashboard.Model.FlashboardModels
         }
         public void ChangeBroadcasting()
         {
+
             switch (BroadcastingLive)
             {
 
@@ -36,7 +38,7 @@ namespace BingoFlashboard.Model.FlashboardModels
                     }
                 case "Off":
                     {
-                        BroadcastingBtn = "Start Broadcast";
+                        BroadcastingBtn = "Connect Broadcast";
                         BroadcastingStatus = "Off";
                         BroadcastingEnabled = true;
                         BroadcastingColor = new SolidColorBrush(Colors.Red);
@@ -51,8 +53,10 @@ namespace BingoFlashboard.Model.FlashboardModels
                         break;
                     }
             }
-            if(App.callerWindowViewModel is not null)
+            if (App.callerWindowViewModel is not null)
+            {
                 App.callerWindowViewModel.BroadcastingStatus = this;
+            }
         }
 
         public Broadcasting()
