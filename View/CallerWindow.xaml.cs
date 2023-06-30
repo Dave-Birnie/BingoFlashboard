@@ -22,7 +22,7 @@ namespace BingoFlashboard.View
         HubConnection connection;
 
         private bool maxSize = false;
-        private bool Broadcasting = false;
+        public bool BroadcastingGame = false;
 
         private List<string> messages = new List<string>() { "Welcome to Bingo Flashboard" };
 
@@ -109,26 +109,20 @@ namespace BingoFlashboard.View
 
         private async void GoLiveBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (App.callerWindowViewModel is not null)
+           
+            if (App.server is not null )
             {
-                App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Waiting");
-
-                if (App.server is null)
+                if (!BroadcastingGame)
                 {
-                    App.server = new();
+                    await App.server.HostNewGame();
                 }
                 else
                 {
-                    App.server.CloseConnection();
-                    App.server = null;
+                    MessageBox.Show("Game already broadcasting");
                 }
             }
         }
 
-        private void StartGame_Click(object sender, RoutedEventArgs e)
-        {
-            App.server.HostNewGame();
-        }
 
         #endregion TOP BUTTONS
 
@@ -253,9 +247,11 @@ namespace BingoFlashboard.View
             }//END CHECK FLASHBOARDVIEWMODEL
         }
 
-        private void Update_Flashboard_View()
+        private async void Update_Flashboard_View()
         {
             game = (Game) gamesList.SelectedItem;
+            
+            await SendGameInfo();
 
             //UPDATE FLASHBOARD
             if (App.flashboardViewModel is not null)
@@ -315,6 +311,13 @@ namespace BingoFlashboard.View
 
         }
 
+        public async Task SendGameInfo()
+        {
+            if (BroadcastingGame)
+                if (App.server is not null)
+                    await App.server.SendGameInfo(game);
+        }
+
         //UPDATES GAME INFO
         private void Update_Game_Click(object sender, RoutedEventArgs e)
         {
@@ -360,8 +363,11 @@ namespace BingoFlashboard.View
         //ALLOWS YOU TO GO BACK AND SELECT A NEW SESSION
         private void Load_New_Session_Click(object sender, RoutedEventArgs e)
         {
-            App.startupWindow.Show();
-            this.Close();
+            if (App.startupWindow is not null)
+            {
+                App.startupWindow.Show();
+                this.Close();
+            }
         }
 
         #endregion GAME DETAILS REGION

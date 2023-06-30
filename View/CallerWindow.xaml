@@ -108,45 +108,64 @@
                 <Button x:Name="GoLiveBtn"
                         Style="{StaticResource ModernBtn}"
                         Width="160"
-                        Content="{Binding BroadcastingStatus.BroadcastingBtn}"
+                        Content="{Binding HostingStatus.HostingGameBtn}"
                         Margin="20"
-                        IsEnabled="{Binding BroadcastingStatus.BroadcastingEnabled}"
                         Click="GoLiveBtn_Click" />
-
-                <Button x:Name="StartHosting"
-                        Style="{StaticResource ModernBtn}"
-                        Content="Start Game"
-                        Margin="20"
-                        Visibility="Visible"
-                        Click="StartGame_Click" />
 
                 <Border BorderBrush="{StaticResource Mint}"
                         BorderThickness="2"
                         Margin="2">
-                    <StackPanel Orientation="Vertical"
-                                VerticalAlignment="Stretch"
-                                Background="Black">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical"
+                                    VerticalAlignment="Stretch"
+                                    Background="Black">
 
-                        <Label Background="Black"
-                               BorderBrush="Black"
-                               BorderThickness="5"
-                               FontSize="16"
-                               Foreground="White"
-                               Padding="15,0,15,0"
-                               FontWeight="Bold"
-                               HorizontalAlignment="Center"
-                               Content="BROADCASTING STATUS" />
-                        <Label HorizontalContentAlignment="Center"
-                               HorizontalAlignment="Center"
-                               VerticalContentAlignment="Center"
-                               BorderBrush="{Binding BroadcastingStatus.BroadcastingColor}"
-                               BorderThickness="5"
-                               Background="White"
-                               FontSize="16"
-                               Padding="10,0"
-                               Foreground="{Binding BroadcastingStatus.BroadcastingColor}"
-                               FontWeight="Bold"
-                               Content="{Binding BroadcastingStatus.BroadcastingStatus}" />
+                            <Label Background="Black"
+                                   BorderBrush="Black"
+                                   BorderThickness="5"
+                                   FontSize="16"
+                                   Foreground="White"
+                                   Padding="15,0,15,0"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   Content="BROADCASTING" />
+                            <Label HorizontalContentAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   BorderBrush="{Binding BroadcastingStatus.BroadcastingColor}"
+                                   BorderThickness="5"
+                                   Background="White"
+                                   FontSize="16"
+                                   Padding="10,0"
+                                   Foreground="{Binding BroadcastingStatus.BroadcastingColor}"
+                                   FontWeight="Bold"
+                                   Content="{Binding BroadcastingStatus.BroadcastingStatus}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical"
+                                    VerticalAlignment="Stretch"
+                                    Background="Black">
+
+                            <Label Background="Black"
+                                   BorderBrush="Black"
+                                   BorderThickness="5"
+                                   FontSize="16"
+                                   Foreground="White"
+                                   Padding="15,0,15,0"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   Content="HOSTING" />
+                            <Label HorizontalContentAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   BorderBrush="{Binding HostingStatus.HostingGameColor}"
+                                   BorderThickness="5"
+                                   Background="White"
+                                   FontSize="16"
+                                   Padding="10,0"
+                                   Foreground="{Binding HostingStatus.HostingGameColor}"
+                                   FontWeight="Bold"
+                                   Content="{Binding HostingStatus.HostingGameStatus}" />
+                        </StackPanel>
                     </StackPanel>
                 </Border>
             </StackPanel>

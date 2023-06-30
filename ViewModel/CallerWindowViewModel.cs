@@ -54,6 +54,21 @@ namespace BingoFlashboard.ViewModel
                 OnPropertyChanged(nameof(BroadcastingStatus));
             }
         }
+
+        private HostingGame hostingStatus_ = new HostingGame();
+        public HostingGame HostingStatus
+        {
+            get
+            {
+                return hostingStatus_;
+            }
+            set
+            {
+                hostingStatus_ = value;
+                OnPropertyChanged(nameof(HostingStatus));
+            }
+        }
+
         private ObservableCollection<string> serverMessages_ = new ObservableCollection<string>() { "Welcome to Bingo Flashboard" };
         public ObservableCollection<string> ServerMessages
         {

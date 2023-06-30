@@ -104,6 +104,21 @@ namespace BingoFlashboard.View
                 this.Hide();
                 App.ShowCallerWindows();
 
+                if (App.callerWindowViewModel is not null)
+                {
+                    App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Waiting");
+
+                    if (App.server is null)
+                    {
+                        App.server = new();
+                    }
+                    else
+                    {
+                        App.server.CloseConnection();
+                        App.server = null;
+                    }
+                }
+
             }
             else
                 MessageBox.Show("Please select a session");

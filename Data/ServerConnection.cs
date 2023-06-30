@@ -13,8 +13,12 @@ namespace BingoFlashboard.Data
 {
     public class ServerConnection
     {
+        #region PROPERTIES
         private HubConnection hubConnection;
         private List<string> messages = new List<string>() { "Welcome to Bingo Flashboard" };
+        #endregion PROPERTIES
+
+        #region SET CONNECTION
 
         public ServerConnection()
         {
@@ -34,11 +38,43 @@ namespace BingoFlashboard.Data
         {
             hubConnection.On<DataTransfer>("HostResponse", responseMessage =>
             {
-                // Handle the response message received from the server
-                if (responseMessage.Success_ && App.callerWindowViewModel is not null)
+                try
                 {
-                    App.callerWindowViewModel.AddServerMessage(responseMessage.TransferMessage_.ToString());
-                    MessageBox.Show(responseMessage.TransferMessage_);
+                    Application.Current.Dispatcher.Invoke(async () =>
+                    {
+                        // Handle the response message received from the server
+                        if (responseMessage.Success_ && App.callerWindowViewModel is not null)
+                        {
+                            switch (responseMessage.TransferMessage_)
+                            {
+                                case "Game Connected":
+                                    {
+
+                                        App.callerWindowViewModel.AddServerMessage(responseMessage.SecondaryMessage_.ToString());
+                                        MessageBox.Show(responseMessage.SecondaryMessage_);
+                                        App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("On");
+                                        if(App.callerWindow is not null)
+                                            await App.callerWindow.SendGameInfo();
+                                        break;
+                                    }
+                            }
+                        }
+                        else if (!responseMessage.Success_ && App.callerWindowViewModel is not null)
+                        {
+                            App.callerWindowViewModel.AddServerMessage(responseMessage.TransferMessage_.ToString());
+                            MessageBox.Show(responseMessage.TransferMessage_);
+                        }
+                        else
+                        {
+
+                        }
+                    });
+                }
+                catch (Exception ex)
+                {
+                    if (App.callerWindowViewModel is not null)
+                        App.callerWindowViewModel.AddServerMessage(responseMessage.SecondaryMessage_.ToString());
+                    MessageBox.Show(ex.Message);
                 }
             });
             // Start the SignalR connection
@@ -64,13 +100,32 @@ namespace BingoFlashboard.Data
             }
         }
 
+        #endregion SET CONNECTION
+
+        #region GET/CLOSE CONNECTION    
         public HubConnection GetHubConnection()
         {
             return hubConnection;
         }
 
+        public async void CloseConnection()
+        {
+            await hubConnection.StopAsync();
+            await hubConnection.DisposeAsync();
 
-        public async void HostNewGame()
+            if (App.callerWindowViewModel is not null)
+            {
+                App.callerWindowViewModel.AddServerMessage("Disconnected from server");
+                App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Off");
+            }
+        }
+
+        #endregion GET/CLOSE CONNECTION
+
+        #region GAME METHODS
+
+        //Allows the flashboard app to host a new game for players to join
+        public async Task HostNewGame()
         {
             try
             {
@@ -122,26 +177,19 @@ namespace BingoFlashboard.Data
             }
         }
 
-        public async void SendGameInfo()
+        //Allows flashboard app to send the game info to the server
+        public async Task SendGameInfo(Game game)
         {
             DataTransfer dt = new()
             {
                 TransferMessage_ = "Game",
-                JsonString_ = JsonConvert.SerializeObject(App.SelectedGame, Formatting.Indented)
+                JsonString_ = JsonConvert.SerializeObject(game, Formatting.Indented)
             };
 
             await hubConnection.SendAsync("NewGameInfo", dt);
         }
-        public async void CloseConnection()
-        {
-            await hubConnection.StopAsync();
-            await hubConnection.DisposeAsync();
 
-            if (App.callerWindowViewModel is not null)
-            {
-                App.callerWindowViewModel.AddServerMessage("Disconnected from server");
-                App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Off");
-            }
-        }
+        #endregion GAME METHODS
+
     }
 }
