@@ -43,7 +43,7 @@ namespace BingoFlashboard.Data
                     Application.Current.Dispatcher.Invoke(async () =>
                     {
                         // Handle the response message received from the server
-                        if (responseMessage.Success_ && App.callerWindowViewModel is not null)
+                        if (responseMessage.Success_ is not null && (bool)responseMessage.Success_ && App.callerWindowViewModel is not null)
                         {
                             switch (responseMessage.TransferMessage_)
                             {
@@ -57,9 +57,15 @@ namespace BingoFlashboard.Data
                                             await App.callerWindow.SendGameInfo();
                                         break;
                                     }
+                                default:
+                                    {
+                                        App.callerWindowViewModel.AddServerMessage(responseMessage.TransferMessage_.ToString());
+                                        MessageBox.Show(responseMessage.TransferMessage_);
+                                        break;
+                                    }
                             }
                         }
-                        else if (!responseMessage.Success_ && App.callerWindowViewModel is not null)
+                        else if (responseMessage.Success_ is not null && !(bool)responseMessage.Success_ && App.callerWindowViewModel is not null)
                         {
                             App.callerWindowViewModel.AddServerMessage(responseMessage.TransferMessage_.ToString());
                             MessageBox.Show(responseMessage.TransferMessage_);
