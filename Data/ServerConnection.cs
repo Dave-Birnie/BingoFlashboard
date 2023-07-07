@@ -1,4 +1,5 @@
 ﻿using BingoFlashboard.Model;
+using BingoFlashboard.Model.FlashboardModels;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using System;
@@ -60,7 +61,7 @@ namespace BingoFlashboard.Data
                                 default:
                                     {
                                         App.callerWindowViewModel.AddServerMessage(responseMessage.TransferMessage_.ToString());
-                                        MessageBox.Show(responseMessage.TransferMessage_);
+                                        //MessageBox.Show(responseMessage.TransferMessage_);
                                         break;
                                     }
                             }
@@ -186,13 +187,34 @@ namespace BingoFlashboard.Data
         //Allows flashboard app to send the game info to the server
         public async Task SendGameInfo(Game game)
         {
-            DataTransfer dt = new()
+            if (App.hall is not null && App.hall.Name_ is not null)
             {
-                TransferMessage_ = "Game",
-                JsonString_ = JsonConvert.SerializeObject(game, Formatting.Indented)
-            };
+                PartialGame pt = new()
+                {
+                    Id_ = game.Id_,
+                    HallName_ = App.hall.Name_,
+                    DateTimeStart_ = "Jan 23 --  @ 7pm",
+                    GameName_ = game.Name_,
+                    Border_Color_ = game.Border_Color_,
+                    Font_Color_ = game.Font_Color_,
+                    GameType_ = game.GameType_,
+                    Pattern_ = game.Pattern_,
+                    Prize_ = game.Prize_,
+                    Jackpot_Prize_ = game.Jackpot_Prize_,
+                    Designated_Number_ = game.Designated_Number_,
+                    Four_Ball_ = game.Four_Ball_,
+                    Four_Ball_Prize_ = game.Four_Ball_Prize_,
+                };
+                DataTransfer dt = new()
+                {
+                    TransferMessage_ = "Game",
+                    JsonString_ = JsonConvert.SerializeObject(game, Formatting.Indented),
+                    SecondaryMessage_ = JsonConvert.SerializeObject(pt, Formatting.Indented)
+                };
 
-            await hubConnection.SendAsync("NewGameInfo", dt);
+                await hubConnection.SendAsync("NewGameInfo", dt);
+            }
+
         }
 
         #endregion GAME METHODS

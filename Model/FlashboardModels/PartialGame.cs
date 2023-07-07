@@ -11,7 +11,9 @@ namespace BingoFlashboard.Model.FlashboardModels
     public class PartialGame
     {
         public int Id_ { get; set; }
-        public string Name_ { get; set; } = string.Empty;
+        public string? HallName_ { get; set; }
+        public string? DateTimeStart_ { get; set; }
+        public string GameName_ { get; set; } = string.Empty;
         public GameColor? Border_Color_ { get; set; }
         public GameColor? Font_Color_ { get; set; }
         public string GameType_ { get; set; } = string.Empty;
@@ -21,18 +23,18 @@ namespace BingoFlashboard.Model.FlashboardModels
         public string Designated_Number_ { get; set; } = string.Empty;
         public string? Four_Ball_ { get; set; }
         public string? Four_Ball_Prize_ { get; set; }
-        public byte[]? LastBallImage { get; set; }
+        public string? LastBallNum_ { get; set; }
 
         public void ConvertBitmapImageToByteArray(BitmapImage bitmapImage)
         {
-            using (MemoryStream stream = new MemoryStream())
-            {
-                BitmapEncoder encoder = new PngBitmapEncoder(); // Choose an appropriate encoder based on your requirements
-                encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
-                encoder.Save(stream);
+            //using (MemoryStream stream = new MemoryStream())
+            //{
+            //    BitmapEncoder encoder = new PngBitmapEncoder(); // Choose an appropriate encoder based on your requirements
+            //    encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
+            //    encoder.Save(stream);
 
-                LastBallImage = stream.ToArray();
-            }
+            //    LastBallImage = stream.ToArray();
+            //}
         }
     }
 }

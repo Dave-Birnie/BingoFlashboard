@@ -250,7 +250,6 @@ namespace BingoFlashboard.View
         private async void Update_Flashboard_View()
         {
             game = (Game) gamesList.SelectedItem;
-            
             await SendGameInfo();
 
             //UPDATE FLASHBOARD
