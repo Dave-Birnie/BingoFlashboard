@@ -109,8 +109,8 @@ namespace BingoFlashboard.View
 
         private async void GoLiveBtn_Click(object sender, RoutedEventArgs e)
         {
-           
-            if (App.server is not null )
+
+            if (App.server is not null)
             {
                 if (!BroadcastingGame)
                 {

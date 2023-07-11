@@ -1,0 +1,155 @@
+﻿<Window x:Class="BingoFlashboard.View.BingoCalledWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BingoFlashboard.View"
+        mc:Ignorable="d"
+        Title="BingoCalledWindow"
+        Height="400"
+        Width="600">
+    <Grid x:Name="GridBackground" Background="DodgerBlue">
+        <Grid.Resources>
+            <DrawingBrush x:Key="TextBrush"
+                          Stretch="None">
+                <DrawingBrush.Drawing>
+                    <DrawingGroup>
+                        <GeometryDrawing Brush="Black">
+                            <GeometryDrawing.Geometry>
+                                <GeometryGroup>
+                                    <RectangleGeometry Rect="0,0,1,1" />
+                                    <RectangleGeometry Rect="1,1,1,1" />
+                                    <RectangleGeometry Rect="1,0,1,1" />
+                                    <RectangleGeometry Rect="0,1,1,1" />
+                                </GeometryGroup>
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                        <GeometryDrawing Brush="White">
+                            <GeometryDrawing.Geometry>
+                                <GeometryGroup>
+                                    <RectangleGeometry Rect="0,0,1,1" />
+                                    <GeometryGroup.Transform>
+                                        <TranslateTransform X="2"
+                                                            Y="2" />
+                                    </GeometryGroup.Transform>
+                                </GeometryGroup>
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingGroup>
+                </DrawingBrush.Drawing>
+            </DrawingBrush>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label x:Name="bingoLabel"
+               Content="BINGO CALLED"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Style="{StaticResource FlashboardLbl}"
+               FontSize="50">
+            <Label.Effect>
+                <DropShadowEffect BlurRadius="3"
+                                  Color="Black"
+                                  ShadowDepth="5" />
+            </Label.Effect>
+            <Label.Foreground>
+                <DrawingBrush>
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <GeometryDrawing Brush="{StaticResource TextBrush}">
+                                <GeometryDrawing.Pen>
+                                    <Pen Brush="White"
+                                         Thickness="4" />
+                                </GeometryDrawing.Pen>
+                                <GeometryDrawing.Geometry>
+                                    <GeometryGroup>
+                                        <RectangleGeometry Rect="0,0,1,1" />
+                                    </GeometryGroup>
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Label.Foreground>
+        </Label>
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label
+                       Content="CARD NUMBER:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource H2}"
+                       FontSize="20">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="3"
+                                          Color="Black"
+                                          ShadowDepth="3" />
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <DrawingBrush>
+                            <DrawingBrush.Drawing>
+                                <DrawingGroup>
+                                    <GeometryDrawing Brush="{StaticResource TextBrush}">
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="White"
+                                                 Thickness="4" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <GeometryGroup>
+                                                <RectangleGeometry Rect="0,0,1,1" />
+                                            </GeometryGroup>
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                </DrawingGroup>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Label.Foreground>
+                </Label>
+                <Label 
+                    x:Name="CardNum"
+                    Content="2134233232"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                    Margin="20,0"
+                       Style="{StaticResource H1}"
+                       FontSize="30">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="3"
+                                          Color="Black"
+                                          ShadowDepth="3" />
+                    </Label.Effect>
+                    <Label.Foreground>
+                        <DrawingBrush>
+                            <DrawingBrush.Drawing>
+                                <DrawingGroup>
+                                    <GeometryDrawing Brush="{StaticResource TextBrush}">
+                                        <GeometryDrawing.Pen>
+                                            <Pen Brush="White"
+                                                 Thickness="4" />
+                                        </GeometryDrawing.Pen>
+                                        <GeometryDrawing.Geometry>
+                                            <GeometryGroup>
+                                                <RectangleGeometry Rect="0,0,1,1" />
+                                            </GeometryGroup>
+                                        </GeometryDrawing.Geometry>
+                                    </GeometryDrawing>
+                                </DrawingGroup>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Label.Foreground>
+                </Label>
+
+            </StackPanel>
+            <Button Height="40"
+                    Name="AcknowledgeBtn"
+                    Style="{StaticResource ModernBtnSolid}"
+                    FontWeight="Bold"
+                    Margin="20"
+                    Content="OKAY"
+                    Click="AcknowledgeBtn_Click"
+                    />
+        </StackPanel>
+    </Grid>
+</Window>

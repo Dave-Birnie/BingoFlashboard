@@ -1,5 +1,6 @@
 ﻿using BingoFlashboard.Model;
 using BingoFlashboard.Model.FlashboardModels;
+using BingoFlashboard.View;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using System;
@@ -41,11 +42,12 @@ namespace BingoFlashboard.Data
             {
                 try
                 {
-                    Application.Current.Dispatcher.Invoke(async () =>
+                    if (responseMessage.Success_ is not null && (bool) responseMessage.Success_ && App.callerWindowViewModel is not null)
                     {
-                        // Handle the response message received from the server
-                        if (responseMessage.Success_ is not null && (bool)responseMessage.Success_ && App.callerWindowViewModel is not null)
+                        Application.Current.Dispatcher.Invoke(async () =>
                         {
+                            // Handle the response message received from the server
+
                             switch (responseMessage.TransferMessage_)
                             {
                                 case "Game Connected":
@@ -54,7 +56,7 @@ namespace BingoFlashboard.Data
                                         App.callerWindowViewModel.AddServerMessage(responseMessage.SecondaryMessage_.ToString());
                                         MessageBox.Show(responseMessage.SecondaryMessage_);
                                         App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("On");
-                                        if(App.callerWindow is not null)
+                                        if (App.callerWindow is not null)
                                             await App.callerWindow.SendGameInfo();
                                         break;
                                     }
@@ -64,18 +66,39 @@ namespace BingoFlashboard.Data
                                         //MessageBox.Show(responseMessage.TransferMessage_);
                                         break;
                                     }
-                            }
-                        }
-                        else if (responseMessage.Success_ is not null && !(bool)responseMessage.Success_ && App.callerWindowViewModel is not null)
+                            }//END SWITCH
+                        });//END DISPATCHER
+
+                    }//END IF SUCCESS
+                    else if (responseMessage.Success_ is not null && !(bool) responseMessage.Success_ && App.callerWindowViewModel is not null)
+                    {
+                        App.callerWindowViewModel.AddServerMessage(responseMessage.TransferMessage_.ToString());
+                        MessageBox.Show(responseMessage.TransferMessage_);
+                    }//END IF SUCCESS FALSE
+                    else
+                    {
+                        try
                         {
-                            App.callerWindowViewModel.AddServerMessage(responseMessage.TransferMessage_.ToString());
-                            MessageBox.Show(responseMessage.TransferMessage_);
+   
+                            switch (responseMessage.TransferMessage_)
+                            {
+                                case "Bingo Called":
+                                    {
+                                        Application.Current.Dispatcher.Invoke(() =>
+                                        {
+                                            BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
+                                            bingoCalledWindow.Show();
+                                        });//END DISPATCHER
+
+                                        break;
+                                    }
+                            }//END SWITCH
                         }
-                        else
+                        catch(Exception ex)
                         {
 
                         }
-                    });
+                    }//END SUCCESS NULL
                 }
                 catch (Exception ex)
                 {
