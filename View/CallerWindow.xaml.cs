@@ -421,13 +421,19 @@ namespace BingoFlashboard.View
                 App.flashboardViewModel.ResetBoard();
         }
 
-        private void Ball_KeyDown(object sender, KeyEventArgs e)
+        private async void Ball_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && App.flashboardViewModel is not null)
             {
                 string response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
                 if (response == "Success")
-                    Ball.Text = "";
+                {
+                    if (App.server is not null)
+                    {
+                        await App.server.SendCalledBall(Ball.Text);
+                        Ball.Text = "";
+                    }
+                }
 
                 else if (response == "Fail")
                     MessageBox.Show("Ball Error");

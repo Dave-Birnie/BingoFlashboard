@@ -195,4 +195,8 @@
     <Resource Include="Images\balls\OBallDark.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="View\ContentView\" />
+  </ItemGroup>
+
 </Project>

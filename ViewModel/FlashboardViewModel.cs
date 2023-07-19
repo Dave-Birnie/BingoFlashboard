@@ -1732,7 +1732,6 @@ namespace BingoFlashboard.ViewModel
 
                 if (ballnum >= 1 && ballnum <= 75)
                 {
-
                     switch (ballnum)
                     {
                         #region B's
@@ -5147,7 +5146,8 @@ namespace BingoFlashboard.ViewModel
                                 ChangeLastBallImage();  return "Success";
                             }
                             #endregion O's    
-                    }
+                    }//End Switch
+
                 };
                 return "Error";
             }//End Try

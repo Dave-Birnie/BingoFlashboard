@@ -240,6 +240,22 @@ namespace BingoFlashboard.Data
 
         }
 
+        public async Task SendCalledBall(string ballnum)
+        {
+            if (App.hall is not null && App.hall.Name_ is not null)
+            {
+                DataTransfer dt = new()
+                {
+                    TransferMessage_ = "BallCalled",
+                    JsonString_ = ballnum,
+                };
+
+                await hubConnection.SendAsync("BallCalled", dt);
+            }
+        }
+
+
+
         #endregion GAME METHODS
 
     }
