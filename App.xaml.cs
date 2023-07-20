@@ -1,17 +1,15 @@
 ﻿using BingoFlashboard.Data;
 using BingoFlashboard.View;
 using BingoFlashboard.Model;
-using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.IO;
 using Newtonsoft.Json;
-using System.Security.Policy;
 using BingoFlashboard.ViewModel;
+using Microsoft.Toolkit.Uwp.Notifications;
+using System.Xml.Linq;
+
+
 
 namespace BingoFlashboard
 {
@@ -55,6 +53,8 @@ namespace BingoFlashboard
         public static FlashboardViewModel? flashboardViewModel;
         #endregion VIEWMODELS
 
+        #region METHODS
+
         public static void SaveStartupFile()
         {
             using (StreamWriter writer = new StreamWriter(App.startupFile, false))
@@ -69,6 +69,7 @@ namespace BingoFlashboard
             startupWindow?.Hide();
             callerWindow?.Show();
             flashboardWindow?.Show();
+            timerWindow?.Show();
         }
 
         //TODO
@@ -80,6 +81,23 @@ namespace BingoFlashboard
             }
         }
 
+        public void ShowToastNotification(string title, string message)
+        {
+            //ToastContent toastContent = new ToastContentBuilder()
+            //      .AddText(title)
+            //      .AddText(message)
+            //      .GetToastContent();
+
+            //// Generate the toast XML
+            //XDocument xDoc = XDocument.Parse(toastContent.GetContent());
+
+            //// Create the toast notification
+            //ToastNotification toast = new ToastNotification(xDoc);
+
+            //// Display the toast notification
+            //ToastNotificationManagerCompat.CreateToastNotifier().Show(toast);
+            
+        }
 
         public static void Exit_Click()
         {
@@ -91,5 +109,10 @@ namespace BingoFlashboard
                 App.Current.Shutdown();
             }
         }
+
+
+        #endregion METHODS
+
+
     }
 }
