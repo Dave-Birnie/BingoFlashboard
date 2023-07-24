@@ -18,6 +18,7 @@ namespace BingoFlashboard.Data
         #region PROPERTIES
         private HubConnection hubConnection;
         private List<string> messages = new List<string>() { "Welcome to Bingo Flashboard" };
+        bool failedServer = true;
         #endregion PROPERTIES
 
         #region SET CONNECTION
@@ -250,7 +251,14 @@ namespace BingoFlashboard.Data
                     JsonString_ = ballnum,
                 };
 
-                await hubConnection.SendAsync("BallCalled", dt);
+                if(App.server.hubConnection.State == HubConnectionState.Connected)
+                    await hubConnection.SendAsync("BallCalled", dt);
+                else
+                {
+                    if (App.callerWindowViewModel is not null && !failedServer)
+                        App.callerWindowViewModel.AddServerMessage("Server not connected, please try to reconnect if you are running a live game.");
+                }
+
             }
         }
 

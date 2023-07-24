@@ -14,7 +14,7 @@
             <VisualBrush>
                 <VisualBrush.Visual>
                     <Image Name="TimerBackground"
-                           gif:ImageBehavior.AnimatedSource="\Images\gif\bingoballs.gif"
+                           gif:ImageBehavior.AnimatedSource="..\Images\gif\bingoballs.gif"
                            gif:ImageBehavior.AutoStart="True"
                            gif:ImageBehavior.RepeatBehavior="1" />
                 </VisualBrush.Visual>

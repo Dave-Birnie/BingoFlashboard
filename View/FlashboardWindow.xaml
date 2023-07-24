@@ -9,7 +9,8 @@
         Title="FlashboardWindow"
         Height="880"
         Width="1830"
-        Background="{Binding BackgroundColor}">
+        Background="{Binding BackgroundColor}"
+        Closing="OnClose">
     <!--<Window.DataContext>
         <VM:FlashboardViewModel />
     </Window.DataContext>-->

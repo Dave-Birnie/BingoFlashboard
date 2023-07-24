@@ -10,27 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BingoFlashboard.View
 {
     /// <summary>
-    /// Interaction logic for FlashboardWindow.xaml
+    /// Interaction logic for VerificationPage.xaml
     /// </summary>
-    public partial class FlashboardWindow : Window
+    public partial class VerificationPage : Page
     {
-        public FlashboardWindow()
+        public VerificationPage()
         {
             InitializeComponent();
-            App.flashboardViewModel = new();
-            DataContext = App.flashboardViewModel;
-            App.miniGrid = new();
-            MiniGrid.Content = App.miniGrid;
-        }
-
-        private void OnClose(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            e.Cancel = true;
         }
     }
 }

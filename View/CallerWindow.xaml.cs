@@ -7,6 +7,7 @@ using System.Windows.Threading;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Threading.Tasks;
+using System;
 
 namespace BingoFlashboard.View
 {
@@ -34,6 +35,9 @@ namespace BingoFlashboard.View
             InitializeComponent();
 
             App.callerWindowViewModel = new();
+
+            Maximize_Click(null, null);
+
             PatternCB.ItemsSource = App.allPatterns;
             //ENSURES SESSION IS SELECTED AND LOADS PROGRAM & GAMES
             if (App.SelectedSession is not null)
@@ -55,6 +59,7 @@ namespace BingoFlashboard.View
             //LOADS ALL PATTERNS INTO THE PATTERN COMBOBOX
             App.callerWindow = this;
             DataContext = App.callerWindowViewModel;
+            VerifySection.Content = new VerificationPage();
 
         }
         #endregion CONSTRUCTOR
@@ -95,15 +100,29 @@ namespace BingoFlashboard.View
 
         private void Save_FlashboardSize(object sender, RoutedEventArgs e)
         {
-            if (App.flashboardWindow != null)
+            try
             {
-                double width = App.flashboardWindow.Width;
-                double height = App.flashboardWindow.Height;
 
-                App.startup.FlashboardHeight = height;
-                App.startup.FlashboardWidth = width;
 
-                App.SaveStartupFile();
+                if (App.flashboardWindow != null)
+                {
+                    double width = App.flashboardWindow.Width;
+                    double height = App.flashboardWindow.Height;
+
+                    App.startup.FlashboardHeight = height;
+                    App.startup.FlashboardWidth = width;
+
+                    App.SaveStartupFile();
+
+                    MessageBox.Show("Flashboard size saved");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                if(App.callerWindowViewModel is not null)
+                    App.callerWindowViewModel.AddServerMessage("Flashboard not saved\n" + ex.Message);
+
             }
         }
 
@@ -318,14 +337,47 @@ namespace BingoFlashboard.View
         }
 
         //UPDATES GAME INFO
+        private void Enter_Click(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Update_Game_Click(sender, e);
+            }
+        }
         private void Update_Game_Click(object sender, RoutedEventArgs e)
         {
+
+
             if (gamesList.SelectedIndex is not -1
                 && App.SelectedSession is not null
                 && App.SelectedSession.Program_ is not null
                 && App.SelectedSession.Program_.Games_ is not null
                 && App.flashboardViewModel is not null)
             {
+                if (Int32.TryParse(JackpotNum.Text, out int j))
+                {
+                    if (j > 75 || j <= 0)
+                    {
+                        if (JackpotNum.Text != "")
+                        {
+                            System.Windows.MessageBox.Show("Make sure number is between 1-75, Use numbers only");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        game.Designated_Number_ = JackpotNum.Text;
+                    }
+                }
+                else
+                {
+                    if (JackpotNum.Text != "")
+                    {
+                        System.Windows.MessageBox.Show("Make sure number is between 1-75. Use numbers only");
+                        return;
+                    }
+                }
+                game.Jackpot_Prize_ = JackpotPrize.Text;
                 Pattern pat = (Pattern) PatternCB.SelectedItem;
                 game.Pattern_ = pat;
                 ComboBoxItem cbi = (ComboBoxItem) GameType.SelectedItem;
@@ -337,7 +389,6 @@ namespace BingoFlashboard.View
                 game.Font_Color_.Name_ = FontColorName.Text;
                 game.Prize_ = Prize.Text;
                 game.Designated_Number_ = JackpotNum.Text;
-                game.Jackpot_Prize_ = JackpotPrize.Text;
 
                 App.SelectedSession.Program_.Games_[gamesList.SelectedIndex] = game;
 
@@ -346,7 +397,7 @@ namespace BingoFlashboard.View
 
                 //UPDATES FLASHBOARD
                 Update_Flashboard_View();
-            }
+            }//END CHECKS
         }
 
         //DELETES GAME FROM SESSION (for this round -- future programs will still have this game) 
@@ -385,7 +436,33 @@ namespace BingoFlashboard.View
         #region INTERMISSION SECTION REGION
         private void Intermission_Minutes_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter)
+            {
+                string selectedType = "";
+                if (start.IsSelected)
+                    selectedType = "start";
 
+                else if (intermission.IsSelected)
+                    selectedType = "intermission";
+
+                else
+                    selectedType = "nextgame";
+
+                if (Int32.TryParse(Minutes.Text, out int minutesNum))
+                {
+                    if (App.timerWindow != null)
+                        App.timerWindow.Show();
+                    else
+                        App.timerWindow = new TimerWindow();
+
+                    App.timerWindow.Update(Minutes.Text, selectedType);
+                }
+                else
+                {
+                    if (App.timerWindow is not null)
+                        App.timerWindow.BreakLoop(Minutes.Text, selectedType);
+                }
+            }
         }
 
 
@@ -401,7 +478,10 @@ namespace BingoFlashboard.View
 
         private void CheckCardBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (VerifyTxtBox.Text != null)
+            {
+                //VerifyCard();
+            }
         }
 
 
@@ -446,15 +526,37 @@ namespace BingoFlashboard.View
         #region GAME SELECTION REGION
         private void NextGameBtn_Click(object sender, RoutedEventArgs e)
         {
+            NextGameSelection();
 
         }
         private void PreviousGame_Click(object sender, RoutedEventArgs e)
         {
-
+            PreviousGameSelection();
+        }
+        public void PreviousGameSelection()
+        {
+            int selectedIndex = gamesList.SelectedIndex;
+            selectedIndex--;
+            // Prevents exception on the last element:      
+            if (selectedIndex >= 0)
+            {
+                gamesList.SelectedIndex = selectedIndex;
+            }
         }
 
-        #endregion GAME SELECTION REGION
+        public void NextGameSelection()
+        {
+            int selectedIndex = gamesList.SelectedIndex;
+            selectedIndex++;
+            // Prevents exception on the last element:      
+            if (selectedIndex < gamesList.Items.Count)
+            {
+                gamesList.SelectedIndex = selectedIndex;
+            }
+        }
 
+
+        #endregion GAME SELECTION REGION
 
     }
 }

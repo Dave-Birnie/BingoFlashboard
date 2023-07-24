@@ -68,7 +68,7 @@
         <StackPanel Grid.Row="2">
             <Button 
                 x:Name="LoadHallBtn"
-                Width="250"
+                Width="90"
                 Margin="10"
                 Style="{StaticResource ModernBtn}"
                 Content="Load Hall"

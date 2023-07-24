@@ -95,6 +95,14 @@
     <None Remove="Images\balls\NBallDark.png" />
     <None Remove="Images\balls\OBall.png" />
     <None Remove="Images\balls\OBallDark.png" />
+    <None Remove="Images\gif\batchewana-bingo-logo.png" />
+    <None Remove="Images\gif\bingo6.gif" />
+    <None Remove="Images\gif\bingoballs.gif" />
+    <None Remove="Images\gif\BingoGif.gif" />
+    <None Remove="Images\gif\bubble.gif" />
+    <None Remove="Images\gif\CambridgeLogo.png" />
+    <None Remove="Images\gif\ChancesLogo2.png" />
+    <None Remove="Images\gif\circlecolor.gif" />
   </ItemGroup>
 
   <ItemGroup>
@@ -194,6 +202,14 @@
     <Resource Include="Images\balls\NBallDark.png" />
     <Resource Include="Images\balls\OBall.png" />
     <Resource Include="Images\balls\OBallDark.png" />
+    <Resource Include="Images\gif\batchewana-bingo-logo.png" />
+    <Resource Include="Images\gif\bingo6.gif" />
+    <Resource Include="Images\gif\bingoballs.gif" />
+    <Resource Include="Images\gif\BingoGif.gif" />
+    <Resource Include="Images\gif\bubble.gif" />
+    <Resource Include="Images\gif\CambridgeLogo.png" />
+    <Resource Include="Images\gif\ChancesLogo2.png" />
+    <Resource Include="Images\gif\circlecolor.gif" />
   </ItemGroup>
 
   <ItemGroup>
