@@ -91,5 +91,19 @@ namespace BingoFlashboard.ViewModel
                 OnPropertyChanged(nameof(ServerMessages));
             });
         }
+
+        private string cardNum_ = "0";
+        public string CardNum_
+        {
+            get
+            {
+                return cardNum_;
+            }
+            set
+            {
+                cardNum_ = value;
+                OnPropertyChanged(nameof(CardNum_));
+            }
+        }
     }
 }

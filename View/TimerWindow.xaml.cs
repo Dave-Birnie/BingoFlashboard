@@ -204,14 +204,14 @@ namespace BingoFlashboard.View
             {
                 case "nextgame":
                     {
-                        if (_timer != null)
+                        if (_timer is not null)
                         {
                             if (_timer.IsEnabled)
                             {
                                 _timer.Stop();
                             }
                         }
-                        if (App.timerWindow != null)
+                        if (App.timerWindow is not null)
                         {
                             App.timerWindow.timer.Content = minutes;
                             App.timerWindow.title.Content = "Thanks for playing!";
@@ -233,7 +233,7 @@ namespace BingoFlashboard.View
                             {
                                 //pauseData = true;
                                 min = min * 60;
-                                if (_timer != null)
+                                if (_timer is not null)
                                 {
                                     if (_timer.IsEnabled)
                                     {
@@ -266,7 +266,7 @@ namespace BingoFlashboard.View
         {
             try
             {
-                if (App.timerWindow != null)
+                if (App.timerWindow is not null)
                 {
                     _time = TimeSpan.FromSeconds(time);
                     App.timerWindow.Show();
@@ -275,7 +275,7 @@ namespace BingoFlashboard.View
                         string st = _time.ToString("c");
                         App.timerWindow.timer.Content = st;
 
-                        if (_timer != null && _time == TimeSpan.Zero)
+                        if (_timer is not null && _time == TimeSpan.Zero)
                             _timer.Stop();
 
                         _time = _time.Add(TimeSpan.FromSeconds(-1));
@@ -324,7 +324,7 @@ namespace BingoFlashboard.View
             while (true)
             {
                 await Task.Delay(3500);
-                if (App.timerWindow != null)
+                if (App.timerWindow is not null)
                     App.timerWindow.writing.Content = words[num];
 
                 if (num == 8)
@@ -345,7 +345,7 @@ namespace BingoFlashboard.View
             while (true)
             {
                 await Task.Delay(3500);
-                if (App.timerWindow != null)
+                if (App.timerWindow is not null)
                     App.timerWindow.writing.Content = words[num];
 
                 if (num == 8)
@@ -365,7 +365,7 @@ namespace BingoFlashboard.View
             while (true)
             {
                 await Task.Delay(3500);
-                if (App.timerWindow != null)
+                if (App.timerWindow is not null)
                     App.timerWindow.writing.Content = words[num];
 
                 if (num == 8)

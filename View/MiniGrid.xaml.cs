@@ -55,7 +55,7 @@ namespace BingoFlashboard.View
                 }
             }
 
-            if (animationCancellationTokenSource != null && !animationCancellationTokenSource.IsCancellationRequested)
+            if (animationCancellationTokenSource is not null && !animationCancellationTokenSource.IsCancellationRequested)
             {
                 // Animation is already running, so return
                 return;
@@ -104,7 +104,7 @@ namespace BingoFlashboard.View
         public async Task<Task> StopAnimation()
         {
             // Cancel the animation if it is running
-            if (animationCancellationTokenSource != null)
+            if (animationCancellationTokenSource is not null)
             {
                 animationCancellationTokenSource.Cancel();
                 await Task.Delay(1600);

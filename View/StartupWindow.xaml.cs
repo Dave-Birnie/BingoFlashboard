@@ -64,7 +64,7 @@ namespace BingoFlashboard.View
 
                         Hall? hall = JsonConvert.DeserializeObject<Hall>(json);
 
-                        if (hall != null)
+                        if (hall is not null)
                             App.hall = hall;
                         else
                             MessageBox.Show("Unable to load hall");
@@ -83,7 +83,7 @@ namespace BingoFlashboard.View
 
         public void LoadSessions()
         {
-            if (App.hall != null)
+            if (App.hall is not null)
             {
                 if (App.hall.AllSessions_ is not null && App.hall.AllSessions_.Count <= 1)
                 {
@@ -95,7 +95,7 @@ namespace BingoFlashboard.View
 
         private void StartSession_Click(object sender, RoutedEventArgs e)
         {
-            if (sessionsList.SelectedIndex != -1)
+            if (sessionsList.SelectedIndex is not -1)
             {
                 App.SelectedSession = (Session) sessionsList.SelectedItem;
                 sessionsList.ItemsSource = new List<Session>();

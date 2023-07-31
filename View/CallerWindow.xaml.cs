@@ -21,6 +21,8 @@ namespace BingoFlashboard.View
         private List<Game> games = new();
         private Game game = new();
         HubConnection connection;
+        public List<string> calls = new();
+
 
         private bool maxSize = false;
         public bool BroadcastingGame = false;
@@ -46,7 +48,7 @@ namespace BingoFlashboard.View
                     program = (Program) App.SelectedSession.Program_;
                     ProgramName.Content = program.Name_;
                     CB_Cardset.ItemsSource = program.Cardsets_;
-                    if (program.Games_ != null)
+                    if (program.Games_ is not null)
                     {
                         games = program.Games_;
                     }
@@ -104,7 +106,7 @@ namespace BingoFlashboard.View
             {
 
 
-                if (App.flashboardWindow != null)
+                if (App.flashboardWindow is not null)
                 {
                     double width = App.flashboardWindow.Width;
                     double height = App.flashboardWindow.Height;
@@ -358,7 +360,7 @@ namespace BingoFlashboard.View
                 {
                     if (j > 75 || j <= 0)
                     {
-                        if (JackpotNum.Text != "")
+                        if (JackpotNum.Text is not "")
                         {
                             System.Windows.MessageBox.Show("Make sure number is between 1-75, Use numbers only");
                             return;
@@ -371,7 +373,7 @@ namespace BingoFlashboard.View
                 }
                 else
                 {
-                    if (JackpotNum.Text != "")
+                    if (JackpotNum.Text is not "")
                     {
                         System.Windows.MessageBox.Show("Make sure number is between 1-75. Use numbers only");
                         return;
@@ -450,7 +452,7 @@ namespace BingoFlashboard.View
 
                 if (Int32.TryParse(Minutes.Text, out int minutesNum))
                 {
-                    if (App.timerWindow != null)
+                    if (App.timerWindow is not null)
                         App.timerWindow.Show();
                     else
                         App.timerWindow = new TimerWindow();
@@ -473,17 +475,38 @@ namespace BingoFlashboard.View
         #region VERIFYCARD REGION
         private void VerifyTxtBox_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.Key == Key.Enter)
+            {
+                VerifyCard();
+            }
         }
 
         private void CheckCardBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (VerifyTxtBox.Text != null)
+            if (VerifyTxtBox.Text is not null)
             {
-                //VerifyCard();
+                VerifyCard();
             }
         }
 
+        private void VerifyCard()
+        {
+            if (App.verificationPage is not null)
+            {
+                App.verificationPage.SelectCard(VerifyTxtBox.Text);
+                VerifyTxtBox.Text = "";
+
+                App.verificationPage.HighlightCard(calls);
+
+                if(game.Pattern_ is not null)
+                    App.verificationPage.CheckWinner(calls, game.Pattern_);
+            }
+            else
+            {
+                MessageBox.Show("Unable to verify card.");
+            }
+                
+        }
 
         #endregion VERIFYCARD REGION
 
@@ -498,14 +521,85 @@ namespace BingoFlashboard.View
         private void Reset_Board_Click(object sender, RoutedEventArgs e)
         {
             if (App.flashboardViewModel is not null)
+            {
                 App.flashboardViewModel.ResetBoard();
+                calls = new();
+            }
         }
+
 
         private async void Ball_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && App.flashboardViewModel is not null)
             {
-                string response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
+                bool allowAdd = true;
+                switch (Ball.Text)
+                {
+                    case "1":
+                        {
+                            Ball.Text = "01";
+                            break;
+                        }
+                    case "2":
+                        {
+                            Ball.Text = "02";
+                            break;
+                        }
+                    case "3":
+                        {
+                            Ball.Text = "03";
+                            break;
+                        }
+                    case "4":
+                        {
+                            Ball.Text = "04";
+                            break;
+                        }
+                    case "5":
+                        {
+                            Ball.Text = "05";
+                            break;
+                        }
+                    case "6":
+                        {
+                            Ball.Text = "06";
+                            break;
+                        }
+                    case "7":
+                        {
+                            Ball.Text = "07";
+                            break;
+                        }
+                    case "8":
+                        {
+                            Ball.Text = "08";
+                            break;
+                        }
+                    case "9":
+                        {
+                            Ball.Text = "09";
+                            break;
+                        }
+                }
+
+                foreach (string st in calls)
+                {
+                    if (Ball.Text == st)
+                    {
+                        calls.Remove(st);
+                        allowAdd = false;
+                        Ball.Text = "";
+                        break;
+                    }
+                }
+                string response = "";
+                if (allowAdd)
+                {
+                    calls.Add(Ball.Text);
+                    response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
+
+                    Ball.Text = "";
+                }
                 if (response == "Success")
                 {
                     if (App.server is not null)
@@ -517,6 +611,8 @@ namespace BingoFlashboard.View
 
                 else if (response == "Fail")
                     MessageBox.Show("Ball Error");
+
+              
             }
         }
 

@@ -69,6 +69,7 @@
             <Button 
                 x:Name="LoadHallBtn"
                 Width="90"
+                Height="30"
                 Margin="10"
                 Style="{StaticResource ModernBtn}"
                 Content="Load Hall"
@@ -92,6 +93,7 @@
         <Grid Grid.Row="3">
             <Button Width="150"
                     Margin="10"
+                    Height="30"
                     Style="{StaticResource ModernBtnStart}"
                     Content="START"
                     Click="StartSession_Click" />

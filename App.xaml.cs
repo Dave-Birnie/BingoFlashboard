@@ -8,8 +8,7 @@ using Newtonsoft.Json;
 using BingoFlashboard.ViewModel;
 using Microsoft.Toolkit.Uwp.Notifications;
 using System.Xml.Linq;
-
-
+using System.Windows.Controls;
 
 namespace BingoFlashboard
 {
@@ -46,6 +45,7 @@ namespace BingoFlashboard
         public static CallerWindow? callerWindow;
         public static MiniGrid? miniGrid;
         public static TimerWindow? timerWindow;
+        public static VerificationPage? verificationPage;
         #endregion WINDOWS
 
         #region VIEWMODELS  

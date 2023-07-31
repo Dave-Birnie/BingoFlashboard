@@ -22,7 +22,7 @@ namespace BingoFlashboard.Data
                 string json = File.ReadAllText(fileName);
 
                 List<Pattern>? patternList = JsonConvert.DeserializeObject<List<Pattern>>(json);
-                if (patternList != null)
+                if (patternList is not null)
                 {
                     List<Pattern> temp = patternList.ToList();
                     List<Pattern> SortedList = temp.OrderBy(o => o.Pattern_Name_).ToList();
