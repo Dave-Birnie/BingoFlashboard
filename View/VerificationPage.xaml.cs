@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BingoFlashboard.View
 {
@@ -30,8 +31,8 @@ namespace BingoFlashboard.View
         public VerificationPage()
         {
             InitializeComponent();
+
             PopuateCards();
-            App.verificationPage = this;
         }
 
         public void VerifyCard()

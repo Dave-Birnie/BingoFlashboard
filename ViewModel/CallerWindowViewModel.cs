@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace BingoFlashboard.ViewModel
@@ -92,7 +93,7 @@ namespace BingoFlashboard.ViewModel
             });
         }
 
-        private string cardNum_ = "0";
+        private string cardNum_ = "";
         public string CardNum_
         {
             get
@@ -105,5 +106,19 @@ namespace BingoFlashboard.ViewModel
                 OnPropertyChanged(nameof(CardNum_));
             }
         }
+
+        //private Page verificationPage_;
+        //public Page VerificationPage
+        //{
+        //    get
+        //    {
+        //        return verificationPage_;
+        //    }
+        //    set
+        //    {
+        //        verificationPage_ = value;
+        //        OnPropertyChanged(nameof(VerificationPage));
+        //    }
+        //}
     }
 }

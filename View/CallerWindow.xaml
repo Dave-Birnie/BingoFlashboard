@@ -863,7 +863,7 @@
 
                             </StackPanel>
 
-                            <Frame Name="VerifySection"
+                            <Frame Name="VerifyFrame"
                                    Grid.Column="2"
                                    Width="250"
                                    Height="250"
@@ -873,7 +873,7 @@
                                    Visibility="Visible"
                                    Background="LightGray"
                                    NavigationUIVisibility="Hidden"
-                                   Grid.ColumnSpan="2" />
+                                   Grid.ColumnSpan="2"/>
 
                         </Grid>
 

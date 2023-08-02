@@ -24,6 +24,7 @@ namespace BingoFlashboard.View
         public List<string> calls = new();
 
 
+
         private bool maxSize = false;
         public bool BroadcastingGame = false;
 
@@ -60,8 +61,13 @@ namespace BingoFlashboard.View
 
             //LOADS ALL PATTERNS INTO THE PATTERN COMBOBOX
             App.callerWindow = this;
-            DataContext = App.callerWindowViewModel;
-            VerifySection.Content = new VerificationPage();
+            VerifyFrame.NavigationService.Navigate(App.SharedVerificationPage);
+
+            //DataContext = App.callerWindowViewModel;
+
+            ///VerifyFrame.DataContext = App.callerWindowViewModel;
+            //App.verificationWindow = new VerifyWindow();
+            App.verificationWindow.Show();  
 
         }
         #endregion CONSTRUCTOR
@@ -489,17 +495,21 @@ namespace BingoFlashboard.View
             }
         }
 
-        private void VerifyCard()
+        private async void VerifyCard()
         {
-            if (App.verificationPage is not null)
+            if (App.SharedVerificationPage is not null)
             {
-                App.verificationPage.SelectCard(VerifyTxtBox.Text);
+                App.SharedVerificationPage.SelectCard(VerifyTxtBox.Text);
+                App.SharedVerificationPage2.SelectCard(VerifyTxtBox.Text);
                 VerifyTxtBox.Text = "";
 
-                App.verificationPage.HighlightCard(calls);
-
+                App.SharedVerificationPage.HighlightCard(calls);
+                App.SharedVerificationPage2.HighlightCard(calls);
                 if(game.Pattern_ is not null)
-                    App.verificationPage.CheckWinner(calls, game.Pattern_);
+                {
+                    App.SharedVerificationPage.CheckWinner(calls, game.Pattern_);
+                    App.SharedVerificationPage2.CheckWinner(calls, game.Pattern_);
+                }
             }
             else
             {
@@ -507,6 +517,11 @@ namespace BingoFlashboard.View
             }
                 
         }
+
+        //private void UpdateVerifyFrame()
+        //{
+        //    VerifyFrame.Content = App.verificationPage;
+        //}
 
         #endregion VERIFYCARD REGION
 

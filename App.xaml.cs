@@ -22,6 +22,8 @@ namespace BingoFlashboard
         public static string startupFile = @".\startupFile.txt";
         public static string hallFile = string.Empty;
         public static ServerConnection? server;
+        public static VerificationPage SharedVerificationPage { get; } = new VerificationPage();
+        public static VerificationPage SharedVerificationPage2 { get; } = new VerificationPage();
 
 
         #region MainVariables
@@ -45,7 +47,9 @@ namespace BingoFlashboard
         public static CallerWindow? callerWindow;
         public static MiniGrid? miniGrid;
         public static TimerWindow? timerWindow;
-        public static VerificationPage? verificationPage;
+      //  public static VerificationPage? verificationPage = new();
+        public static VerifyWindow? verificationWindow = new();
+
         #endregion WINDOWS
 
         #region VIEWMODELS  
