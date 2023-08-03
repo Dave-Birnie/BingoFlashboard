@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Threading.Tasks;
 using System;
+using System.Windows.Media.Animation;
 
 namespace BingoFlashboard.View
 {
@@ -23,6 +24,8 @@ namespace BingoFlashboard.View
         HubConnection connection;
         public List<string> calls = new();
 
+        private DispatcherTimer _timer;
+        private Storyboard _animation;
 
 
         private bool maxSize = false;
@@ -61,12 +64,10 @@ namespace BingoFlashboard.View
 
             //LOADS ALL PATTERNS INTO THE PATTERN COMBOBOX
             App.callerWindow = this;
+            DataContext = App.callerWindowViewModel;
+
             VerifyFrame.NavigationService.Navigate(App.SharedVerificationPage);
-
-            //DataContext = App.callerWindowViewModel;
-
-            ///VerifyFrame.DataContext = App.callerWindowViewModel;
-            //App.verificationWindow = new VerifyWindow();
+            if(App.verificationWindow is not null)
             App.verificationWindow.Show();  
 
         }
@@ -184,7 +185,6 @@ namespace BingoFlashboard.View
                     Font_Color_Picker.SelectedColor = font;
                     App.flashboardViewModel.FontColor = new SolidColorBrush(font);
 
-
                     //SELECTS PATTER FROM PATTERN COMBOBOX
                     int a = 0; //Counts the Combobox item number. 
                     foreach (Pattern cbi in PatternCB.Items)
@@ -198,6 +198,8 @@ namespace BingoFlashboard.View
                     }
                     if (game.Pattern_ is not null && App.miniGrid is not null)
                         App.miniGrid.StartAnimation(game.Pattern_);
+
+
 
                     Update_Flashboard_View();
                 }
@@ -669,5 +671,30 @@ namespace BingoFlashboard.View
 
         #endregion GAME SELECTION REGION
 
+        #region FLASHING BINGO CALLED
+
+        private void OnAcknowledgeClick(object sender, RoutedEventArgs e)
+        {
+            _animation.Stop();
+            _timer.Stop();
+            BingoOverlay.Visibility = Visibility.Collapsed;
+
+        }
+
+        public void StartFlashing()
+        {
+            _animation.Begin();
+            _timer.Start();
+            BingoOverlay.Visibility = Visibility.Visible;
+        }
+
+        public async Task OnSignalRMessageReceived()
+        {
+            _animation.Stop();
+            _timer.Stop();
+            BingoOverlay.Visibility = Visibility.Visible; // Keep the overlay visible until acknowledged
+        }
+
+        #endregion FLASHING BINGO CALLED
     }
 }

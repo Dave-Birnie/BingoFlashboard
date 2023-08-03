@@ -12,6 +12,17 @@
         Background="{StaticResource Whitesmoke}"
         MouseDown="Window_MouseDown"
         Title="CallerWindow">
+    <Window.Resources>
+        <Storyboard x:Key="FlashingAnimation">
+            <ColorAnimation Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
+                            From="Red"
+                            To="Transparent"
+                            Duration="0:0:0.5"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever" />
+        </Storyboard>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
@@ -823,6 +834,32 @@
                               ItemsSource="{Binding ServerMessages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               HorizontalContentAlignment="Left" />
                 </Border>
+                <!--#region BINGO CALLED OVERLAY-->
+                <Grid Background="#A0000000"
+                      Visibility="Collapsed"
+                      Name="BingoOverlay">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Text="BINGO CALLED"
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="48"
+                               FontWeight="Bold" />
+                    <Button Grid.Row="1"
+                            Content="Acknowledge"
+                            Click="OnAcknowledgeClick"
+                            Width="100"
+                            Height="50"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Margin="0,20,0,0" />
+                </Grid>
+
+                <!--#endregion BINGO CALLED OVERLAY-->
                 <Border BorderBrush="{StaticResource OxfordBlue}"
                         BorderThickness="2"
                         Grid.Column="1">
@@ -873,7 +910,7 @@
                                    Visibility="Visible"
                                    Background="LightGray"
                                    NavigationUIVisibility="Hidden"
-                                   Grid.ColumnSpan="2"/>
+                                   Grid.ColumnSpan="2" />
 
                         </Grid>
 
