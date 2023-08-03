@@ -24,8 +24,8 @@ namespace BingoFlashboard.View
         HubConnection connection;
         public List<string> calls = new();
 
-        private DispatcherTimer _timer;
-        private Storyboard _animation;
+        private readonly DispatcherTimer _timer;
+        private readonly Storyboard _animation;
 
 
         private bool maxSize = false;
@@ -43,6 +43,12 @@ namespace BingoFlashboard.View
             App.callerWindowViewModel = new();
 
             Maximize_Click(null, null);
+
+            _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(30) };
+            _timer.Tick += Timer_Tick;
+
+            _animation = (Storyboard)FindResource("FlashingAnimation");
+            _animation.Completed += (s, e) => BingoOverlay.Background = null;
 
             PatternCB.ItemsSource = App.allPatterns;
             //ENSURES SESSION IS SELECTED AND LOADS PROGRAM & GAMES
@@ -491,6 +497,8 @@ namespace BingoFlashboard.View
 
         private void CheckCardBtn_Click(object sender, RoutedEventArgs e)
         {
+
+            StartFlashing();
             if (VerifyTxtBox.Text is not null)
             {
                 VerifyCard();
@@ -673,26 +681,44 @@ namespace BingoFlashboard.View
 
         #region FLASHING BINGO CALLED
 
-        private void OnAcknowledgeClick(object sender, RoutedEventArgs e)
-        {
-            _animation.Stop();
-            _timer.Stop();
-            BingoOverlay.Visibility = Visibility.Collapsed;
-
-        }
-
         public void StartFlashing()
         {
-            _animation.Begin();
+            BingoOverlay.Background = new SolidColorBrush(Colors.Red);
+            _animation.Begin(BingoOverlay, true);
             _timer.Start();
             BingoOverlay.Visibility = Visibility.Visible;
         }
 
         public async Task OnSignalRMessageReceived()
         {
-            _animation.Stop();
+            _animation.Stop(BingoOverlay);
             _timer.Stop();
+            BingoOverlay.Background = null;
             BingoOverlay.Visibility = Visibility.Visible; // Keep the overlay visible until acknowledged
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            _animation.Stop(BingoOverlay);
+            _timer.Stop();
+            BingoOverlay.Background = null;
+            BingoOverlay.Visibility = Visibility.Collapsed;
+        }
+
+        private void OnAcknowledgeClick(object sender, RoutedEventArgs e)
+        {
+            _animation.Stop(BingoOverlay);
+            _timer.Stop();
+            BingoOverlay.Background = null;
+            BingoOverlay.Visibility = Visibility.Collapsed;
+        }
+
+        private void OnOverlayClick(object sender, MouseButtonEventArgs e)
+        {
+            _animation.Stop(BingoOverlay);
+            _timer.Stop();
+            BingoOverlay.Background = null;
+            BingoOverlay.Visibility = Visibility.Collapsed;
         }
 
         #endregion FLASHING BINGO CALLED
