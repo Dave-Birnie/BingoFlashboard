@@ -37,162 +37,168 @@ namespace BingoFlashboard.View
         public void Update(string minutes, string selectedType)
         {
             BreakLoop(minutes, selectedType);
-
-            if (App.hall.Name_ == "Riverview")
+            if (App.hall is not null)
             {
-                string source = @"../Images/gif/Riverview.gif";
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri(@"/Flashboard;component/" + source, UriKind.Relative);
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(TimerBackground, image);
-                ImageBehavior.SetRepeatBehavior(TimerBackground, new RepeatBehavior(0));
-                ImageBehavior.SetRepeatBehavior(TimerBackground, RepeatBehavior.Forever);
+                //if (App.hall.Name_ == "Riverview")
+                //{
+                //    string source = @"../Images/gif/Riverview.gif";
+                //    var image = new BitmapImage();
+                //    image.BeginInit();
+                //    image.UriSource = new Uri(@"/Flashboard;component/" + source, UriKind.Relative);
+                //    image.EndInit();
+                //    ImageBehavior.SetAnimatedSource(TimerBackground, image);
+                //    ImageBehavior.SetRepeatBehavior(TimerBackground, new RepeatBehavior(0));
+                //    ImageBehavior.SetRepeatBehavior(TimerBackground, RepeatBehavior.Forever);
 
-                BitmapImage img = new BitmapImage();
-                img.BeginInit();
-                string str = "../Images/gif/RiverviewLogo.png";
-                TimerLogo.Source = new BitmapImage(new Uri(str, UriKind.Relative));
-                var converter = new System.Windows.Media.BrushConverter();
-                //Brush border
-                var brush = (Brush?) converter.ConvertFromString("#A2094C");
-                timer.BorderBrush = brush;
-                //brush background
-                brush = (Brush?) converter.ConvertFromString("#000");
-                timer.Background = brush;
+                //    BitmapImage img = new BitmapImage();
+                //    img.BeginInit();
+                //    string str = "../Images/gif/RiverviewLogo.png";
+                //    TimerLogo.Source = new BitmapImage(new Uri(str, UriKind.Relative));
+                //    var converter = new System.Windows.Media.BrushConverter();
+                //    //Brush border
+                //    var brush = (Brush?) converter.ConvertFromString("#A2094C");
+                //    timer.BorderBrush = brush;
+                //    //brush background
+                //    brush = (Brush?) converter.ConvertFromString("#000");
+                //    timer.Background = brush;
 
-                //Font Title
-                title.Foreground = Brushes.White;
+                //    //Font Title
+                //    title.Foreground = Brushes.White;
 
-                //Font Writing
-                writing.Foreground = Brushes.White;
-            }
-            else if (App.hall.Name_ == "Chances")
-            {
-                string source = @"../Images/gif/bingoballs.gif";
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri(@"/Flashboard;component/" + source, UriKind.Relative);
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(TimerBackground, image);
-                ImageBehavior.SetRepeatBehavior(TimerBackground, new RepeatBehavior(0));
-                ImageBehavior.SetRepeatBehavior(TimerBackground, RepeatBehavior.Forever);
-
-
-                BitmapImage img = new BitmapImage();
-                img.BeginInit();
-                string str = "../Images/gif/ChancesLogo2.png";
-                TimerLogo.Source = new BitmapImage(new Uri(str, UriKind.Relative));
-
-                var converter = new System.Windows.Media.BrushConverter();
-                //Brush border
-                var brush = (Brush?) converter.ConvertFromString("#a8bb47");
-                timer.BorderBrush = brush;
-                //brush background
-                brush = (Brush?) converter.ConvertFromString("#333");
-                timer.Background = brush;
-                //Font Title
-                title.Foreground = Brushes.White;
-                ;
-                //Font Writing
-                writing.Foreground = Brushes.White;
-            }
-            else if (App.hall.Name_ == "CBG")
-            {
-                string source = @"../Images/gif/bubble.gif";
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri(@"/Flashboard;component/" + source, UriKind.Relative);
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(TimerBackground, image);
-                ImageBehavior.SetRepeatBehavior(TimerBackground, new RepeatBehavior(0));
-                ImageBehavior.SetRepeatBehavior(TimerBackground, RepeatBehavior.Forever);
+                //    //Font Writing
+                //    writing.Foreground = Brushes.White;
+                //}
+                //else if (App.hall.Name_ == "Chances")
+                //{
+                //    string source = @"../Images/gif/bingoballs.gif";
+                //    var image = new BitmapImage();
+                //    image.BeginInit();
+                //    image.UriSource = new Uri(@"/Flashboard;component/" + source, UriKind.Relative);
+                //    image.EndInit();
+                //    ImageBehavior.SetAnimatedSource(TimerBackground, image);
+                //    ImageBehavior.SetRepeatBehavior(TimerBackground, new RepeatBehavior(0));
+                //    ImageBehavior.SetRepeatBehavior(TimerBackground, RepeatBehavior.Forever);
 
 
-                BitmapImage img = new BitmapImage();
-                img.BeginInit();
-                string str = "../Images/gif/CambridgeLogo.png";
-                TimerLogo.Source = new BitmapImage(new Uri(str, UriKind.Relative));
+                //    BitmapImage img = new BitmapImage();
+                //    img.BeginInit();
+                //    string str = "../Images/gif/ChancesLogo2.png";
+                //    TimerLogo.Source = new BitmapImage(new Uri(str, UriKind.Relative));
 
-                var converter = new System.Windows.Media.BrushConverter();
-                //Brush border
-                var brush = (Brush?) converter.ConvertFromString("#E7C80A");
-                timer.BorderBrush = brush;
-                //brush background
-                brush = (Brush?) converter.ConvertFromString("#A01C4B");
-                timer.Background = brush;
-                //Font Title
-                brush = (Brush?) converter.ConvertFromString("#E7C80A");
-                title.Foreground = brush;
-                title.Background = null;
-                title.BorderBrush = null;
-                //Font Writing
-                brush = (Brush?) converter.ConvertFromString("#E7C80A");
-                writing.Foreground = brush;
-                writing.Background = null;
-                writing.BorderBrush = null;
-            }
-            else if (App.hall.Name_ == "Batchewana")
-            {
-                string source = @"../Images/gif/BingoGif.gif";
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri(@"/Flashboard;component/" + source, UriKind.Relative);
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(TimerBackground, image);
-                ImageBehavior.SetRepeatBehavior(TimerBackground, new RepeatBehavior(0));
-                ImageBehavior.SetRepeatBehavior(TimerBackground, RepeatBehavior.Forever);
-
-                //App.flashboardWindow.FourBallGrid.Visibility = Visibility.Visible;
-                //App.controlWindow.FourBallGrid.Visibility = Visibility.Visible;
-
-                BitmapImage img = new BitmapImage();
-                img.BeginInit();
-                string str = "../Images/gif/batchewana-bingo-logo.png";
-                TimerLogo.Source = new BitmapImage(new Uri(str, UriKind.Relative));
-                var converter = new System.Windows.Media.BrushConverter();
-                //Brush border
-                var brush = (Brush?) converter.ConvertFromString("#009749");
-                timer.BorderBrush = brush;
-                //brush background
-                brush = (Brush?) converter.ConvertFromString("#894b36");
-                timer.Background = brush;
-                //Font Title
-                brush = (Brush?) converter.ConvertFromString("#894b36");
-                title.Foreground = brush;
-                //Font Writing
-                brush = (Brush?) converter.ConvertFromString("#009749");
-                writing.Foreground = brush;
-            }
-            else if (App.hall.Name_ == "Riverbank")
-            {
-                string source = @"../Images/gif/bingoballs.gif";
-                var image = new BitmapImage();
-                image.BeginInit();
-                image.UriSource = new Uri(@"/Flashboard;component/" + source, UriKind.Relative);
-                image.EndInit();
-                ImageBehavior.SetAnimatedSource(TimerBackground, image);
-                ImageBehavior.SetRepeatBehavior(TimerBackground, new RepeatBehavior(0));
-                ImageBehavior.SetRepeatBehavior(TimerBackground, RepeatBehavior.Forever);
+                //    var converter = new System.Windows.Media.BrushConverter();
+                //    //Brush border
+                //    var brush = (Brush?) converter.ConvertFromString("#a8bb47");
+                //    timer.BorderBrush = brush;
+                //    //brush background
+                //    brush = (Brush?) converter.ConvertFromString("#333");
+                //    timer.Background = brush;
+                //    //Font Title
+                //    title.Foreground = Brushes.White;
+                //    ;
+                //    //Font Writing
+                //    writing.Foreground = Brushes.White;
+                //}
+                //else if (App.hall.Name_ == "CBG")
+                //{
+                //    string source = @"../Images/gif/bubble.gif";
+                //    var image = new BitmapImage();
+                //    image.BeginInit();
+                //    image.UriSource = new Uri(@"/Flashboard;component/" + source, UriKind.Relative);
+                //    image.EndInit();
+                //    ImageBehavior.SetAnimatedSource(TimerBackground, image);
+                //    ImageBehavior.SetRepeatBehavior(TimerBackground, new RepeatBehavior(0));
+                //    ImageBehavior.SetRepeatBehavior(TimerBackground, RepeatBehavior.Forever);
 
 
-                BitmapImage img = new BitmapImage();
-                img.BeginInit();
-                string str = "../Images/logos/RiverbankWhite.png";
-                TimerLogo.Source = new BitmapImage(new Uri(str, UriKind.Relative));
+                //    BitmapImage img = new BitmapImage();
+                //    img.BeginInit();
+                //    string str = "../Images/gif/CambridgeLogo.png";
+                //    TimerLogo.Source = new BitmapImage(new Uri(str, UriKind.Relative));
 
-                var converter = new System.Windows.Media.BrushConverter();
-                //Brush border
-                var brush = (Brush?) converter.ConvertFromString("#91d4f2");
-                timer.BorderBrush = brush;
-                //brush background
-                brush = (Brush?) converter.ConvertFromString("#333");
-                timer.Background = brush;
-                //Font Title
-                title.Foreground = Brushes.White;
-                ;
-                //Font Writing
-                writing.Foreground = Brushes.White;
+                //    var converter = new System.Windows.Media.BrushConverter();
+                //    //Brush border
+                //    var brush = (Brush?) converter.ConvertFromString("#E7C80A");
+                //    timer.BorderBrush = brush;
+                //    //brush background
+                //    brush = (Brush?) converter.ConvertFromString("#A01C4B");
+                //    timer.Background = brush;
+                //    //Font Title
+                //    brush = (Brush?) converter.ConvertFromString("#E7C80A");
+                //    title.Foreground = brush;
+                //    title.Background = null;
+                //    title.BorderBrush = null;
+                //    //Font Writing
+                //    brush = (Brush?) converter.ConvertFromString("#E7C80A");
+                //    writing.Foreground = brush;
+                //    writing.Background = null;
+                //    writing.BorderBrush = null;
+                //}
+                //else if (App.hall.Name_ == "Batchewana")
+                //{
+                //    string source = @"../Images/gif/BingoGif.gif";
+                //    var image = new BitmapImage();
+                //    image.BeginInit();
+                //    image.UriSource = new Uri(@"/Flashboard;component/" + source, UriKind.Relative);
+                //    image.EndInit();
+                //    ImageBehavior.SetAnimatedSource(TimerBackground, image);
+                //    ImageBehavior.SetRepeatBehavior(TimerBackground, new RepeatBehavior(0));
+                //    ImageBehavior.SetRepeatBehavior(TimerBackground, RepeatBehavior.Forever);
+
+                //    //App.flashboardWindow.FourBallGrid.Visibility = Visibility.Visible;
+                //    //App.controlWindow.FourBallGrid.Visibility = Visibility.Visible;
+
+                //    BitmapImage img = new BitmapImage();
+                //    img.BeginInit();
+                //    string str = "../Images/gif/batchewana-bingo-logo.png";
+                //    TimerLogo.Source = new BitmapImage(new Uri(str, UriKind.Relative));
+                //    var converter = new System.Windows.Media.BrushConverter();
+                //    //Brush border
+                //    var brush = (Brush?) converter.ConvertFromString("#009749");
+                //    timer.BorderBrush = brush;
+                //    //brush background
+                //    brush = (Brush?) converter.ConvertFromString("#894b36");
+                //    timer.Background = brush;
+                //    //Font Title
+                //    brush = (Brush?) converter.ConvertFromString("#894b36");
+                //    title.Foreground = brush;
+                //    //Font Writing
+                //    brush = (Brush?) converter.ConvertFromString("#009749");
+                //    writing.Foreground = brush;
+                //}
+                //else if (App.hall.Name_ == "Riverbank")
+                //{
+                //    string source = @"../Images/gif/bingoballs.gif";
+                //    var image = new BitmapImage();
+                //    image.BeginInit();
+                //    image.UriSource = new Uri(@"/Flashboard;component/" + source, UriKind.Relative);
+                //    image.EndInit();
+                //    ImageBehavior.SetAnimatedSource(TimerBackground, image);
+                //    ImageBehavior.SetRepeatBehavior(TimerBackground, new RepeatBehavior(0));
+                //    ImageBehavior.SetRepeatBehavior(TimerBackground, RepeatBehavior.Forever);
+
+
+                //    BitmapImage img = new BitmapImage();
+                //    img.BeginInit();
+                //    string str = "../Images/logos/RiverbankWhite.png";
+                //    TimerLogo.Source = new BitmapImage(new Uri(str, UriKind.Relative));
+
+                //    var converter = new System.Windows.Media.BrushConverter();
+                //    //Brush border
+                //    var brush = (Brush?) converter.ConvertFromString("#91d4f2");
+                //    timer.BorderBrush = brush;
+                //    //brush background
+                //    brush = (Brush?) converter.ConvertFromString("#333");
+                //    timer.Background = brush;
+                //    //Font Title
+                //    title.Foreground = Brushes.White;
+                //    ;
+                //    //Font Writing
+                //    writing.Foreground = Brushes.White;
+                //}
+                //else
+                //{
+                TimerLogo.Source = App.hall.ByteArrayToImage();
+                //}
             }
         }
         public async void BreakLoop(string minutes, string selectedType)
@@ -360,7 +366,7 @@ namespace BingoFlashboard.View
         private async void RotateNextGame()
         {
             List<string> words = new List<string> { "We hope you had a blast!", "Come get your cards for next game", "Check out our website!",
-            "Make sure to stay safe", "We enjoyed having you!", "Don't forget to claim your prize", "f you didn't win....", "there's always next time!", "Follow us on Facebook"};
+            "Make sure to stay safe", "We enjoyed having you!", "Don't forget to claim your prize", "Sorry if you didn't win....", "there's always next time!", "Follow us on Facebook"};
             int num = 0;
             while (true)
             {

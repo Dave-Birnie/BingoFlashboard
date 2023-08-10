@@ -18,6 +18,8 @@ namespace BingoFlashboard.Data
         #region PROPERTIES
         private HubConnection hubConnection;
         private List<string> messages = new List<string>() { "Welcome to Bingo Flashboard" };
+        private bool HadConnection = false;
+        private bool NotifiedLostConnection = false;
         bool failedServer = true;
         #endregion PROPERTIES
 
@@ -34,6 +36,28 @@ namespace BingoFlashboard.Data
             ///LISTENER
             StartAsync();
 
+            System.Timers.Timer timer = new System.Timers.Timer(3000);
+            timer.Elapsed += (sender, e) =>
+            {
+                if (HadConnection)
+                {
+                    if (hubConnection.State != HubConnectionState.Connected)
+                    {
+                        // Use the Dispatcher to run the MessageBox.Show on the UI thread
+                        if(!NotifiedLostConnection && App.callerWindowViewModel is not null)
+                        {
+                            Application.Current.Dispatcher.Invoke(() =>
+                            {
+                                App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("Off");
+                                MessageBox.Show("Connection lost!");
+                            });
+                            NotifiedLostConnection = true;
+                        }
+                    }
+                }
+            };
+
+            timer.Start();
 
         }//END Constructor
 
@@ -53,7 +77,7 @@ namespace BingoFlashboard.Data
                             {
                                 case "Game Connected":
                                     {
-
+                                        HadConnection = true;
                                         App.callerWindowViewModel.AddServerMessage(responseMessage.SecondaryMessage_.ToString());
                                         MessageBox.Show(responseMessage.SecondaryMessage_);
                                         App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("On");
@@ -80,7 +104,7 @@ namespace BingoFlashboard.Data
                     {
                         try
                         {
-   
+
                             switch (responseMessage.TransferMessage_)
                             {
                                 case "Bingo Called":
@@ -95,7 +119,7 @@ namespace BingoFlashboard.Data
                                     }
                             }//END SWITCH
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
 
                         }
@@ -160,9 +184,16 @@ namespace BingoFlashboard.Data
         {
             try
             {
+                if (hubConnection.ConnectionId is null)
+                {
+                    App.server = new();
+                    return;
+                }
+                
                 if (hubConnection.State == HubConnectionState.Disconnected)
                     await hubConnection.StartAsync();
 
+                
                 if (App.hall is not null)
                 {
                     Hall partialHall = new Hall()
@@ -205,6 +236,8 @@ namespace BingoFlashboard.Data
                     //messages.Add("Server Unavailable, please contact administrator.\n" + ex.Message);
                     App.callerWindowViewModel.AddServerMessage("Server Unavailable, please contact administrator.\n" + ex.Message);
                 }
+                
+
             }
         }
 
@@ -251,7 +284,7 @@ namespace BingoFlashboard.Data
                     JsonString_ = ballnum,
                 };
 
-                if(App.server.hubConnection.State == HubConnectionState.Connected)
+                if (App.server is not null && App.server.hubConnection.State == HubConnectionState.Connected)
                     await hubConnection.SendAsync("BallCalled", dt);
                 else
                 {

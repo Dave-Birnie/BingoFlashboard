@@ -30,7 +30,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <Image Name="TimerLogo"
-                   Source="\Images\logos\ChancesLogo2.png"
+                   Source="..\Images\logos\ChancesLogo2.png"
                    Grid.Column="1" />
         </Grid>
         <Grid Grid.Row="2">

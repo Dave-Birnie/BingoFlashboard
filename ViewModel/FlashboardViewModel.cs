@@ -5556,12 +5556,19 @@ namespace BingoFlashboard.ViewModel
 
         private void ChangeLastBallImage()
         {
+
             if(_lastcalled.Count ==0)
                 LastBallImg = new BitmapImage(new Uri("..\\Images\\balls\\" + "" + "Ball.png", UriKind.Relative));
-            
+
             else
-                LastBallImg = new BitmapImage(new Uri("..\\Images\\balls\\" + _lastcalled[_lastcalled.Count-1].BallNum_ + "Ball.png", UriKind.Relative));
-            
+            {
+                //string tempLetter = _lastcalled[_lastcalled.Count - 1].CalledBallState_.Substring(0, 1);
+
+                LastBallImg = new BitmapImage(new Uri("..\\Images\\balls\\" + _lastcalled[_lastcalled.Count - 1].BallNum_ + "Ball.png", UriKind.Relative));
+                if(App.flashboardViewModel is not null)
+                App.flashboardViewModel.LastBallImg = LastBallImg;
+            }
+
         }
 
 

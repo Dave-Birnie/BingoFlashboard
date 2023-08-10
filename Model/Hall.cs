@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using WpfAnimatedGif;
 
 namespace BingoFlashboard.Model
 {
@@ -11,7 +14,7 @@ namespace BingoFlashboard.Model
     {
         public int Id_ { get; set; }
         public string Name_ { get; set; } = string.Empty;
-        public string? Logo_ { get; set; }
+        public byte[]? Logo_ { get; set; }
         public string? Address_ { get; set; } = string.Empty;
         public string? City_ { get; set; } = string.Empty;
         public string? Postal_ { get; set; } = string.Empty;
@@ -28,7 +31,23 @@ namespace BingoFlashboard.Model
         public string? Message_ { get; set; } = string.Empty;
         public bool? Master_ { get; set; } = false;
         public bool? Active_ { get; set; } = true;
-
         public List<Session>? AllSessions_ { get; set; }
+
+        public BitmapImage ByteArrayToImage()
+        {
+            if (Logo_ == null || Logo_.Length == 0)
+                return null;
+
+            using (MemoryStream stream = new MemoryStream(Logo_))
+            {
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                // Cache option to load the image from the memory, not from the stream after it's disposed
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.StreamSource = stream;
+                image.EndInit();
+                return image;
+            }
+        }
     }
 }

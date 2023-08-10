@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Threading.Tasks;
 using System;
 using System.Windows.Media.Animation;
+using BingoFlashboard.Model.FlashboardModels;
 
 namespace BingoFlashboard.View
 {
@@ -117,8 +118,6 @@ namespace BingoFlashboard.View
         {
             try
             {
-
-
                 if (App.flashboardWindow is not null)
                 {
                     double width = App.flashboardWindow.Width;
@@ -143,16 +142,17 @@ namespace BingoFlashboard.View
 
         private async void GoLiveBtn_Click(object sender, RoutedEventArgs e)
         {
-
-            if (App.server is not null)
+            if (App.server is not null && App.callerWindowViewModel is not null)
             {
-                if (!BroadcastingGame)
+                if (App.callerWindowViewModel.HostingStatus.HostingGameStatus != "On")
                 {
                     await App.server.HostNewGame();
                 }
                 else
                 {
-                    MessageBox.Show("Game already broadcasting");
+                    App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("Off");
+                    //BroadcastingGame = false;
+                    MessageBox.Show("No longer hosting a game");
                 }
             }
         }

@@ -29,7 +29,7 @@ namespace BingoFlashboard.Model.FlashboardModels
 
                 case "On":
                     {
-                        HostingGameBtn = "Stop Broadcast";
+                        HostingGameBtn = "Stop Hosting";
                         HostingGameStatus = "On";
                         HostingGameColor = new SolidColorBrush(Colors.Green);
                         if (App.callerWindow is not null) App.callerWindow.BroadcastingGame = true;
@@ -37,7 +37,7 @@ namespace BingoFlashboard.Model.FlashboardModels
                     }
                 case "Off":
                     {
-                        HostingGameBtn = "Broadcast Game";
+                        HostingGameBtn = "Host Game";
                         HostingGameStatus = "Off";
                         HostingGameColor = new SolidColorBrush(Colors.Red);
                         if (App.callerWindow is not null)

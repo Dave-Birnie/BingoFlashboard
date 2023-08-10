@@ -144,7 +144,7 @@
                                    Padding="15,0,15,0"
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
-                                   Content="BROADCASTING" />
+                                   Content="SERVER" />
                             <Label HorizontalContentAlignment="Center"
                                    HorizontalAlignment="Center"
                                    VerticalContentAlignment="Center"
