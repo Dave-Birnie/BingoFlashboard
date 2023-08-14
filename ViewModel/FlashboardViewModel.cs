@@ -128,6 +128,26 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
+        private BitmapImage _moneyBallImg = new BitmapImage(new Uri("\\Images\\" + "" + "Ball.png", UriKind.Relative));
+        public BitmapImage MoneyBallImg
+        {
+            get
+            {
+                return _moneyBallImg;
+            }
+            set
+            {
+                _moneyBallImg = value;
+                OnPropertyChanged(nameof(MoneyBallImg));
+            }
+        }
+        public void ChangeMoneyBallImage(string moneyball)
+        {
+            MoneyBallImg = new BitmapImage(new Uri("..\\Images\\balls\\" + moneyball + "Ball.png", UriKind.Relative));
+            if (App.flashboardViewModel is not null)
+                App.flashboardViewModel.MoneyBallImg = MoneyBallImg;
+        }
+
         private string _designatedNumber = "0";
         public string DesignatedNumber
         {
@@ -643,6 +663,7 @@ namespace BingoFlashboard.ViewModel
             }
             set
             {
+
                 _hallFlashboardMessage = value;
                 OnPropertyChanged(nameof(HallFlashboardMessage));
             }
@@ -5562,13 +5583,12 @@ namespace BingoFlashboard.ViewModel
 
             else
             {
-                //string tempLetter = _lastcalled[_lastcalled.Count - 1].CalledBallState_.Substring(0, 1);
-
                 LastBallImg = new BitmapImage(new Uri("..\\Images\\balls\\" + _lastcalled[_lastcalled.Count - 1].BallNum_ + "Ball.png", UriKind.Relative));
-                if(App.flashboardViewModel is not null)
-                App.flashboardViewModel.LastBallImg = LastBallImg;
+                if (App.flashboardViewModel is not null)
+                    App.flashboardViewModel.LastBallImg = LastBallImg;
             }
-
+            if(App.flashboardViewModel is not null)
+                App.flashboardViewModel.BallCount = _lastcalled.Count.ToString();
         }
 
 

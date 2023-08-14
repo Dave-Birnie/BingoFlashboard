@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System;
 using System.Windows.Media.Animation;
 using BingoFlashboard.Model.FlashboardModels;
+using System.Windows.Media.Imaging;
 
 namespace BingoFlashboard.View
 {
@@ -340,7 +341,7 @@ namespace BingoFlashboard.View
                 App.flashboardViewModel.FontColor = new SolidColorBrush(font);
 
                 App.flashboardViewModel.CurrentGame = game;
-
+                App.flashboardViewModel.ChangeMoneyBallImage(game.Designated_Number_);
             }//END CHECK FLASHBOARDVIEWMODEL
 
         }
@@ -606,6 +607,7 @@ namespace BingoFlashboard.View
                             break;
                         }
                 }
+                string response = "";
 
                 foreach (string st in calls)
                 {
@@ -613,11 +615,11 @@ namespace BingoFlashboard.View
                     {
                         calls.Remove(st);
                         allowAdd = false;
+                        response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
                         Ball.Text = "";
                         break;
                     }
                 }
-                string response = "";
                 if (allowAdd)
                 {
                     calls.Add(Ball.Text);

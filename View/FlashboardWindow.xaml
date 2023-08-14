@@ -244,7 +244,7 @@
                             <Image Name="MoneyBallImg"
                                    HorizontalAlignment="Center"
                                    Margin="80,0,80,-0.2"
-                                   Source="{Binding MoneyBall}"
+                                   Source="{Binding MoneyBallImg}"
                                    Visibility="{Binding MoneyBallVisibility}"
                                    Grid.ColumnSpan="3" />
 

@@ -652,7 +652,7 @@
                             <Label Style="{StaticResource LabelsMain}"
                                    Margin="20,0,0,0"
                                    Width="120"
-                                   Content="Border Color Name" />
+                                   Content="Font Color Name" />
 
                             <TextBox Name="FontColorName"
                                      Margin="10,2"
@@ -660,7 +660,7 @@
                                      FontSize="14"
                                      KeyDown="Enter_Click"
                                      Style="{StaticResource ModernTextBox}"
-                                     Text="{Binding SelectedGame.Border_Color_.Name_}" />
+                                     Text="{Binding SelectedGame.Font_Color_.Name_}" />
 
                         </StackPanel>
 
