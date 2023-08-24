@@ -484,7 +484,8 @@
                             <TextBox Name="VerifyTxtBox"
                                      Width="80"
                                      Style="{StaticResource ModernTextBox}"
-                                     KeyDown="VerifyTxtBox_KeyDown" />
+                                     KeyDown="VerifyTxtBox_KeyDown"
+                                     Text="{Binding CardNum_}"/>
 
                             <Button Name="CheckCardBtn"
                                     Margin="20,0,0,0"

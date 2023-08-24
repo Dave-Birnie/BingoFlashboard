@@ -499,14 +499,14 @@ namespace BingoFlashboard.View
         private void CheckCardBtn_Click(object sender, RoutedEventArgs e)
         {
 
-            StartFlashing();
+            //StartFlashing();
             if (VerifyTxtBox.Text is not null)
             {
                 VerifyCard();
             }
         }
 
-        private async void VerifyCard()
+        public async void VerifyCard()
         {
             if (App.SharedVerificationPage is not null)
             {
@@ -625,7 +625,7 @@ namespace BingoFlashboard.View
                     calls.Add(Ball.Text);
                     response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
 
-                    Ball.Text = "";
+                   // Ball.Text = "";
                 }
                 if (response == "Success")
                 {

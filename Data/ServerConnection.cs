@@ -44,7 +44,7 @@ namespace BingoFlashboard.Data
                     if (hubConnection.State != HubConnectionState.Connected)
                     {
                         // Use the Dispatcher to run the MessageBox.Show on the UI thread
-                        if(!NotifiedLostConnection && App.callerWindowViewModel is not null)
+                        if (!NotifiedLostConnection && App.callerWindowViewModel is not null)
                         {
                             Application.Current.Dispatcher.Invoke(() =>
                             {
@@ -111,10 +111,19 @@ namespace BingoFlashboard.Data
                                     {
                                         Application.Current.Dispatcher.Invoke(() =>
                                         {
-                                            BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
-                                            bingoCalledWindow.Show();
+                                            if (responseMessage.SecondaryMessage_ is not null && responseMessage.SecondaryMessage_ is not "")
+                                            {
+                                                if (App.callerWindowViewModel is not null)
+                                                    App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
+                                                BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
+                                                bingoCalledWindow.Show();
+                                            }
+                                            else
+                                            {
+                                                if (App.callerWindow is not null)
+                                                    App.callerWindow.StartFlashing();
+                                            }
                                         });//END DISPATCHER
-
                                         break;
                                     }
                             }//END SWITCH
@@ -189,11 +198,11 @@ namespace BingoFlashboard.Data
                     App.server = new();
                     return;
                 }
-                
+
                 if (hubConnection.State == HubConnectionState.Disconnected)
                     await hubConnection.StartAsync();
 
-                
+
                 if (App.hall is not null)
                 {
                     Hall partialHall = new Hall()
@@ -236,8 +245,6 @@ namespace BingoFlashboard.Data
                     //messages.Add("Server Unavailable, please contact administrator.\n" + ex.Message);
                     App.callerWindowViewModel.AddServerMessage("Server Unavailable, please contact administrator.\n" + ex.Message);
                 }
-                
-
             }
         }
 
