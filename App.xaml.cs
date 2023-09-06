@@ -103,12 +103,21 @@ namespace BingoFlashboard
             
         }
 
-        public static void Exit_Click()
+        public async static void Exit_Click()
         {
             string message = "Are you sure you would like to close the game?";
             string caption = "WARNING: Ending Game";
             if (System.Windows.MessageBox.Show(message, caption, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
+                if (App.callerWindowViewModel is not null && App.callerWindowViewModel.HostingStatus.HostingGameStatus == "On")
+                {
+                    if (App.server is not null)
+                    {
+
+                        await App.server.KillConnection();
+                        App.server.CloseConnection();
+                    }
+                }
                 Application.Current.Shutdown();
                 App.Current.Shutdown();
             }

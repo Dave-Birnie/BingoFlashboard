@@ -28,8 +28,14 @@ namespace BingoFlashboard.Data
         public ServerConnection()
         {
             hubConnection = new HubConnectionBuilder()
-            .WithUrl("http://192.168.2.16:7226/GameHub") // Replace with the appropriate URL
+            //PRODUCTION
+            .WithUrl("https://bingoappservice.azurewebsites.net/GameHub")
+
+            //DEVELOPMENT
+            //.WithUrl("http://192.168.2.16:7226/GameHub") // Replace with the appropriate URL
             //.WithUrl("https://localhost:7226/GameHub") // Replace with the appropriate URL
+            
+            
             .WithAutomaticReconnect()
             .Build();
 
@@ -124,6 +130,11 @@ namespace BingoFlashboard.Data
                                                     App.callerWindow.StartFlashing();
                                             }
                                         });//END DISPATCHER
+                                        break;
+                                    }
+                                default:
+                                    {
+                                        MessageBox.Show(responseMessage.TransferMessage_);
                                         break;
                                     }
                             }//END SWITCH
@@ -302,7 +313,44 @@ namespace BingoFlashboard.Data
             }
         }
 
+        public async Task KillConnection()
+        {
+            if (App.hall is not null && App.hall.Name_ is not null)
+            {
+                Hall partialHall = new Hall()
+                {
+                    Id_ = App.hall.Id_,
+                    Name_ = App.hall.Name_,
+                    Logo_ = App.hall.Logo_,
+                    Address_ = App.hall.Address_,
+                    City_ = App.hall.City_,
+                    Postal_ = App.hall.Postal_,
+                    Country_ = App.hall.Country_,
+                    Province_ = App.hall.Province_,
+                    Phone_ = App.hall.Phone_,
+                    Website_ = App.hall.Website_,
+                    Email_ = App.hall.Email_,
+                    Username_ = App.hall.Username_,
+                    Login_Password_ = App.hall.Login_Password_,
+                    Temp_Login_Password_ = App.hall.Temp_Login_Password_,
+                    Comport_ = App.hall.Comport_,
+                    Auto_Caller_ = App.hall.Auto_Caller_,
+                    Message_ = App.hall.Message_,
+                    Master_ = App.hall.Master_,
+                    Active_ = App.hall.Active_,
+                    AllSessions_ = null
+                };
 
+                DataTransfer dt = new()
+                {
+                    TransferMessage_ = "Hall",
+                    JsonString_ = JsonConvert.SerializeObject(partialHall, Formatting.Indented)
+                };
+
+                if (App.server is not null && App.server.hubConnection.State == HubConnectionState.Connected)
+                    await hubConnection.SendAsync("KillConnection", dt);
+            }
+        }
 
         #endregion GAME METHODS
 
