@@ -34,8 +34,8 @@ namespace BingoFlashboard.Data
             //DEVELOPMENT
             //.WithUrl("http://192.168.2.16:7226/GameHub") // Replace with the appropriate URL
             //.WithUrl("https://localhost:7226/GameHub") // Replace with the appropriate URL
-            
-            
+
+
             .WithAutomaticReconnect()
             .Build();
 
@@ -78,7 +78,6 @@ namespace BingoFlashboard.Data
                         Application.Current.Dispatcher.Invoke(async () =>
                         {
                             // Handle the response message received from the server
-
                             switch (responseMessage.TransferMessage_)
                             {
                                 case "Game Connected":
@@ -89,6 +88,12 @@ namespace BingoFlashboard.Data
                                         App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("On");
                                         if (App.callerWindow is not null)
                                             await App.callerWindow.SendGameInfo();
+                                        break;
+                                    }
+                                case "Player Joined":
+                                    {
+                                        App.callerWindowViewModel.AddServerMessage(responseMessage.SecondaryMessage_.ToString());
+                                        App.playerList.Add(JsonConvert.DeserializeObject<Player>(responseMessage.JsonString_));
                                         break;
                                     }
                                 default:
@@ -110,7 +115,6 @@ namespace BingoFlashboard.Data
                     {
                         try
                         {
-
                             switch (responseMessage.TransferMessage_)
                             {
                                 case "Bingo Called":
@@ -120,7 +124,10 @@ namespace BingoFlashboard.Data
                                             if (responseMessage.SecondaryMessage_ is not null && responseMessage.SecondaryMessage_ is not "")
                                             {
                                                 if (App.callerWindowViewModel is not null)
+                                                {
                                                     App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
+                                                }
+
                                                 BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
                                                 bingoCalledWindow.Show();
                                             }
@@ -268,7 +275,7 @@ namespace BingoFlashboard.Data
                 {
                     Id_ = game.Id_,
                     HallName_ = App.hall.Name_,
-                    DateTimeStart_ = "Jan 23 --  @ 7pm",
+                    DateTimeStart_ = App.StartTime,
                     GameName_ = game.Name_,
                     Border_Color_ = game.Border_Color_,
                     Font_Color_ = game.Font_Color_,

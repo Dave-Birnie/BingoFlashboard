@@ -121,6 +121,12 @@
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         Grid.Column="2">
+
+                <xctk:DateTimePicker Name="TimePickerControl"
+                                     Width="200"
+                                     Height="30"
+                                     Margin="30,0,0,0" />
+
                 <Button x:Name="GoLiveBtn"
                         Style="{StaticResource ModernBtn}"
                         Width="160"
@@ -506,9 +512,11 @@
                                Style="{StaticResource H2}"
                                FontWeight="Bold"
                                Content="GAME SELECTION" />
-                        <StackPanel Orientation="Horizontal"
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Center"
                                     Height="60">
+
                             <Button Name="PreviousGame"
                                     Style="{StaticResource ModernBtn}"
                                     Margin="10"
@@ -520,8 +528,27 @@
                                     Content="Next"
                                     Click="NextGameBtn_Click" />
                         </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Height="60">
+
+                                <Button Name="StartGame"
+                                        Style="{StaticResource ModernBtnStart}"
+                                        Margin="10"
+                                        Width="120"
+                                        Content="START GAME"
+                                        Click="StartGame_Click"/>
+                                <Button Name="EndGame"
+                                        Style="{StaticResource ModernBtnDelete}"
+                                        Margin="10"
+                                        Width="120"
+                                        Content="END GAME"
+                                        Click="EndGame_Click" />
+                            </StackPanel>
+
+                        </StackPanel>
                     </StackPanel>
-                    <Grid Grid.Row="2">
+                    <!--<Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="*" />
@@ -530,7 +557,7 @@
                         <Grid Grid.Column="1"
                               Grid.Row="2">
                         </Grid>
-                    </Grid>
+                    </Grid>-->
                 </Grid>
             </Border>
             <!--#endregion-->
@@ -819,7 +846,8 @@
             <Grid Grid.Row="1"
                   HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="600" />
+                    <ColumnDefinition Width="600" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Border BorderBrush="{StaticResource OxfordBlue}"
@@ -828,7 +856,7 @@
                     <ListView Grid.Row="1"
                               Name="ServerMessagesList"
                               HorizontalAlignment="Stretch"
-                              MinWidth="1000"
+                              MinWidth="600"
                               FontSize="16"
                               FontWeight="Bold"
                               Foreground="Black"
@@ -852,10 +880,31 @@
                                FontSize="48"
                                FontWeight="Bold" />
                 </Grid>
-                <!--#endregion BINGO CALLED OVERLAY-->
                 <Border BorderBrush="{StaticResource OxfordBlue}"
                         BorderThickness="2"
                         Grid.Column="1">
+                    <ListView x:Name="BingosList"
+                              MinHeight="150"
+                              FontWeight="Bold"
+                              FontSize="14"
+                              SelectionChanged="GamesList_SelectionChanged">
+                        <ListView.View>
+                            <GridView x:Name="BingosGrid">
+                                <GridViewColumn Header="| Player |"
+                                                Width="320"
+                                                DisplayMemberBinding="{Binding Player.Name_}" />
+                                <GridViewColumn Header="| Good Bingo? | "
+                                                Width="180"
+                                                DisplayMemberBinding="{Binding GameType_}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+
+                <!--#endregion BINGO CALLED OVERLAY-->
+                <Border BorderBrush="{StaticResource OxfordBlue}"
+                        BorderThickness="2"
+                        Grid.Column="2">
                     <StackPanel Grid.Column="1">
                         <Label Style="{StaticResource H2}"
                                Background="{StaticResource AccentBlue}"

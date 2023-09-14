@@ -120,5 +120,20 @@ namespace BingoFlashboard.ViewModel
         //        OnPropertyChanged(nameof(VerificationPage));
         //    }
         //}
+
+
+        private List<CalledBingos> onlineBingos_;
+        public List<CalledBingos> OnlineBingos
+        {
+            get
+            {
+                return onlineBingos_;
+            }
+            set
+            {
+                onlineBingos_ = value;
+                OnPropertyChanged(nameof(OnlineBingos));
+            }
+        }
     }
 }

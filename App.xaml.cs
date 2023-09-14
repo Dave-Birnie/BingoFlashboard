@@ -31,10 +31,11 @@ namespace BingoFlashboard
         public static Hall? hall;
         public static Session? SelectedSession;
         public static Game? SelectedGame;
+        public static string StartTime = "";
         public static List<Pattern> allPatterns = new();
         private static LoadAllPatterns lap = new();
         public static List<Card> cardList = new();
-       // public static List<Pattern>? patternList_ = new();
+        public static List<Player> playerList = new();
 
         #endregion
 
@@ -113,7 +114,6 @@ namespace BingoFlashboard
                 {
                     if (App.server is not null)
                     {
-
                         await App.server.KillConnection();
                         App.server.CloseConnection();
                     }
@@ -123,9 +123,7 @@ namespace BingoFlashboard
             }
         }
 
-
         #endregion METHODS
-
 
     }
 }

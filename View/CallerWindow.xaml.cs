@@ -49,7 +49,7 @@ namespace BingoFlashboard.View
             _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(30) };
             _timer.Tick += Timer_Tick;
 
-            _animation = (Storyboard)FindResource("FlashingAnimation");
+            _animation = (Storyboard) FindResource("FlashingAnimation");
             _animation.Completed += (s, e) => BingoOverlay.Background = null;
 
             PatternCB.ItemsSource = App.allPatterns;
@@ -75,8 +75,8 @@ namespace BingoFlashboard.View
             DataContext = App.callerWindowViewModel;
 
             VerifyFrame.NavigationService.Navigate(App.SharedVerificationPage);
-            if(App.verificationWindow is not null)
-            App.verificationWindow.Show();  
+            if (App.verificationWindow is not null)
+                App.verificationWindow.Show();
 
         }
         #endregion CONSTRUCTOR
@@ -135,7 +135,7 @@ namespace BingoFlashboard.View
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                if(App.callerWindowViewModel is not null)
+                if (App.callerWindowViewModel is not null)
                     App.callerWindowViewModel.AddServerMessage("Flashboard not saved\n" + ex.Message);
 
             }
@@ -145,15 +145,26 @@ namespace BingoFlashboard.View
         {
             if (App.server is not null && App.callerWindowViewModel is not null)
             {
-                if (App.callerWindowViewModel.HostingStatus.HostingGameStatus != "On")
+                //ENSURE DATE/TIME IS SET FOR GAME
+                if (TimePickerControl.Text is null || TimePickerControl.Text == "")
                 {
-                    await App.server.HostNewGame();
+                    MessageBox.Show("Must enter time for the game to start");
                 }
                 else
                 {
-                    App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("Off");
-                    //BroadcastingGame = false;
-                    MessageBox.Show("No longer hosting a game");
+                    App.StartTime = TimePickerControl.Text;
+                    if (App.callerWindowViewModel.HostingStatus.HostingGameStatus != "On")
+                    {
+                        TimePickerControl.IsEnabled = false;
+                        await App.server.HostNewGame();
+                    }
+                    else
+                    {
+                        App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("Off");
+                        //BroadcastingGame = false;
+                        TimePickerControl.IsEnabled = true;
+                        MessageBox.Show("No longer hosting a game");
+                    }
                 }
             }
         }
@@ -516,7 +527,7 @@ namespace BingoFlashboard.View
 
                 App.SharedVerificationPage.HighlightCard(calls);
                 App.SharedVerificationPage2.HighlightCard(calls);
-                if(game.Pattern_ is not null)
+                if (game.Pattern_ is not null)
                 {
                     App.SharedVerificationPage.CheckWinner(calls, game.Pattern_);
                     App.SharedVerificationPage2.CheckWinner(calls, game.Pattern_);
@@ -526,7 +537,7 @@ namespace BingoFlashboard.View
             {
                 MessageBox.Show("Unable to verify card.");
             }
-                
+
         }
 
         //private void UpdateVerifyFrame()
@@ -625,7 +636,7 @@ namespace BingoFlashboard.View
                     calls.Add(Ball.Text);
                     response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
 
-                   // Ball.Text = "";
+                    // Ball.Text = "";
                 }
                 if (response == "Success")
                 {
@@ -639,7 +650,7 @@ namespace BingoFlashboard.View
                 else if (response == "Fail")
                     MessageBox.Show("Ball Error");
 
-              
+
             }
         }
 
@@ -724,5 +735,18 @@ namespace BingoFlashboard.View
         }
 
         #endregion FLASHING BINGO CALLED
+
+        private void StartGame_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO START GAME
+            //ADD TIME FOR GAME START
+
+        }
+
+        private void EndGame_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO END GAME
+            //ADD TIME FOR GAME END
+        }
     }
 }
