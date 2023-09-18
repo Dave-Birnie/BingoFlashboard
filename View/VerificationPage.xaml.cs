@@ -27,6 +27,7 @@ namespace BingoFlashboard.View
         public static List<Card> cardList = new();
         public static Card selectedCard = new();
         private static List<CardNumbers> cardNums = new();
+        
 
         public VerificationPage()
         {
@@ -101,7 +102,7 @@ namespace BingoFlashboard.View
                             cardList.Add(c);
                         }
 
-                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("Dab All", cardList);
+                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("DabAll", cardList);
                         temp_cardset.Add(newCardSet);
                     } // END IF = DABALL
                     else if (cs.Set_Name_ == "Perfect Paper")
@@ -167,7 +168,7 @@ namespace BingoFlashboard.View
                             //App.cardDatabase.Add(c);
                         }
 
-                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("Perfect Paper", cardList);
+                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("PerfectPaper", cardList);
                         temp_cardset.Add(newCardSet);
                     }// END IF PERFECT PAPER
                     else if (cs.Set_Name_ == "Perfect Paper R")
@@ -233,7 +234,7 @@ namespace BingoFlashboard.View
                             //App.cardDatabase.Add(c);
                         }
 
-                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("Perfect Paper R", cardList);
+                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("PerfectPaperR", cardList);
                         temp_cardset.Add(newCardSet);
                     }// END IF PERFECT PAPER R
                     else
@@ -291,16 +292,38 @@ namespace BingoFlashboard.View
                 }
         }
 
-        public void SelectCard(string cardNum)
+        //public void SelectCard(string cardNum)
+        //{
+        //    foreach (Card card in cardList)
+        //    {
+        //        if (card.CardNum_ == cardNum)
+        //        {
+        //            selectedCard = card;
+        //            break;
+        //        }
+        //    }
+        //    LoadCard();
+        //}
+
+        public void SelectCard(string cardNum, string cardset)
         {
-            foreach (Card card in cardList)
+            bool found = false;
+            foreach (Tuple<string, List<Card>> set in temp_cardset)
             {
-                if (card.CardNum_ == cardNum)
+                if(set.Item1 == cardset)
                 {
-                    selectedCard = card;
-                    break;
+                    foreach (Card card in set.Item2)
+                    {
+                        if (card.CardNum_ == cardNum)
+                        {
+                            found = true;
+                            selectedCard = card;
+                            break;
+                        }
+                    }
                 }
             }
+            if(found)
             LoadCard();
         }
 

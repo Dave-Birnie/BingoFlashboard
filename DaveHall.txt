@@ -1473,12 +1473,12 @@
         "Cardsets_": [
           {
             "Id_": 0,
-            "Set_Name_": "Bingo75",
+            "Set_Name_": "UniMax",
             "Card_": null
           },
           {
             "Id_": 0,
-            "Set_Name_": "BingoDabAll",
+            "Set_Name_": "Perfect Paper",
             "Card_": null
           },
           {
