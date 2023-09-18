@@ -28,7 +28,7 @@ namespace BingoFlashboard.View
             try
             {
                 InitializeComponent();
-
+                App.LoadStartupFile();
                 App.startupWindow = this;
             }
             catch (Exception ex)

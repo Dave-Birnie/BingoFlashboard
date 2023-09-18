@@ -73,6 +73,22 @@ namespace BingoFlashboard
             }
         }
 
+        public static void LoadStartupFile()
+        {
+            try
+            {
+                using (StreamReader reader = new StreamReader(App.startupFile))
+                {
+                    string json = reader.ReadToEnd();
+                    startup = JsonConvert.DeserializeObject<StartupClass>(json);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public static void ShowCallerWindows()
         {
             startupWindow?.Hide();
@@ -86,8 +102,6 @@ namespace BingoFlashboard
         {
             try
             {
-
-
                 using (StreamWriter sw = File.AppendText(App.errorlogPath))
                 {
                     sw.WriteLine(errorMessage);
