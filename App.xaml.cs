@@ -6,9 +6,7 @@ using System.Windows;
 using System.IO;
 using Newtonsoft.Json;
 using BingoFlashboard.ViewModel;
-using Microsoft.Toolkit.Uwp.Notifications;
-using System.Xml.Linq;
-using System.Windows.Controls;
+using System;
 
 namespace BingoFlashboard
 {
@@ -48,9 +46,8 @@ namespace BingoFlashboard
         public static CallerWindow? callerWindow;
         public static MiniGrid? miniGrid;
         public static TimerWindow? timerWindow;
-      //  public static VerificationPage? verificationPage = new();
+        //public static VerificationPage? verificationPage;
         public static VerifyWindow? verificationWindow = new();
-
         #endregion WINDOWS
 
         #region VIEWMODELS  
@@ -62,10 +59,17 @@ namespace BingoFlashboard
 
         public static void SaveStartupFile()
         {
-            using (StreamWriter writer = new StreamWriter(App.startupFile, false))
+            try
             {
-                string json = JsonConvert.SerializeObject(startup);
-                writer.Write(json);
+                using (StreamWriter writer = new StreamWriter(App.startupFile, false))
+                {
+                    string json = JsonConvert.SerializeObject(startup);
+                    writer.Write(json);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " 001");
             }
         }
 
@@ -80,9 +84,18 @@ namespace BingoFlashboard
         //TODO
         public static void WriteToErrorLog(string errorMessage)
         {
-            using (StreamWriter sw = File.AppendText(App.errorlogPath))
+            try
             {
-                sw.WriteLine(errorMessage);
+
+
+                using (StreamWriter sw = File.AppendText(App.errorlogPath))
+                {
+                    sw.WriteLine(errorMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " 002");
             }
         }
 
@@ -101,7 +114,6 @@ namespace BingoFlashboard
 
             //// Display the toast notification
             //ToastNotificationManagerCompat.CreateToastNotifier().Show(toast);
-            
         }
 
         public async static void Exit_Click()

@@ -25,9 +25,16 @@ namespace BingoFlashboard.View
 
         public StartupWindow()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
 
-            App.startupWindow = this;
+                App.startupWindow = this;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " 003" + ex.InnerException);
+            }
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -102,8 +109,9 @@ namespace BingoFlashboard.View
                 App.flashboardWindow = new();
                 App.callerWindow = new();
                 this.Hide();
+                App.SharedVerificationPage.PopuateCards();
                 App.ShowCallerWindows();
-
+                
                 if (App.callerWindowViewModel is not null)
                 {
                     App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Waiting");
