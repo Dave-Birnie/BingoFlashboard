@@ -20,7 +20,7 @@ namespace BingoFlashboard.View
         public MiniGrid()
         {
             InitializeComponent();
-            //App.miniGrid = this;
+            App.miniGrid = this;
             LoadPatterns();
         }
 
@@ -35,27 +35,27 @@ namespace BingoFlashboard.View
 
             else
             {
-                //if (App.patternList_ is not null)
-                //{
-                //    foreach (Pattern pat in App.patternList_)
-                //    {
-                //        if (pat.Pattern_Name_ == p.Pattern_Name_)
-                //        {
-                //            if (p.Pattern_ is null)
-                //            {
-                //                if (pat.Pattern_ is not null)
-                //                {
-                //                    p = pat;
-                //                    patterns = pat.Pattern_;
-                //                    break;
-                //                }
-                //            }
-                //        }
-                //    }
-                //}
+                if (App.allPatterns is not null)
+                {
+                    foreach (Pattern pat in App.allPatterns)
+                    {
+                        if (pat.Pattern_Name_ == p.Pattern_Name_)
+                        {
+                            if (p.Pattern_ is null)
+                            {
+                                if (pat.Pattern_ is not null)
+                                {
+                                    p = pat;
+                                    patterns = pat.Pattern_;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            if (animationCancellationTokenSource != null && !animationCancellationTokenSource.IsCancellationRequested)
+            if (animationCancellationTokenSource is not null && !animationCancellationTokenSource.IsCancellationRequested)
             {
                 // Animation is already running, so return
                 return;
@@ -104,7 +104,7 @@ namespace BingoFlashboard.View
         public async Task<Task> StopAnimation()
         {
             // Cancel the animation if it is running
-            if (animationCancellationTokenSource != null)
+            if (animationCancellationTokenSource is not null)
             {
                 animationCancellationTokenSource.Cancel();
                 await Task.Delay(1600);

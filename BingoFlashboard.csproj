@@ -8,8 +8,477 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\DabAll.txt" />
+    <None Remove="Data\PerfectPaper.txt" />
+    <None Remove="Data\Reliable.txt" />
+    <None Remove="Data\UniMax.txt" />
+    <None Remove="Images\gif\DabAll.txt" />
+    <None Remove="Images\gif\PerfectPaper.txt" />
+    <None Remove="Images\gif\Reliable.txt" />
+    <None Remove="Images\gif\Riverview.gif" />
+    <None Remove="Images\gif\RiverviewLogo.png" />
+    <None Remove="Images\gif\UniMax.txt" />
+    <None Remove="Images\gif\wavy.gif" />
+    <None Remove="Images\logos\batchewana-bingo-logo.png" />
+    <None Remove="Images\logos\CambridgeLogo.png" />
+    <None Remove="Images\logos\ChancesLogo2.png" />
+    <None Remove="Images\logos\Riverbank.png" />
+    <None Remove="Images\logos\RiverbankWhite.png" />
+    <None Remove="Images\logos\RiverviewLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\PerfectPaper.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Reliable.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\UniMax.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\background.png" />
+    <None Remove="Images\balls\10Ball.png" />
+    <None Remove="Images\balls\11Ball.png" />
+    <None Remove="Images\balls\12Ball.png" />
+    <None Remove="Images\balls\13Ball.png" />
+    <None Remove="Images\balls\14Ball.png" />
+    <None Remove="Images\balls\15Ball.png" />
+    <None Remove="Images\balls\16Ball.png" />
+    <None Remove="Images\balls\17Ball.png" />
+    <None Remove="Images\balls\18Ball.png" />
+    <None Remove="Images\balls\19Ball.png" />
+    <None Remove="Images\balls\1Ball.png" />
+    <None Remove="Images\balls\20Ball.png" />
+    <None Remove="Images\balls\21Ball.png" />
+    <None Remove="Images\balls\22Ball.png" />
+    <None Remove="Images\balls\23Ball.png" />
+    <None Remove="Images\balls\24Ball.png" />
+    <None Remove="Images\balls\25Ball.png" />
+    <None Remove="Images\balls\26Ball.png" />
+    <None Remove="Images\balls\27Ball.png" />
+    <None Remove="Images\balls\28Ball.png" />
+    <None Remove="Images\balls\29Ball.png" />
+    <None Remove="Images\balls\2Ball.png" />
+    <None Remove="Images\balls\30Ball.png" />
+    <None Remove="Images\balls\31Ball.png" />
+    <None Remove="Images\balls\32Ball.png" />
+    <None Remove="Images\balls\33Ball.png" />
+    <None Remove="Images\balls\34Ball.png" />
+    <None Remove="Images\balls\35Ball.png" />
+    <None Remove="Images\balls\36Ball.png" />
+    <None Remove="Images\balls\37Ball.png" />
+    <None Remove="Images\balls\38Ball.png" />
+    <None Remove="Images\balls\39Ball.png" />
+    <None Remove="Images\balls\3Ball.png" />
+    <None Remove="Images\balls\40Ball.png" />
+    <None Remove="Images\balls\41Ball.png" />
+    <None Remove="Images\balls\42Ball.png" />
+    <None Remove="Images\balls\43Ball.png" />
+    <None Remove="Images\balls\44Ball.png" />
+    <None Remove="Images\balls\45Ball.png" />
+    <None Remove="Images\balls\46Ball.png" />
+    <None Remove="Images\balls\47Ball.png" />
+    <None Remove="Images\balls\48Ball.png" />
+    <None Remove="Images\balls\49Ball.png" />
+    <None Remove="Images\balls\4Ball.png" />
+    <None Remove="Images\balls\50Ball.png" />
+    <None Remove="Images\balls\51Ball.png" />
+    <None Remove="Images\balls\52Ball.png" />
+    <None Remove="Images\balls\53Ball.png" />
+    <None Remove="Images\balls\54Ball.png" />
+    <None Remove="Images\balls\55Ball.png" />
+    <None Remove="Images\balls\56Ball.png" />
+    <None Remove="Images\balls\57Ball.png" />
+    <None Remove="Images\balls\58Ball.png" />
+    <None Remove="Images\balls\59Ball.png" />
+    <None Remove="Images\balls\5Ball.png" />
+    <None Remove="Images\balls\60Ball.png" />
+    <None Remove="Images\balls\61Ball.png" />
+    <None Remove="Images\balls\62Ball.png" />
+    <None Remove="Images\balls\63Ball.png" />
+    <None Remove="Images\balls\64Ball.png" />
+    <None Remove="Images\balls\65Ball.png" />
+    <None Remove="Images\balls\66Ball.png" />
+    <None Remove="Images\balls\67Ball.png" />
+    <None Remove="Images\balls\68Ball.png" />
+    <None Remove="Images\balls\69Ball.png" />
+    <None Remove="Images\balls\6Ball.png" />
+    <None Remove="Images\balls\70Ball.png" />
+    <None Remove="Images\balls\71Ball.png" />
+    <None Remove="Images\balls\72Ball.png" />
+    <None Remove="Images\balls\73Ball.png" />
+    <None Remove="Images\balls\74Ball.png" />
+    <None Remove="Images\balls\75Ball.png" />
+    <None Remove="Images\balls\7Ball.png" />
+    <None Remove="Images\balls\8Ball.png" />
+    <None Remove="Images\balls\9Ball.png" />
+    <None Remove="Images\balls\B.png" />
+    <None Remove="Images\balls\BBall.png" />
+    <None Remove="Images\balls\BBallDark.png" />
+    <None Remove="Images\balls\GBall.png" />
+    <None Remove="Images\balls\GBallDark.png" />
+    <None Remove="Images\balls\IBall.png" />
+    <None Remove="Images\balls\IBallDark.png" />
+    <None Remove="Images\balls\NBall.png" />
+    <None Remove="Images\balls\NBallDark.png" />
+    <None Remove="Images\balls\OBall.png" />
+    <None Remove="Images\balls\OBallDark.png" />
+    <None Remove="Images\gif\batchewana-bingo-logo.png" />
+    <None Remove="Images\gif\bingo6.gif" />
+    <None Remove="Images\gif\bingoballs.gif" />
+    <None Remove="Images\gif\BingoGif.gif" />
+    <None Remove="Images\gif\bubble.gif" />
+    <None Remove="Images\gif\CambridgeLogo.png" />
+    <None Remove="Images\gif\ChancesLogo2.png" />
+    <None Remove="Images\gif\circlecolor.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.9" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\DabAll.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\10Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\11Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\12Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\13Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\14Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\15Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\16Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\17Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\18Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\19Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\1Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\20Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\21Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\22Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\23Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\24Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\25Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\26Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\27Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\28Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\29Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\2Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\30Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\31Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\32Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\33Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\34Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\35Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\36Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\37Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\38Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\39Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\3Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\40Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\41Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\42Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\43Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\44Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\45Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\46Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\47Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\48Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\49Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\4Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\50Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\51Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\52Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\53Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\54Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\55Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\56Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\57Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\58Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\59Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\5Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\60Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\61Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\62Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\63Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\64Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\65Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\66Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\67Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\68Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\69Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\6Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\70Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\71Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\72Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\73Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\74Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\75Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\7Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\8Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\9Ball.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\B.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\BBall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\BBallDark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\GBall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\GBallDark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\IBall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\IBallDark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\NBall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\NBallDark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\OBall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\balls\OBallDark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\batchewana-bingo-logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\bingo6.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\bingoballs.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\BingoGif.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\bubble.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\CambridgeLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\ChancesLogo2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\circlecolor.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\DabAll.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\PerfectPaper.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\Reliable.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\Riverview.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\RiverviewLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\UniMax.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gif\wavy.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\logos\batchewana-bingo-logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\logos\CambridgeLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\logos\ChancesLogo2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\logos\Riverbank.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\logos\RiverbankWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\logos\RiverviewLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="View\ContentView\" />
   </ItemGroup>
 
 </Project>

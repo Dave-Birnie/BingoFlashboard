@@ -1,0 +1,3 @@
+﻿ANIMATED GIFS INSTALL - 
+
+NuGet\Install-Package WpfAnimatedGif -Version 2.0.2

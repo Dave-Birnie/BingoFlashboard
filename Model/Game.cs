@@ -13,8 +13,8 @@ namespace BingoFlashboard.Model
         public int Id_ { get; set; }
         public string Name_ { get; set; } = string.Empty;
         public string Date_Time_ { get; set; } = string.Empty;
-        public GameColor Border_Color_ { get; set; }
-        public GameColor Font_Color_ { get; set; }
+        public GameColor? Border_Color_ { get; set; }
+        public GameColor? Font_Color_ { get; set; }
         public string GameType_ { get; set; } = string.Empty;
         public Pattern? Pattern_ { get; set; }
         public string Prize_ { get; set; } = string.Empty;

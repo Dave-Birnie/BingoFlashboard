@@ -1,0 +1,19 @@
+-- WINDOW -- CallerWindow
+
+
+-Add CallerWindowViewModel to change labels for jackpot prizes and game types
+-Search Card
+-4 Ball 
+-Send timer info to Timer Window
+-Next Game Btn
+-Previous Game Btn
+-Caller_Type selection change -- Change labels for user 
+
+
+COMPLETED
+-Load New Session Btn
+-Delete Game Btn
+-Clear Game Details function (if unselected)
+-Enter Ball Number
+-Send game info to flashboard
+-Send pattern info to MiniGrid

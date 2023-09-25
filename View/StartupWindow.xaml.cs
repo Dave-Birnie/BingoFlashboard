@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows;
 using System.Linq;
 using System.Windows.Input;
+using Microsoft.AspNetCore.SignalR.Client;
 
 namespace BingoFlashboard.View
 {
@@ -19,13 +20,21 @@ namespace BingoFlashboard.View
         #region classVariables
         //ViewModel.StartViewModel svm;
         public string filepath = "";
+
         #endregion
 
         public StartupWindow()
         {
-            InitializeComponent();
-
-            App.startupWindow = this;
+            try
+            {
+                InitializeComponent();
+                App.LoadStartupFile();
+                App.startupWindow = this;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " 003" + ex.InnerException);
+            }
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -41,8 +50,7 @@ namespace BingoFlashboard.View
             LoadSessions();
         }
 
-        #region Error #1
-
+        #region ErrorCode #1: Startup()
         private void Startup()
         {
             try
@@ -63,7 +71,7 @@ namespace BingoFlashboard.View
 
                         Hall? hall = JsonConvert.DeserializeObject<Hall>(json);
 
-                        if (hall != null)
+                        if (hall is not null)
                             App.hall = hall;
                         else
                             MessageBox.Show("Unable to load hall");
@@ -72,21 +80,20 @@ namespace BingoFlashboard.View
             }
             catch (Exception ex)
             {
-                string errorMessage = "Error #1: " + ex.Message + "\n Unable to load hall";
+                string errorMessage = "ErrorCode #1: " + ex.Message + "\n Unable to load hall";
                 MessageBox.Show(errorMessage);
-                App.WriteToErrorLog(errorMessage);
+                DateTime dt = DateTime.Now;
+                App.WriteToErrorLog(dt.ToString() + " -- " + errorMessage);
             }
         }
         #endregion
 
         public void LoadSessions()
         {
-            if (App.hall != null)
+            if (App.hall is not null)
             {
                 if (App.hall.AllSessions_ is not null && App.hall.AllSessions_.Count <= 1)
                 {
-                    if (sessionsList.ItemsSource != null)
-                        sessionsList.Items.Clear();
                     sessionsList.ItemsSource = App.hall.AllSessions_;
                     sessionsList.SelectedIndex = 0;
                 }
@@ -95,53 +102,34 @@ namespace BingoFlashboard.View
 
         private void StartSession_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (sessionsList.SelectedIndex is not -1)
             {
-                if (sessionsList.SelectedIndex != -1)
+                App.SelectedSession = (Session) sessionsList.SelectedItem;
+                sessionsList.ItemsSource = new List<Session>();
+                App.flashboardWindow = new();
+                App.callerWindow = new();
+                this.Hide();
+                App.SharedVerificationPage.PopuateCards();
+                App.ShowCallerWindows();
+                
+                if (App.callerWindowViewModel is not null)
                 {
-                    App.SelectedSession = (Session) sessionsList.SelectedItem;
-                    CallerWindow cw = new();
-                    App.callerWindow= cw;
-                    this.Hide();
-                    cw.Show();
-                }
-                else
-                    MessageBox.Show("Please select a session");
+                    App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Waiting");
 
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-        private void LoadSessionBtn_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-
-                if (openFileDialog.ShowDialog() == true)
-                {
-                    filepath = openFileDialog.FileName;
-
-                    string[] lines = System.IO.File.ReadAllLines(filepath);
-
-                    string sessionTxt = @"//SESSION//";
-                    if (lines[0] != sessionTxt)
+                    if (App.server is null)
                     {
-                        MessageBox.Show("File not regonized. Not a recgonized Session");
+                        App.server = new();
                     }
                     else
                     {
-                        // svm.FileName = openFileDialog.SafeFileName;
+                        App.server.CloseConnection();
+                        App.server = null;
                     }
                 }
+
             }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show("Error: File not regonized");
-            }
+            else
+                MessageBox.Show("Please select a session");
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

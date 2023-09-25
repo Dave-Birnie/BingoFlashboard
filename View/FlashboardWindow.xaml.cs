@@ -22,6 +22,22 @@ namespace BingoFlashboard.View
         public FlashboardWindow()
         {
             InitializeComponent();
+            App.flashboardViewModel = new();
+            DataContext = App.flashboardViewModel;
+            App.miniGrid = new();
+            MiniGrid.Content = App.miniGrid;
+
+            if (App.startup is not null && App.startup.FlashboardWidth is not null && App.startup.FlashboardHeight is not null)
+            {
+                this.Width = (double)App.startup.FlashboardWidth;
+                this.Height = (double)App.startup.FlashboardHeight;
+            }
+
+        }
+
+        private void OnClose(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
         }
     }
 }

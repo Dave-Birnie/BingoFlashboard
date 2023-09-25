@@ -4,23 +4,40 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:BingoFlashboard.View"
         mc:Ignorable="d"
-        MinHeight="750"
-        MinWidth="1200"
         WindowStyle="None"
-        Background="Transparent"
+        Height="960"
+        Background="{StaticResource Whitesmoke}"
         MouseDown="Window_MouseDown"
         Title="CallerWindow">
+    <Window.Resources>
+        <Storyboard x:Key="FlashingAnimation">
+            <ColorAnimation Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
+                            From="Red"
+                            To="Transparent"
+                            Duration="0:0:0.5"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever" />
+        </Storyboard>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
-            <RowDefinition Height="1.2*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="200" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="350" />
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
         <Border CornerRadius="10"
-                Grid.RowSpan="3"
+                Grid.RowSpan="4"
                 Background="{StaticResource Whitesmoke}"
                 BorderThickness="2"
                 BorderBrush="White">
@@ -29,10 +46,12 @@
 
         <!--#region TOP BUTTONS (Close, Maximize)-->
         <Grid Grid.Row="0"
+              Grid.ColumnSpan="2"
               Background="{StaticResource OxfordBlue}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Stretch"
@@ -86,7 +105,7 @@
                         Grid.Column="1"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-                
+
                 <Label VerticalAlignment="Center"
                        VerticalContentAlignment="Center"
                        FontWeight="Bold"
@@ -97,7 +116,80 @@
                        Style="{StaticResource H1}"
                        Margin="40,0"
                        Foreground="White"
-                       Content=""/>
+                       Content="" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Grid.Column="2">
+
+                <xctk:DateTimePicker Name="TimePickerControl"
+                                     Width="200"
+                                     Height="30"
+                                     Margin="30,0,0,0" />
+
+                <Button x:Name="GoLiveBtn"
+                        Style="{StaticResource ModernBtn}"
+                        Width="160"
+                        Content="{Binding HostingStatus.HostingGameBtn}"
+                        Margin="20"
+                        Click="GoLiveBtn_Click" />
+
+                <Border BorderBrush="{StaticResource Mint}"
+                        BorderThickness="2"
+                        Margin="2">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical"
+                                    VerticalAlignment="Stretch"
+                                    Background="Black">
+
+                            <Label Background="Black"
+                                   BorderBrush="Black"
+                                   BorderThickness="5"
+                                   FontSize="16"
+                                   Foreground="White"
+                                   Padding="15,0,15,0"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   Content="SERVER" />
+                            <Label HorizontalContentAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   BorderBrush="{Binding BroadcastingStatus.BroadcastingColor}"
+                                   BorderThickness="5"
+                                   Background="White"
+                                   FontSize="16"
+                                   Padding="10,0"
+                                   Foreground="{Binding BroadcastingStatus.BroadcastingColor}"
+                                   FontWeight="Bold"
+                                   Content="{Binding BroadcastingStatus.BroadcastingStatus}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical"
+                                    VerticalAlignment="Stretch"
+                                    Background="Black">
+
+                            <Label Background="Black"
+                                   BorderBrush="Black"
+                                   BorderThickness="5"
+                                   FontSize="16"
+                                   Foreground="White"
+                                   Padding="15,0,15,0"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   Content="HOSTING" />
+                            <Label HorizontalContentAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   BorderBrush="{Binding HostingStatus.HostingGameColor}"
+                                   BorderThickness="5"
+                                   Background="White"
+                                   FontSize="16"
+                                   Padding="10,0"
+                                   Foreground="{Binding HostingStatus.HostingGameColor}"
+                                   FontWeight="Bold"
+                                   Content="{Binding HostingStatus.HostingGameStatus}" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
             </StackPanel>
         </Grid>
         <!--#endregion TOP BUTTONS (Close, Maximize)-->
@@ -111,6 +203,7 @@
             <!--#region Games List View-->
             <Grid Grid.Column="0">
                 <ListView x:Name="gamesList"
+                          MinHeight="150"
                           FontWeight="Bold"
                           FontSize="14"
                           SelectionChanged="GamesList_SelectionChanged">
@@ -142,278 +235,18 @@
                 </ListView>
             </Grid>
             <!--#endregion Games List View-->
-
-            <!--#region Game Info-->
-            <Grid Grid.Column="1">
-                <StackPanel Width="auto">
-                    <Label FontSize="18"
-                           FontWeight="Bold"
-                           Background="{StaticResource AccentBlue}"
-                           Foreground="White"
-                           HorizontalAlignment="Stretch"
-                           HorizontalContentAlignment="Center"
-                           Content="GAME DETAILS" />
-                    <!--#region GameType-->
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Margin="0,10">
-
-                        <Label Style="{StaticResource LabelsMain}"
-                               Margin="20,0,0,0"
-                               Content="Game Type" />
-
-                        <ComboBox Name="GameType"
-                                  Margin="20,0,0,0"
-                                  HorizontalAlignment="Center"
-                                  Style="{StaticResource ModernComboBox}">
-
-                            <ComboBoxItem Name="RegularCB"
-                                          Content="Regular" />
-                            <ComboBoxItem Name="ToonieBallCB"
-                                          Content="Toonie Ball" />
-                            <ComboBoxItem Name="MoneyBallCB"
-                                          Content="Money Ball" />
-                            <ComboBoxItem Name="DesignatedNumCB"
-                                          Content="Designated Number" />
-                            <ComboBoxItem Name="UPikEmCB"
-                                          Content="U Pik Em" />
-                        </ComboBox>
-
-                    </StackPanel>
-                    <!--#endregion GameType-->
-
-                    <!--#region Game, BorderColor, Pattern, Prize-->
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Margin="10,10">
-
-                        <Label Style="{StaticResource LabelsMain}"
-                               Margin="20,0,0,0"
-                               Width="150"
-                               FontSize="14"
-                               Content="Game Name" />
-
-                        <TextBox Name="GameName"
-                                 Margin="10,2"
-                                 Height="30"
-                                 Width="150"
-                                 FontSize="14"
-                                 Style="{StaticResource ModernTextBox}"
-                                 Text="{Binding GameName}" />
-
-                        <Label Style="{StaticResource LabelsMain}"
-                               Margin="20,0,0,0"
-                               Content="Border Color" />
-
-                        <ComboBox Name="Bordercolor"
-                                  FontWeight="Bold"
-                                  Style="{StaticResource ModernComboBox}"
-                                  Margin="20,0,2,0">
-
-                            <ComboBoxItem FontSize="12"
-                                          Name="AquaBG"
-                                          Background="Aqua"
-                                          Content="Aqua" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="BlackBG"
-                                          Background="Black"
-                                          Foreground="White"
-                                          Content="Black" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="BlueBG"
-                                          FontWeight="bold"
-                                          Background="Blue"
-                                          Foreground="White"
-                                          Content="Blue" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="DarkCyanBG"
-                                          Background="DarkCyan"
-                                          Foreground="White"
-                                          Content="Dark Cyan" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="SaddleBrownBG"
-                                          Background="SaddleBrown"
-                                          Foreground="White"
-                                          Content="Brown" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="DarkGreenBG"
-                                          Background="DarkGreen"
-                                          Foreground="White"
-                                          Content="Dark Green" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="GrayBG"
-                                          Background="Gray"
-                                          Foreground="Black"
-                                          Content="Gray" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="GreenBG"
-                                          Background="Green"
-                                          Foreground="White"
-                                          Content="Green" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="LimeBG"
-                                          Background="Lime"
-                                          Foreground="Black"
-                                          Content="Lime" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="NavyBG"
-                                          Background="Navy"
-                                          Foreground="White"
-                                          Content="Navy" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="DarkOliveGreenBG"
-                                          Background="DarkOliveGreen"
-                                          Foreground="White"
-                                          Content="Olive Green" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="DarkOrangeBG"
-                                          Background="DarkOrange"
-                                          Foreground="Black"
-                                          Content="Orange" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="HotPinkBG"
-                                          Background="HotPink"
-                                          Foreground="White"
-                                          Content="Pink" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="PurpleBG"
-                                          Background="Purple"
-                                          Foreground="White"
-                                          Content="Purple" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="RedBG"
-                                          Background="Red"
-                                          Foreground="White"
-                                          Content="Red" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="YellowBG"
-                                          Background="Yellow"
-                                          Foreground="Black"
-                                          Content="Yellow" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="LightBlueBG"
-                                          Background="LightBlue"
-                                          Foreground="White"
-                                          Content="Light Blue" />
-                            <ComboBoxItem FontSize="12"
-                                          Name="WhiteBG"
-                                          Background="White"
-                                          Foreground="Black"
-                                          Content="White" />
-                        </ComboBox>
-
-                    </StackPanel>
-                    <!--#endregion Game, BorderColor, Pattern, Prize-->
-
-                    <!--#region Game, BorderColor, Pattern, Prize-->
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Margin="0,10">
-
-                        <Label Style="{StaticResource LabelsMain}"
-                               Margin="20,0,0,0"
-                               Content="Pattern" />
-
-                        <ComboBox Name="PatternComboBox"
-                                  Style="{StaticResource ModernComboBox}"
-                                  FontWeight="Bold"
-                                  Margin="20,0,0,0" />
-
-                        <Label Style="{StaticResource LabelsMain}"
-                               Margin="20,0,0,0"
-                               Content="Prize" />
-
-                        <TextBox Name="Prize"
-                                 Margin="10,0"
-                                 Height="30"
-                                 Width="100"
-                                 FontSize="14"
-                                 Style="{StaticResource ModernTextBox}"
-                                 Text="{Binding Prize}" />
-
-                    </StackPanel>
-                    <!--#endregion Game, BorderColor, Pattern, Prize-->
-
-                    <!--#region Prize, Number-->
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center">
-
-                        <Label Name="JackpotLbl"
-                               Style="{StaticResource LabelsMain}"
-                               FontSize="14"
-                               Margin="20,5"
-                               Content="Designated Prize" />
-
-                        <TextBox Name="DesignatedPrize"
-                                 Height="30"
-                                 Width="100"
-                                 Margin="15,0"
-                                 HorizontalAlignment="Left"
-                                 FontSize="14"
-                                 Style="{StaticResource ModernTextBox}"
-                                 KeyDown="DesignatedPrize_KeyDown" />
-
-                        <Label Name="DesignatedNumLbl"
-                               Margin="10,0,0,0"
-                               Style="{StaticResource LabelsMain}"
-                               Content="Designated Number" />
-
-                        <TextBox Name="DesignatedNum"
-                                 HorizontalAlignment="Left"
-                                 Margin="15,0"
-                                 FontSize="14"
-                                 Style="{StaticResource ModernTextBox}"
-                                 KeyDown="DesignatedNum_KeyDown"
-                                 Height="30"
-                                 Width="100"
-                                 TextChanged="DesignatedNum_TextChanged" />
-                    </StackPanel>
-                    <!--#endregion Prize, Number-->
-
-                    <!--#region UpdateBtn DeleteBtn-->
-                    <StackPanel Orientation="Horizontal"
-                                Height="70"
-                                HorizontalAlignment="Center">
-                        <Button HorizontalAlignment="Right"
-                                Margin="20,0"
-                                Style="{StaticResource ModernBtnStart}"
-                                Content="Update Game"
-                                Click="Update_Game_Click" />
-
-                        <Button Style="{StaticResource ModernBtnDelete}"
-                                Content="Delete Game"
-                                Click="Delete_Game_Click" />
-
-                    </StackPanel>
-                    <!--#endregion-->
-
-                    <!--#region LoadNewSession StartSession-->
-                    <Grid HorizontalAlignment="Center">
-                        <Button Grid.Column="0"
-                                Margin="10"
-                                Width="160"
-                                Style="{StaticResource ModernBtn}"
-                                Content="Load New Session"
-                                Click="Load_New_Session_Click" />
-                    </Grid>
-                    <!--#endregion LoadNewSession StartSession-->
-
-                </StackPanel>
-
-            </Grid>
-
-            <!--#endregion Game Info-->
-
         </Grid>
-        <Grid Grid.Row="2">
+
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
 
 
@@ -426,292 +259,707 @@
                    Background="{StaticResource OxfordBlue}"
                    Foreground="{StaticResource OffWhite}"
                    Content="CALLER CONTROLS" />
+            <Border BorderBrush="{StaticResource OxfordBlue}"
+                    BorderThickness="3"
+                    Grid.Column="0"
+                    Grid.Row="1">
+                <Grid Grid.Column="0"
+                      Grid.Row="1"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                      Margin="0">
+                    <Grid Grid.Column="1">
+                        <!--#region INTERMISSION SETTINGS-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
 
-            <Grid Grid.Column="0"
-                  Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0">
+                            <Label Style="{StaticResource H2}"
+                                   HorizontalAlignment="Stretch"
+                                   HorizontalContentAlignment="Center"
+                                   Background="{StaticResource AccentBlue}"
+                                   Margin="0"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   Content="INTERMISSION SETTINGS" />
 
-                <Label Style="{StaticResource H2}"
-                       Background="{StaticResource AccentBlue}"
-                       Foreground="White"
-                       Margin="0"
-                       Grid.Row="0"
-                       HorizontalAlignment="Stretch"
-                       HorizontalContentAlignment="Center"
-                       FontWeight="Bold"
-                       Content="EXTRA SETTINGS" />
-
-                <StackPanel Grid.Row="1"
-                            Grid.Column="0"
-                            Margin="20"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Stretch">
-
-                    <Label Margin="0"
-                           Grid.Row="0"
-                           Style="{StaticResource LabelsMain}"
-                           Content="Four Ball Prize" />
-
-                    <TextBox Name="FourBallTB"
-                             Margin="0,10"
-                             FontSize="14"
-                             Style="{StaticResource ModernTextBox}" />
-
-                    <Button Name="FourBallBtn"
-                            Style="{StaticResource ModernBtn}"
-                            Width="140"
-                            Content="Show FourBall"
-                            Click="FourBallBtn_Click" />
-                </StackPanel>
-
-            </Grid>
-
-            <Grid Grid.Column="1"
-                  Grid.Row="1">
-                <StackPanel HorizontalAlignment="Stretch"
-                            Margin="0,0,0,10"
-                            VerticalAlignment="Stretch">
-
-                    <!--#region INTERMISSION SETTINGS-->
-                    <Label Style="{StaticResource H2}"
-                           HorizontalAlignment="Stretch"
-                           HorizontalContentAlignment="Center"
-                           Background="{StaticResource AccentBlue}"
-                           Foreground="White"
-                           Margin="0,0,0,10"
-                           FontWeight="Bold"
-                           Content="INTERMISSION SETTINGS" />
-
-                    <StackPanel Orientation="Horizontal"
-                                Margin="10,5"
-                                HorizontalAlignment="Left">
-
-                        <Label Style="{StaticResource LabelsMain}"
-                               Content="Intermission Type" />
-
-                        <ComboBox Name="CB_Type"
-                                  Margin="15,0,0,0"
-                                  Background="White"
-                                  Style="{StaticResource ModernComboBox}">
-                            <ComboBoxItem Name="start"
-                                          Content="Game Start" />
-                            <ComboBoxItem Name="intermission"
-                                          Content="Intermission" />
-                            <ComboBoxItem Name="nextgame"
-                                          Content="Next Game" />
-                        </ComboBox>
-                        <Label Style="{StaticResource LabelsMain}"
-                               Margin="20,0,0,0"
-                               Content="Minutes" />
-
-                        <TextBox Name="Minutes"
-                                 Margin="15,0,0,0"
-                                 Height="35"
-                                 Width="60"
-                                 Foreground="Black"
-                                 KeyDown="Intermission_Minutes_KeyDown"
-                                 Style="{StaticResource ModernTextBox}" />
-                    </StackPanel>
-                    <!--#endregion INTERMISSION SETTINGS-->
-
-                    <Border Margin="0,15,0,0"
-                            BorderBrush="{StaticResource OxfordBlue}"
-                            BorderThickness="2" />
-
-                    <!--#region VERIFY CARD SECTION-->
-                    <Label Style="{StaticResource H2}"
-                           HorizontalContentAlignment="Center"
-                           HorizontalAlignment="Stretch"
-                           Margin="0,0,0,15"
-                           Background="{StaticResource AccentBlue}"
-                           Foreground="White"
-                           FontWeight="Bold"
-                           Content="VERIFY CARD" />
-
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Width="350">
-                        <Label Style="{StaticResource LabelsMain}"
-                               Margin="0,10,50,0"
-                               Content="Card Set" />
-                        <ComboBox Style="{StaticResource ModernComboBox}"
-                                  DisplayMemberPath="Set_Name_"
-                                  Name="CB_Cardset" />
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Margin="20"
-                                Width="350">
-                        <Label Margin="0,10,20,0"
-                               Style="{StaticResource LabelsMain}"
-                               Content="Card Number" />
-
-                        <TextBox Name="VerifyTxtBox"
-                                 Width="80"
-                                 Style="{StaticResource ModernTextBox}"
-                                 KeyDown="VerifyTxtBox_KeyDown" />
-
-                        <Button Name="CheckCardBtn"
-                                Margin="20,0,0,0"
-                                Style="{StaticResource ModernBtn}"
-                                Content="Check Card"
-                                Click="CheckCardBtn_Click" />
-                    </StackPanel>
-                    <!--#endregion VERIFY CARD SECTION-->
-
-                </StackPanel>
-
-            </Grid>
-
-            <!--#region GAME CONTROLS-->
-            <Grid Grid.Column="2"
-                  Grid.ColumnSpan="2"
-                  Grid.Row="1">
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Label HorizontalAlignment="Stretch"
-                       HorizontalContentAlignment="Center"
-                       Margin="0"
-                       Background="{StaticResource AccentBlue}"
-                       Foreground="White"
-                       Style="{StaticResource H2}"
-                       FontWeight="Bold"
-                       Content="CURRENT GAME CONTROL" />
-
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <Button Style="{StaticResource ModernBtn}"
-                                Margin="0,5"
-                                Content="Hide Jackpot"
-                                Click="Hide_Jackpot_Click" />
-
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="10,5"
-                                    Name="FourBall"
-                                    Visibility="{Binding FourBallVisibility}">
-
-                            <Label Style="{StaticResource LabelsMain}"
-                                   FontSize="12"
-                                   Margin="10,0,10,0"
-                                   Content="4 Ball Prize" />
-
-                            <TextBox Name="FourBallPrize"
-                                     Style="{StaticResource ModernTextBox}"
-                                     Margin="20,0,0,0"
-                                     Width="100" />
-                        </StackPanel>
-
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="10,5"
-                                    Visibility="Visible">
-
-                            <Label Style="{StaticResource LabelsMain}"
-                                   Margin="10,0"
-                                   Content="Flashboard Type" />
-
-                            <ComboBox Name="CallerType"
-                                      Style="{StaticResource ModernComboBox}"
-                                      IsEnabled="{Binding EnableAutoCaller}"
-                                      Margin="10,0"
-                                      SelectionChanged="CallerType_SelectionChanged">
-                                <ComboBoxItem Name="ManualCaller"
-                                              Content="Manual"
-                                              IsSelected="True" />
-                                <ComboBoxItem Name="AutomaticCaller"
-                                              Content="Automatic" />
-                            </ComboBox>
-                        </StackPanel>
-                        <Button Name="reset"
-                                Margin="0,10"
-                                Style="{StaticResource ModernBtnDelete}"
-                                Content="Reset Board"
-                                Click="Reset_Click" />
-                    </StackPanel>
-
-                    <Border BorderBrush="{StaticResource OxfordBlue}"
-                            BorderThickness="0,0,4,0" />
-
-                    <Grid Grid.Column="1"
-                          Grid.Row="0">
-                        <StackPanel Margin="0,0,0,0"
-                                    VerticalAlignment="Stretch">
-                            <Label />
-
-                            <StackPanel Name="ManualCallerEntry"
-                                        Orientation="Horizontal"
-                                        HorizontalAlignment="Center"
-                                        Margin="0,20">
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="20"
+                                        HorizontalAlignment="Left">
 
                                 <Label Style="{StaticResource LabelsMain}"
-                                       Content="Enter Ball Num" />
+                                       Content="Intermission Type" />
 
-                                <TextBox Name="Ball"
-                                         Style="{StaticResource ModernTextBox}"
-                                         Margin="20,0"
-                                         KeyDown="Ball_KeyDown" />
+                                <ComboBox Name="CB_Type"
+                                          Margin="15,0,0,0"
+                                          Background="White"
+                                          Style="{StaticResource ModernComboBox}">
+                                    <ComboBoxItem Name="start"
+                                                  Content="Game Start" />
+                                    <ComboBoxItem Name="intermission"
+                                                  Content="Intermission" />
+                                    <ComboBoxItem Name="nextgame"
+                                                  Content="Next Game" />
+                                </ComboBox>
+                                <Label Style="{StaticResource LabelsMain}"
+                                       Margin="20,0,0,0"
+                                       Content="Minutes" />
+
+                                <TextBox Name="Minutes"
+                                         Margin="15,0,0,0"
+                                         Height="35"
+                                         Width="60"
+                                         Foreground="Black"
+                                         KeyDown="Intermission_Minutes_KeyDown"
+                                         Style="{StaticResource ModernTextBox}" />
                             </StackPanel>
-                            <Border BorderThickness="2"
-                                    BorderBrush="{StaticResource OxfordBlue}" />
+                        </StackPanel>
 
-                            <Label HorizontalAlignment="Stretch"
+                        <!--#endregion INTERMISSION SETTINGS-->
+                        <StackPanel Grid.Row="1">
+
+                            <!--#region VERIFY CARD SECTION-->
+                            <Label Style="{StaticResource H2}"
                                    HorizontalContentAlignment="Center"
-                                   Margin="0"
+                                   HorizontalAlignment="Stretch"
                                    Background="{StaticResource AccentBlue}"
                                    Foreground="White"
-                                   Style="{StaticResource H2}"
                                    FontWeight="Bold"
-                                   Content="GAME SELECTION" />
+                                   Content="FLASHBOARD SETTINGS" />
                             <StackPanel Orientation="Horizontal"
-                                        HorizontalAlignment="Center"
-                                        Height="60">
-                                <Button Name="PreviousGame"
-                                        Style="{StaticResource ModernBtn}"
-                                        Margin="10"
-                                        Content="Previous"
-                                        Click="PreviousGame_Click" />
-                                <Button Name="NextGameBtn"
-                                        Style="{StaticResource ModernBtn}"
-                                        Margin="10"
-                                        Content="Next"
-                                        Click="NextGameBtn_Click" />
+                                        Margin="10,5"
+                                        Name="FourBall"
+                                        Visibility="{Binding FourBallVisibility}">
+
+                                <Label Style="{StaticResource LabelsMain}"
+                                       FontSize="12"
+                                       Margin="10,0,10,0"
+                                       Content="4 Ball Prize" />
+
+                                <TextBox Name="FourBallPrize"
+                                         Style="{StaticResource ModernTextBox}"
+                                         Margin="20,0,0,0"
+                                         Width="100" />
                             </StackPanel>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="10,5"
+                                        Visibility="Visible">
+
+                                <Label Style="{StaticResource LabelsMain}"
+                                       Margin="10,0"
+                                       Content="Flashboard Type" />
+
+                                <ComboBox Name="CallerType"
+                                          Style="{StaticResource ModernComboBox}"
+                                          IsEnabled="{Binding EnableAutoCaller}"
+                                          Margin="10,0">
+                                    <ComboBoxItem Name="ManualCaller"
+                                                  Content="Manual"
+                                                  IsSelected="True" />
+                                    <ComboBoxItem Name="AutomaticCaller"
+                                                  Content="Automatic" />
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                <Button Name="reset"
+                                        Margin="10,5"
+                                        Width="110"
+                                        Style="{StaticResource ModernBtnDelete}"
+                                        Content="Reset Board"
+                                        Click="Reset_Board_Click" />
+                                <Button Style="{StaticResource ModernBtn}"
+                                        Margin="10,5"
+                                        Width="110"
+                                        Content="Hide Jackpot"
+                                        Click="Hide_Jackpot_Click" />
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+
+                        <StackPanel Grid.Row="3"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                            <Label Style="{StaticResource H2}"
+                                   Background="{StaticResource AccentBlue}"
+                                   Foreground="White"
+                                   Margin="0"
+                                   Grid.Row="0"
+                                   HorizontalAlignment="Stretch"
+                                   HorizontalContentAlignment="Center"
+                                   FontWeight="Bold"
+                                   Content="EXTRA SETTINGS" />
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                <Label Margin="0"
+                                       Grid.Row="0"
+                                       Style="{StaticResource LabelsMain}"
+                                       Content="Four Ball Prize" />
+
+                                <TextBox Name="FourBallTB"
+                                         Margin="0,10"
+                                         Width="100"
+                                         FontSize="14"
+                                         Style="{StaticResource ModernTextBox}" />
+
+                            </StackPanel>
+
+                            <Button Name="FourBallBtn"
+                                    Style="{StaticResource ModernBtn}"
+                                    Width="140"
+                                    Content="Show FourBall"
+                                    Click="FourBallBtn_Click" />
                         </StackPanel>
                     </Grid>
                 </Grid>
-            </Grid>
-            <!--#endregion-->
-
-            <!--#region BORDERS-->
-            <Border Grid.Column="0"
-                    Grid.Row="1"
-                    BorderBrush="{StaticResource OxfordBlue}"
-                    BorderThickness="2" />
-
+            </Border>
+            <!--#region GAME CONTROLS-->
             <Border Grid.Column="1"
                     Grid.Row="1"
                     BorderBrush="{StaticResource OxfordBlue}"
-                    BorderThickness="2" />
+                    BorderThickness="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
 
-            <Border Grid.Column="2"
-                    Grid.ColumnSpan="2"
-                    Grid.Row="1"
-                    Background="Transparent"
-                    BorderBrush="{StaticResource OxfordBlue}"
-                    BorderThickness="2" />
-            <!--#endregion BORDERS-->
+                        <Label HorizontalAlignment="Stretch"
+                               HorizontalContentAlignment="Center"
+                               Margin="0"
+                               Background="{StaticResource AccentBlue}"
+                               Foreground="White"
+                               Style="{StaticResource H2}"
+                               FontWeight="Bold"
+                               Content="CURRENT GAME CONTROL" />
 
+
+                        <StackPanel Name="ManualCallerEntry"
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,20">
+
+                            <Label Style="{StaticResource LabelsMain}"
+                                   Content="Enter Ball Num" />
+
+                            <TextBox Name="Ball"
+                                     Style="{StaticResource ModernTextBox}"
+                                     Margin="20,0"
+                                     KeyDown="Ball_KeyDown" />
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1">
+                        <!--#region VERIFY CARD SECTION-->
+                        <Label Style="{StaticResource H2}"
+                               HorizontalContentAlignment="Center"
+                               HorizontalAlignment="Stretch"
+                               Background="{StaticResource AccentBlue}"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Content="VERIFY CARD" />
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Width="350">
+                            <Label Style="{StaticResource LabelsMain}"
+                                   Margin="0,10,50,0"
+                                   Content="Card Set" />
+                            <ComboBox Style="{StaticResource ModernComboBox}"
+                                      DisplayMemberPath="Set_Name_"
+                                      Name="CB_Cardset" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Margin="20"
+                                    Width="350">
+                            <Label Margin="0,10,20,0"
+                                   Style="{StaticResource LabelsMain}"
+                                   Content="Card Number" />
+
+                            <TextBox Name="VerifyTxtBox"
+                                     Width="80"
+                                     Style="{StaticResource ModernTextBox}"
+                                     KeyDown="VerifyTxtBox_KeyDown"
+                                     Text="{Binding CardNum_}"/>
+
+                            <Button Name="CheckCardBtn"
+                                    Margin="20,0,0,0"
+                                    Width="110"
+                                    Style="{StaticResource ModernBtn}"
+                                    Content="Check Card"
+                                    Click="CheckCardBtn_Click" />
+                        </StackPanel>
+                        <!--#endregion VERIFY CARD SECTION-->
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2">
+                        <Label HorizontalAlignment="Stretch"
+                               HorizontalContentAlignment="Center"
+                               Margin="0"
+                               Background="{StaticResource AccentBlue}"
+                               Foreground="White"
+                               Style="{StaticResource H2}"
+                               FontWeight="Bold"
+                               Content="GAME SELECTION" />
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Height="60">
+
+                            <Button Name="PreviousGame"
+                                    Style="{StaticResource ModernBtn}"
+                                    Margin="10"
+                                    Content="Previous"
+                                    Click="PreviousGame_Click" />
+                            <Button Name="NextGameBtn"
+                                    Style="{StaticResource ModernBtn}"
+                                    Margin="10"
+                                    Content="Next"
+                                    Click="NextGameBtn_Click" />
+                        </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Height="60">
+
+                                <Button Name="StartGame"
+                                        Style="{StaticResource ModernBtnStart}"
+                                        Margin="10"
+                                        Width="120"
+                                        Content="START GAME"
+                                        Click="StartGame_Click"/>
+                                <Button Name="EndGame"
+                                        Style="{StaticResource ModernBtnDelete}"
+                                        Margin="10"
+                                        Width="120"
+                                        Content="END GAME"
+                                        Click="EndGame_Click" />
+                            </StackPanel>
+
+                        </StackPanel>
+                    </StackPanel>
+                    <!--<Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="1"
+                              Grid.Row="2">
+                        </Grid>
+                    </Grid>-->
+                </Grid>
+            </Border>
+            <!--#endregion-->
+        </Grid>
+
+
+        <Border Grid.Row="2"
+                BorderBrush="{StaticResource OxfordBlue}"
+                BorderThickness="2">
+            <Grid Grid.Row="2">
+                <!--#region Game Info-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!--HEADERLABEL-->
+                <Grid Grid.Row="0"
+                      Grid.ColumnSpan="5">
+                    <Label FontSize="18"
+                           FontWeight="Bold"
+                           Background="{StaticResource AccentBlue}"
+                           Foreground="White"
+                           HorizontalAlignment="Stretch"
+                           HorizontalContentAlignment="Center"
+                           Content="GAME DETAILS" />
+                </Grid>
+
+                <Grid Grid.Row="1"
+                      Grid.Column="0">
+                    <StackPanel>
+
+                        <!--#region GameType-->
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10">
+
+                            <Label Style="{StaticResource LabelsMain}"
+                                   Margin="20,0,0,0"
+                                   Content="Game Type" />
+
+                            <ComboBox Name="GameType"
+                                      Margin="20,0,0,0"
+                                      HorizontalAlignment="Center"
+                                      SelectionChanged="GameType_SelectionChanged"
+                                      Style="{StaticResource ModernComboBox}">
+
+                                <ComboBoxItem Name="RegularCB"
+                                              Content="Regular" />
+                                <ComboBoxItem Name="ToonieBallCB"
+                                              Content="Toonie Ball" />
+                                <ComboBoxItem Name="MoneyBallCB"
+                                              Content="Money Ball" />
+                                <ComboBoxItem Name="DesignatedNumCB"
+                                              Content="Designated Number" />
+                                <ComboBoxItem Name="UPikEmCB"
+                                              Content="U Pik Em" />
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,10">
+                            <Label Style="{StaticResource LabelsMain}"
+                                   Margin="20,0,0,0"
+                                   Width="90"
+                                   Content="Game Name" />
+
+                            <TextBox Name="GameName"
+                                     Margin="10,2"
+                                     Height="30"
+                                     Width="150"
+                                     FontSize="14"
+                                     KeyDown="Enter_Click"
+                                     Style="{StaticResource ModernTextBox}"
+                                     Text="{Binding SelectedGame.Name_}" />
+                        </StackPanel>
+                        <!--#endregion GameType-->
+                        <!--#region Game, BorderColor, Pattern, Prize-->
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Margin="10,10">
+
+                            <Label Style="{StaticResource LabelsMain}"
+                                   Margin="20,0,0,0"
+                                   Content="Border Color" />
+
+                            <xctk:ColorPicker Name="Border_Color_Picker"
+                                              Width="50" />
+
+                            <Label Style="{StaticResource LabelsMain}"
+                                   Margin="20,0,0,0"
+                                   Width="120"
+                                   Content="Border Color Name" />
+
+                            <TextBox Name="BorderColorName"
+                                     Margin="10,2"
+                                     Height="30"
+                                     FontSize="14"
+                                     KeyDown="Enter_Click"
+                                     Style="{StaticResource ModernTextBox}"
+                                     Text="{Binding SelectedGame.Border_Color_.Name_}" />
+
+                        </StackPanel>
+                        <!--#endregion Game, BorderColor, Pattern, Prize-->
+                        <!--#region Game, BorderColor, Pattern, Prize-->
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Margin="10,10">
+
+                            <Label Style="{StaticResource LabelsMain}"
+                                   Margin="20,0,0,0"
+                                   Content="Font Color" />
+
+                            <xctk:ColorPicker Name="Font_Color_Picker"
+                                              Width="50"></xctk:ColorPicker>
+
+                            <Label Style="{StaticResource LabelsMain}"
+                                   Margin="20,0,0,0"
+                                   Width="120"
+                                   Content="Font Color Name" />
+
+                            <TextBox Name="FontColorName"
+                                     Margin="10,2"
+                                     Height="30"
+                                     FontSize="14"
+                                     KeyDown="Enter_Click"
+                                     Style="{StaticResource ModernTextBox}"
+                                     Text="{Binding SelectedGame.Font_Color_.Name_}" />
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    Margin="10,10">
+                            <!--#region Game, BorderColor, Pattern, Prize-->
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,10">
+
+                                <Label Style="{StaticResource LabelsMain}"
+                                       Margin="20,0,0,0"
+                                       Content="Pattern" />
+
+                                <ComboBox Name="PatternCB"
+                                          Style="{StaticResource ModernComboBox}"
+                                          DisplayMemberPath="Pattern_Name_"
+                                          FontWeight="Bold"
+                                          Margin="20,0,0,0" />
+
+                            </StackPanel>
+                            <!--#endregion Game, BorderColor, Pattern, Prize-->
+
+                            <!--#region Game, BorderColor, Pattern, Prize-->
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,10">
+
+                                <Label Style="{StaticResource LabelsMain}"
+                                       Margin="20,0,0,0"
+                                       Content="Prize" />
+
+                                <TextBox Name="Prize"
+                                         Margin="10,0"
+                                         Height="30"
+                                         Width="100"
+                                         FontSize="14"
+                                         KeyDown="Enter_Click"
+                                         Style="{StaticResource ModernTextBox}"
+                                         Text="{Binding SelectedGame.Prize_}" />
+
+                            </StackPanel>
+                            <!--#endregion Game, BorderColor, Pattern, Prize-->
+                        </StackPanel>
+                        <!--#endregion Game, BorderColor, Pattern, Prize-->
+                    </StackPanel>
+                </Grid>
+
+                <!--#region Game Info-->
+                <Grid Grid.Row="1"
+                      Grid.Column="1">
+                    <StackPanel Width="auto">
+
+
+                        <!--#region Prize, Number-->
+                        <StackPanel Orientation="Horizontal"
+                                    Name="JackpotGameSection"
+                                    Visibility="{Binding JackpotGameSection}"
+                                    HorizontalAlignment="Center">
+
+                            <Label Name="JackpotLbl"
+                                   Style="{StaticResource LabelsMain}"
+                                   Margin="20,5"
+                                   Content="Jackpot Prize" />
+
+                            <TextBox Name="JackpotPrize"
+                                     Height="30"
+                                     Width="100"
+                                     Margin="15,10"
+                                     HorizontalAlignment="Left"
+                                     FontSize="14"
+                                     KeyDown="Enter_Click"
+                                     Style="{StaticResource ModernTextBox}"
+                                     Text="{Binding SelectedGame.Jackpot_Prize_}" />
+                        </StackPanel>
+                        <!--#endregion Prize, Number-->
+
+                        <!--#region Prize, Number-->
+                        <StackPanel Orientation="Horizontal"
+                                    Visibility="{Binding JackpotGameSection}"
+                                    HorizontalAlignment="Center">
+
+                            <Label Name="DesignatedNumLbl"
+                                   Margin="15,5"
+                                   Style="{StaticResource LabelsMain}"
+                                   Content="Jackpot Number" />
+
+                            <TextBox Name="JackpotNum"
+                                     HorizontalAlignment="Left"
+                                     Margin="15,0"
+                                     FontSize="14"
+                                     Style="{StaticResource ModernTextBox}"
+                                     Height="30"
+                                     Width="100"
+                                     KeyDown="Enter_Click"
+                                     Text="{Binding SelectedGame.Designated_Number_}" />
+                        </StackPanel>
+                        <!--#endregion Prize, Number-->
+
+
+                        <!--#region UpdateBtn DeleteBtn-->
+                        <StackPanel Orientation="Horizontal"
+                                    Height="70"
+                                    HorizontalAlignment="Center">
+                            <Button HorizontalAlignment="Right"
+                                    Margin="20,0"
+                                    Style="{StaticResource ModernBtnStart}"
+                                    Content="Update"
+                                    Click="Update_Game_Click" />
+
+                            <Button Style="{StaticResource ModernBtnDelete}"
+                                    Content="Delete"
+                                    Click="Delete_Game_Click" />
+
+                        </StackPanel>
+                        <!--#endregion-->
+
+                        <!--#region LoadNewSession StartSession-->
+                        <Grid HorizontalAlignment="Center">
+                            <Button Grid.Column="0"
+                                    Margin="10"
+                                    Width="160"
+                                    Style="{StaticResource ModernBtn}"
+                                    Content="Load New Session"
+                                    Click="Load_New_Session_Click" />
+                        </Grid>
+                        <!--#endregion LoadNewSession StartSession-->
+
+                    </StackPanel>
+
+                </Grid>
+
+                <!--#endregion Game Info-->
+
+            </Grid>
+        </Border>
+        <!--#endregion MAIN GRID-->
+
+        <Grid Grid.Row="3"
+              Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   FontSize="30"
+                   FontWeight="ExtraBold"
+                   Background="{StaticResource OxfordBlue}"
+                   Foreground="{StaticResource OffWhite}"
+                   Content="SERVER MESSAGES" />
+            <Grid Grid.Row="1"
+                  HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="600" />
+                    <ColumnDefinition Width="600" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="{StaticResource OxfordBlue}"
+                        BorderThickness="2"
+                        Grid.Column="0">
+                    <ListView Grid.Row="1"
+                              Name="ServerMessagesList"
+                              HorizontalAlignment="Stretch"
+                              MinWidth="600"
+                              FontSize="16"
+                              FontWeight="Bold"
+                              Foreground="Black"
+                              ItemsSource="{Binding ServerMessages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              HorizontalContentAlignment="Left" />
+                </Border>
+                <!--#region BINGO CALLED OVERLAY-->
+                <Grid x:Name="BingoOverlay"
+                      Background="#A0000000"
+                      Visibility="Collapsed"
+                      MouseUp="OnOverlayClick">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Text="BINGO CALLED"
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="48"
+                               FontWeight="Bold" />
+                </Grid>
+                <Border BorderBrush="{StaticResource OxfordBlue}"
+                        BorderThickness="2"
+                        Grid.Column="1">
+                    <ListView x:Name="BingosList"
+                              MinHeight="150"
+                              FontWeight="Bold"
+                              FontSize="14"
+                              SelectionChanged="GamesList_SelectionChanged">
+                        <ListView.View>
+                            <GridView x:Name="BingosGrid">
+                                <GridViewColumn Header="| Player |"
+                                                Width="320"
+                                                DisplayMemberBinding="{Binding Player.Name_}" />
+                                <GridViewColumn Header="| Good Bingo? | "
+                                                Width="180"
+                                                DisplayMemberBinding="{Binding GameType_}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+
+                <!--#endregion BINGO CALLED OVERLAY-->
+                <Border BorderBrush="{StaticResource OxfordBlue}"
+                        BorderThickness="2"
+                        Grid.Column="2">
+                    <StackPanel Grid.Column="1">
+                        <Label Style="{StaticResource H2}"
+                               Background="{StaticResource AccentBlue}"
+                               Foreground="White"
+                               Margin="0"
+                               Grid.Row="0"
+                               HorizontalAlignment="Stretch"
+                               HorizontalContentAlignment="Center"
+                               FontWeight="Bold"
+                               Content="EXTRA SETTINGS" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="61*" />
+                                <ColumnDefinition Width="107*" />
+                                <ColumnDefinition Width="229.64" />
+                                <ColumnDefinition Width="61.36" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel VerticalAlignment="Center"
+                                        Grid.ColumnSpan="2">
+                                <Label Style="{StaticResource H2}"
+                                       Grid.Column="0"
+                                       HorizontalContentAlignment="Center"
+                                       HorizontalAlignment="Stretch"
+                                       Background="{StaticResource AccentBlue}"
+                                       Foreground="White"
+                                       FontWeight="Bold"
+                                       Content="CARD NUM" />
+                                <Label Style="{StaticResource H1}"
+                                       Grid.Column="0"
+                                       HorizontalContentAlignment="Center"
+                                       HorizontalAlignment="Stretch"
+                                       FontWeight="Bold"
+                                       Content="{Binding CardNum_}" />
+
+                            </StackPanel>
+
+                            <Frame Name="VerifyFrame"
+                                   Grid.Column="2"
+                                   Width="250"
+                                   Height="250"
+                                   Margin="10,0,31,0"
+                                   BorderBrush="Black"
+                                   BorderThickness="4"
+                                   Visibility="Visible"
+                                   Background="LightGray"
+                                   NavigationUIVisibility="Hidden"
+                                   Grid.ColumnSpan="2" />
+
+                        </Grid>
+
+                    </StackPanel>
+                </Border>
+
+            </Grid>
         </Grid>
     </Grid>
 

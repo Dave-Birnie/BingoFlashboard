@@ -9,10 +9,11 @@
         Title="FlashboardWindow"
         Height="880"
         Width="1830"
-        Background="{Binding BorderColor}">
-    <Window.DataContext>
+        Background="{Binding BackgroundColor}"
+        Closing="OnClose">
+    <!--<Window.DataContext>
         <VM:FlashboardViewModel />
-    </Window.DataContext>
+    </Window.DataContext>-->
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="\Images\background.png"></ImageBrush>
@@ -60,13 +61,14 @@
                             <Grid Grid.Row="0"
                                   Grid.Column="0"
                                   Grid.ColumnSpan="3">
+                                
                                 <Label HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        FontSize="30"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        Name="GameName"
-                                       Content="{Binding GameName}" />
+                                       Content="{Binding CurrentGame.Name_}" />
 
                             </Grid>
 
@@ -86,7 +88,7 @@
                                        FontWeight="Bold"
                                        Foreground="White"
                                        Name="Pattern"
-                                       Content="{Binding PatternName}" />
+                                       Content="{Binding CurrentGame.Pattern_.Pattern_Name_}" />
                             </Grid>
                             <!--#endregion PATTERN NAME-->
 
@@ -126,15 +128,23 @@
                                         <ColumnDefinition Width="2.5*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0">
-                                        <Label HorizontalAlignment="Right"
-                                               VerticalAlignment="Top"
-                                               HorizontalContentAlignment="Right"
-                                               Name="Prize"
-                                               FontSize="30"
-                                               FontWeight="Bold"
-                                               Foreground="{Binding FontColor}">
-                                            $200
-                                        </Label>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Label HorizontalAlignment="Right"
+                                                   VerticalAlignment="Top"
+                                                   HorizontalContentAlignment="Right"
+                                                   FontSize="30"
+                                                   FontWeight="Bold"
+                                                   Foreground="{Binding CurrentGame.Font_Color_.Color_Hash_}"
+                                                   Content="$" />
+                                            <Label HorizontalAlignment="Right"
+                                                   VerticalAlignment="Top"
+                                                   HorizontalContentAlignment="Right"
+                                                   FontSize="30"
+                                                   FontWeight="Bold"
+                                                   Foreground="{Binding CurrentGame.Font_Color_.Color_Hash_}"
+                                                   Content="{Binding CurrentGame.Prize_}" />
+
+                                        </StackPanel>
                                     </Grid>
                                     <Grid Grid.Column="1">
                                         <Label HorizontalAlignment="Stretch"
@@ -144,7 +154,7 @@
                                                FontSize="20"
                                                FontWeight="Bold"
                                                Foreground="{Binding FontColor}"
-                                               Content="{Binding PatternName}" />
+                                               Content="{Binding CurrentGame.Pattern_.Pattern_Name_}" />
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -160,16 +170,26 @@
                                         <ColumnDefinition Width="2.2*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0">
-                                        <Label Name="JackpotPrize"
-                                               VerticalAlignment="Top"
-                                               HorizontalAlignment="Left"
-                                               Padding="0,2,0,0"
-                                               Margin="20,0,0,0"
-                                               FontSize="30"
-                                               FontWeight="Bold"
-                                               Visibility="{Binding JackpotVisibility}"
-                                               Foreground="{Binding FontColor}"
-                                               Content="{Binding JackpotPrize}" />
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Label HorizontalAlignment="Right"
+                                                   VerticalAlignment="Top"
+                                                   HorizontalContentAlignment="Right"
+                                                   FontSize="30"
+                                                   FontWeight="Bold"
+                                                   Visibility="{Binding JackpotVisibility}"
+                                                   Foreground="{Binding CurrentGame.Font_Color_.Color_Hash_}"
+                                                   Content="$" />
+                                            <Label Name="JackpotPrize"
+                                                   VerticalAlignment="Top"
+                                                   HorizontalAlignment="Left"
+                                                   Padding="0,2,0,0"
+                                                   Margin="20,0,0,0"
+                                                   FontSize="30"
+                                                   FontWeight="Bold"
+                                                   Visibility="{Binding JackpotVisibility}"
+                                                   Foreground="{Binding FontColor}"
+                                                   Content="{Binding CurrentGame.Jackpot_Prize_}" />
+                                        </StackPanel>
                                     </Grid>
                                     <Grid Grid.Column="1">
                                         <Label HorizontalAlignment="Left"
@@ -180,7 +200,7 @@
                                                Foreground="{Binding FontColor}"
                                                Visibility="Visible"
                                                Name="JackpotLbL"
-                                               Content="{Binding GameType}">
+                                               Content="{Binding CurrentGame.GameType_}">
                                         </Label>
                                     </Grid>
                                 </Grid>
@@ -212,7 +232,7 @@
                                    FontSize="40"
                                    Visibility="{Binding DesignatedMoneyBallLblVisibility}"
                                    FontFamily="Browallia New"
-                                   Content="{Binding GameType}" />
+                                   Content="{Binding CurrentGame.GameType_}" />
                         </Grid>
 
                         <Grid Grid.Row="1">
@@ -224,7 +244,7 @@
                             <Image Name="MoneyBallImg"
                                    HorizontalAlignment="Center"
                                    Margin="80,0,80,-0.2"
-                                   Source="{Binding MoneyBall}"
+                                   Source="{Binding MoneyBallImg}"
                                    Visibility="{Binding MoneyBallVisibility}"
                                    Grid.ColumnSpan="3" />
 
@@ -236,7 +256,9 @@
                                    FontWeight="Bold"
                                    FontSize="160"
                                    FontFamily="Browallia New"
-                                   Grid.ColumnSpan="3" />
+                                   Grid.ColumnSpan="3"
+                                   Visibility="{Binding DesignatedNumVisibility}"
+                                   Content="{Binding CurrentGame.Designated_Number_}"/>
 
                             <Grid Grid.ColumnSpan="3"
                                   Name="UPikEm"
@@ -337,7 +359,7 @@
                   Grid.Column="1"
                   HorizontalAlignment="Stretch"
                   Grid.ColumnSpan="17"
-                  Background="{Binding BorderColor}"
+                  Background="{Binding BackgroundColor}"
                   Margin="24 0 0 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
@@ -365,7 +387,7 @@
                   Grid.Column="1"
                   Grid.RowSpan="5">
                 <Border Name="Border3"
-                        Background="{Binding BorderColor}"
+                        Background="{Binding BackgroundColor}"
                         Margin="40 0 40 0" />
 
             </Grid>
@@ -373,12 +395,12 @@
                   Grid.Row="7"
                   Grid.Column="1"
                   Grid.ColumnSpan="17"
-                  Background="{Binding BorderColor}" />
+                  Background="{Binding BackgroundColor}" />
             <Grid Name="Border2"
                   Grid.Row="0"
                   Grid.Column="18"
                   Grid.RowSpan="7"
-                  Background="{Binding BorderColor}" />
+                  Background="{Binding BackgroundColor}" />
 
             <!--#endregion HEADER-->
 
@@ -388,32 +410,32 @@
                   Name="Header7">
                 <Border BorderThickness="5"
                         HorizontalAlignment="Center">
-                    <Image Source="\Images\BBallDark.png" />
+                    <Image Source="\Images\balls\BBallDark.png" />
                 </Border>
 
             </Grid>
             <Grid Grid.Row="2"
                   Grid.Column="1">
                 <Border BorderThickness="5">
-                    <Image Source="\Images\IBallDark.png" />
+                    <Image Source="\Images\balls\IBallDark.png" />
                 </Border>
             </Grid>
             <Grid Grid.Row="3"
                   Grid.Column="1">
                 <Border BorderThickness="5">
-                    <Image Source="\Images\NBall.png" />
+                    <Image Source="\Images\balls\NBall.png" />
                 </Border>
             </Grid>
             <Grid Grid.Row="4"
                   Grid.Column="1">
                 <Border BorderThickness="5">
-                    <Image Source="\Images\GBallDark.png" />
+                    <Image Source="\Images\balls\GBallDark.png" />
                 </Border>
             </Grid>
             <Grid Grid.Row="5"
                   Grid.Column="1">
                 <Border BorderThickness="5">
-                    <Image Source="\Images\OBallDark.png" />
+                    <Image Source="\Images\balls\OBallDark.png" />
                 </Border>
             </Grid>
             <!--#endregion LETTERS-->
@@ -938,7 +960,7 @@
                                Margin="20,0,0,0"
                                Name="LastBallImg"
                                Source="{Binding LastBallImg}"
-                               Visibility="{Binding BallVisible}" />
+                               Visibility="Visible" />
                     </Grid>
 
                     <Grid Grid.Row="2">
