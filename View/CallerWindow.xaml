@@ -25,7 +25,14 @@
                 BorderThickness="2"
                 BorderBrush="White">
         </Border>
-
+        <Border CornerRadius="10"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Background="{StaticResource Whitesmoke}"
+                BorderThickness="2"
+                BorderBrush="White">
+        </Border>
 
         <!--#region TOP BUTTONS (Close, Maximize)-->
         <Grid Grid.Row="0"
