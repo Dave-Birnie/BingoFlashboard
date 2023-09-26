@@ -22,7 +22,7 @@ namespace BingoFlashboard.View
         #region VARIABLES
         private Program program = new();
         private List<Game> games = new();
-        private Game game = new();
+        //private Game game = new();
         HubConnection connection;
         public List<string> calls = new();
 
@@ -180,26 +180,26 @@ namespace BingoFlashboard.View
         {
             if (gamesList.SelectedIndex is not -1 && App.flashboardViewModel is not null)
             {
-                game = (Game) gamesList.SelectedItem;
+                App.SelectedGame = (Game) gamesList.SelectedItem;
                 if (App.callerWindowViewModel is not null)
                 {
                     //SETS GAMENAME TEXTBOX; SETS PRIZE TEXTBOX; SETS DESIGNATED NUMBER TEXTBOX; SETS DESIGNATED NUMBER TEXTBOX;
-                    App.callerWindowViewModel.SelectedGame = game;
+                    App.callerWindowViewModel.SelectedGame = App.SelectedGame;
 
                     //SELECTS GAMETYPE FROM GAMETYPE COMBOBOX
                     foreach (ComboBoxItem cbi in GameType.Items)
                     {
-                        if (cbi.Content.ToString() == game.GameType_)
+                        if (cbi.Content.ToString() == App.SelectedGame.GameType_)
                             cbi.IsSelected = true;
                     }
 
                     //SETS BORDER COLOR PICKER && FLASHBOARD BACKGROUND COLOR
-                    Color background = (Color) ColorConverter.ConvertFromString(game.Border_Color_.Color_Hash_);
+                    Color background = (Color) ColorConverter.ConvertFromString(App.SelectedGame.Border_Color_.Color_Hash_);
                     Border_Color_Picker.SelectedColor = background;
                     App.flashboardViewModel.BackgroundColor = new SolidColorBrush(background);
 
                     //SETS BORDER COLOR PICKER && FLASHBOARD FONT COLOR 
-                    Color font = (Color) ColorConverter.ConvertFromString(game.Font_Color_.Color_Hash_);
+                    Color font = (Color) ColorConverter.ConvertFromString(App.SelectedGame.Font_Color_.Color_Hash_);
                     Font_Color_Picker.SelectedColor = font;
                     App.flashboardViewModel.FontColor = new SolidColorBrush(font);
 
@@ -207,15 +207,15 @@ namespace BingoFlashboard.View
                     int a = 0; //Counts the Combobox item number. 
                     foreach (Pattern cbi in PatternCB.Items)
                     {
-                        if (game.Pattern_ is not null && cbi.Pattern_Name_ == game.Pattern_.Pattern_Name_)
+                        if (App.SelectedGame.Pattern_ is not null && cbi.Pattern_Name_ == App.SelectedGame.Pattern_.Pattern_Name_)
                         {
                             PatternCB.SelectedIndex = a++;
                             break;
                         }
                         a++;
                     }
-                    if (game.Pattern_ is not null && App.miniGrid is not null)
-                        App.miniGrid.StartAnimation(game.Pattern_);
+                    if (App.SelectedGame.Pattern_ is not null && App.miniGrid is not null)
+                        App.miniGrid.StartAnimation(App.SelectedGame.Pattern_);
 
 
 
@@ -296,7 +296,7 @@ namespace BingoFlashboard.View
 
         private async void Update_Flashboard_View()
         {
-            game = (Game) gamesList.SelectedItem;
+            App.SelectedGame = (Game) gamesList.SelectedItem;
             await SendGameInfo();
 
             //UPDATE FLASHBOARD
@@ -308,7 +308,7 @@ namespace BingoFlashboard.View
                 App.flashboardViewModel.UPikEmVisibility = Visibility.Hidden;
                 App.flashboardViewModel.JackpotVisibility = Visibility.Hidden;
 
-                switch (game.GameType_)
+                switch (App.SelectedGame.GameType_)
                 {
                     case "Toonie Ball":
                         {
@@ -342,17 +342,17 @@ namespace BingoFlashboard.View
 
                 //UPDATES FLASHBOARD COLORS
                 //SETS BORDER COLOR PICKER && FLASHBOARD BACKGROUND COLOR
-                Color background = (Color) ColorConverter.ConvertFromString(game.Border_Color_.Color_Hash_);
+                Color background = (Color) ColorConverter.ConvertFromString(App.SelectedGame.Border_Color_.Color_Hash_);
                 Border_Color_Picker.SelectedColor = background;
                 App.flashboardViewModel.BackgroundColor = new SolidColorBrush(background);
 
                 //SETS BORDER COLOR PICKER && FLASHBOARD FONT COLOR 
-                Color font = (Color) ColorConverter.ConvertFromString(game.Font_Color_.Color_Hash_);
+                Color font = (Color) ColorConverter.ConvertFromString(App.SelectedGame.Font_Color_.Color_Hash_);
                 Font_Color_Picker.SelectedColor = font;
                 App.flashboardViewModel.FontColor = new SolidColorBrush(font);
 
-                App.flashboardViewModel.CurrentGame = game;
-                App.flashboardViewModel.ChangeMoneyBallImage(game.Designated_Number_);
+                App.flashboardViewModel.CurrentGame = App.SelectedGame;
+                App.flashboardViewModel.ChangeMoneyBallImage(App.SelectedGame.Designated_Number_);
             }//END CHECK FLASHBOARDVIEWMODEL
 
         }
@@ -361,7 +361,7 @@ namespace BingoFlashboard.View
         {
             if (BroadcastingGame)
                 if (App.server is not null)
-                    await App.server.SendGameInfo(game);
+                    await App.server.SendGameInfo(App.SelectedGame);
         }
 
         //UPDATES GAME INFO
@@ -394,7 +394,7 @@ namespace BingoFlashboard.View
                     }
                     else
                     {
-                        game.Designated_Number_ = JackpotNum.Text;
+                        App.SelectedGame.Designated_Number_ = JackpotNum.Text;
                     }
                 }
                 else
@@ -405,20 +405,20 @@ namespace BingoFlashboard.View
                         return;
                     }
                 }
-                game.Jackpot_Prize_ = JackpotPrize.Text;
+                App.SelectedGame.Jackpot_Prize_ = JackpotPrize.Text;
                 Pattern pat = (Pattern) PatternCB.SelectedItem;
-                game.Pattern_ = pat;
+                App.SelectedGame.Pattern_ = pat;
                 ComboBoxItem cbi = (ComboBoxItem) GameType.SelectedItem;
-                game.GameType_ = cbi.Content.ToString();
-                game.Name_ = GameName.Text;
-                game.Border_Color_.Color_Hash_ = Border_Color_Picker.SelectedColor.ToString();
-                game.Font_Color_.Color_Hash_ = Font_Color_Picker.SelectedColor.ToString();
-                game.Border_Color_.Name_ = BorderColorName.Text;
-                game.Font_Color_.Name_ = FontColorName.Text;
-                game.Prize_ = Prize.Text;
-                game.Designated_Number_ = JackpotNum.Text;
+                App.SelectedGame.GameType_ = cbi.Content.ToString();
+                App.SelectedGame.Name_ = GameName.Text;
+                App.SelectedGame.Border_Color_.Color_Hash_ = Border_Color_Picker.SelectedColor.ToString();
+                App.SelectedGame.Font_Color_.Color_Hash_ = Font_Color_Picker.SelectedColor.ToString();
+                App.SelectedGame.Border_Color_.Name_ = BorderColorName.Text;
+                App.SelectedGame.Font_Color_.Name_ = FontColorName.Text;
+                App.SelectedGame.Prize_ = Prize.Text;
+                App.SelectedGame.Designated_Number_ = JackpotNum.Text;
 
-                App.SelectedSession.Program_.Games_[gamesList.SelectedIndex] = game;
+                App.SelectedSession.Program_.Games_[gamesList.SelectedIndex] = App.SelectedGame;
 
                 gamesList.Items.Refresh();
 
@@ -533,10 +533,10 @@ namespace BingoFlashboard.View
 
                     App.SharedVerificationPage.HighlightCard(calls);
                     App.SharedVerificationPage2.HighlightCard(calls);
-                    if (game.Pattern_ is not null)
+                    if (App.SelectedGame.Pattern_ is not null)
                     {
-                        App.SharedVerificationPage.CheckWinner(calls, game.Pattern_);
-                        App.SharedVerificationPage2.CheckWinner(calls, game.Pattern_);
+                        App.SharedVerificationPage.CheckWinner(calls, App.SelectedGame.Pattern_);
+                        App.SharedVerificationPage2.CheckWinner(calls, App.SelectedGame.Pattern_);
                     }
                 }
             }
