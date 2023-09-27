@@ -34,6 +34,7 @@ namespace BingoFlashboard
         private static LoadAllPatterns lap = new();
         public static List<Card> cardList = new();
         public static List<Player> playerList = new();
+        public static List<string> Calls = new();
 
         #endregion
 

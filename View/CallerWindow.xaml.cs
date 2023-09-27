@@ -24,7 +24,7 @@ namespace BingoFlashboard.View
         private List<Game> games = new();
         //private Game game = new();
         HubConnection connection;
-        public List<string> calls = new();
+        //public List<string> calls = new();
 
         private readonly DispatcherTimer _timer;
         private readonly Storyboard _animation;
@@ -531,12 +531,12 @@ namespace BingoFlashboard.View
                     App.SharedVerificationPage2.SelectCard(VerifyTxtBox.Text, CB_Cardset.Text);
                     VerifyTxtBox.Text = "";
 
-                    App.SharedVerificationPage.HighlightCard(calls);
-                    App.SharedVerificationPage2.HighlightCard(calls);
+                    App.SharedVerificationPage.HighlightCard(App.Calls);
+                    App.SharedVerificationPage2.HighlightCard(App.Calls);
                     if (App.SelectedGame.Pattern_ is not null)
                     {
-                        App.SharedVerificationPage.CheckWinner(calls, App.SelectedGame.Pattern_);
-                        App.SharedVerificationPage2.CheckWinner(calls, App.SelectedGame.Pattern_);
+                        App.SharedVerificationPage.CheckWinner(App.Calls, App.SelectedGame.Pattern_);
+                        App.SharedVerificationPage2.CheckWinner(App.Calls, App.SelectedGame.Pattern_);
                     }
                 }
             }
@@ -567,7 +567,7 @@ namespace BingoFlashboard.View
             if (App.flashboardViewModel is not null)
             {
                 App.flashboardViewModel.ResetBoard();
-                calls = new();
+                App.Calls = new();
             }
         }
 
@@ -627,15 +627,15 @@ namespace BingoFlashboard.View
                 }
                 string response = "";
 
-                foreach (string st in calls)
+                foreach (string st in App.Calls)
                 {
                     if (Ball.Text == st)
                     {
-                        calls.Remove(st);
+                        App.Calls.Remove(st);
                         if (st.StartsWith("0"))
                         {
                             string newText = st.Substring(1);
-                            calls.Add(newText);
+                            App.Calls.Add(newText);
                         }
 
                         allowAdd = false;
@@ -646,11 +646,11 @@ namespace BingoFlashboard.View
                 }
                 if (allowAdd)
                 {
-                    calls.Add(Ball.Text);
+                    App.Calls.Add(Ball.Text);
                     if (Ball.Text.StartsWith("0"))
                     {
                         string newText = Ball.Text.Substring(1);
-                        calls.Add(newText);
+                        App.Calls.Add(newText);
                     }
 
                     response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
