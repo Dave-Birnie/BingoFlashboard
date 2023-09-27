@@ -119,19 +119,23 @@ namespace BingoFlashboard.Data
                             {
                                 case "Bingo Called":
                                     {
-                                        Application.Current.Dispatcher.InvokeAsync(() =>
+                                        Application.Current.Dispatcher.InvokeAsync(async () =>
                                         {
                                             if (responseMessage.SecondaryMessage_ is not null && responseMessage.SecondaryMessage_ is not "")
                                             {
                                                 //TODO Check Success
-                                                
-                                                if (App.callerWindowViewModel is not null)
+                                                bool goodBingo = await App.SharedVerificationPage.CheckMobileWinner(responseMessage.SecondaryMessage_, "");
+
+                                                if (goodBingo && App.callerWindowViewModel is not null)
                                                 {
                                                     App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
+                                                    BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
+                                                    bingoCalledWindow.Show();
                                                 }
-
-                                                BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
-                                                bingoCalledWindow.Show();
+                                                else
+                                                {
+                                                    //TODO return BAD BINGO
+                                                }
                                             }
                                             else
                                             {

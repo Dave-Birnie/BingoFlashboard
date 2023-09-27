@@ -305,7 +305,7 @@ namespace BingoFlashboard.View
         //    LoadCard();
         //}
 
-        public void SelectCard(string cardNum, string cardset)
+        public Task SelectCard(string cardNum, string cardset)
         {
             bool found = false;
             foreach (Tuple<string, List<Card>> set in temp_cardset)
@@ -325,6 +325,7 @@ namespace BingoFlashboard.View
             }
             if(found)
             LoadCard();
+            return Task.CompletedTask;
         }
 
         public void LoadCard()
@@ -661,13 +662,13 @@ namespace BingoFlashboard.View
             }
         }
 
-        public void CheckMobileWinner(List<string> CalledBallList, Pattern currentPattern)
+        public async Task<bool> CheckMobileWinner(string cardNum, string cardset)
         {
-            bool success = true;
+            await SelectCard(cardNum, "DabAll");
 
             foreach (CardNumbers num in cardNums)
             {
-                if (CalledBallList.Contains(num.Value.ToString()))
+                if (App.Calls.Contains(num.Value.ToString()))
                     num.Called = true;
 
                 else
@@ -680,10 +681,11 @@ namespace BingoFlashboard.View
                 if (num.Called)
                     tempList.Add(num.Name.ToString());
             }
+            bool patternMatch = true;
 
-            foreach (var pattern in currentPattern.Pattern_)
+            foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
             {
-                bool patternMatch = true;
+                patternMatch = true;
 
                 foreach (string p in pattern)
                 {
@@ -692,16 +694,11 @@ namespace BingoFlashboard.View
                         patternMatch = false;
                         break;
                     }
+                    return patternMatch;
                 }
 
-                if (patternMatch)
-                {
-                    List<string> successfulPattern = pattern;
-
-                    //MessageBox.Show("Success!");
-                    ColorWinner(pattern);
-                }
-            }
+            }//end foreach
+            return false;
         }
 
 
