@@ -533,10 +533,10 @@ namespace BingoFlashboard.View
 
                     App.SharedVerificationPage.HighlightCard(App.Calls);
                     App.SharedVerificationPage2.HighlightCard(App.Calls);
-                    if (App.SelectedGame.Pattern_ is not null)
+                    if (App.SelectedGame!.Pattern_ is not null)
                     {
-                        App.SharedVerificationPage.CheckWinner(App.Calls, App.SelectedGame.Pattern_);
-                        App.SharedVerificationPage2.CheckWinner(App.Calls, App.SelectedGame.Pattern_);
+                        App.SharedVerificationPage.CheckWinner();
+                        App.SharedVerificationPage2.CheckWinner();
                     }
                 }
             }

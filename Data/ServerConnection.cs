@@ -119,10 +119,12 @@ namespace BingoFlashboard.Data
                             {
                                 case "Bingo Called":
                                     {
-                                        Application.Current.Dispatcher.Invoke(() =>
+                                        Application.Current.Dispatcher.InvokeAsync(() =>
                                         {
                                             if (responseMessage.SecondaryMessage_ is not null && responseMessage.SecondaryMessage_ is not "")
                                             {
+                                                //TODO Check Success
+                                                
                                                 if (App.callerWindowViewModel is not null)
                                                 {
                                                     App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;

@@ -618,7 +618,50 @@ namespace BingoFlashboard.View
                 O5.Background = new SolidColorBrush(Colors.LightSteelBlue);
         }
 
-        public void CheckWinner(List<string> CalledBallList, Pattern currentPattern)
+        public void CheckWinner()
+        {
+            bool success = true;
+
+            foreach (CardNumbers num in cardNums)
+            {
+                if (App.Calls.Contains(num.Value.ToString()))
+                    num.Called = true;
+
+                else
+                    num.Called = false;
+            }
+
+            List<string> tempList = new();
+            foreach (CardNumbers num in cardNums)
+            {
+                if (num.Called)
+                    tempList.Add(num.Name.ToString());
+            }
+
+            foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
+            {
+                bool patternMatch = true;
+
+                foreach (string p in pattern)
+                {
+                    if (!tempList.Contains(p))
+                    {
+                        patternMatch = false;
+                        break;
+                    }
+                }
+
+                if (patternMatch)
+                {
+                    List<string> successfulPattern = pattern;
+
+                    //MessageBox.Show("Success!");
+                    ColorWinner(pattern);
+                }
+            }
+        }
+
+        public void CheckMobileWinner(List<string> CalledBallList, Pattern currentPattern)
         {
             bool success = true;
 
@@ -660,6 +703,7 @@ namespace BingoFlashboard.View
                 }
             }
         }
+
 
         private void ColorWinner(List<string> list)
         {
