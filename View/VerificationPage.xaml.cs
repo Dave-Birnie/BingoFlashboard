@@ -310,7 +310,7 @@ namespace BingoFlashboard.View
             bool found = false;
             foreach (Tuple<string, List<Card>> set in temp_cardset)
             {
-                if(set.Item1 == cardset)
+                if (String.Equals(set.Item1, cardset, StringComparison.OrdinalIgnoreCase))
                 {
                     foreach (Card card in set.Item2)
                     {

@@ -455,7 +455,21 @@
                                      Margin="20,0"
                                      KeyDown="Ball_KeyDown" />
                         </StackPanel>
-
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Name="BingoCalledBtn"
+                                    Style="{StaticResource ModernBtnDelete}"
+                                    Width="180"
+                                    Margin="10,0"
+                                    Content="BINGO CALLED"
+                                    Click="BingoCalledBtn_Click" />
+                            <Button Style="{StaticResource ModernBtn}"
+                                    Width="180"
+                                    Margin="10,0"
+                                    Content="FALSE CALL" 
+                                    />
+                        </StackPanel>
+                        
+                        
                     </StackPanel>
 
                     <StackPanel Grid.Row="1">

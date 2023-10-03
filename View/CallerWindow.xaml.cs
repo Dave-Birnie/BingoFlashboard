@@ -758,14 +758,31 @@ namespace BingoFlashboard.View
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
             //TODO START GAME
+            App.BingoCalled = false;
             //ADD TIME FOR GAME START
 
         }
 
         private void EndGame_Click(object sender, RoutedEventArgs e)
         {
+            App.BingoCalled = false;
             //TODO END GAME
             //ADD TIME FOR GAME END
+            //ADD WINNERS TO DATABASE
+            //UPDATE OTHER GAME INFO
+        }
+
+        private void BingoCalledBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.BingoCalled)
+            {
+
+            }
+            else
+            {
+                App.winnerList = new();
+            }
+               
         }
     }
 }

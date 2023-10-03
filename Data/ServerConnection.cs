@@ -128,14 +128,21 @@ namespace BingoFlashboard.Data
 
                                                 if (goodBingo && App.callerWindowViewModel is not null)
                                                 {
+                                                    //TODO add winner to winner List
                                                     App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
-                                                    BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
-                                                    bingoCalledWindow.Show();
+                                                    if (!App.BingoCalled)
+                                                    {
+                                                        BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
+                                                        bingoCalledWindow.Show();
+                                                        App.BingoCalled = true;
+                                                    }
                                                 }
                                                 else
                                                 {
                                                     //TODO return BAD BINGO
                                                 }
+
+                                                //TODO return response to Player Good or Bad Bingo)
                                             }
                                             else
                                             {

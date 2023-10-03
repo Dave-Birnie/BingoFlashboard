@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BingoFlashboard.Model.FlashboardModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,6 @@ namespace BingoFlashboard.Model
         public int Id_ { get; set; }
         public string Date_Time_ { get; set; } = string.Empty;
         public string Prize_ { get; set; } = string.Empty;
-        public List<Player>? Players_ { get; set; }
+        public List<SourceAndCard>? Winner_ { get; set; }
     }
 }

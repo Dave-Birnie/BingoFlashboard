@@ -35,7 +35,8 @@ namespace BingoFlashboard
         public static List<Card> cardList = new();
         public static List<Player> playerList = new();
         public static List<string> Calls = new();
-
+        public static bool BingoCalled = false;
+        public static List<Winner> winnerList = new();
         #endregion
 
         public static StartupClass startup = new();
