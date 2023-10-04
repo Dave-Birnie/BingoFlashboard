@@ -900,16 +900,19 @@
                     <ListView x:Name="BingosList"
                               MinHeight="150"
                               FontWeight="Bold"
-                              FontSize="14"
-                              SelectionChanged="GamesList_SelectionChanged">
+                              ItemsSource="{Binding Bingos_, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              FontSize="14">
                         <ListView.View>
                             <GridView x:Name="BingosGrid">
-                                <GridViewColumn Header="| Player |"
-                                                Width="320"
-                                                DisplayMemberBinding="{Binding Player.Name_}" />
+                                <GridViewColumn Header="| Card Source |"
+                                                Width="180"
+                                                DisplayMemberBinding="{Binding Source_}" />
+                                <GridViewColumn Header="| Card Number? | "
+                                                Width="180"
+                                                DisplayMemberBinding="{Binding CardNum_}" />
                                 <GridViewColumn Header="| Good Bingo? | "
                                                 Width="180"
-                                                DisplayMemberBinding="{Binding GameType_}" />
+                                                DisplayMemberBinding="{Binding GoodBingo_}" />
                             </GridView>
                         </ListView.View>
                     </ListView>

@@ -122,17 +122,19 @@ namespace BingoFlashboard.ViewModel
         //}
 
 
-        private List<CalledBingos> onlineBingos_;
-        public List<CalledBingos> OnlineBingos
+
+
+        private ObservableCollection<CalledBingos> bingosList_ = new ObservableCollection<CalledBingos>();
+        public ObservableCollection<CalledBingos> Bingos_
         {
             get
             {
-                return onlineBingos_;
+                return bingosList_;
             }
             set
             {
-                onlineBingos_ = value;
-                OnPropertyChanged(nameof(OnlineBingos));
+                bingosList_ = value;
+                OnPropertyChanged(nameof(Bingos_));
             }
         }
     }

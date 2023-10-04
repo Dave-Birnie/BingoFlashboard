@@ -66,6 +66,7 @@ namespace BingoFlashboard.View
                     }
                     gamesList.ItemsSource = App.SelectedSession.Program_.Games_;
                     gamesList.SelectedIndex = 0;
+                    BingosList.ItemsSource = App.callerWindowViewModel.Bingos_;
                 }
                 else
                     MessageBox.Show("Error, unable to load program");
@@ -527,16 +528,45 @@ namespace BingoFlashboard.View
                 }
                 else
                 {
-                    App.SharedVerificationPage.SelectCard(VerifyTxtBox.Text, CB_Cardset.Text);
-                    App.SharedVerificationPage2.SelectCard(VerifyTxtBox.Text, CB_Cardset.Text);
+                    string tempCard = VerifyTxtBox.Text;
+                    await App.SharedVerificationPage.SelectCard(VerifyTxtBox.Text, CB_Cardset.Text);
+                    await App.SharedVerificationPage2.SelectCard(VerifyTxtBox.Text, CB_Cardset.Text);
                     VerifyTxtBox.Text = "";
+
+                    bool winner = false;
 
                     App.SharedVerificationPage.HighlightCard(App.Calls);
                     App.SharedVerificationPage2.HighlightCard(App.Calls);
                     if (App.SelectedGame!.Pattern_ is not null)
                     {
-                        App.SharedVerificationPage.CheckWinner();
+                        winner = App.SharedVerificationPage.CheckWinner();
                         App.SharedVerificationPage2.CheckWinner();
+                    }
+                    if (winner)
+                    {
+                        //TODO Add to List<Winner>
+                        Winner win = new();
+                        win.Date_Time_ = DateTime.Now.ToString();
+
+                        CalledBingos cbs= new();
+                        cbs.CardNum_= tempCard;
+                        cbs.Source_ = "Caller";
+                        cbs.GoodBingo_ = true;
+                        if (App.callerWindowViewModel is not null)
+                        {
+                            if (App.callerWindowViewModel.Bingos_ is null)
+                                App.callerWindowViewModel.Bingos_ = new();
+
+                            App.callerWindowViewModel.Bingos_.Add(cbs);
+
+                        }
+                        if(win.Winner_ is null)
+                        {
+                            win.Winner_ = new();
+                        }
+                        win.Winner_.Add(cbs);
+                        App.winnerList.Add(win);
+                        BingosList.Items.Refresh();
                     }
                 }
             }

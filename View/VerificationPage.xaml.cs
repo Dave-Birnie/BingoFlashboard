@@ -619,9 +619,9 @@ namespace BingoFlashboard.View
                 O5.Background = new SolidColorBrush(Colors.LightSteelBlue);
         }
 
-        public void CheckWinner()
+        public bool CheckWinner()
         {
-            bool success = true;
+            bool success = false;
 
             foreach (CardNumbers num in cardNums)
             {
@@ -659,7 +659,9 @@ namespace BingoFlashboard.View
                     //MessageBox.Show("Success!");
                     ColorWinner(pattern);
                 }
+                return patternMatch;
             }
+            return success;
         }
 
         public async Task<bool> CheckMobileWinner(string cardNum, string cardset)

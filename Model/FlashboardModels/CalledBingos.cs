@@ -8,8 +8,9 @@ namespace BingoFlashboard.Model.FlashboardModels
 {
     public class CalledBingos
     {
-        public string PlayerName_ { get; set; }
-        public string CardNum_ { get; set; }
+        public string PlayerName_ { get; set; } = "N/A";
+        public string Source_ { get; set; } = string.Empty;
+        public string CardNum_ { get; set; } = string.Empty;
         public bool GoodBingo_ { get; set; }
     }
 }
