@@ -696,9 +696,8 @@ namespace BingoFlashboard.View
                         patternMatch = false;
                         break;
                     }
-                    return patternMatch;
                 }
-
+                return patternMatch;
             }//end foreach
             return false;
         }

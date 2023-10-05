@@ -22,6 +22,8 @@ namespace BingoFlashboard.View
         #region VARIABLES
         private Program program = new();
         private List<Game> games = new();
+        private int PreviousSelctedGameIndex = -1;
+        private bool CancelPreviousGameSelect = false;
         //private Game game = new();
         HubConnection connection;
         //public List<string> calls = new();
@@ -179,53 +181,64 @@ namespace BingoFlashboard.View
         //SELECTS THE GAME
         private void GamesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (gamesList.SelectedIndex is not -1 && App.flashboardViewModel is not null)
+            if (!App.GameStarted)
             {
-                App.SelectedGame = (Game) gamesList.SelectedItem;
-                if (App.callerWindowViewModel is not null)
+                if (gamesList.SelectedIndex is not -1 && App.flashboardViewModel is not null)
                 {
-                    //SETS GAMENAME TEXTBOX; SETS PRIZE TEXTBOX; SETS DESIGNATED NUMBER TEXTBOX; SETS DESIGNATED NUMBER TEXTBOX;
-                    App.callerWindowViewModel.SelectedGame = App.SelectedGame;
-
-                    //SELECTS GAMETYPE FROM GAMETYPE COMBOBOX
-                    foreach (ComboBoxItem cbi in GameType.Items)
+                    PreviousSelctedGameIndex = gamesList.SelectedIndex;
+                    App.SelectedGame = (Game) gamesList.SelectedItem;
+                    if (App.callerWindowViewModel is not null)
                     {
-                        if (cbi.Content.ToString() == App.SelectedGame.GameType_)
-                            cbi.IsSelected = true;
-                    }
+                        //SETS GAMENAME TEXTBOX; SETS PRIZE TEXTBOX; SETS DESIGNATED NUMBER TEXTBOX; SETS DESIGNATED NUMBER TEXTBOX;
+                        App.callerWindowViewModel.SelectedGame = App.SelectedGame;
 
-                    //SETS BORDER COLOR PICKER && FLASHBOARD BACKGROUND COLOR
-                    Color background = (Color) ColorConverter.ConvertFromString(App.SelectedGame.Border_Color_.Color_Hash_);
-                    Border_Color_Picker.SelectedColor = background;
-                    App.flashboardViewModel.BackgroundColor = new SolidColorBrush(background);
-
-                    //SETS BORDER COLOR PICKER && FLASHBOARD FONT COLOR 
-                    Color font = (Color) ColorConverter.ConvertFromString(App.SelectedGame.Font_Color_.Color_Hash_);
-                    Font_Color_Picker.SelectedColor = font;
-                    App.flashboardViewModel.FontColor = new SolidColorBrush(font);
-
-                    //SELECTS PATTER FROM PATTERN COMBOBOX
-                    int a = 0; //Counts the Combobox item number. 
-                    foreach (Pattern cbi in PatternCB.Items)
-                    {
-                        if (App.SelectedGame.Pattern_ is not null && cbi.Pattern_Name_ == App.SelectedGame.Pattern_.Pattern_Name_)
+                        //SELECTS GAMETYPE FROM GAMETYPE COMBOBOX
+                        foreach (ComboBoxItem cbi in GameType.Items)
                         {
-                            PatternCB.SelectedIndex = a++;
-                            break;
+                            if (cbi.Content.ToString() == App.SelectedGame.GameType_)
+                                cbi.IsSelected = true;
                         }
-                        a++;
+
+                        //SETS BORDER COLOR PICKER && FLASHBOARD BACKGROUND COLOR
+                        Color background = (Color) ColorConverter.ConvertFromString(App.SelectedGame.Border_Color_.Color_Hash_);
+                        Border_Color_Picker.SelectedColor = background;
+                        App.flashboardViewModel.BackgroundColor = new SolidColorBrush(background);
+
+                        //SETS BORDER COLOR PICKER && FLASHBOARD FONT COLOR 
+                        Color font = (Color) ColorConverter.ConvertFromString(App.SelectedGame.Font_Color_.Color_Hash_);
+                        Font_Color_Picker.SelectedColor = font;
+                        App.flashboardViewModel.FontColor = new SolidColorBrush(font);
+
+                        //SELECTS PATTER FROM PATTERN COMBOBOX
+                        int a = 0; //Counts the Combobox item number. 
+                        foreach (Pattern cbi in PatternCB.Items)
+                        {
+                            if (App.SelectedGame.Pattern_ is not null && cbi.Pattern_Name_ == App.SelectedGame.Pattern_.Pattern_Name_)
+                            {
+                                PatternCB.SelectedIndex = a++;
+                                break;
+                            }
+                            a++;
+                        }
+                        if (App.SelectedGame.Pattern_ is not null && App.miniGrid is not null)
+                            App.miniGrid.StartAnimation(App.SelectedGame.Pattern_);
+
+
+
+                        Update_Flashboard_View();
                     }
-                    if (App.SelectedGame.Pattern_ is not null && App.miniGrid is not null)
-                        App.miniGrid.StartAnimation(App.SelectedGame.Pattern_);
-
-
-
-                    Update_Flashboard_View();
+                }
+                else
+                {
+                    ClearLoadedGame();
                 }
             }
             else
             {
-                ClearLoadedGame();
+                if (gamesList.SelectedIndex != PreviousSelctedGameIndex)
+                    MessageBox.Show("Game is in progress, must end game before moving to next one.");
+                gamesList.SelectedIndex = PreviousSelctedGameIndex;
+
             }
         }
 
@@ -545,11 +558,12 @@ namespace BingoFlashboard.View
                     if (winner)
                     {
                         //TODO Add to List<Winner>
+                        App.BingoCalled = true;
                         Winner win = new();
                         win.Date_Time_ = DateTime.Now.ToString();
 
-                        CalledBingos cbs= new();
-                        cbs.CardNum_= tempCard;
+                        CalledBingos cbs = new();
+                        cbs.CardNum_ = tempCard;
                         cbs.Source_ = "Caller";
                         cbs.GoodBingo_ = true;
                         if (App.callerWindowViewModel is not null)
@@ -558,9 +572,8 @@ namespace BingoFlashboard.View
                                 App.callerWindowViewModel.Bingos_ = new();
 
                             App.callerWindowViewModel.Bingos_.Add(cbs);
-
                         }
-                        if(win.Winner_ is null)
+                        if (win.Winner_ is null)
                         {
                             win.Winner_ = new();
                         }
@@ -574,7 +587,6 @@ namespace BingoFlashboard.View
             {
                 MessageBox.Show("Unable to verify card.");
             }
-
         }
 
         //private void UpdateVerifyFrame()
@@ -604,102 +616,108 @@ namespace BingoFlashboard.View
 
         private async void Ball_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter && App.flashboardViewModel is not null)
+            if (App.GameStarted)
             {
-                bool allowAdd = true;
-                switch (Ball.Text)
+                if (e.Key == Key.Enter && App.flashboardViewModel is not null)
                 {
-                    case "1":
-                        {
-                            Ball.Text = "01";
-                            break;
-                        }
-                    case "2":
-                        {
-                            Ball.Text = "02";
-                            break;
-                        }
-                    case "3":
-                        {
-                            Ball.Text = "03";
-                            break;
-                        }
-                    case "4":
-                        {
-                            Ball.Text = "04";
-                            break;
-                        }
-                    case "5":
-                        {
-                            Ball.Text = "05";
-                            break;
-                        }
-                    case "6":
-                        {
-                            Ball.Text = "06";
-                            break;
-                        }
-                    case "7":
-                        {
-                            Ball.Text = "07";
-                            break;
-                        }
-                    case "8":
-                        {
-                            Ball.Text = "08";
-                            break;
-                        }
-                    case "9":
-                        {
-                            Ball.Text = "09";
-                            break;
-                        }
-                }
-                string response = "";
-
-                foreach (string st in App.Calls)
-                {
-                    if (Ball.Text == st)
+                    bool allowAdd = true;
+                    switch (Ball.Text)
                     {
-                        App.Calls.Remove(st);
-                        if (st.StartsWith("0"))
+                        case "1":
+                            {
+                                Ball.Text = "01";
+                                break;
+                            }
+                        case "2":
+                            {
+                                Ball.Text = "02";
+                                break;
+                            }
+                        case "3":
+                            {
+                                Ball.Text = "03";
+                                break;
+                            }
+                        case "4":
+                            {
+                                Ball.Text = "04";
+                                break;
+                            }
+                        case "5":
+                            {
+                                Ball.Text = "05";
+                                break;
+                            }
+                        case "6":
+                            {
+                                Ball.Text = "06";
+                                break;
+                            }
+                        case "7":
+                            {
+                                Ball.Text = "07";
+                                break;
+                            }
+                        case "8":
+                            {
+                                Ball.Text = "08";
+                                break;
+                            }
+                        case "9":
+                            {
+                                Ball.Text = "09";
+                                break;
+                            }
+                    }
+                    string response = "";
+
+                    foreach (string st in App.Calls)
+                    {
+                        if (Ball.Text == st)
                         {
-                            string newText = st.Substring(1);
+                            App.Calls.Remove(st);
+                            if (st.StartsWith("0"))
+                            {
+                                string newText = st.Substring(1);
+                                App.Calls.Add(newText);
+                            }
+
+                            allowAdd = false;
+                            response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
+                            Ball.Text = "";
+                            break;
+                        }
+                    }
+                    if (allowAdd)
+                    {
+                        App.Calls.Add(Ball.Text);
+                        if (Ball.Text.StartsWith("0"))
+                        {
+                            string newText = Ball.Text.Substring(1);
                             App.Calls.Add(newText);
                         }
 
-                        allowAdd = false;
                         response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
+
+                        // Ball.Text = "";
+                    }
+                    if (response == "Success")
+                    {
+                        if (App.callerWindowViewModel is not null && App.server is not null && App.callerWindowViewModel.HostingStatus.HostingGameStatus == "On")
+                        {
+                            await App.server.SendCalledBall(Ball.Text);
+                        }
                         Ball.Text = "";
-                        break;
-                    }
-                }
-                if (allowAdd)
-                {
-                    App.Calls.Add(Ball.Text);
-                    if (Ball.Text.StartsWith("0"))
-                    {
-                        string newText = Ball.Text.Substring(1);
-                        App.Calls.Add(newText);
                     }
 
-                    response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
+                    else if (response == "Fail")
+                        MessageBox.Show("Ball Error");
 
-                    // Ball.Text = "";
                 }
-                if (response == "Success")
-                {
-                    if (App.callerWindowViewModel is not null && App.server is not null && App.callerWindowViewModel.HostingStatus.HostingGameStatus == "On")
-                    {
-                        await App.server.SendCalledBall(Ball.Text);
-                    }
-                    Ball.Text = "";
-                }
-
-                else if (response == "Fail")
-                    MessageBox.Show("Ball Error");
-
-
+            }
+            else
+            {
+                MessageBox.Show("Game has not started yet");
             }
         }
 
@@ -709,12 +727,22 @@ namespace BingoFlashboard.View
         #region GAME SELECTION REGION
         private void NextGameBtn_Click(object sender, RoutedEventArgs e)
         {
-            NextGameSelection();
+            if (!App.GameStarted)
+                NextGameSelection();
+            else
+            {
+                MessageBox.Show("Game is in progress, must end game before moving to next one.");
+            }
 
         }
         private void PreviousGame_Click(object sender, RoutedEventArgs e)
         {
-            PreviousGameSelection();
+            if (!App.GameStarted)
+                PreviousGameSelection();
+            else
+            {
+                MessageBox.Show("Game is in progress, must end game before moving to next one.");
+            }
         }
         public void PreviousGameSelection()
         {
@@ -788,31 +816,62 @@ namespace BingoFlashboard.View
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
             //TODO START GAME
-            App.BingoCalled = false;
-            //ADD TIME FOR GAME START
+            bool startGame = true;
+            if (App.SelectedGame is not null && App.SelectedGame.Game_End_Time_ != string.Empty)
+            {
+                MessageBoxResult result = MessageBox.Show("Do you want to overwrite the current data?", "Confirm Overwrite", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
+                if (result == MessageBoxResult.Yes)
+                {
+                    startGame = true;
+                    // Code to overwrite data
+                }
+                else
+                {
+                    startGame = false;
+                    // Code to handle 'No' option, if needed
+                }
+            }
+            else if (App.SelectedGame is not null && App.SelectedGame.Game_Start_Time_ != string.Empty)
+            {
+                MessageBox.Show("Game already started");
+            }
+            else
+            {
+                if (startGame)
+                {
+                    App.GameStarted = true;
+                    App.BingoCalled = false;
+                    if (App.SelectedGame is not null)
+                    {
+                        App.SelectedGame.Game_Start_Time_ = DateTime.Now.ToString();
+                        App.winnerList = new();
+                        MessageBox.Show("Game started @ " + App.SelectedGame.Game_Start_Time_);
+                    }
+                }
+            }
         }
 
         private void EndGame_Click(object sender, RoutedEventArgs e)
         {
-            App.BingoCalled = false;
             //TODO END GAME
-            //ADD TIME FOR GAME END
-            //ADD WINNERS TO DATABASE
-            //UPDATE OTHER GAME INFO
-        }
-
-        private void BingoCalledBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (App.BingoCalled)
+            if (App.SelectedGame is not null && App.SelectedGame.Game_Start_Time_ != string.Empty && App.SelectedGame.Game_End_Time_ == string.Empty)
             {
-
+                App.SelectedGame.Game_End_Time_ = DateTime.Now.ToString();
+                App.SelectedGame.Winner_ = App.winnerList;
+                App.BingoCalled = false;
+                App.GameStarted = false;
+                MessageBox.Show("Game stopped @ " + App.SelectedGame.Game_End_Time_);
+            }
+            else if (App.SelectedGame is not null && App.SelectedGame.Game_Start_Time_ != string.Empty && App.SelectedGame.Game_End_Time_ != string.Empty)
+            {
+                MessageBox.Show("Game already stopped");
             }
             else
             {
-                App.winnerList = new();
+                MessageBox.Show("Game has not started");
             }
-               
+            //TODO PUSH GAME TO SERVER TO SAVE. 
         }
     }
 }

@@ -12,7 +12,8 @@ namespace BingoFlashboard.Model
     {
         public int Id_ { get; set; }
         public string Name_ { get; set; } = string.Empty;
-        public string Date_Time_ { get; set; } = string.Empty;
+        public string Game_Start_Time_ { get; set; } = string.Empty;
+        public string Game_End_Time_ { get; set; } = string.Empty;
         public GameColor? Border_Color_ { get; set; }
         public GameColor? Font_Color_ { get; set; }
         public string GameType_ { get; set; } = string.Empty;
@@ -26,7 +27,7 @@ namespace BingoFlashboard.Model
         public string Designated_Number_ { get; set; } = string.Empty;
         public string? Four_Ball_ { get; set; }
         public string? Four_Ball_Prize_ { get; set; }
-        public List<Player>? Player_List { get; set; }
-        public List<Winner>? Winner { get; set; }
+        //public List<Player>? Player_List { get; set; } = new List<Player>();
+        public List<Winner>? Winner_ { get; set; } = new List<Winner>();
     }
 }
