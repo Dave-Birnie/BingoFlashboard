@@ -886,7 +886,9 @@
                               MinHeight="150"
                               FontWeight="Bold"
                               ItemsSource="{Binding Bingos_, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                              FontSize="14">
+                              FontSize="14"
+                              SelectionChanged="BingosList_SelectionChanged"
+                              >
                         <ListView.View>
                             <GridView x:Name="BingosGrid">
                                 <GridViewColumn Header="| Card Source |"

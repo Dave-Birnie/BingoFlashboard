@@ -541,6 +541,8 @@ namespace BingoFlashboard.View
                 }
                 else
                 {
+                    BingosList.SelectedIndex = -1;
+
                     string tempCard = VerifyTxtBox.Text;
                     await App.SharedVerificationPage.SelectCard(VerifyTxtBox.Text, CB_Cardset.Text);
                     await App.SharedVerificationPage2.SelectCard(VerifyTxtBox.Text, CB_Cardset.Text);
@@ -559,8 +561,8 @@ namespace BingoFlashboard.View
                     {
                         //TODO Add to List<Winner>
                         App.BingoCalled = true;
-                        Winner win = new();
-                        win.Date_Time_ = DateTime.Now.ToString();
+                        //Winner win = new();
+                        //win.Date_Time_ = DateTime.Now.ToString();
 
                         CalledBingos cbs = new();
                         cbs.CardNum_ = tempCard;
@@ -573,12 +575,12 @@ namespace BingoFlashboard.View
 
                             App.callerWindowViewModel.Bingos_.Add(cbs);
                         }
-                        if (win.Winner_ is null)
-                        {
-                            win.Winner_ = new();
-                        }
-                        win.Winner_.Add(cbs);
-                        App.winnerList.Add(win);
+                        //if (win.Winner_ is null)
+                        //{
+                        //    win.Winner_ = new();
+                        //}
+                        //win.Winner_.Add(cbs);
+                        //App.winnerList.Add(win);
                         BingosList.Items.Refresh();
                     }
                 }
@@ -872,6 +874,18 @@ namespace BingoFlashboard.View
                 MessageBox.Show("Game has not started");
             }
             //TODO PUSH GAME TO SERVER TO SAVE. 
+        }
+
+        private async void BingosList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(BingosList.SelectedIndex != -1)
+            {
+                CalledBingos cb = (CalledBingos) BingosList.SelectedItem;
+                await App.SharedVerificationPage.SelectCard(cb.CardNum_, "UniMax");
+                await App.SharedVerificationPage2.SelectCard(cb.CardNum_, "UniMax");
+                App.SharedVerificationPage.CheckWinner();
+                App.SharedVerificationPage2.CheckWinner();
+            }
         }
     }
 }

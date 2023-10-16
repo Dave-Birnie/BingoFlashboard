@@ -666,7 +666,7 @@ namespace BingoFlashboard.View
 
         public async Task<bool> CheckMobileWinner(string cardNum, string cardset)
         {
-            await SelectCard(cardNum, "DabAll");
+            await SelectCard(cardNum, "UniMax");
 
             foreach (CardNumbers num in cardNums)
             {
