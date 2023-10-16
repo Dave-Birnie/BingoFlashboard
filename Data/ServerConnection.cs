@@ -135,8 +135,22 @@ namespace BingoFlashboard.Data
                                                     cbs.GoodBingo_ = true;
                                                     cbs.PlayerName_ = "";
 
+                                                    if (App.callerWindowViewModel.Bingos_ is null)
+                                                        App.callerWindowViewModel.Bingos_ = new();
+
                                                     App.callerWindowViewModel.Bingos_.Add(cbs);
-                                                    //App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
+                                                    Winner win = new();
+                                                    win.Date_Time_ = DateTime.Now.ToString();
+                                                    if (win.Winner_ is null)
+                                                    {
+                                                        win.Winner_ = new();
+                                                    }
+                                                    win.Winner_.Add(cbs);
+                                                    App.winnerList.Add(win);
+
+                                                    App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
+
+
                                                     if (!App.BingoCalled)
                                                     {
                                                         BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
