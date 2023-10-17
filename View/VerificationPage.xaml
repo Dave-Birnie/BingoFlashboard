@@ -14,7 +14,7 @@
             <Setter Property="Foreground"
                     Value="Black" />
             <Setter Property="Background"
-                    Value="LightSteelBlue" />
+                    Value="LightGray" />
             <Setter Property="BorderBrush"
                     Value="Black" />
             <Setter Property="HorizontalAlignment"

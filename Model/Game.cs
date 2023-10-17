@@ -29,5 +29,11 @@ namespace BingoFlashboard.Model
         public string? Four_Ball_Prize_ { get; set; }
         //public List<Player>? Player_List { get; set; } = new List<Player>();
         public List<Winner>? Winner_ { get; set; } = new List<Winner>();
+
+        public void CalculatePrize()
+        {
+            //TODO for each winner, calculate prize amount
+            //prize  / winner_.count = prize amount
+        }
     }
 }

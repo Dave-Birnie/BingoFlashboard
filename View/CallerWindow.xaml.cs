@@ -223,7 +223,21 @@ namespace BingoFlashboard.View
                         if (App.SelectedGame.Pattern_ is not null && App.miniGrid is not null)
                             App.miniGrid.StartAnimation(App.SelectedGame.Pattern_);
 
-
+                        if (App.SelectedGame is not null && App.callerWindowViewModel is not null)
+                        {
+                            //THIS SECTION OF CODE IS CHECKING IF THE GAME HAS BEEN STARTED BEFORE. IF IT HAS, IT WILL LOAD THE BINGOS FROM THE GAME. IF NOT IT WILL CREATE A NEW LIST
+                            if (App.SelectedGame.Winner_ is null || App.SelectedGame.Winner_.Count == 0)
+                            {
+                                App.callerWindowViewModel.Bingos_ = new();
+                            }
+                            else
+                            {
+                                foreach (Winner cb in App.SelectedGame.Winner_)
+                                {
+                                    App.callerWindowViewModel.Bingos_.Add(cb.PlayerInfo_);
+                                }
+                            }
+                        }
 
                         Update_Flashboard_View();
                     }
@@ -561,8 +575,7 @@ namespace BingoFlashboard.View
                     {
                         //TODO Add to List<Winner>
                         App.BingoCalled = true;
-                        //Winner win = new();
-                        //win.Date_Time_ = DateTime.Now.ToString();
+
 
                         CalledBingos cbs = new();
                         cbs.CardNum_ = tempCard;
@@ -575,12 +588,11 @@ namespace BingoFlashboard.View
 
                             App.callerWindowViewModel.Bingos_.Add(cbs);
                         }
-                        //if (win.Winner_ is null)
-                        //{
-                        //    win.Winner_ = new();
-                        //}
-                        //win.Winner_.Add(cbs);
-                        //App.winnerList.Add(win);
+
+                        Winner win = new();
+                        win.Date_Time_ = DateTime.Now.ToString();
+                        win.PlayerInfo_ = cbs;
+                        App.winnerList.Add(win);
                         BingosList.Items.Refresh();
                     }
                 }
@@ -825,8 +837,14 @@ namespace BingoFlashboard.View
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    startGame = true;
-                    // Code to overwrite data
+                    if (App.SelectedGame is not null && App.callerWindowViewModel is not null)
+                    {
+                        startGame = true;
+                        App.callerWindowViewModel.Bingos_ = new();
+                        App.SelectedGame.Winner_ = new();
+                        App.SelectedGame.Game_Start_Time_ = DateTime.Now.ToString();
+                        MessageBox.Show("Game started @ " + App.SelectedGame.Game_Start_Time_);
+                    }
                 }
                 else
                 {
@@ -844,10 +862,9 @@ namespace BingoFlashboard.View
                 {
                     App.GameStarted = true;
                     App.BingoCalled = false;
-                    if (App.SelectedGame is not null)
+                    if (App.SelectedGame is not null && App.callerWindowViewModel is not null)
                     {
                         App.SelectedGame.Game_Start_Time_ = DateTime.Now.ToString();
-                        App.winnerList = new();
                         MessageBox.Show("Game started @ " + App.SelectedGame.Game_Start_Time_);
                     }
                 }
@@ -864,6 +881,12 @@ namespace BingoFlashboard.View
                 App.BingoCalled = false;
                 App.GameStarted = false;
                 MessageBox.Show("Game stopped @ " + App.SelectedGame.Game_End_Time_);
+
+                if (App.flashboardViewModel is not null)
+                {
+                    App.flashboardViewModel.ResetBoard();
+                    App.Calls = new();
+                }
             }
             else if (App.SelectedGame is not null && App.SelectedGame.Game_Start_Time_ != string.Empty && App.SelectedGame.Game_End_Time_ != string.Empty)
             {
@@ -878,7 +901,7 @@ namespace BingoFlashboard.View
 
         private async void BingosList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(BingosList.SelectedIndex != -1)
+            if (BingosList.SelectedIndex != -1)
             {
                 CalledBingos cb = (CalledBingos) BingosList.SelectedItem;
                 await App.SharedVerificationPage.SelectCard(cb.CardNum_, "UniMax");

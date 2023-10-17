@@ -139,14 +139,10 @@ namespace BingoFlashboard.Data
                                                         App.callerWindowViewModel.Bingos_ = new();
 
                                                     App.callerWindowViewModel.Bingos_.Add(cbs);
-                                                    //Winner win = new();
-                                                    //win.Date_Time_ = DateTime.Now.ToString();
-                                                    //if (win.Winner_ is null)
-                                                    //{
-                                                    //    win.Winner_ = new();
-                                                    //}
-                                                    //win.Winner_.Add(cbs);
-                                                    //App.winnerList.Add(win);
+                                                    Winner win = new();
+                                                    win.Date_Time_ = DateTime.Now.ToString();
+                                                    win.PlayerInfo_ = cbs;
+                                                    App.winnerList.Add(win);
 
                                                     App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
 

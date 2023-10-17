@@ -12,6 +12,6 @@ namespace BingoFlashboard.Model
         public int Id_ { get; set; }
         public string Date_Time_ { get; set; } = string.Empty;
         public string Prize_ { get; set; } = string.Empty;
-        public List<CalledBingos>? Winner_ { get; set; }
+        public CalledBingos PlayerInfo_ { get; set; } = new();
     }
 }

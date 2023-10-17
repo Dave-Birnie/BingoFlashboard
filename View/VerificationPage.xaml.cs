@@ -496,127 +496,127 @@ namespace BingoFlashboard.View
             if (calls.Contains(B1.Content.ToString()))
                 B1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                B1.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                B1.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(B2.Content.ToString()))
                 B2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                B2.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                B2.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(B3.Content.ToString()))
                 B3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                B3.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                B3.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(B4.Content.ToString()))
                 B4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                B4.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                B4.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(B5.Content.ToString()))
                 B5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                B5.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                B5.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(I1.Content.ToString()))
                 I1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                I1.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                I1.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(I2.Content.ToString()))
                 I2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                I2.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                I2.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(I3.Content.ToString()))
                 I3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                I3.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                I3.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(I4.Content.ToString()))
                 I4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                I4.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                I4.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(I5.Content.ToString()))
                 I5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                I5.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                I5.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(N1.Content.ToString()))
                 N1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                N1.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                N1.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(N2.Content.ToString()))
                 N2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                N2.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                N2.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(N3.Content.ToString()))
                 N3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                N3.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                N3.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(N4.Content.ToString()))
                 N4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                N4.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                N4.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(N5.Content.ToString()))
                 N5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                N5.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                N5.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(G1.Content.ToString()))
                 G1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                G1.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                G1.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(G2.Content.ToString()))
                 G2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                G2.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                G2.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(G3.Content.ToString()))
                 G3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                G3.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                G3.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(G4.Content.ToString()))
                 G4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                G4.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                G4.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(G5.Content.ToString()))
                 G5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                G5.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                G5.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(O1.Content.ToString()))
                 O1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                O1.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                O1.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(O2.Content.ToString()))
                 O2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                O2.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                O2.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(O3.Content.ToString()))
                 O3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                O3.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                O3.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(O4.Content.ToString()))
                 O4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                O4.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                O4.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(O5.Content.ToString()))
                 O5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
             else
-                O5.Background = new SolidColorBrush(Colors.LightSteelBlue);
+                O5.Background = new SolidColorBrush(Colors.LightGray);
         }
 
         public bool CheckWinner()

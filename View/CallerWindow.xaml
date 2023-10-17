@@ -100,6 +100,13 @@
                                                     VerticalAlignment="Center" />
                     </Grid>
                 </Button>
+
+                <Button Grid.Column="0"
+                        Margin="10"
+                        Width="160"
+                        Style="{StaticResource ModernBtn}"
+                        Content="Load New Session"
+                        Click="Load_New_Session_Click" />
             </StackPanel>
             <StackPanel Orientation="Horizontal"
                         Grid.Column="1"
@@ -808,12 +815,7 @@
 
                         <!--#region LoadNewSession StartSession-->
                         <Grid HorizontalAlignment="Center">
-                            <Button Grid.Column="0"
-                                    Margin="10"
-                                    Width="160"
-                                    Style="{StaticResource ModernBtn}"
-                                    Content="Load New Session"
-                                    Click="Load_New_Session_Click" />
+                           
                         </Grid>
                         <!--#endregion LoadNewSession StartSession-->
 
