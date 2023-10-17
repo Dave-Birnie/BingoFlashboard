@@ -32,7 +32,6 @@ namespace BingoFlashboard.View
                 this.Width = (double)App.startup.FlashboardWidth;
                 this.Height = (double)App.startup.FlashboardHeight;
             }
-
         }
 
         private void OnClose(object sender, System.ComponentModel.CancelEventArgs e)

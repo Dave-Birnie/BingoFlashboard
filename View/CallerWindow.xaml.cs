@@ -830,11 +830,11 @@ namespace BingoFlashboard.View
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
             //TODO START GAME
+
             bool startGame = true;
             if (App.SelectedGame is not null && App.SelectedGame.Game_End_Time_ != string.Empty)
             {
                 MessageBoxResult result = MessageBox.Show("Do you want to overwrite the current data?", "Confirm Overwrite", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
                 if (result == MessageBoxResult.Yes)
                 {
                     if (App.SelectedGame is not null && App.callerWindowViewModel is not null)
@@ -882,11 +882,11 @@ namespace BingoFlashboard.View
                 App.GameStarted = false;
                 MessageBox.Show("Game stopped @ " + App.SelectedGame.Game_End_Time_);
 
-                if (App.flashboardViewModel is not null)
-                {
-                    App.flashboardViewModel.ResetBoard();
-                    App.Calls = new();
-                }
+                //if (App.flashboardViewModel is not null)
+                //{
+                //    App.flashboardViewModel.ResetBoard();
+                //    App.Calls = new();
+                //}
             }
             else if (App.SelectedGame is not null && App.SelectedGame.Game_Start_Time_ != string.Empty && App.SelectedGame.Game_End_Time_ != string.Empty)
             {
