@@ -553,10 +553,10 @@ namespace BingoFlashboard.View
             else
                 N2.Background = new SolidColorBrush(Colors.LightGray);
 
-            if (calls.Contains(N3.Content.ToString()))
+            //if (calls.Contains(N3.Content.ToString()))
+            //    N3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+            //else
                 N3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                N3.Background = new SolidColorBrush(Colors.LightGray);
 
             if (calls.Contains(N4.Content.ToString()))
                 N4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
@@ -625,7 +625,7 @@ namespace BingoFlashboard.View
 
             foreach (CardNumbers num in cardNums)
             {
-                if (App.Calls.Contains(num.Value.ToString()))
+                if (App.Calls.Contains(num.Value.ToString()) || num.Called)
                     num.Called = true;
 
                 else
@@ -638,6 +638,29 @@ namespace BingoFlashboard.View
                 if (num.Called)
                     tempList.Add(num.Name.ToString());
             }
+
+            //foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
+            //{
+            //    bool patternMatch = true;
+
+            //    foreach (string p in pattern)
+            //    {
+            //        if (!tempList.Contains(p))
+            //        {
+            //            patternMatch = false;
+            //            break;
+            //        }
+            //    }
+
+            //    if (patternMatch)
+            //    {
+            //        List<string> successfulPattern = pattern;
+
+            //        //MessageBox.Show("Success!");
+            //        ColorWinner(pattern);
+            //    }
+            //    return patternMatch;
+            //}
 
             foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
             {
@@ -655,11 +678,8 @@ namespace BingoFlashboard.View
                 if (patternMatch)
                 {
                     List<string> successfulPattern = pattern;
-
-                    //MessageBox.Show("Success!");
                     ColorWinner(pattern);
                 }
-                return patternMatch;
             }
             return success;
         }
