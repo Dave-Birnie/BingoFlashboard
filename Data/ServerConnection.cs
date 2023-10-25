@@ -316,6 +316,7 @@ namespace BingoFlashboard.Data
                     Designated_Number_ = game.Designated_Number_,
                     Four_Ball_ = game.Four_Ball_,
                     Four_Ball_Prize_ = game.Four_Ball_Prize_,
+
                 };
                 DataTransfer dt = new()
                 {
@@ -337,16 +338,18 @@ namespace BingoFlashboard.Data
                 {
                     TransferMessage_ = "BallCalled",
                     JsonString_ = ballnum,
+                    SecondaryMessage_ = App.flashboardViewModel.BallCount.ToString()
                 };
 
                 if (App.server is not null && App.server.hubConnection.State == HubConnectionState.Connected)
+                {
                     await hubConnection.SendAsync("BallCalled", dt);
+                }
                 else
                 {
                     if (App.callerWindowViewModel is not null && !failedServer)
                         App.callerWindowViewModel.AddServerMessage("Server not connected, please try to reconnect if you are running a live game.");
                 }
-
             }
         }
 
