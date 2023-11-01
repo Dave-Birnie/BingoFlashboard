@@ -29,10 +29,10 @@ namespace BingoFlashboard.Data
         {
             hubConnection = new HubConnectionBuilder()
             //PRODUCTION
-            .WithUrl("https://bingoappservice.azurewebsites.net/GameHub")
+            //.WithUrl("https://bingoappservice.azurewebsites.net/GameHub")
 
             //DEVELOPMENT
-            //.WithUrl("http://192.168.2.16:7226/GameHub") // Replace with the appropriate URL
+            .WithUrl("http://192.168.2.16:7226/GameHub") // Replace with the appropriate URL
             //.WithUrl("https://localhost:7226/GameHub") // Replace with the appropriate URL
 
 
