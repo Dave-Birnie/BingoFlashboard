@@ -537,7 +537,6 @@ namespace BingoFlashboard.View
 
         private void CheckCardBtn_Click(object sender, RoutedEventArgs e)
         {
-
             //StartFlashing();
             if (VerifyTxtBox.Text is not null)
             {

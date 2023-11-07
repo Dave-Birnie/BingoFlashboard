@@ -146,7 +146,6 @@ namespace BingoFlashboard.Data
 
                                                     App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
 
-
                                                     if (!App.BingoCalled)
                                                     {
                                                         BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
@@ -158,7 +157,6 @@ namespace BingoFlashboard.Data
                                                 {
                                                     //TODO return BAD BINGO
                                                 }
-
                                                 //TODO return response to Player Good or Bad Bingo)
                                             }
                                             else

@@ -639,28 +639,28 @@ namespace BingoFlashboard.View
                     tempList.Add(num.Name.ToString());
             }
 
-            //foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
-            //{
-            //    bool patternMatch = true;
+            foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
+            {
+                bool patternMatch = true;
 
-            //    foreach (string p in pattern)
-            //    {
-            //        if (!tempList.Contains(p))
-            //        {
-            //            patternMatch = false;
-            //            break;
-            //        }
-            //    }
+                foreach (string p in pattern)
+                {
+                    if (!tempList.Contains(p))
+                    {
+                        patternMatch = false;
+                        break;
+                    }
+                }
 
-            //    if (patternMatch)
-            //    {
-            //        List<string> successfulPattern = pattern;
+                if (patternMatch)
+                {
+                    List<string> successfulPattern = pattern;
 
-            //        //MessageBox.Show("Success!");
-            //        ColorWinner(pattern);
-            //    }
-            //    return patternMatch;
-            //}
+                    //MessageBox.Show("Success!");
+                    ColorWinner(pattern);
+                }
+                return patternMatch;
+            }
 
             foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
             {
