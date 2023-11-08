@@ -639,46 +639,49 @@ namespace BingoFlashboard.View
                     tempList.Add(num.Name.ToString());
             }
 
-            foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
+            //foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
+            //{
+            //    bool patternMatch = true;
+
+            //    foreach (string p in pattern)
+            //    {
+            //        if (!tempList.Contains(p))
+            //        {
+            //            patternMatch = false;
+            //            break;
+            //        }
+            //    }
+
+            //    if (patternMatch)
+            //    {
+            //        List<string> successfulPattern = pattern;
+
+            //        //MessageBox.Show("Success!");
+            //        ColorWinner(pattern);
+            //    }
+            //    //return patternMatch;
+            //}
+
+            if (App.SelectedGame is not null && App.SelectedGame.Pattern_ is not null && App.SelectedGame.Pattern_.Pattern_ is not null)
             {
-                bool patternMatch = true;
-
-                foreach (string p in pattern)
+                foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
                 {
-                    if (!tempList.Contains(p))
+                    bool patternMatch = true;
+
+                    foreach (string p in pattern)
                     {
-                        patternMatch = false;
-                        break;
+                        if (!tempList.Contains(p))
+                        {
+                            patternMatch = false;
+                            break;
+                        }
                     }
-                }
 
-                if (patternMatch)
-                {
-                    List<string> successfulPattern = pattern;
-
-                    //MessageBox.Show("Success!");
-                    ColorWinner(pattern);
-                }
-                return patternMatch;
-            }
-
-            foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
-            {
-                bool patternMatch = true;
-
-                foreach (string p in pattern)
-                {
-                    if (!tempList.Contains(p))
+                    if (patternMatch)
                     {
-                        patternMatch = false;
-                        break;
+                        List<string> successfulPattern = pattern;
+                        ColorWinner(pattern);
                     }
-                }
-
-                if (patternMatch)
-                {
-                    List<string> successfulPattern = pattern;
-                    ColorWinner(pattern);
                 }
             }
             return success;
@@ -687,10 +690,11 @@ namespace BingoFlashboard.View
         public async Task<bool> CheckMobileWinner(string cardNum, string cardset)
         {
             await SelectCard(cardNum, "UniMax");
+            //await SelectCard(cardNum, cardset);
 
             foreach (CardNumbers num in cardNums)
             {
-                if (App.Calls.Contains(num.Value.ToString()))
+                if (App.Calls.Contains(num.Value.ToString()) || num.Called)
                     num.Called = true;
 
                 else
@@ -704,21 +708,23 @@ namespace BingoFlashboard.View
                     tempList.Add(num.Name.ToString());
             }
             bool patternMatch = true;
-
-            foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
+            if (App.SelectedGame is not null && App.SelectedGame.Pattern_ is not null && App.SelectedGame.Pattern_.Pattern_ is not null)
             {
-                patternMatch = true;
-
-                foreach (string p in pattern)
+                foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
                 {
-                    if (!tempList.Contains(p))
+                    patternMatch = true;
+
+                    foreach (string p in pattern)
                     {
-                        patternMatch = false;
-                        break;
+                        if (!tempList.Contains(p))
+                        {
+                            patternMatch = false;
+                            break;
+                        }
                     }
-                }
-                return patternMatch;
-            }//end foreach
+                    return patternMatch;
+                }//end foreach
+            }
             return false;
         }
 
