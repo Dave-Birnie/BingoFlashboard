@@ -679,6 +679,8 @@ namespace BingoFlashboard.View
 
                     if (patternMatch)
                     {
+                        //TODO Add pattern to winner list
+                        success = true;
                         List<string> successfulPattern = pattern;
                         ColorWinner(pattern);
                     }
