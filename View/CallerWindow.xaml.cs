@@ -238,7 +238,6 @@ namespace BingoFlashboard.View
                                 }
                             }
                         }
-
                         Update_Flashboard_View();
                     }
                 }
@@ -325,7 +324,6 @@ namespace BingoFlashboard.View
         private async void Update_Flashboard_View()
         {
             App.SelectedGame = (Game) gamesList.SelectedItem;
-            //await SendGameInfo();
 
             //UPDATE FLASHBOARD
             if (App.flashboardViewModel is not null)
@@ -402,8 +400,6 @@ namespace BingoFlashboard.View
         }
         private void Update_Game_Click(object sender, RoutedEventArgs e)
         {
-
-
             if (gamesList.SelectedIndex is not -1
                 && App.SelectedSession is not null
                 && App.SelectedSession.Program_ is not null
@@ -433,10 +429,13 @@ namespace BingoFlashboard.View
                         return;
                     }
                 }
+
+                
                 App.SelectedGame.Jackpot_Prize_ = JackpotPrize.Text;
                 Pattern pat = (Pattern) PatternCB.SelectedItem;
                 App.SelectedGame.Pattern_ = pat;
                 ComboBoxItem cbi = (ComboBoxItem) GameType.SelectedItem;
+
                 App.SelectedGame.GameType_ = cbi.Content.ToString();
                 App.SelectedGame.Name_ = GameName.Text;
                 App.SelectedGame.Border_Color_.Color_Hash_ = Border_Color_Picker.SelectedColor.ToString();
@@ -446,10 +445,18 @@ namespace BingoFlashboard.View
                 App.SelectedGame.Prize_ = Prize.Text;
                 App.SelectedGame.Designated_Number_ = JackpotNum.Text;
 
+                foreach (Game gam in App.SelectedSession.Program_.Games_)
+                {
+                    if (gam.Name_ == App.SelectedGame.Name_)
+                    {
+                        gam.Jackpot_Prize_ = App.SelectedGame.Jackpot_Prize_;
+                        gam.Designated_Number_ = App.SelectedGame.Designated_Number_;
+                    }
+                }
+
                 App.SelectedSession.Program_.Games_[gamesList.SelectedIndex] = App.SelectedGame;
 
                 gamesList.Items.Refresh();
-
 
                 //UPDATES FLASHBOARD
                 Update_Flashboard_View();
@@ -602,10 +609,6 @@ namespace BingoFlashboard.View
             }
         }
 
-        //private void UpdateVerifyFrame()
-        //{
-        //    VerifyFrame.Content = App.verificationPage;
-        //}
 
         #endregion VERIFYCARD REGION
 
@@ -844,7 +847,6 @@ namespace BingoFlashboard.View
                         App.SelectedGame.Game_Start_Time_ = DateTime.Now.ToString();
                         MessageBox.Show("Game started @ " + App.SelectedGame.Game_Start_Time_);
                         SendGameInfo();
-
                     }
                 }
                 else

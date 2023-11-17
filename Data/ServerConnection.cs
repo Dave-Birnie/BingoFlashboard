@@ -314,7 +314,6 @@ namespace BingoFlashboard.Data
                     Designated_Number_ = game.Designated_Number_,
                     Four_Ball_ = game.Four_Ball_,
                     Four_Ball_Prize_ = game.Four_Ball_Prize_,
-
                 };
                 DataTransfer dt = new()
                 {
@@ -325,7 +324,6 @@ namespace BingoFlashboard.Data
 
                 await hubConnection.SendAsync("NewGameInfo", dt);
             }
-
         }
 
         public async Task SendCalledBall(string ballnum)
