@@ -325,7 +325,7 @@ namespace BingoFlashboard.View
         private async void Update_Flashboard_View()
         {
             App.SelectedGame = (Game) gamesList.SelectedItem;
-            await SendGameInfo();
+            //await SendGameInfo();
 
             //UPDATE FLASHBOARD
             if (App.flashboardViewModel is not null)
@@ -843,6 +843,8 @@ namespace BingoFlashboard.View
                         App.SelectedGame.Winner_ = new();
                         App.SelectedGame.Game_Start_Time_ = DateTime.Now.ToString();
                         MessageBox.Show("Game started @ " + App.SelectedGame.Game_Start_Time_);
+                        SendGameInfo();
+
                     }
                 }
                 else
@@ -863,6 +865,7 @@ namespace BingoFlashboard.View
                     App.BingoCalled = false;
                     if (App.SelectedGame is not null && App.callerWindowViewModel is not null)
                     {
+                        SendGameInfo();
                         App.SelectedGame.Game_Start_Time_ = DateTime.Now.ToString();
                         MessageBox.Show("Game started @ " + App.SelectedGame.Game_Start_Time_);
                     }
