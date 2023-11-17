@@ -639,29 +639,6 @@ namespace BingoFlashboard.View
                     tempList.Add(num.Name.ToString());
             }
 
-            //foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
-            //{
-            //    bool patternMatch = true;
-
-            //    foreach (string p in pattern)
-            //    {
-            //        if (!tempList.Contains(p))
-            //        {
-            //            patternMatch = false;
-            //            break;
-            //        }
-            //    }
-
-            //    if (patternMatch)
-            //    {
-            //        List<string> successfulPattern = pattern;
-
-            //        //MessageBox.Show("Success!");
-            //        ColorWinner(pattern);
-            //    }
-            //    //return patternMatch;
-            //}
-
             if (App.SelectedGame is not null && App.SelectedGame.Pattern_ is not null && App.SelectedGame.Pattern_.Pattern_ is not null)
             {
                 foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
@@ -693,6 +670,7 @@ namespace BingoFlashboard.View
         {
             await SelectCard(cardNum, "UniMax");
             //await SelectCard(cardNum, cardset);
+            bool success = false;
 
             foreach (CardNumbers num in cardNums)
             {
@@ -709,12 +687,12 @@ namespace BingoFlashboard.View
                 if (num.Called)
                     tempList.Add(num.Name.ToString());
             }
-            bool patternMatch = true;
+
             if (App.SelectedGame is not null && App.SelectedGame.Pattern_ is not null && App.SelectedGame.Pattern_.Pattern_ is not null)
             {
                 foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
                 {
-                    patternMatch = true;
+                    bool patternMatch = true;
 
                     foreach (string p in pattern)
                     {
@@ -724,10 +702,15 @@ namespace BingoFlashboard.View
                             break;
                         }
                     }
-                    return patternMatch;
-                }//end foreach
+
+                    if (patternMatch)
+                    {
+                        success = true;
+                        List<string> successfulPattern = pattern;
+                    }
+                }
             }
-            return false;
+            return success;
         }
 
 
