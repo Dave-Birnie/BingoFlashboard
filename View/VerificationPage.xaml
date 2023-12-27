@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BingoFlashboard.View"
       mc:Ignorable="d"
-      d:DesignHeight="300"
+      d:DesignHeight="360"
       d:DesignWidth="300"
       Title="VerificationPage">
     <Page.Resources>
@@ -47,27 +47,78 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <!--#region BINGO LABELS-->
+        <Image 
+            Grid.Row="0"
+            Grid.Column="0"
+            Source="\Images\Balls\BBall.png" />        
+        
+        <Image 
+            Grid.Row="0"
+            Grid.Column="1"
+            Source="\Images\Balls\IBall.png" />        
+        
+        <Image 
+            Grid.Row="0"
+            Grid.Column="2"
+            Source="\Images\Balls\NBall.png" />        
+        
+        <Image 
+            Grid.Row="0"
+            Grid.Column="3"
+            Source="\Images\Balls\GBall.png" />        
+        
+        <Image 
+            Grid.Row="0"
+            Grid.Column="4"
+            Source="\Images\Balls\OBall.png" />
+
+
+        <!--<Label Grid.Row="0"
+               Grid.Column="0"
+               Background="DodgerBlue"
+               Content="B" />-->
+        <!--<Label Grid.Row="0"
+               Grid.Column="1"
+               Background="Red"
+               Content="I" />
+        <Label Grid.Row="0"
+               Grid.Column="2"
+               Background="White"
+               Content="N" />
+        <Label Grid.Row="0"
+               Grid.Column="3"
+               Background="Green"
+               Content="G" />
+        <Label Grid.Row="0"
+               Grid.Column="4"
+               Background="Yellow"
+               Content="O" />-->
+
+        <!--#endregion-->
+        
         <!--#region B's-->
         <Label Name="B1"
-               Grid.Row="0"
+               Grid.Row="1"
                Grid.Column="0"
                Content="B1" />
         <Label Name="B2"
-               Grid.Row="1"
+               Grid.Row="2"
                Grid.Column="0"
                Content="B2" />
         <Label Name="B3"
-               Grid.Row="2"
+               Grid.Row="3"
                Grid.Column="0"
                Content="B3" />
         <Label Name="B4"
-               Grid.Row="3"
+               Grid.Row="4"
                Grid.Column="0"
                Content="B4" />
         <Label Name="B5"
-               Grid.Row="4"
+               Grid.Row="5"
                Grid.Column="0"
                Content="B5" />
 
@@ -75,23 +126,23 @@
 
         <!--#region I's-->
         <Label Name="I1"
-               Grid.Row="0"
+               Grid.Row="1"
                Grid.Column="1"
                Content="I1" />
         <Label Name="I2"
-               Grid.Row="1"
+               Grid.Row="2"
                Grid.Column="1"
                Content="I2" />
         <Label Name="I3"
-               Grid.Row="2"
+               Grid.Row="3"
                Grid.Column="1"
                Content="I3" />
         <Label Name="I4"
-               Grid.Row="3"
+               Grid.Row="4"
                Grid.Column="1"
                Content="I4" />
         <Label Name="I5"
-               Grid.Row="4"
+               Grid.Row="5"
                Grid.Column="1"
                Content="I5" />
 
@@ -99,23 +150,23 @@
 
         <!--#region N's-->
         <Label Name="N1"
-               Grid.Row="0"
+               Grid.Row="1"
                Grid.Column="2"
                Content="N1" />
         <Label Name="N2"
-               Grid.Row="1"
+               Grid.Row="2"
                Grid.Column="2"
                Content="N2" />
         <Label Name="N3"
-               Grid.Row="2"
+               Grid.Row="3"
                Grid.Column="2"
                Content="N3" />
         <Label Name="N4"
-               Grid.Row="3"
+               Grid.Row="4"
                Grid.Column="2"
                Content="N4" />
         <Label Name="N5"
-               Grid.Row="4"
+               Grid.Row="5"
                Grid.Column="2"
                Content="N5" />
 
@@ -123,23 +174,23 @@
 
         <!--#region G's-->
         <Label Name="G1"
-               Grid.Row="0"
+               Grid.Row="1"
                Grid.Column="3"
                Content="G1" />
         <Label Name="G2"
-               Grid.Row="1"
+               Grid.Row="2"
                Grid.Column="3"
                Content="G2" />
         <Label Name="G3"
-               Grid.Row="2"
+               Grid.Row="3"
                Grid.Column="3"
                Content="G3" />
         <Label Name="G4"
-               Grid.Row="3"
+               Grid.Row="4"
                Grid.Column="3"
                Content="G4" />
         <Label Name="G5"
-               Grid.Row="4"
+               Grid.Row="5"
                Grid.Column="3"
                Content="G5" />
 
@@ -147,23 +198,23 @@
 
         <!--#region O's-->
         <Label Name="O1"
-               Grid.Row="0"
+               Grid.Row="1"
                Grid.Column="4"
                Content="O1" />
         <Label Name="O2"
-               Grid.Row="1"
+               Grid.Row="2"
                Grid.Column="4"
                Content="O2" />
         <Label Name="O3"
-               Grid.Row="2"
+               Grid.Row="3"
                Grid.Column="4"
                Content="O3" />
         <Label Name="O4"
-               Grid.Row="3"
+               Grid.Row="4"
                Grid.Column="4"
                Content="O4" />
         <Label Name="O5"
-               Grid.Row="4"
+               Grid.Row="5"
                Grid.Column="4"
                Content="O5" />
 
