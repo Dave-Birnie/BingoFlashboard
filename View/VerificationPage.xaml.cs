@@ -36,6 +36,38 @@ namespace BingoFlashboard.View
             //PopuateCards();
         }
 
+        public VerificationPage(int fontSize)
+        {
+            InitializeComponent();
+
+            //CHANGE FONTSIZE FOR ALL LABELS
+            B1.FontSize = fontSize;
+            B2.FontSize = fontSize;
+            B3.FontSize = fontSize;
+            B4.FontSize = fontSize;
+            B5.FontSize = fontSize;
+            I1.FontSize = fontSize;
+            I2.FontSize = fontSize;
+            I3.FontSize = fontSize;
+            I4.FontSize = fontSize;
+            I5.FontSize = fontSize;
+            N1.FontSize = fontSize;
+            N2.FontSize = fontSize;
+            N3.FontSize = fontSize;
+            N4.FontSize = fontSize;
+            N5.FontSize = fontSize;
+            G1.FontSize = fontSize;
+            G2.FontSize = fontSize;
+            G3.FontSize = fontSize;
+            G4.FontSize = fontSize;
+            G5.FontSize = fontSize;
+            O1.FontSize = fontSize;
+            O2.FontSize = fontSize;
+            O3.FontSize = fontSize;
+            O4.FontSize = fontSize;
+            O5.FontSize = fontSize;
+        }
+        
         public void VerifyCard()
         {
             string? s = "";
@@ -493,144 +525,52 @@ namespace BingoFlashboard.View
 
         public void HighlightCard(List<string> calls)
         {
-            if (calls.Contains(B1.Content.ToString()))
-                B1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                B1.Background = new SolidColorBrush(Colors.LightGray);
+            // Create an array or list of all your labels
+            Label[] allLabels = { B1, B2, B3, B4, B5, I1, I2, I3, I4, I5,
+                          N1, N2, N3, N4, N5, G1, G2, G3, G4, G5,
+                          O1, O2, O3, O4, O5 };
 
-            if (calls.Contains(B2.Content.ToString()))
-                B2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                B2.Background = new SolidColorBrush(Colors.LightGray);
+            string lastCall = App.Calls.LastOrDefault();
 
-            if (calls.Contains(B3.Content.ToString()))
-                B3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                B3.Background = new SolidColorBrush(Colors.LightGray);
 
-            if (calls.Contains(B4.Content.ToString()))
-                B4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                B4.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(B5.Content.ToString()))
-                B5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                B5.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(I1.Content.ToString()))
-                I1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                I1.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(I2.Content.ToString()))
-                I2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                I2.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(I3.Content.ToString()))
-                I3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                I3.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(I4.Content.ToString()))
-                I4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                I4.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(I5.Content.ToString()))
-                I5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                I5.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(N1.Content.ToString()))
-                N1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                N1.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(N2.Content.ToString()))
-                N2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                N2.Background = new SolidColorBrush(Colors.LightGray);
-
-            //if (calls.Contains(N3.Content.ToString()))
-            //    N3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            //else
-                N3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-
-            if (calls.Contains(N4.Content.ToString()))
-                N4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                N4.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(N5.Content.ToString()))
-                N5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                N5.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(G1.Content.ToString()))
-                G1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                G1.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(G2.Content.ToString()))
-                G2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                G2.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(G3.Content.ToString()))
-                G3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                G3.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(G4.Content.ToString()))
-                G4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                G4.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(G5.Content.ToString()))
-                G5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                G5.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(O1.Content.ToString()))
-                O1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                O1.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(O2.Content.ToString()))
-                O2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                O2.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(O3.Content.ToString()))
-                O3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                O3.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(O4.Content.ToString()))
-                O4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                O4.Background = new SolidColorBrush(Colors.LightGray);
-
-            if (calls.Contains(O5.Content.ToString()))
-                O5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
-            else
-                O5.Background = new SolidColorBrush(Colors.LightGray);
+            // Iterate through each label
+            foreach (var label in allLabels)
+            {
+                // Check if the label's content is in the calls list
+                if (calls.Contains(label.Content.ToString()))
+                {
+                    // Further check if it is the last or default call
+                    label.Background = new SolidColorBrush(label.Content.ToString() == lastCall
+                        ? Colors.DodgerBlue
+                        : Colors.DarkGoldenrod);
+                }
+                else
+                {
+                    label.Background = new SolidColorBrush(Colors.LightGray);
+                }
+            }
         }
 
         public bool CheckWinner()
         {
             bool success = false;
-
+            string lastCalled = "";
             foreach (CardNumbers num in cardNums)
             {
                 if (App.Calls.Contains(num.Value.ToString()) || num.Called)
+                { 
                     num.Called = true;
 
+                    if (num.Value.ToString() == App.Calls.LastOrDefault())
+                    {
+                        lastCalled = num.Name.ToString(); // Save to TempString
+                    }
+                }
                 else
                     num.Called = false;
             }
+
+
 
             List<string> tempList = new();
             foreach (CardNumbers num in cardNums)
@@ -659,7 +599,8 @@ namespace BingoFlashboard.View
                         //TODO Add pattern to winner list
                         success = true;
                         List<string> successfulPattern = pattern;
-                        ColorWinner(pattern);
+                        ColorWinner(pattern, lastCalled);
+
                     }
                 }
             }
@@ -714,82 +655,48 @@ namespace BingoFlashboard.View
         }
 
 
-        private void ColorWinner(List<string> list)
+        private void ColorWinner(List<string> list, string lastCalled)
         {
-            if (list.Contains("B1"))
-                B1.Background = new SolidColorBrush(Colors.DarkGreen);
+            SolidColorBrush lastCalledColor = new SolidColorBrush(Colors.DodgerBlue); // or any other color you prefer
 
-            if (list.Contains("B2"))
-                B2.Background = new SolidColorBrush(Colors.DarkGreen);
+            // Define the standard color for other labels
+            SolidColorBrush standardColor = new SolidColorBrush(Colors.DarkGreen);
 
-            if (list.Contains("B3"))
-                B3.Background = new SolidColorBrush(Colors.DarkGreen);
+            // A helper action to set the background color of a label
+            Action<Label, string> setColor = (label, labelName) =>
+            {
+                if (list.Contains(labelName))
+                {
+                    label.Background = labelName == lastCalled ? lastCalledColor : standardColor;
+                }
+            };
 
-            if (list.Contains("B4"))
-                B4.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("B5"))
-                B5.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("I1"))
-                I1.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("I2"))
-                I2.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("I3"))
-                I3.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("I4"))
-                I4.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("I5"))
-                I5.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("N1"))
-                N1.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("N2"))
-                N2.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("N3"))
-                N3.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("N4"))
-                N4.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("N5"))
-                N5.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("G1"))
-                G1.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("G2"))
-                G2.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("G3"))
-                G3.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("G4"))
-                G4.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("G5"))
-                G5.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("O1"))
-                O1.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("O2"))
-                O2.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("O3"))
-                O3.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("O4"))
-                O4.Background = new SolidColorBrush(Colors.DarkGreen);
-
-            if (list.Contains("O5"))
-                O5.Background = new SolidColorBrush(Colors.DarkGreen);
+            // Set colors for each label
+            setColor(B1, "B1");
+            setColor(B2, "B2");
+            setColor(B3, "B3");
+            setColor(B4, "B4");
+            setColor(B5, "B5");
+            setColor(I1, "I1");
+            setColor(I2, "I2");
+            setColor(I3, "I3");
+            setColor(I4, "I4");
+            setColor(I5, "I5");
+            setColor(N1, "N1");
+            setColor(N2, "N2");
+            setColor(N3, "N3");
+            setColor(N4, "N4");
+            setColor(N5, "N5");
+            setColor(G1, "G1");
+            setColor(G2, "G2");
+            setColor(G3, "G3");
+            setColor(G4, "G4");
+            setColor(G5, "G5");
+            setColor(O1, "O1");
+            setColor(O2, "O2");
+            setColor(O3, "O3");
+            setColor(O4, "O4");
+            setColor(O5, "O5");
         }
     }
 }
