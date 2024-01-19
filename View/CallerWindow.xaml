@@ -143,7 +143,7 @@
                         Click="GoLiveBtn_Click" />
 
                 <Border BorderBrush="{StaticResource Mint}"
-                        BorderThickness="2" 
+                        BorderThickness="2"
                         Margin="2">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Orientation="Vertical"
@@ -355,7 +355,7 @@
 
                             <StackPanel Orientation="Horizontal"
                                         Margin="10,5"
-                                        Visibility="Visible">
+                                        Visibility="Collapsed">
 
                                 <Label Style="{StaticResource LabelsMain}"
                                        Margin="10,0"
@@ -498,7 +498,7 @@
                                      Width="80"
                                      Style="{StaticResource ModernTextBox}"
                                      KeyDown="VerifyTxtBox_KeyDown"
-                                     Text="{Binding CardNum_}"/>
+                                     Text="{Binding CardNum_}" />
 
                             <Button Name="CheckCardBtn"
                                     Margin="20,0,0,0"
@@ -521,20 +521,20 @@
                                Content="GAME SELECTION" />
                         <StackPanel>
                             <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="Center"
-                                    Height="60">
+                                        HorizontalAlignment="Center"
+                                        Height="60">
 
-                            <Button Name="PreviousGame"
-                                    Style="{StaticResource ModernBtn}"
-                                    Margin="10"
-                                    Content="Previous"
-                                    Click="PreviousGame_Click" />
-                            <Button Name="NextGameBtn"
-                                    Style="{StaticResource ModernBtn}"
-                                    Margin="10"
-                                    Content="Next"
-                                    Click="NextGameBtn_Click" />
-                        </StackPanel>
+                                <Button Name="PreviousGame"
+                                        Style="{StaticResource ModernBtn}"
+                                        Margin="10"
+                                        Content="Previous"
+                                        Click="PreviousGame_Click" />
+                                <Button Name="NextGameBtn"
+                                        Style="{StaticResource ModernBtn}"
+                                        Margin="10"
+                                        Content="Next"
+                                        Click="NextGameBtn_Click" />
+                            </StackPanel>
                             <StackPanel Orientation="Horizontal"
                                         HorizontalAlignment="Center"
                                         Height="60">
@@ -544,7 +544,7 @@
                                         Margin="10"
                                         Width="120"
                                         Content="START GAME"
-                                        Click="StartGame_Click"/>
+                                        Click="StartGame_Click" />
                                 <Button Name="EndGame"
                                         Style="{StaticResource ModernBtnDelete}"
                                         Margin="10"
@@ -816,7 +816,7 @@
 
                         <!--#region LoadNewSession StartSession-->
                         <Grid HorizontalAlignment="Center">
-                           
+
                         </Grid>
                         <!--#endregion LoadNewSession StartSession-->
 
@@ -891,8 +891,7 @@
                               FontWeight="Bold"
                               ItemsSource="{Binding Bingos_, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               FontSize="14"
-                              SelectionChanged="BingosList_SelectionChanged"
-                              >
+                              SelectionChanged="BingosList_SelectionChanged">
                         <ListView.View>
                             <GridView x:Name="BingosGrid">
                                 <GridViewColumn Header="| Card Source |"
