@@ -53,7 +53,7 @@ namespace BingoFlashboard.View
             I5.FontSize = fontSize;
             N1.FontSize = fontSize;
             N2.FontSize = fontSize;
-            N3.FontSize = fontSize;
+            N3.FontSize = 22;
             N4.FontSize = fontSize;
             N5.FontSize = fontSize;
             G1.FontSize = fontSize;

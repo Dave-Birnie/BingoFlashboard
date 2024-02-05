@@ -160,11 +160,13 @@
         <Label Name="N3"
                Grid.Row="3"
                Grid.Column="2"
-               Content="N3" />
+               Content="N3" 
+               FontSize="10"/>
         <Label Name="N4"
                Grid.Row="4"
                Grid.Column="2"
-               Content="N4" />
+               Content="N4"
+               />
         <Label Name="N5"
                Grid.Row="5"
                Grid.Column="2"

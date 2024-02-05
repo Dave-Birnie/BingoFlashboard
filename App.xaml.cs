@@ -21,7 +21,7 @@ namespace BingoFlashboard
         public static string hallFile = string.Empty;
         public static ServerConnection? server;
         public static VerificationPage SharedVerificationPage { get; } = new VerificationPage();
-        public static VerificationPage SharedVerificationPage2 { get; } = new VerificationPage(30);
+        public static VerificationPage SharedVerificationPage2 { get; } = new VerificationPage(45);
 
 
         #region MainVariables
