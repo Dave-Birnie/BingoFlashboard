@@ -129,6 +129,7 @@
                         HorizontalAlignment="Center"
                         Grid.Column="2">
 
+                <!-- TODO  DELETE TIME PICKER AS IT'S SET IN CREATE SESSION MODE -->
                 <xctk:DateTimePicker Name="TimePickerControl"
                                      Width="200"
                                      Height="30"
