@@ -249,13 +249,14 @@ namespace BingoFlashboard.Data
                     await hubConnection.StartAsync();
 
 
+
                 if (App.hall is not null)
                 {
                     Hall partialHall = new Hall()
                     {
                         Id_ = App.hall.Id_,
                         Name_ = App.hall.Name_,
-                        Logo_ = App.hall.Logo_,
+                        //Logo_ = App.hall.Logo_,
                         Address_ = App.hall.Address_,
                         City_ = App.hall.City_,
                         Postal_ = App.hall.Postal_,
@@ -272,16 +273,29 @@ namespace BingoFlashboard.Data
                         Message_ = App.hall.Message_,
                         Master_ = App.hall.Master_,
                         Active_ = App.hall.Active_,
-                        AllSessions_ = null
                     };
+                   // partialHall.Logo_ = Convert.ToBase64String(App.hall.Logo_);
+
+                    var test = partialHall;
+
+                    Country country = new Country()
+                    {
+                        Id_ =1,
+                        Country_Name_ = "Canada",
+                    };
+
+                    DataTransfer testData = new();
+                    testData.TransferMessage_ = "Hall";
+                    testData.JsonString_ = JsonConvert.SerializeObject(partialHall, Formatting.Indented);
+                    
 
                     DataTransfer dt = new()
                     {
                         TransferMessage_ = "Hall",
                         JsonString_ = JsonConvert.SerializeObject(partialHall, Formatting.Indented)
                     };
-
-                    await hubConnection.SendAsync("HostNewGame", dt);
+                    //await hubConnection.SendAsync("Test");
+                    await hubConnection.SendAsync("HostNewGame", testData);
                 }
             }
             catch (Exception ex)

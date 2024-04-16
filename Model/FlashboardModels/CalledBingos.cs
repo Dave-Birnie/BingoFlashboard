@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * THIS CLASS IS USED IN THE SPECIFICALLY FOR BINGO FLASHBOARD
+ * IT IS USED TO STORE THE CALLED BINGOS FOR THE CALLER TO SEE AND REVIEW
+ */
+
 namespace BingoFlashboard.Model.FlashboardModels
 {
     public class CalledBingos

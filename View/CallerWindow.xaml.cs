@@ -160,6 +160,8 @@ namespace BingoFlashboard.View
                     {
                         TimePickerControl.IsEnabled = false;
                         await App.server.HostNewGame();
+
+
                     }
                     else
                     {

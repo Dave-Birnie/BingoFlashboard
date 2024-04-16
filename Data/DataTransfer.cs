@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BingoFlashboard.Data
 {
-    internal class DataTransfer
+    public class DataTransfer
     {
         public bool? Success_ { get; set; } //SENDS IF JSON REQUEST WAS SUCCESSFUL OR FAILED
         public string TransferMessage_ { get; set; } = string.Empty; //SENDS TRANSFER MESSAGE - I.E - Regiser: User already registered

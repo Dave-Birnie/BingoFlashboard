@@ -8,6 +8,10 @@ using System.Windows.Media;
 
 namespace BingoFlashboard.Model.FlashboardModels
 {
+    /*
+     * USED EXCLUSIVELY BY: BINGO FLASHBOARD
+     * Summary: Broadcasting class is used to manage the broadcasting status of the application.
+     */
     public class Broadcasting
     {
         public string BroadcastingLive { get; private set; }

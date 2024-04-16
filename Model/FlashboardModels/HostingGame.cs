@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
+/*
+ * THIS MODEL IS USED SPECIFICALLY FOR THE BINGO FLASHBOARD
+ * IT IS TO DEMONSTRATE THE STATUS OF THE BINGO GAME
+ */
+
 namespace BingoFlashboard.Model.FlashboardModels
 {
     public class HostingGame
