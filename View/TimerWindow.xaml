@@ -28,7 +28,7 @@
             <RowDefinition Height="2*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Background="Transparent">
             <Image Name="TimerLogo"
                    Source="..\Images\logos\ChancesLogo2.png"
                    Grid.Column="1" />
