@@ -15,6 +15,7 @@ namespace BingoFlashboard.Model
         public int Id_ { get; set; }
         public string Name_ { get; set; } = string.Empty;
         public string? Logo_ { get; set; }
+        //public byte[]? Logo_ { get; set; }
         public string? Address_ { get; set; } = string.Empty;
         public string? City_ { get; set; } = string.Empty;
         public string? Postal_ { get; set; } = string.Empty;
@@ -35,21 +36,6 @@ namespace BingoFlashboard.Model
 
         public BitmapImage ByteArrayToImage()
         {
-            //if (Logo_ == null || Logo_.Length == 0)
-            //    return null;
-
-            //BitmapImage image = new BitmapImage();
-            //using (MemoryStream memStream = new MemoryStream(Logo_))
-            //{
-            //    memStream.Position = 0;
-            //    image.BeginInit();
-            //    image.CacheOption = BitmapCacheOption.OnLoad;  // Ensures the image is loaded while the stream is open
-            //    image.StreamSource = memStream;
-            //    image.EndInit();
-            //    image.Freeze(); // Optional: make the image cross-thread accessible
-            //}
-            //return image;
-
             if (string.IsNullOrEmpty(Logo_))
                 return null;
 
