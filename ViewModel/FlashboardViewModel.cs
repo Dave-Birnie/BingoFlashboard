@@ -1,15 +1,11 @@
-﻿using Flashboard.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using BingoFlashboard;
-using System.Windows.Threading;
-using BingoFlashboard.Model;
+using Global_Models_Library.Flashboard_Models;
+using Global_Models_Library.Flashboard_Game_Models;
 
 namespace BingoFlashboard.ViewModel
 {
@@ -626,7 +622,7 @@ namespace BingoFlashboard.ViewModel
 
         #region HallInfo
 
-        private string _hallName = App.hall.Name_;
+        private string _hallName = App.hall.Hall_Name;
         public string HallName
         {
             get
@@ -640,7 +636,7 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
-        private string? _hallNumber = App.hall.Phone_;
+        private string? _hallNumber = App.hall.Hall_Phone;
         public string? HallNumber
         {
             get
@@ -654,20 +650,20 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
-        private string? _hallFlashboardMessage = App.hall.Message_;
-        public string? HallFlashboardMessage
-        {
-            get
-            {
-                return _hallFlashboardMessage;
-            }
-            set
-            {
+        //private string? _hallFlashboardMessage = App.hall.Message_;
+        //public string? HallFlashboardMessage
+        //{
+        //    get
+        //    {
+        //        return _hallFlashboardMessage;
+        //    }
+        //    set
+        //    {
 
-                _hallFlashboardMessage = value;
-                OnPropertyChanged(nameof(HallFlashboardMessage));
-            }
-        }
+        //        _hallFlashboardMessage = value;
+        //        OnPropertyChanged(nameof(HallFlashboardMessage));
+        //    }
+        //}
 
         #endregion
 

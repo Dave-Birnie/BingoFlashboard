@@ -1,4 +1,5 @@
 ﻿using BingoFlashboard.Model;
+using Global_Models_Library.Flashboard_Models;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Windows;
@@ -81,6 +82,7 @@ namespace BingoFlashboard.View
 
                 if (NewPassword.Password == ConfirmPassword.Password && connection != null)
                 {
+                        //TODO Generate PASSWORD HASH
                     //byte[] salt = RandomNumberGenerator.GetBytes(128 / 8); // divide by 8 to convert bits to bytes
                     //string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                     //    password: password!,

@@ -8,6 +8,7 @@ using System.Windows;
 using System.Linq;
 using System.Windows.Input;
 using Microsoft.AspNetCore.SignalR.Client;
+using Global_Models_Library.Flashboard_Models;
 
 namespace BingoFlashboard.View
 {
@@ -92,9 +93,9 @@ namespace BingoFlashboard.View
         {
             if (App.hall is not null)
             {
-                if (App.hall.AllSessions_ is not null && App.hall.AllSessions_.Count <= 1)
+                if (App.hall.All_Sessions is not null && App.hall.All_Sessions.Count <= 1)
                 {
-                    sessionsList.ItemsSource = App.hall.AllSessions_;
+                    sessionsList.ItemsSource = App.hall.All_Sessions;
                     sessionsList.SelectedIndex = 0;
                 }
             }

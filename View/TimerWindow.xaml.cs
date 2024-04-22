@@ -197,7 +197,9 @@ namespace BingoFlashboard.View
                 //}
                 //else
                 //{
-                TimerLogo.Source = App.hall.ByteArrayToImage();
+
+                //TODO TimerLogo should come from Hall.Logo -> insert proper logo change
+                //TimerLogo.Source = App.hall.ByteArrayToImage();
                 //}
             }
         }

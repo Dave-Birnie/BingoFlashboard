@@ -1,5 +1,6 @@
 ﻿using BingoFlashboard.Data;
 using BingoFlashboard.Model;
+using Global_Models_Library.Flashboard_Models;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using System;

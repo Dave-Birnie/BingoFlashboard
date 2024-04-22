@@ -1,4 +1,5 @@
 ﻿using BingoFlashboard.Model;
+using Global_Models_Library.Flashboard_Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
@@ -25,80 +26,82 @@ namespace BingoFlashboard.View
         }
 
 
+        //TODO UPDATE PATTERN ANIMATION TO RUN NEW MODELS
         public async void StartAnimation(Pattern p)
         {
-            await StopAnimation();
+            //TODO UPDATE PATTERN ANIMATION TO RUN NEW MODELS
+            //await StopAnimation();
 
-            List<List<string>> patterns = new();
-            if (p.Pattern_ is not null)
-                patterns = p.Pattern_;
+            //List<List<string>> patterns = new();
+            //if (p.Pattern_ is not null)
+            //    patterns = p.Pattern_;
 
-            else
-            {
-                if (App.allPatterns is not null)
-                {
-                    foreach (Pattern pat in App.allPatterns)
-                    {
-                        if (pat.Pattern_Name_ == p.Pattern_Name_)
-                        {
-                            if (p.Pattern_ is null)
-                            {
-                                if (pat.Pattern_ is not null)
-                                {
-                                    p = pat;
-                                    patterns = pat.Pattern_;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            //else
+            //{
+            //    if (App.allPatterns is not null)
+            //    {
+            //        foreach (Pattern pat in App.allPatterns)
+            //        {
+            //            if (pat.Pattern_Name_ == p.Pattern_Name_)
+            //            {
+            //                if (p.Pattern_ is null)
+            //                {
+            //                    if (pat.Pattern_ is not null)
+            //                    {
+            //                        p = pat;
+            //                        patterns = pat.Pattern_;
+            //                        break;
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
 
-            if (animationCancellationTokenSource is not null && !animationCancellationTokenSource.IsCancellationRequested)
-            {
-                // Animation is already running, so return
-                return;
-            }
-            animationCancellationTokenSource = new CancellationTokenSource();
+            //if (animationCancellationTokenSource is not null && !animationCancellationTokenSource.IsCancellationRequested)
+            //{
+            //    // Animation is already running, so return
+            //    return;
+            //}
+            //animationCancellationTokenSource = new CancellationTokenSource();
 
-            if (p.Rotating_)
-            {
-                await Task.Run(async () =>
-                {
-                    while (!animationCancellationTokenSource.Token.IsCancellationRequested)
-                    {
-                        foreach (List<string> pat in patterns)
-                        {
-                            ClearBackground();
+            //if (p.Rotating_)
+            //{
+            //    await Task.Run(async () =>
+            //    {
+            //        while (!animationCancellationTokenSource.Token.IsCancellationRequested)
+            //        {
+            //            foreach (List<string> pat in patterns)
+            //            {
+            //                ClearBackground();
 
-                            foreach (string s in pat)
-                            {
-                                // Set the background color for each square
-                                SetSquareBackgroundColor(s);
-                            }
+            //                foreach (string s in pat)
+            //                {
+            //                    // Set the background color for each square
+            //                    SetSquareBackgroundColor(s);
+            //                }
 
-                            await Task.Delay(1000);
+            //                await Task.Delay(1000);
 
-                            // Check cancellation token after delay
-                            if (animationCancellationTokenSource.Token.IsCancellationRequested)
-                                break;
-                        }
-                    }
-                }, animationCancellationTokenSource.Token);
-            }
-            else
-            {
-                ClearBackground();
-                if (patterns is not null && patterns.Count is not 0)
-                {
-                    foreach (string s in patterns[0])
-                    {
-                        // Set the background color for each square
-                        SetSquareBackgroundColor(s);
-                    }
-                }
-            }
+            //                // Check cancellation token after delay
+            //                if (animationCancellationTokenSource.Token.IsCancellationRequested)
+            //                    break;
+            //            }
+            //        }
+            //    }, animationCancellationTokenSource.Token);
+            //}
+            //else
+            //{
+            //    ClearBackground();
+            //    if (patterns is not null && patterns.Count is not 0)
+            //    {
+            //        foreach (string s in patterns[0])
+            //        {
+            //            // Set the background color for each square
+            //            SetSquareBackgroundColor(s);
+            //        }
+            //    }
+            //}
         }
 
         public async Task<Task> StopAnimation()

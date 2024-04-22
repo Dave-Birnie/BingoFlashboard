@@ -1,5 +1,6 @@
 ﻿using BingoFlashboard.Model;
 using BingoFlashboard.Model.FlashboardModels;
+using Global_Models_Library.Flashboard_Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static System.Net.Mime.MediaTypeNames;
+using Global_Models_Library.Flashboard_Models;
+using Global_Models_Library.Flashboard_Game_Models;
 
 namespace BingoFlashboard.View
 {
@@ -26,7 +28,7 @@ namespace BingoFlashboard.View
         public static List<Tuple<string, List<Card>>> temp_cardset = new();
         public static List<Card> cardList = new();
         public static Card selectedCard = new();
-        private static List<CardNumbers> cardNums = new();
+        private static List<Card_Number> cardNums = new();
         
 
         public VerificationPage()
@@ -85,243 +87,245 @@ namespace BingoFlashboard.View
         public void PopuateCards()
         {
             string[] lines;
-            if(App.SelectedSession is not null && App.SelectedSession.Program_ is not null && App.SelectedSession.Program_.Cardsets_ is not null)
-            foreach (Cardset cs in App.SelectedSession.Program_.Cardsets_)
-                {
-                    if (cs.Set_Name_ == "DabAll" || cs.Set_Name_ == "Dab All" || cs.Set_Name_ == "DabAll.txt")
-                    {
-                        cardList = new List<Card>();
-                        //FOR PUBLISHING
-                        lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\DabAll.txt");
+            
+            //TODO: Add cardset to App.SelectedSession.Program_.Cardsets_
+            //if(App.SelectedSession is not null && App.SelectedSession.Program_List is not null && App.SelectedSession.Program_List.Cardsets_ is not null)
+            //foreach (Cardset cs in App.SelectedSession.Program_.Cardsets_)
+            //    {
+            //        if (cs.Set_Name_ == "DabAll" || cs.Set_Name_ == "Dab All" || cs.Set_Name_ == "DabAll.txt")
+            //        {
+            //            cardList = new List<Card>();
+            //            //FOR PUBLISHING
+            //            lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\DabAll.txt");
 
-                        //lines = System.IO.File.ReadAllLines(@"Flashboard;/Data/DabAll.txt");
-                        //FOR TESTING
-                        //lines = System.IO.File.ReadAllLines(@"../../../Data/DabAll.txt");
+            //            //lines = System.IO.File.ReadAllLines(@"Flashboard;/Data/DabAll.txt");
+            //            //FOR TESTING
+            //            //lines = System.IO.File.ReadAllLines(@"../../../Data/DabAll.txt");
 
-                        foreach (string s in lines)
-                        {
-                            Card c = new Card();
-                            string[] ssize = s.Split(null);
+            //            foreach (string s in lines)
+            //            {
+            //                Card c = new Card();
+            //                string[] ssize = s.Split(null);
 
-                            //Add each data to card
-                            c.B1_ = ssize[1];
-                            c.B2_ = ssize[6];
-                            c.B3_ = ssize[11];
-                            c.B4_ = ssize[16];
-                            c.B5_ = ssize[21];
-                            c.I1_ = ssize[2];
-                            c.I2_ = ssize[7];
-                            c.I3_ = ssize[12];
-                            c.I4_ = ssize[17];
-                            c.I5_ = ssize[22];
-                            c.N1_ = ssize[3];
-                            c.N2_ = ssize[8];
-                            c.N3_ = ssize[13];
-                            c.N4_ = ssize[18];
-                            c.N5_ = ssize[23];
-                            c.G1_ = ssize[4];
-                            c.G2_ = ssize[9];
-                            c.G3_ = ssize[14];
-                            c.G4_ = ssize[19];
-                            c.G5_ = ssize[24];
-                            c.O1_ = ssize[5];
-                            c.O2_ = ssize[10];
-                            c.O3_ = ssize[15];
-                            c.O4_ = ssize[20];
-                            c.O5_ = ssize[25];
-                            c.CardNum_ = ssize[0];
+            //                //Add each data to card
+            //                c.B1_ = ssize[1];
+            //                c.B2_ = ssize[6];
+            //                c.B3_ = ssize[11];
+            //                c.B4_ = ssize[16];
+            //                c.B5_ = ssize[21];
+            //                c.I1_ = ssize[2];
+            //                c.I2_ = ssize[7];
+            //                c.I3_ = ssize[12];
+            //                c.I4_ = ssize[17];
+            //                c.I5_ = ssize[22];
+            //                c.N1_ = ssize[3];
+            //                c.N2_ = ssize[8];
+            //                c.N3_ = ssize[13];
+            //                c.N4_ = ssize[18];
+            //                c.N5_ = ssize[23];
+            //                c.G1_ = ssize[4];
+            //                c.G2_ = ssize[9];
+            //                c.G3_ = ssize[14];
+            //                c.G4_ = ssize[19];
+            //                c.G5_ = ssize[24];
+            //                c.O1_ = ssize[5];
+            //                c.O2_ = ssize[10];
+            //                c.O3_ = ssize[15];
+            //                c.O4_ = ssize[20];
+            //                c.O5_ = ssize[25];
+            //                c.CardNum_ = ssize[0];
 
-                            cardList.Add(c);
-                        }
+            //                cardList.Add(c);
+            //            }
 
-                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("DabAll", cardList);
-                        temp_cardset.Add(newCardSet);
-                    } // END IF = DABALL
-                    else if (cs.Set_Name_ == "Perfect Paper")
-                    {
+            //            Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("DabAll", cardList);
+            //            temp_cardset.Add(newCardSet);
+            //        } // END IF = DABALL
+            //        else if (cs.Set_Name_ == "Perfect Paper")
+            //        {
 
-                        cardList = new List<Card>();
+            //            cardList = new List<Card>();
 
-                        //FOR PUBLISHING
+            //            //FOR PUBLISHING
 
-                        lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\PerfectPaper.txt");
-                        //FOR TESTING
-                        //lines = System.IO.File.ReadAllLines(@"../Data/PerfectPaper.txt");
+            //            lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\PerfectPaper.txt");
+            //            //FOR TESTING
+            //            //lines = System.IO.File.ReadAllLines(@"../Data/PerfectPaper.txt");
 
-                        foreach (string s in lines)
-                        {
-                            Card c = new Card();
-                            List<string> ssize = new List<string>();
+            //            foreach (string s in lines)
+            //            {
+            //                Card c = new Card();
+            //                List<string> ssize = new List<string>();
 
-                            int chunkSize = 2;
-                            int stringLength = s.Length;
+            //                int chunkSize = 2;
+            //                int stringLength = s.Length;
 
-                            for (int i = 0; i < stringLength; i += chunkSize)
-                            {
-                                if (i + chunkSize > stringLength)
-                                    chunkSize = stringLength - i;
+            //                for (int i = 0; i < stringLength; i += chunkSize)
+            //                {
+            //                    if (i + chunkSize > stringLength)
+            //                        chunkSize = stringLength - i;
 
-                                ssize.Add(s.Substring(i, chunkSize));
+            //                    ssize.Add(s.Substring(i, chunkSize));
 
-                            }
+            //                }
 
-                            string cn = ssize[25] + ssize[26] + ssize[27] + ssize[28];
-                            string cardNum = cn.TrimStart(new char[] { '0' });
+            //                string cn = ssize[25] + ssize[26] + ssize[27] + ssize[28];
+            //                string cardNum = cn.TrimStart(new char[] { '0' });
 
-                            //Add each data to card
-                            c.B1_ = ssize[0];
-                            c.B2_ = ssize[1];
-                            c.B3_ = ssize[2];
-                            c.B4_ = ssize[3];
-                            c.B5_ = ssize[4];
-                            c.I1_ = ssize[5];
-                            c.I2_ = ssize[6];
-                            c.I3_ = ssize[7];
-                            c.I4_ = ssize[8];
-                            c.I5_ = ssize[9];
-                            c.N1_ = ssize[10];
-                            c.N2_ = ssize[11];
-                            c.N3_ = ssize[12];
-                            c.N4_ = ssize[13];
-                            c.N5_ = ssize[14];
-                            c.G1_ = ssize[15];
-                            c.G2_ = ssize[16];
-                            c.G3_ = ssize[17];
-                            c.G4_ = ssize[18];
-                            c.G5_ = ssize[19];
-                            c.O1_ = ssize[20];
-                            c.O2_ = ssize[21];
-                            c.O3_ = ssize[22];
-                            c.O4_ = ssize[23];
-                            c.O5_ = ssize[24];
-                            c.CardNum_ = cardNum;
+            //                //Add each data to card
+            //                c.B1_ = ssize[0];
+            //                c.B2_ = ssize[1];
+            //                c.B3_ = ssize[2];
+            //                c.B4_ = ssize[3];
+            //                c.B5_ = ssize[4];
+            //                c.I1_ = ssize[5];
+            //                c.I2_ = ssize[6];
+            //                c.I3_ = ssize[7];
+            //                c.I4_ = ssize[8];
+            //                c.I5_ = ssize[9];
+            //                c.N1_ = ssize[10];
+            //                c.N2_ = ssize[11];
+            //                c.N3_ = ssize[12];
+            //                c.N4_ = ssize[13];
+            //                c.N5_ = ssize[14];
+            //                c.G1_ = ssize[15];
+            //                c.G2_ = ssize[16];
+            //                c.G3_ = ssize[17];
+            //                c.G4_ = ssize[18];
+            //                c.G5_ = ssize[19];
+            //                c.O1_ = ssize[20];
+            //                c.O2_ = ssize[21];
+            //                c.O3_ = ssize[22];
+            //                c.O4_ = ssize[23];
+            //                c.O5_ = ssize[24];
+            //                c.CardNum_ = cardNum;
 
-                            cardList.Add(c);
-                            //App.cardDatabase.Add(c);
-                        }
+            //                cardList.Add(c);
+            //                //App.cardDatabase.Add(c);
+            //            }
 
-                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("PerfectPaper", cardList);
-                        temp_cardset.Add(newCardSet);
-                    }// END IF PERFECT PAPER
-                    else if (cs.Set_Name_ == "Perfect Paper R")
-                    {
-                        cardList = new List<Card>();
-                        //FOR PUBLISHING
-                        lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\Reliable.txt");
-
-
-                        //lines = System.IO.File.ReadAllLines(@"Flashboard;Data/Reliable.txt");
-                        //FOR TESTING
-                        //lines = System.IO.File.ReadAllLines(@"../Data/Reliable.txt");
-
-                        foreach (string s in lines)
-                        {
-                            Card c = new Card();
-                            List<string> ssize = new List<string>();
-
-                            int chunkSize = 2;
-                            int stringLength = s.Length;
-
-                            for (int i = 0; i < stringLength; i += chunkSize)
-                            {
-                                if (i + chunkSize > stringLength)
-                                    chunkSize = stringLength - i;
-
-                                ssize.Add(s.Substring(i, chunkSize));
-
-                            }
-
-                            string cn = ssize[25] + ssize[26] + ssize[27] + ssize[28];
-                            string cardNum = cn.TrimStart(new char[] { '0' });
-
-                            //Add each data to card
-                            c.B1_ = ssize[0];
-                            c.B2_ = ssize[1];
-                            c.B3_ = ssize[2];
-                            c.B4_ = ssize[3];
-                            c.B5_ = ssize[4];
-                            c.I1_ = ssize[5];
-                            c.I2_ = ssize[6];
-                            c.I3_ = ssize[7];
-                            c.I4_ = ssize[8];
-                            c.I5_ = ssize[9];
-                            c.N1_ = ssize[10];
-                            c.N2_ = ssize[11];
-                            c.N3_ = ssize[12];
-                            c.N4_ = ssize[13];
-                            c.N5_ = ssize[14];
-                            c.G1_ = ssize[15];
-                            c.G2_ = ssize[16];
-                            c.G3_ = ssize[17];
-                            c.G4_ = ssize[18];
-                            c.G5_ = ssize[19];
-                            c.O1_ = ssize[20];
-                            c.O2_ = ssize[21];
-                            c.O3_ = ssize[22];
-                            c.O4_ = ssize[23];
-                            c.O5_ = ssize[24];
-                            c.CardNum_ = cardNum;
-
-                            cardList.Add(c);
-                            //App.cardDatabase.Add(c);
-                        }
-
-                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("PerfectPaperR", cardList);
-                        temp_cardset.Add(newCardSet);
-                    }// END IF PERFECT PAPER R
-                    else
-                    {
-                        cardList = new List<Card>();
-                        //FOR PUBLISHING
-                        lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\UniMax.txt");
-
-                        //lines = System.IO.File.ReadAllLines(@"Flashboard;Data/UniMax.txt");
-                        //FOR TESTING
-                        //lines = System.IO.File.ReadAllLines(@"../../../UniMax.txt");
-
-                        foreach (string s in lines)
-                        {
-                            Card c = new Card();
-                            string[] ssize = s.Split(null);
-
-                            //Add each data to card
-                            c.B1_ = ssize[0];
-                            c.B2_ = ssize[1];
-                            c.B3_ = ssize[2];
-                            c.B4_ = ssize[3];
-                            c.B5_ = ssize[4];
-                            c.I1_ = ssize[5];
-                            c.I2_ = ssize[6];
-                            c.I3_ = ssize[7];
-                            c.I4_ = ssize[8];
-                            c.I5_ = ssize[9];
-                            c.N1_ = ssize[10];
-                            c.N2_ = ssize[11];
-                            c.N3_ = ssize[12];
-                            c.N4_ = ssize[13];
-                            c.N5_ = ssize[14];
-                            c.G1_ = ssize[15];
-                            c.G2_ = ssize[16];
-                            c.G3_ = ssize[17];
-                            c.G4_ = ssize[18];
-                            c.G5_ = ssize[19];
-                            c.O1_ = ssize[20];
-                            c.O2_ = ssize[21];
-                            c.O3_ = ssize[22];
-                            c.O4_ = ssize[23];
-                            c.O5_ = ssize[24];
-                            c.CardNum_ = ssize[25];
-
-                            cardList.Add(c);
-                            //App.cardDatabase.Add(c);
-                        }
-
-                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("UniMax", cardList);
-                        temp_cardset.Add(newCardSet);
-                    }
+            //            Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("PerfectPaper", cardList);
+            //            temp_cardset.Add(newCardSet);
+            //        }// END IF PERFECT PAPER
+            //        else if (cs.Set_Name_ == "Perfect Paper R")
+            //        {
+            //            cardList = new List<Card>();
+            //            //FOR PUBLISHING
+            //            lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\Reliable.txt");
 
 
-                }
+            //            //lines = System.IO.File.ReadAllLines(@"Flashboard;Data/Reliable.txt");
+            //            //FOR TESTING
+            //            //lines = System.IO.File.ReadAllLines(@"../Data/Reliable.txt");
+
+            //            foreach (string s in lines)
+            //            {
+            //                Card c = new Card();
+            //                List<string> ssize = new List<string>();
+
+            //                int chunkSize = 2;
+            //                int stringLength = s.Length;
+
+            //                for (int i = 0; i < stringLength; i += chunkSize)
+            //                {
+            //                    if (i + chunkSize > stringLength)
+            //                        chunkSize = stringLength - i;
+
+            //                    ssize.Add(s.Substring(i, chunkSize));
+
+            //                }
+
+            //                string cn = ssize[25] + ssize[26] + ssize[27] + ssize[28];
+            //                string cardNum = cn.TrimStart(new char[] { '0' });
+
+            //                //Add each data to card
+            //                c.B1_ = ssize[0];
+            //                c.B2_ = ssize[1];
+            //                c.B3_ = ssize[2];
+            //                c.B4_ = ssize[3];
+            //                c.B5_ = ssize[4];
+            //                c.I1_ = ssize[5];
+            //                c.I2_ = ssize[6];
+            //                c.I3_ = ssize[7];
+            //                c.I4_ = ssize[8];
+            //                c.I5_ = ssize[9];
+            //                c.N1_ = ssize[10];
+            //                c.N2_ = ssize[11];
+            //                c.N3_ = ssize[12];
+            //                c.N4_ = ssize[13];
+            //                c.N5_ = ssize[14];
+            //                c.G1_ = ssize[15];
+            //                c.G2_ = ssize[16];
+            //                c.G3_ = ssize[17];
+            //                c.G4_ = ssize[18];
+            //                c.G5_ = ssize[19];
+            //                c.O1_ = ssize[20];
+            //                c.O2_ = ssize[21];
+            //                c.O3_ = ssize[22];
+            //                c.O4_ = ssize[23];
+            //                c.O5_ = ssize[24];
+            //                c.CardNum_ = cardNum;
+
+            //                cardList.Add(c);
+            //                //App.cardDatabase.Add(c);
+            //            }
+
+            //            Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("PerfectPaperR", cardList);
+            //            temp_cardset.Add(newCardSet);
+            //        }// END IF PERFECT PAPER R
+            //        else
+            //        {
+            //            cardList = new List<Card>();
+            //            //FOR PUBLISHING
+            //            lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\UniMax.txt");
+
+            //            //lines = System.IO.File.ReadAllLines(@"Flashboard;Data/UniMax.txt");
+            //            //FOR TESTING
+            //            //lines = System.IO.File.ReadAllLines(@"../../../UniMax.txt");
+
+            //            foreach (string s in lines)
+            //            {
+            //                Card c = new Card();
+            //                string[] ssize = s.Split(null);
+
+            //                //Add each data to card
+            //                c.B1_ = ssize[0];
+            //                c.B2_ = ssize[1];
+            //                c.B3_ = ssize[2];
+            //                c.B4_ = ssize[3];
+            //                c.B5_ = ssize[4];
+            //                c.I1_ = ssize[5];
+            //                c.I2_ = ssize[6];
+            //                c.I3_ = ssize[7];
+            //                c.I4_ = ssize[8];
+            //                c.I5_ = ssize[9];
+            //                c.N1_ = ssize[10];
+            //                c.N2_ = ssize[11];
+            //                c.N3_ = ssize[12];
+            //                c.N4_ = ssize[13];
+            //                c.N5_ = ssize[14];
+            //                c.G1_ = ssize[15];
+            //                c.G2_ = ssize[16];
+            //                c.G3_ = ssize[17];
+            //                c.G4_ = ssize[18];
+            //                c.G5_ = ssize[19];
+            //                c.O1_ = ssize[20];
+            //                c.O2_ = ssize[21];
+            //                c.O3_ = ssize[22];
+            //                c.O4_ = ssize[23];
+            //                c.O5_ = ssize[24];
+            //                c.CardNum_ = ssize[25];
+
+            //                cardList.Add(c);
+            //                //App.cardDatabase.Add(c);
+            //            }
+
+            //            Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("UniMax", cardList);
+            //            temp_cardset.Add(newCardSet);
+            //        }
+
+
+            //    }
         }
 
         //public void SelectCard(string cardNum)
@@ -346,7 +350,7 @@ namespace BingoFlashboard.View
                 {
                     foreach (Card card in set.Item2)
                     {
-                        if (card.CardNum_ == cardNum)
+                        if (card.Card_Number == cardNum)
                         {
                             found = true;
                             selectedCard = card;
@@ -362,163 +366,163 @@ namespace BingoFlashboard.View
 
         public void LoadCard()
         {
-            CardNumbers num = new CardNumbers();
+            Card_Number num = new Card_Number();
             cardNums = new();
 
-            if (selectedCard is not null && selectedCard.CardNum_ is not "")
+            if (selectedCard is not null && selectedCard.Card_Number is not "")
             {
                 if (App.callerWindowViewModel is not null)
                 {
-                    App.callerWindowViewModel.CardNum_ = selectedCard.CardNum_;
+                    App.callerWindowViewModel.CardNum_ = selectedCard.Card_Number;
                 }
-                B1.Content = selectedCard.B1_;
-                num.Name = "B1";
-                num.Value = selectedCard.B1_;
+                B1.Content = selectedCard.B1;
+                num.Card_Number_Name = "B1";
+                num.Card_Number_Value = selectedCard.B1;
                 cardNums.Add(num);
 
-                B2.Content = selectedCard.B2_;
-                num = new CardNumbers();
-                num.Name = "B2";
-                num.Value = selectedCard.B2_;
+                B2.Content = selectedCard.B2;
+                num = new Card_Number();
+                num.Card_Number_Name = "B2";
+                num.Card_Number_Value = selectedCard.B2;
                 cardNums.Add(num);
 
-                B3.Content = selectedCard.B3_;
-                num = new CardNumbers();
-                num.Name = "B3";
-                num.Value = selectedCard.B3_;
+                B3.Content = selectedCard.B3;
+                num = new Card_Number();
+                num.Card_Number_Name = "B3";
+                num.Card_Number_Value = selectedCard.B3;
                 cardNums.Add(num);
 
-                B4.Content = selectedCard.B4_;
-                num = new CardNumbers();
-                num.Name = "B4";
-                num.Value = selectedCard.B4_;
+                B4.Content = selectedCard.B4;
+                num = new Card_Number();
+                num.Card_Number_Name = "B4";
+                num.Card_Number_Value = selectedCard.B4;
                 cardNums.Add(num);
 
-                B5.Content = selectedCard.B5_;
-                num = new CardNumbers();
-                num.Name = "B5";
-                num.Value = selectedCard.B5_;
+                B5.Content = selectedCard.B5;
+                num = new Card_Number();
+                num.Card_Number_Name = "B5";
+                num.Card_Number_Value = selectedCard.B5;
                 cardNums.Add(num);
 
-                I1.Content = selectedCard.I1_;
-                num = new CardNumbers();
-                num.Name = "I1";
-                num.Value = selectedCard.I1_;
+                I1.Content = selectedCard.I1;
+                num = new Card_Number();
+                num.Card_Number_Name = "I1";
+                num.Card_Number_Value = selectedCard.I1;
                 cardNums.Add(num);
 
-                I2.Content = selectedCard.I2_;
-                num = new CardNumbers();
-                num.Name = "I2";
-                num.Value = selectedCard.I2_;
+                I2.Content = selectedCard.I2;
+                num = new Card_Number();
+                num.Card_Number_Name = "I2";
+                num.Card_Number_Value = selectedCard.I2;
                 cardNums.Add(num);
 
-                I3.Content = selectedCard.I3_;
-                num = new CardNumbers();
-                num.Name = "I3";
-                num.Value = selectedCard.I3_;
+                I3.Content = selectedCard.I3;
+                num = new Card_Number();
+                num.Card_Number_Name = "I3";
+                num.Card_Number_Value = selectedCard.I3;
                 cardNums.Add(num);
 
-                I4.Content = selectedCard.I4_;
-                num = new CardNumbers();
-                num.Name = "I4";
-                num.Value = selectedCard.I4_;
+                I4.Content = selectedCard.I4;
+                num = new Card_Number();
+                num.Card_Number_Name = "I4";
+                num.Card_Number_Value = selectedCard.I4;
                 cardNums.Add(num);
 
-                I5.Content = selectedCard.I5_;
-                num = new CardNumbers();
-                num.Name = "I5";
-                num.Value = selectedCard.I5_;
+                I5.Content = selectedCard.I5;
+                num = new Card_Number();
+                num.Card_Number_Name = "I5";
+                num.Card_Number_Value = selectedCard.I5;
                 cardNums.Add(num);
 
-                N1.Content = selectedCard.N1_;
-                num = new CardNumbers();
-                num.Name = "N1";
-                num.Value = selectedCard.N1_;
+                N1.Content = selectedCard.N1;
+                num = new Card_Number();
+                num.Card_Number_Name = "N1";
+                num.Card_Number_Value = selectedCard.N1;
                 cardNums.Add(num);
 
-                N2.Content = selectedCard.N2_;
-                num = new CardNumbers();
-                num.Name = "N2";
-                num.Value = selectedCard.N2_;
+                N2.Content = selectedCard.N2;
+                num = new Card_Number();
+                num.Card_Number_Name = "N2";
+                num.Card_Number_Value = selectedCard.N2;
                 cardNums.Add(num);
 
-                N3.Content = selectedCard.CardNum_;
-                num = new CardNumbers();
-                num.Name = "N3";
-                num.Value = selectedCard.CardNum_;
-                num.Called = true;
+                N3.Content = selectedCard.Card_Number;
+                num = new Card_Number();
+                num.Card_Number_Name = "N3";
+                num.Card_Number_Value = selectedCard.Card_Number;
+                num.Card_Number_Called = true;
                 cardNums.Add(num);
 
-                N4.Content = selectedCard.N4_;
-                num = new CardNumbers();
-                num.Name = "N4";
-                num.Value = selectedCard.N4_;
+                N4.Content = selectedCard.N4;
+                num = new Card_Number();
+                num.Card_Number_Name = "N4";
+                num.Card_Number_Value = selectedCard.N4;
                 cardNums.Add(num);
 
-                N5.Content = selectedCard.N5_;
-                num = new CardNumbers();
-                num.Name = "N5";
-                num.Value = selectedCard.N5_;
+                N5.Content = selectedCard.N5;
+                num = new Card_Number();
+                num.Card_Number_Name = "N5";
+                num.Card_Number_Value = selectedCard.N5;
                 cardNums.Add(num);
 
-                G1.Content = selectedCard.G1_;
-                num = new CardNumbers();
-                num.Name = "G1";
-                num.Value = selectedCard.G1_;
+                G1.Content = selectedCard.G1;
+                num = new Card_Number();
+                num.Card_Number_Name = "G1";
+                num.Card_Number_Value = selectedCard.G1;
                 cardNums.Add(num);
 
-                G2.Content = selectedCard.G2_;
-                num = new CardNumbers();
-                num.Name = "G2";
-                num.Value = selectedCard.G2_;
+                G2.Content = selectedCard.G2;
+                num = new Card_Number();
+                num.Card_Number_Name = "G2";
+                num.Card_Number_Value = selectedCard.G2;
                 cardNums.Add(num);
 
-                G3.Content = selectedCard.G3_;
-                num = new CardNumbers();
-                num.Name = "G3";
-                num.Value = selectedCard.G3_;
+                G3.Content = selectedCard.G3;
+                num = new Card_Number();
+                num.Card_Number_Name = "G3";
+                num.Card_Number_Value = selectedCard.G3;
                 cardNums.Add(num);
 
-                G4.Content = selectedCard.G4_;
-                num = new CardNumbers();
-                num.Name = "G4";
-                num.Value = selectedCard.G4_;
+                G4.Content = selectedCard.G4;
+                num = new Card_Number();
+                num.Card_Number_Name = "G4";
+                num.Card_Number_Value = selectedCard.G4;
                 cardNums.Add(num);
 
-                G5.Content = selectedCard.G5_;
-                num = new CardNumbers();
-                num.Name = "G5";
-                num.Value = selectedCard.G5_;
+                G5.Content = selectedCard.G5;
+                num = new Card_Number();
+                num.Card_Number_Name = "G5";
+                num.Card_Number_Value = selectedCard.G5;
                 cardNums.Add(num);
 
-                O1.Content = selectedCard.O1_;
-                num = new CardNumbers();
-                num.Name = "O1";
-                num.Value = selectedCard.O1_;
+                O1.Content = selectedCard.O1;
+                num = new Card_Number();
+                num.Card_Number_Name = "O1";
+                num.Card_Number_Value = selectedCard.O1;
                 cardNums.Add(num);
 
-                O2.Content = selectedCard.O2_;
-                num = new CardNumbers();
-                num.Name = "O2";
-                num.Value = selectedCard.O2_;
+                O2.Content = selectedCard.O2;
+                num = new Card_Number();
+                num.Card_Number_Name = "O2";
+                num.Card_Number_Value = selectedCard.O2;
                 cardNums.Add(num);
 
-                O3.Content = selectedCard.O3_;
-                num = new CardNumbers();
-                num.Name = "O3";
-                num.Value = selectedCard.O3_;
+                O3.Content = selectedCard.O3;
+                num = new Card_Number();
+                num.Card_Number_Name = "O3";
+                num.Card_Number_Value = selectedCard.O3;
                 cardNums.Add(num);
 
-                O4.Content = selectedCard.O4_;
-                num = new CardNumbers();
-                num.Name = "O4";
-                num.Value = selectedCard.O4_;
+                O4.Content = selectedCard.O4;
+                num = new Card_Number();
+                num.Card_Number_Name = "O4";
+                num.Card_Number_Value = selectedCard.O4;
                 cardNums.Add(num);
 
-                O5.Content = selectedCard.O5_;
-                num = new CardNumbers();
-                num.Name = "O5";
-                num.Value = selectedCard.O5_;
+                O5.Content = selectedCard.O5;
+                num = new Card_Number();
+                num.Card_Number_Name = "O5";
+                num.Card_Number_Value = selectedCard.O5;
                 cardNums.Add(num);
             }
         }
@@ -555,55 +559,56 @@ namespace BingoFlashboard.View
         {
             bool success = false;
             string lastCalled = "";
-            foreach (CardNumbers num in cardNums)
+            foreach (Card_Number num in cardNums)
             {
-                if (App.Calls.Contains(num.Value.ToString()) || num.Called)
+                if (App.Calls.Contains(num.Card_Number_Value.ToString()) || num.Card_Number_Called)
                 { 
-                    num.Called = true;
+                    num.Card_Number_Called = true;
 
-                    if (num.Value.ToString() == App.Calls.LastOrDefault())
+                    if (num.Card_Number_Value.ToString() == App.Calls.LastOrDefault())
                     {
-                        lastCalled = num.Name.ToString(); // Save to TempString
+                        lastCalled = num.Card_Number_Name.ToString(); // Save to TempString
                     }
                 }
                 else
-                    num.Called = false;
+                    num.Card_Number_Called = false;
             }
 
 
 
             List<string> tempList = new();
-            foreach (CardNumbers num in cardNums)
+            foreach (Card_Number num in cardNums)
             {
-                if (num.Called)
-                    tempList.Add(num.Name.ToString());
+                if (num.Card_Number_Called)
+                    tempList.Add(num.Card_Number_Name.ToString());
             }
 
-            if (App.SelectedGame is not null && App.SelectedGame.Pattern_ is not null && App.SelectedGame.Pattern_.Pattern_ is not null)
-            {
-                foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
-                {
-                    bool patternMatch = true;
+            //TODO: UPDATE PATTERN TO BE SELECTED FROM GAME
+            //if (App.SelectedGame is not null && App.SelectedGame.Game_Pattern is not null && App.SelectedGame.Game_Pattern.Pattern_ is not null)
+            //{
+            //    foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
+            //    {
+            //        bool patternMatch = true;
 
-                    foreach (string p in pattern)
-                    {
-                        if (!tempList.Contains(p))
-                        {
-                            patternMatch = false;
-                            break;
-                        }
-                    }
+            //        foreach (string p in pattern)
+            //        {
+            //            if (!tempList.Contains(p))
+            //            {
+            //                patternMatch = false;
+            //                break;
+            //            }
+            //        }
 
-                    if (patternMatch)
-                    {
-                        //TODO Add pattern to winner list
-                        success = true;
-                        List<string> successfulPattern = pattern;
-                        ColorWinner(pattern, lastCalled);
+            //        if (patternMatch)
+            //        {
+            //            //TODO Add pattern to winner list
+            //            success = true;
+            //            List<string> successfulPattern = pattern;
+            //            ColorWinner(pattern, lastCalled);
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
             return success;
         }
 
@@ -613,44 +618,45 @@ namespace BingoFlashboard.View
             //await SelectCard(cardNum, cardset);
             bool success = false;
 
-            foreach (CardNumbers num in cardNums)
+            foreach (Card_Number num in cardNums)
             {
-                if (App.Calls.Contains(num.Value.ToString()) || num.Called)
-                    num.Called = true;
+                if (App.Calls.Contains(num.Card_Number_Value.ToString()) || num.Card_Number_Called)
+                    num.Card_Number_Called = true;
 
                 else
-                    num.Called = false;
+                    num.Card_Number_Called = false;
             }
 
             List<string> tempList = new();
-            foreach (CardNumbers num in cardNums)
+            foreach (Card_Number num in cardNums)
             {
-                if (num.Called)
-                    tempList.Add(num.Name.ToString());
+                if (num.Card_Number_Called)
+                    tempList.Add(num.Card_Number_Name.ToString());
             }
 
-            if (App.SelectedGame is not null && App.SelectedGame.Pattern_ is not null && App.SelectedGame.Pattern_.Pattern_ is not null)
-            {
-                foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
-                {
-                    bool patternMatch = true;
+            //TODO Fix pattern 
+            //if (App.SelectedGame is not null && App.SelectedGame.Pattern_ is not null && App.SelectedGame.Pattern_.Pattern_ is not null)
+            //{
+            //    foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
+            //    {
+            //        bool patternMatch = true;
 
-                    foreach (string p in pattern)
-                    {
-                        if (!tempList.Contains(p))
-                        {
-                            patternMatch = false;
-                            break;
-                        }
-                    }
+            //        foreach (string p in pattern)
+            //        {
+            //            if (!tempList.Contains(p))
+            //            {
+            //                patternMatch = false;
+            //                break;
+            //            }
+            //        }
 
-                    if (patternMatch)
-                    {
-                        success = true;
-                        List<string> successfulPattern = pattern;
-                    }
-                }
-            }
+            //        if (patternMatch)
+            //        {
+            //            success = true;
+            //            List<string> successfulPattern = pattern;
+            //        }
+            //    }
+            //}
             return success;
         }
 

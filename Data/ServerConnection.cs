@@ -1,6 +1,7 @@
 ﻿using BingoFlashboard.Model;
 using BingoFlashboard.Model.FlashboardModels;
 using BingoFlashboard.View;
+using Global_Models_Library.Flashboard_Models;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using System;
@@ -140,8 +141,8 @@ namespace BingoFlashboard.Data
 
                                                     App.callerWindowViewModel.Bingos_.Add(cbs);
                                                     Winner win = new();
-                                                    win.Date_Time_ = DateTime.Now.ToString();
-                                                    win.PlayerInfo_ = cbs;
+                                                    win.Winner_Time = DateTime.Now.ToString();
+                                                    //win.PlayerInfo_ = cbs;
                                                     App.winnerList.Add(win);
 
                                                     App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
@@ -248,41 +249,41 @@ namespace BingoFlashboard.Data
                 if (hubConnection.State == HubConnectionState.Disconnected)
                     await hubConnection.StartAsync();
 
+                //TODO
+                //if (App.hall is not null)
+                //{
+                //    Hall partialHall = new Hall()
+                //    {
+                //        Id_ = App.hall.Id_,
+                //        Name_ = App.hall.Name_,
+                //        Logo_ = App.hall.Logo_,
+                //        Address_ = App.hall.Address_,
+                //        City_ = App.hall.City_,
+                //        Postal_ = App.hall.Postal_,
+                //        Country_ = App.hall.Country_,
+                //        Province_ = App.hall.Province_,
+                //        Phone_ = App.hall.Phone_,
+                //        Website_ = App.hall.Website_,
+                //        Email_ = App.hall.Email_,
+                //        Username_ = App.hall.Username_,
+                //        Login_Password_ = App.hall.Login_Password_,
+                //        Temp_Login_Password_ = App.hall.Temp_Login_Password_,
+                //        Comport_ = App.hall.Comport_,
+                //        Auto_Caller_ = App.hall.Auto_Caller_,
+                //        Message_ = App.hall.Message_,
+                //        Master_ = App.hall.Master_,
+                //        Active_ = App.hall.Active_,
+                //        AllSessions_ = null
+                //    };
 
-                if (App.hall is not null)
-                {
-                    Hall partialHall = new Hall()
-                    {
-                        Id_ = App.hall.Id_,
-                        Name_ = App.hall.Name_,
-                        Logo_ = App.hall.Logo_,
-                        Address_ = App.hall.Address_,
-                        City_ = App.hall.City_,
-                        Postal_ = App.hall.Postal_,
-                        Country_ = App.hall.Country_,
-                        Province_ = App.hall.Province_,
-                        Phone_ = App.hall.Phone_,
-                        Website_ = App.hall.Website_,
-                        Email_ = App.hall.Email_,
-                        Username_ = App.hall.Username_,
-                        Login_Password_ = App.hall.Login_Password_,
-                        Temp_Login_Password_ = App.hall.Temp_Login_Password_,
-                        Comport_ = App.hall.Comport_,
-                        Auto_Caller_ = App.hall.Auto_Caller_,
-                        Message_ = App.hall.Message_,
-                        Master_ = App.hall.Master_,
-                        Active_ = App.hall.Active_,
-                        AllSessions_ = null
-                    };
+                //    DataTransfer dt = new()
+                //    {
+                //        TransferMessage_ = "Hall",
+                //        JsonString_ = JsonConvert.SerializeObject(partialHall, Formatting.Indented)
+                //    };
 
-                    DataTransfer dt = new()
-                    {
-                        TransferMessage_ = "Hall",
-                        JsonString_ = JsonConvert.SerializeObject(partialHall, Formatting.Indented)
-                    };
-
-                    await hubConnection.SendAsync("HostNewGame", dt);
-                }
+                //    await hubConnection.SendAsync("HostNewGame", dt);
+                //}
             }
             catch (Exception ex)
             {
@@ -297,38 +298,39 @@ namespace BingoFlashboard.Data
         //Allows flashboard app to send the game info to the server
         public async Task SendGameInfo(Game game)
         {
-            if (App.hall is not null && App.hall.Name_ is not null)
-            {
-                PartialGame pt = new()
-                {
-                    Id_ = game.Id_,
-                    HallName_ = App.hall.Name_,
-                    DateTimeStart_ = App.StartTime,
-                    GameName_ = game.Name_,
-                    Border_Color_ = game.Border_Color_,
-                    Font_Color_ = game.Font_Color_,
-                    GameType_ = game.GameType_,
-                    Pattern_ = game.Pattern_,
-                    Prize_ = game.Prize_,
-                    Jackpot_Prize_ = game.Jackpot_Prize_,
-                    Designated_Number_ = game.Designated_Number_,
-                    Four_Ball_ = game.Four_Ball_,
-                    Four_Ball_Prize_ = game.Four_Ball_Prize_,
-                };
-                DataTransfer dt = new()
-                {
-                    TransferMessage_ = "Game",
-                    JsonString_ = JsonConvert.SerializeObject(game, Formatting.Indented),
-                    SecondaryMessage_ = JsonConvert.SerializeObject(pt, Formatting.Indented)
-                };
+            //TODO
+            //if (App.hall is not null && App.hall.Name_ is not null)
+            //{
+            //    PartialGame pt = new()
+            //    {
+            //        Id_ = game.Id_,
+            //        HallName_ = App.hall.Name_,
+            //        DateTimeStart_ = App.StartTime,
+            //        GameName_ = game.Name_,
+            //        Border_Color_ = game.Border_Color_,
+            //        Font_Color_ = game.Font_Color_,
+            //        GameType_ = game.GameType_,
+            //        Pattern_ = game.Pattern_,
+            //        Prize_ = game.Prize_,
+            //        Jackpot_Prize_ = game.Jackpot_Prize_,
+            //        Designated_Number_ = game.Designated_Number_,
+            //        Four_Ball_ = game.Four_Ball_,
+            //        Four_Ball_Prize_ = game.Four_Ball_Prize_,
+            //    };
+            //    DataTransfer dt = new()
+            //    {
+            //        TransferMessage_ = "Game",
+            //        JsonString_ = JsonConvert.SerializeObject(game, Formatting.Indented),
+            //        SecondaryMessage_ = JsonConvert.SerializeObject(pt, Formatting.Indented)
+            //    };
 
-                await hubConnection.SendAsync("NewGameInfo", dt);
-            }
+            //    await hubConnection.SendAsync("NewGameInfo", dt);
+            //}
         }
 
         public async Task SendCalledBall(string ballnum)
         {
-            if (App.hall is not null && App.hall.Name_ is not null)
+            if (App.hall is not null && App.hall.Hall_Name is not null)
             {
                 DataTransfer dt = new()
                 {
@@ -351,40 +353,42 @@ namespace BingoFlashboard.Data
 
         public async Task KillConnection()
         {
-            if (App.hall is not null && App.hall.Name_ is not null)
+            if (App.hall is not null && App.hall.Hall_Name is not null)
             {
-                Hall partialHall = new Hall()
-                {
-                    Id_ = App.hall.Id_,
-                    Name_ = App.hall.Name_,
-                    Logo_ = App.hall.Logo_,
-                    Address_ = App.hall.Address_,
-                    City_ = App.hall.City_,
-                    Postal_ = App.hall.Postal_,
-                    Country_ = App.hall.Country_,
-                    Province_ = App.hall.Province_,
-                    Phone_ = App.hall.Phone_,
-                    Website_ = App.hall.Website_,
-                    Email_ = App.hall.Email_,
-                    Username_ = App.hall.Username_,
-                    Login_Password_ = App.hall.Login_Password_,
-                    Temp_Login_Password_ = App.hall.Temp_Login_Password_,
-                    Comport_ = App.hall.Comport_,
-                    Auto_Caller_ = App.hall.Auto_Caller_,
-                    Message_ = App.hall.Message_,
-                    Master_ = App.hall.Master_,
-                    Active_ = App.hall.Active_,
-                    AllSessions_ = null
-                };
 
-                DataTransfer dt = new()
-                {
-                    TransferMessage_ = "Hall",
-                    JsonString_ = JsonConvert.SerializeObject(partialHall, Formatting.Indented)
-                };
+                //TODO
+                //Hall partialHall = new Hall()
+                //{
+                //    Id_ = App.hall.Id_,
+                //    Name_ = App.hall.Name_,
+                //    Logo_ = App.hall.Logo_,
+                //    Address_ = App.hall.Address_,
+                //    City_ = App.hall.City_,
+                //    Postal_ = App.hall.Postal_,
+                //    Country_ = App.hall.Country_,
+                //    Province_ = App.hall.Province_,
+                //    Phone_ = App.hall.Phone_,
+                //    Website_ = App.hall.Website_,
+                //    Email_ = App.hall.Email_,
+                //    Username_ = App.hall.Username_,
+                //    Login_Password_ = App.hall.Login_Password_,
+                //    Temp_Login_Password_ = App.hall.Temp_Login_Password_,
+                //    Comport_ = App.hall.Comport_,
+                //    Auto_Caller_ = App.hall.Auto_Caller_,
+                //    Message_ = App.hall.Message_,
+                //    Master_ = App.hall.Master_,
+                //    Active_ = App.hall.Active_,
+                //    AllSessions_ = null
+                //};
 
-                if (App.server is not null && App.server.hubConnection.State == HubConnectionState.Connected)
-                    await hubConnection.SendAsync("KillConnection", dt);
+                //DataTransfer dt = new()
+                //{
+                //    TransferMessage_ = "Hall",
+                //    JsonString_ = JsonConvert.SerializeObject(partialHall, Formatting.Indented)
+                //};
+
+                //if (App.server is not null && App.server.hubConnection.State == HubConnectionState.Connected)
+                //    await hubConnection.SendAsync("KillConnection", dt);
             }
         }
 

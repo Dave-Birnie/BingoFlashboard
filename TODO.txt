@@ -1,6 +1,13 @@
+NEW TOOD
+===============================
+-- WINDOW -- Select Session
+-Must select session, then Program 
+-Load all Games for that Program
+
+===============================
+OLD TODO
+===============================
 -- WINDOW -- CallerWindow
-
-
 -Add CallerWindowViewModel to change labels for jackpot prizes and game types
 -Search Card
 -4 Ball 

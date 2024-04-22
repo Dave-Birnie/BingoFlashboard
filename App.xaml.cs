@@ -7,6 +7,7 @@ using System.IO;
 using Newtonsoft.Json;
 using BingoFlashboard.ViewModel;
 using System;
+using Global_Models_Library.Flashboard_Models;
 
 namespace BingoFlashboard
 {
@@ -139,16 +140,18 @@ namespace BingoFlashboard
             string caption = "WARNING: Ending Game";
             if (System.Windows.MessageBox.Show(message, caption, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                if (App.callerWindowViewModel is not null && App.callerWindowViewModel.HostingStatus.HostingGameStatus == "On")
-                {
-                    if (App.server is not null)
-                    {
-                        await App.server.KillConnection();
-                        App.server.CloseConnection();
-                    }
-                }
-                Application.Current.Shutdown();
-                App.Current.Shutdown();
+
+                //TODO Not sure error
+                //if (App.callerWindowViewModel is not null && App.callerWindowViewHostingStatus.HostingGameStatus == "On")
+                //{
+                //    if (App.server is not null)
+                //    {
+                //        await App.server.KillConnection();
+                //        App.server.CloseConnection();
+                //    }
+                //}
+                //Application.Current.Shutdown();
+                //App.Current.Shutdown();
             }
         }
 
