@@ -29,6 +29,7 @@ namespace BingoFlashboard
 
         public static Hall? hall;
         public static Session? SelectedSession;
+        public static Program? SelectedProgram;
         public static Game? SelectedGame;
         public static string StartTime = "";
         public static List<Pattern> allPatterns = new();
@@ -141,7 +142,7 @@ namespace BingoFlashboard
             if (System.Windows.MessageBox.Show(message, caption, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
 
-                //TODO Not sure error
+                ////TODO Not sure error
                 //if (App.callerWindowViewModel is not null && App.callerWindowViewHostingStatus.HostingGameStatus == "On")
                 //{
                 //    if (App.server is not null)
@@ -150,8 +151,8 @@ namespace BingoFlashboard
                 //        App.server.CloseConnection();
                 //    }
                 //}
-                //Application.Current.Shutdown();
-                //App.Current.Shutdown();
+                Application.Current.Shutdown();
+                App.Current.Shutdown();
             }
         }
 

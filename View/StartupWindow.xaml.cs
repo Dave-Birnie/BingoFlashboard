@@ -101,12 +101,44 @@ namespace BingoFlashboard.View
             }
         }
 
-        private void StartSession_Click(object sender, RoutedEventArgs e)
+        #region SESSION CONTROLS
+        private void sessionsList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            //ADDS THE PROGRAMS INTO PROGRAM LIST && SAVES THE SESSION TO GLOBAL CALLS
             if (sessionsList.SelectedIndex is not -1)
             {
-                App.SelectedSession = (Session) sessionsList.SelectedItem;
-                sessionsList.ItemsSource = new List<Session>();
+                Session sess = (Session) sessionsList.SelectedItem;
+                App.SelectedSession = sess;
+
+                if (sess.Program_List is not null)
+                {
+                    ProgramList.ItemsSource = sess.Program_List;
+                    ProgramList.SelectedIndex = 0;
+                }
+            }
+
+        }
+        #endregion
+
+        #region PROGRAM CONTROLS
+
+        private void ProgramList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            //SAVES THE SELECTED PROGRAM TO GLOBAL CALLS
+            if (ProgramList.SelectedIndex is not -1)
+            {
+                Program program = (Program)ProgramList.SelectedItem;
+                App.SelectedProgram = program;
+            }
+        }
+        #endregion
+        private void StartSession_Click(object sender, RoutedEventArgs e)
+        {
+            if (sessionsList.SelectedIndex is not -1 && ProgramList.SelectedIndex is not -1)
+            {
+                //App.SelectedSession = (Session) sessionsList.SelectedItem;
+                //sessionsList.ItemsSource = new List<Session>();
+
                 App.flashboardWindow = new();
                 App.callerWindow = new();
                 this.Hide();
@@ -130,12 +162,16 @@ namespace BingoFlashboard.View
 
             }
             else
-                MessageBox.Show("Please select a session");
+                MessageBox.Show("Please select a session and program");
         }
+
+
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             App.Exit_Click();
         }
+
+
     }
 }
