@@ -1,5 +1,4 @@
-﻿using BingoFlashboard.Model;
-using Microsoft.AspNetCore.SignalR.Client;
+﻿using Microsoft.AspNetCore.SignalR.Client;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,7 +9,6 @@ using System.Threading.Tasks;
 using System;
 using System.Windows.Media.Animation;
 using BingoFlashboard.Model.FlashboardModels;
-using System.Windows.Media.Imaging;
 using Global_Models_Library.Flashboard_Models;
 
 namespace BingoFlashboard.View
@@ -56,25 +54,24 @@ namespace BingoFlashboard.View
             _animation.Completed += (s, e) => BingoOverlay.Background = null;
 
             PatternCB.ItemsSource = App.allPatterns;
-            //ENSURES SESSION IS SELECTED AND LOADS PROGRAM & GAMES
-            
-            //TODO
-            //if (App.SelectedSession is not null)
-            //    if (App.SelectedSession.Program_ is not null)
-            //    {
-            //        program = (Program) App.SelectedSession.Program_;
-            //        ProgramName.Content = program.Name_;
-            //        CB_Cardset.ItemsSource = program.Cardsets_;
-            //        if (program.Games_ is not null)
-            //        {
-            //            games = program.Games_;
-            //        }
-            //        gamesList.ItemsSource = App.SelectedSession.Program_.Games_;
-            //        gamesList.SelectedIndex = 0;
-            //        BingosList.ItemsSource = App.callerWindowViewModel.Bingos_;
-            //    }
-            //    else
-            //        MessageBox.Show("Error, unable to load program");
+            //ENSURES PROGRAM IS SELECTED AND LOADS PROGRAM & GAMES
+
+                if (App.SelectedProgram is not null)
+                {
+                    program = (Program) App.SelectedProgram;
+                    ProgramName.Content = program.Program_Name;
+                    CB_Cardset.ItemsSource = program.Card_Set_List;
+                    if (program.Games_List is not null)
+                    {
+                        games = program.Games_List;
+                    }
+                    gamesList.ItemsSource = App.SelectedProgram.Games_List;
+                    gamesList.SelectedIndex = 0;
+                //TODO this needed? 
+                BingosList.ItemsSource = App.callerWindowViewModel.Bingos_;
+            }
+            else
+                    MessageBox.Show("Error, unable to load program");
 
             //LOADS ALL PATTERNS INTO THE PATTERN COMBOBOX
             App.callerWindow = this;
@@ -196,12 +193,11 @@ namespace BingoFlashboard.View
                     App.callerWindowViewModel.SelectedGame = App.SelectedGame;
 
                     //SELECTS GAMETYPE FROM GAMETYPE COMBOBOX
-                    //TODO FIX THIS ISSUE
-                    //foreach (ComboBoxItem cbi in GameType.Items)
-                    //{
-                    //    if (cbi.Content.ToString() == App.SelectedGame.GameType_)
-                    //        cbi.IsSelected = true;
-                    //}
+                    foreach (ComboBoxItem cbi in GameType.Items)
+                    {
+                        if (cbi.Content.ToString() == App.SelectedGame.Type.Game_Type_Name)
+                            cbi.IsSelected = true;
+                    }
 
                     //SETS BORDER COLOR PICKER && FLASHBOARD BACKGROUND COLOR
                     Color background = (Color) ColorConverter.ConvertFromString(App.SelectedGame.Border_Color.Color_Hash);
@@ -462,7 +458,8 @@ namespace BingoFlashboard.View
                 //}
 
                 //TODO FIX THIS... app.SelectedProgram
-                //App.SelectedSession.Program_.Games_[gamesList.SelectedIndex] = App.SelectedGame;
+                if(App.SelectedProgram is not null && App.SelectedProgram.Games_List is not null)
+                App.SelectedProgram.Games_List[gamesList.SelectedIndex] = App.SelectedGame;
 
                 gamesList.Items.Refresh();
 
@@ -475,11 +472,11 @@ namespace BingoFlashboard.View
         private void Delete_Game_Click(object sender, RoutedEventArgs e)
         {
             //TODO SelectedProgram is now a list, need to update this
-            //if (gamesList.SelectedIndex is not -1 && App.SelectedSession is not null && App.SelectedSession.Program_ is not null && App.SelectedSession.Program_.Games_ is not null)
-            //{
-            //    App.SelectedSession.Program_.Games_.RemoveAt(gamesList.SelectedIndex);
-            //    gamesList.Items.Refresh();
-            //}
+            if (gamesList.SelectedIndex is not -1 && App.SelectedSession is not null && App.SelectedProgram is not null && App.SelectedProgram.Games_List is not null)
+            {
+                App.SelectedProgram.Games_List.RemoveAt(gamesList.SelectedIndex);
+                gamesList.Items.Refresh();
+            }
         }
 
         //ALLOWS YOU TO GO BACK AND SELECT A NEW SESSION

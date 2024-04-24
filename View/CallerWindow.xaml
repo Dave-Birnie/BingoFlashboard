@@ -5,7 +5,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        xmlns:local="clr-namespace:BingoFlashboard.View"
         mc:Ignorable="d"
         WindowStyle="None"
         Height="960"
@@ -219,25 +218,25 @@
                         <GridView x:Name="gamesGrid">
                             <GridViewColumn Header="| Game |"
                                             Width="100"
-                                            DisplayMemberBinding="{Binding Name_}" />
+                                            DisplayMemberBinding="{Binding Game_Name}" />
                             <GridViewColumn Header="| Game Type| "
                                             Width="100"
-                                            DisplayMemberBinding="{Binding GameType_}" />
+                                            DisplayMemberBinding="{Binding Type.Game_Type_Name}" />
                             <GridViewColumn Header="| Border Color |"
                                             Width="100"
-                                            DisplayMemberBinding="{Binding Border_Color_.Name_}" />
+                                            DisplayMemberBinding="{Binding Border_Color.Color_Name}" />
                             <GridViewColumn Header="| Pattern Name |"
                                             Width="150"
-                                            DisplayMemberBinding="{Binding Pattern_.Pattern_Name_}" />
+                                            DisplayMemberBinding="{Binding Game_Pattern.Pattern_Name}" />
                             <GridViewColumn Header="| Prize |"
                                             Width="50"
-                                            DisplayMemberBinding="{Binding Prize_}" />
+                                            DisplayMemberBinding="{Binding Prize}" />
                             <GridViewColumn Header="| Designated Number |"
                                             Width="200"
-                                            DisplayMemberBinding="{Binding Designated_Number_}" />
+                                            DisplayMemberBinding="{Binding Designated_Number}" />
                             <GridViewColumn Header="| Jackpot Prize |"
                                             Width="100"
-                                            DisplayMemberBinding="{Binding Jackpot_Prize_}" />
+                                            DisplayMemberBinding="{Binding Jackpot_Prize}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -482,7 +481,7 @@
                                    Margin="0,10,50,0"
                                    Content="Card Set" />
                             <ComboBox Style="{StaticResource ModernComboBox}"
-                                      DisplayMemberPath="Set_Name_"
+                                      DisplayMemberPath="Card_Set_Name"
                                       Name="CB_Cardset" />
                         </StackPanel>
 
@@ -642,7 +641,7 @@
                                      FontSize="14"
                                      KeyDown="Enter_Click"
                                      Style="{StaticResource ModernTextBox}"
-                                     Text="{Binding SelectedGame.Name_}" />
+                                     Text="{Binding SelectedGame.Game_Name}" />
                         </StackPanel>
                         <!--#endregion GameType-->
                         <!--#region Game, BorderColor, Pattern, Prize-->
@@ -668,7 +667,7 @@
                                      FontSize="14"
                                      KeyDown="Enter_Click"
                                      Style="{StaticResource ModernTextBox}"
-                                     Text="{Binding SelectedGame.Border_Color_.Name_}" />
+                                     Text="{Binding SelectedGame.Border_Color.Color_Name}" />
 
                         </StackPanel>
                         <!--#endregion Game, BorderColor, Pattern, Prize-->
@@ -695,7 +694,7 @@
                                      FontSize="14"
                                      KeyDown="Enter_Click"
                                      Style="{StaticResource ModernTextBox}"
-                                     Text="{Binding SelectedGame.Font_Color_.Name_}" />
+                                     Text="{Binding SelectedGame.Font_Color.Color_Name}" />
 
                         </StackPanel>
 
@@ -713,7 +712,7 @@
 
                                 <ComboBox Name="PatternCB"
                                           Style="{StaticResource ModernComboBox}"
-                                          DisplayMemberPath="Pattern_Name_"
+                                          DisplayMemberPath="Pattern_Name"
                                           FontWeight="Bold"
                                           Margin="20,0,0,0" />
 
@@ -736,7 +735,7 @@
                                          FontSize="14"
                                          KeyDown="Enter_Click"
                                          Style="{StaticResource ModernTextBox}"
-                                         Text="{Binding SelectedGame.Prize_}" />
+                                         Text="{Binding SelectedGame.Prize}" />
 
                             </StackPanel>
                             <!--#endregion Game, BorderColor, Pattern, Prize-->
@@ -770,7 +769,7 @@
                                      FontSize="14"
                                      KeyDown="Enter_Click"
                                      Style="{StaticResource ModernTextBox}"
-                                     Text="{Binding SelectedGame.Jackpot_Prize_}" />
+                                     Text="{Binding SelectedGame.Jackpot_Prize}" />
                         </StackPanel>
                         <!--#endregion Prize, Number-->
 
@@ -792,7 +791,7 @@
                                      Height="30"
                                      Width="100"
                                      KeyDown="Enter_Click"
-                                     Text="{Binding SelectedGame.Designated_Number_}" />
+                                     Text="{Binding SelectedGame.Designated_Number}" />
                         </StackPanel>
                         <!--#endregion Prize, Number-->
 

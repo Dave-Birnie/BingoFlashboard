@@ -33,7 +33,7 @@ namespace BingoFlashboard
         public static Game? SelectedGame;
         public static string StartTime = "";
         public static List<Pattern> allPatterns = new();
-        private static LoadAllPatterns lap = new();
+        private static LoadPatterns lap = new();
         public static List<Card> cardList = new();
         public static List<Player> playerList = new();
         public static List<string> Calls = new();

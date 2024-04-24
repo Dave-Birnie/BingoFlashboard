@@ -16,101 +16,77 @@ namespace BingoFlashboard.View
     public partial class MiniGrid : Page
     {
         private CancellationTokenSource? animationCancellationTokenSource;
-        string fileName = @".\patterns.txt";
+        //string fileName = @".\patterns.txt";
 
         public MiniGrid()
         {
             InitializeComponent();
             App.miniGrid = this;
-            LoadPatterns();
+            //LoadPatterns();
         }
 
 
         //TODO UPDATE PATTERN ANIMATION TO RUN NEW MODELS
         public async void StartAnimation(Pattern p)
         {
-            //TODO UPDATE PATTERN ANIMATION TO RUN NEW MODELS
-            //await StopAnimation();
+            await StopAnimation();
 
-            //List<List<string>> patterns = new();
-            //if (p.Pattern_ is not null)
-            //    patterns = p.Pattern_;
+            //List<List<Design>> patterns = p.Pattern_Design_List;
+            List<Design> patterns = p.Pattern_Design_List;
 
-            //else
-            //{
-            //    if (App.allPatterns is not null)
-            //    {
-            //        foreach (Pattern pat in App.allPatterns)
-            //        {
-            //            if (pat.Pattern_Name_ == p.Pattern_Name_)
-            //            {
-            //                if (p.Pattern_ is null)
-            //                {
-            //                    if (pat.Pattern_ is not null)
-            //                    {
-            //                        p = pat;
-            //                        patterns = pat.Pattern_;
-            //                        break;
-            //                    }
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
+            if (animationCancellationTokenSource != null && !animationCancellationTokenSource.IsCancellationRequested)
+            {
+                // Animation is already running, so return
+                return;
+            }
+            animationCancellationTokenSource = new CancellationTokenSource();
 
-            //if (animationCancellationTokenSource is not null && !animationCancellationTokenSource.IsCancellationRequested)
-            //{
-            //    // Animation is already running, so return
-            //    return;
-            //}
-            //animationCancellationTokenSource = new CancellationTokenSource();
+            if (p.Rotating)
+            {
+                await Task.Run(async () =>
+                {
+                    while (!animationCancellationTokenSource.Token.IsCancellationRequested)
+                    {
+                        //TODO: Figure out how to run this animation
+                        foreach (Design design in patterns)
+                        {
+                            ClearBackground();
 
-            //if (p.Rotating_)
-            //{
-            //    await Task.Run(async () =>
-            //    {
-            //        while (!animationCancellationTokenSource.Token.IsCancellationRequested)
-            //        {
-            //            foreach (List<string> pat in patterns)
-            //            {
-            //                ClearBackground();
+                            foreach (string s in design.Design_Pattern_List)
+                            {
+                                // Set the background color for each square
+                                SetSquareBackgroundColor(s);
+                            }
 
-            //                foreach (string s in pat)
-            //                {
-            //                    // Set the background color for each square
-            //                    SetSquareBackgroundColor(s);
-            //                }
+                            await Task.Delay(1000);
 
-            //                await Task.Delay(1000);
+                            // Check cancellation token after delay
+                            if (animationCancellationTokenSource.Token.IsCancellationRequested)
+                                break;
+                        }
+                    }
+                }, animationCancellationTokenSource.Token);
+            }
+            else
+            {
+                ClearBackground();
 
-            //                // Check cancellation token after delay
-            //                if (animationCancellationTokenSource.Token.IsCancellationRequested)
-            //                    break;
-            //            }
-            //        }
-            //    }, animationCancellationTokenSource.Token);
-            //}
-            //else
-            //{
-            //    ClearBackground();
-            //    if (patterns is not null && patterns.Count is not 0)
-            //    {
-            //        foreach (string s in patterns[0])
-            //        {
-            //            // Set the background color for each square
-            //            SetSquareBackgroundColor(s);
-            //        }
-            //    }
-            //}
+                //TODO Figure out how to change this
+                foreach (string s in patterns[0].Design_Pattern_List)
+                {
+                    // Set the background color for each square
+                    SetSquareBackgroundColor(s);
+                }
+            }
         }
 
         public async Task<Task> StopAnimation()
         {
             // Cancel the animation if it is running
-            if (animationCancellationTokenSource is not null)
+            if (animationCancellationTokenSource != null)
             {
                 animationCancellationTokenSource.Cancel();
-                await Task.Delay(1600);
+                await Task.Delay(1200);
                 animationCancellationTokenSource.Dispose();
                 animationCancellationTokenSource = null;
             }
@@ -253,14 +229,14 @@ namespace BingoFlashboard.View
             });
         }
 
-        public void LoadPatterns()
-        {
-            if (File.Exists(fileName))
-            {
-                string json = File.ReadAllText(fileName);
-                //      App.patternList_ = JsonConvert.DeserializeObject<List<Pattern>>(json);
-            }
-        }
+        //public void LoadPatterns()
+        //{
+        //    if (File.Exists(fileName))
+        //    {
+        //        string json = File.ReadAllText(fileName);
+        //        //      App.patternList_ = JsonConvert.DeserializeObject<List<Pattern>>(json);
+        //    }
+        //}
 
         private void ClearBackground()
         {

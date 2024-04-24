@@ -37,6 +37,7 @@ namespace BingoFlashboard.View
                 MessageBox.Show(ex.Message + " 003" + ex.InnerException);
             }
         }
+
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -116,7 +117,6 @@ namespace BingoFlashboard.View
                     ProgramList.SelectedIndex = 0;
                 }
             }
-
         }
         #endregion
 
@@ -159,13 +159,10 @@ namespace BingoFlashboard.View
                         App.server = null;
                     }
                 }
-
             }
             else
                 MessageBox.Show("Please select a session and program");
         }
-
-
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {

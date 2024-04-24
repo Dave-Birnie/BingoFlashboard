@@ -101,7 +101,8 @@
                       FontSize="14"
                       DisplayMemberPath="Program_Name"
                       MinHeight="100"
-                      Margin="20" />
+                      Margin="20"
+                      SelectionChanged="ProgramList_SelectionChanged" />
         </StackPanel>
 
         <Grid Grid.Row="3">
