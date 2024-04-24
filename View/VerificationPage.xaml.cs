@@ -34,8 +34,7 @@ namespace BingoFlashboard.View
         public VerificationPage()
         {
             InitializeComponent();
-
-            //PopuateCards();
+            PopuateCards();
         }
 
         public VerificationPage(int fontSize)
@@ -87,245 +86,243 @@ namespace BingoFlashboard.View
         public void PopuateCards()
         {
             string[] lines;
-            
+
             //TODO: Add cardset to App.SelectedSession.Program_.Cardsets_
-            //if(App.SelectedSession is not null && App.SelectedSession.Program_List is not null && App.SelectedSession.Program_List.Cardsets_ is not null)
-            //foreach (Cardset cs in App.SelectedSession.Program_.Cardsets_)
-            //    {
-            //        if (cs.Set_Name_ == "DabAll" || cs.Set_Name_ == "Dab All" || cs.Set_Name_ == "DabAll.txt")
-            //        {
-            //            cardList = new List<Card>();
-            //            //FOR PUBLISHING
-            //            lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\DabAll.txt");
+            if (App.SelectedProgram is not null && App.SelectedProgram.Card_Set_List is not null)
+                foreach (Card_Set cs in App.SelectedProgram.Card_Set_List)
+                {
+                    if (cs.Card_Set_Name == "DabAll" || cs.Card_Set_Name == "Dab All" || cs.Card_Set_Name == "DabAll.txt")
+                    {
+                        cardList = new List<Card>();
+                        //FOR PUBLISHING
+                        lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\DabAll.txt");
 
-            //            //lines = System.IO.File.ReadAllLines(@"Flashboard;/Data/DabAll.txt");
-            //            //FOR TESTING
-            //            //lines = System.IO.File.ReadAllLines(@"../../../Data/DabAll.txt");
+                        //lines = System.IO.File.ReadAllLines(@"Flashboard;/Data/DabAll.txt");
+                        //FOR TESTING
+                        //lines = System.IO.File.ReadAllLines(@"../../../Data/DabAll.txt");
 
-            //            foreach (string s in lines)
-            //            {
-            //                Card c = new Card();
-            //                string[] ssize = s.Split(null);
+                        foreach (string s in lines)
+                        {
+                            Card c = new Card();
+                            string[] ssize = s.Split(null);
 
-            //                //Add each data to card
-            //                c.B1_ = ssize[1];
-            //                c.B2_ = ssize[6];
-            //                c.B3_ = ssize[11];
-            //                c.B4_ = ssize[16];
-            //                c.B5_ = ssize[21];
-            //                c.I1_ = ssize[2];
-            //                c.I2_ = ssize[7];
-            //                c.I3_ = ssize[12];
-            //                c.I4_ = ssize[17];
-            //                c.I5_ = ssize[22];
-            //                c.N1_ = ssize[3];
-            //                c.N2_ = ssize[8];
-            //                c.N3_ = ssize[13];
-            //                c.N4_ = ssize[18];
-            //                c.N5_ = ssize[23];
-            //                c.G1_ = ssize[4];
-            //                c.G2_ = ssize[9];
-            //                c.G3_ = ssize[14];
-            //                c.G4_ = ssize[19];
-            //                c.G5_ = ssize[24];
-            //                c.O1_ = ssize[5];
-            //                c.O2_ = ssize[10];
-            //                c.O3_ = ssize[15];
-            //                c.O4_ = ssize[20];
-            //                c.O5_ = ssize[25];
-            //                c.CardNum_ = ssize[0];
+                            //Add each data to card
+                            c.B1 = ssize[1];
+                            c.B2 = ssize[6];
+                            c.B3 = ssize[11];
+                            c.B4 = ssize[16];
+                            c.B5 = ssize[21];
+                            c.I1 = ssize[2];
+                            c.I2 = ssize[7];
+                            c.I3 = ssize[12];
+                            c.I4 = ssize[17];
+                            c.I5 = ssize[22];
+                            c.N1 = ssize[3];
+                            c.N2 = ssize[8];
+                            c.N3 = ssize[13];
+                            c.N4 = ssize[18];
+                            c.N5 = ssize[23];
+                            c.G1 = ssize[4];
+                            c.G2 = ssize[9];
+                            c.G3 = ssize[14];
+                            c.G4 = ssize[19];
+                            c.G5 = ssize[24];
+                            c.O1 = ssize[5];
+                            c.O2 = ssize[10];
+                            c.O3 = ssize[15];
+                            c.O4 = ssize[20];
+                            c.O5 = ssize[25];
+                            c.Card_Number = ssize[0];
 
-            //                cardList.Add(c);
-            //            }
+                            cardList.Add(c);
+                        }
 
-            //            Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("DabAll", cardList);
-            //            temp_cardset.Add(newCardSet);
-            //        } // END IF = DABALL
-            //        else if (cs.Set_Name_ == "Perfect Paper")
-            //        {
+                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("DabAll", cardList);
+                        temp_cardset.Add(newCardSet);
+                    } // END IF = DABALL
+                    else if (cs.Card_Set_Name == "Perfect Paper")
+                    {
 
-            //            cardList = new List<Card>();
+                        cardList = new List<Card>();
 
-            //            //FOR PUBLISHING
+                        //FOR PUBLISHING
 
-            //            lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\PerfectPaper.txt");
-            //            //FOR TESTING
-            //            //lines = System.IO.File.ReadAllLines(@"../Data/PerfectPaper.txt");
+                        lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\PerfectPaper.txt");
+                        //FOR TESTING
+                        //lines = System.IO.File.ReadAllLines(@"../Data/PerfectPaper.txt");
 
-            //            foreach (string s in lines)
-            //            {
-            //                Card c = new Card();
-            //                List<string> ssize = new List<string>();
+                        foreach (string s in lines)
+                        {
+                            Card c = new Card();
+                            List<string> ssize = new List<string>();
 
-            //                int chunkSize = 2;
-            //                int stringLength = s.Length;
+                            int chunkSize = 2;
+                            int stringLength = s.Length;
 
-            //                for (int i = 0; i < stringLength; i += chunkSize)
-            //                {
-            //                    if (i + chunkSize > stringLength)
-            //                        chunkSize = stringLength - i;
+                            for (int i = 0; i < stringLength; i += chunkSize)
+                            {
+                                if (i + chunkSize > stringLength)
+                                    chunkSize = stringLength - i;
 
-            //                    ssize.Add(s.Substring(i, chunkSize));
+                                ssize.Add(s.Substring(i, chunkSize));
 
-            //                }
+                            }
 
-            //                string cn = ssize[25] + ssize[26] + ssize[27] + ssize[28];
-            //                string cardNum = cn.TrimStart(new char[] { '0' });
+                            string cn = ssize[25] + ssize[26] + ssize[27] + ssize[28];
+                            string cardNum = cn.TrimStart(new char[] { '0' });
 
-            //                //Add each data to card
-            //                c.B1_ = ssize[0];
-            //                c.B2_ = ssize[1];
-            //                c.B3_ = ssize[2];
-            //                c.B4_ = ssize[3];
-            //                c.B5_ = ssize[4];
-            //                c.I1_ = ssize[5];
-            //                c.I2_ = ssize[6];
-            //                c.I3_ = ssize[7];
-            //                c.I4_ = ssize[8];
-            //                c.I5_ = ssize[9];
-            //                c.N1_ = ssize[10];
-            //                c.N2_ = ssize[11];
-            //                c.N3_ = ssize[12];
-            //                c.N4_ = ssize[13];
-            //                c.N5_ = ssize[14];
-            //                c.G1_ = ssize[15];
-            //                c.G2_ = ssize[16];
-            //                c.G3_ = ssize[17];
-            //                c.G4_ = ssize[18];
-            //                c.G5_ = ssize[19];
-            //                c.O1_ = ssize[20];
-            //                c.O2_ = ssize[21];
-            //                c.O3_ = ssize[22];
-            //                c.O4_ = ssize[23];
-            //                c.O5_ = ssize[24];
-            //                c.CardNum_ = cardNum;
+                            //Add each data to card
+                            c.B1 = ssize[0];
+                            c.B2 = ssize[1];
+                            c.B3 = ssize[2];
+                            c.B4 = ssize[3];
+                            c.B5 = ssize[4];
+                            c.I1 = ssize[5];
+                            c.I2 = ssize[6];
+                            c.I3 = ssize[7];
+                            c.I4 = ssize[8];
+                            c.I5 = ssize[9];
+                            c.N1 = ssize[10];
+                            c.N2 = ssize[11];
+                            c.N3 = ssize[12];
+                            c.N4 = ssize[13];
+                            c.N5 = ssize[14];
+                            c.G1 = ssize[15];
+                            c.G2 = ssize[16];
+                            c.G3 = ssize[17];
+                            c.G4 = ssize[18];
+                            c.G5 = ssize[19];
+                            c.O1 = ssize[20];
+                            c.O2 = ssize[21];
+                            c.O3 = ssize[22];
+                            c.O4 = ssize[23];
+                            c.O5 = ssize[24];
+                            c.Card_Number = cardNum;
 
-            //                cardList.Add(c);
-            //                //App.cardDatabase.Add(c);
-            //            }
+                            cardList.Add(c);
+                            //App.cardDatabase.Add(c);
+                        }
 
-            //            Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("PerfectPaper", cardList);
-            //            temp_cardset.Add(newCardSet);
-            //        }// END IF PERFECT PAPER
-            //        else if (cs.Set_Name_ == "Perfect Paper R")
-            //        {
-            //            cardList = new List<Card>();
-            //            //FOR PUBLISHING
-            //            lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\Reliable.txt");
-
-
-            //            //lines = System.IO.File.ReadAllLines(@"Flashboard;Data/Reliable.txt");
-            //            //FOR TESTING
-            //            //lines = System.IO.File.ReadAllLines(@"../Data/Reliable.txt");
-
-            //            foreach (string s in lines)
-            //            {
-            //                Card c = new Card();
-            //                List<string> ssize = new List<string>();
-
-            //                int chunkSize = 2;
-            //                int stringLength = s.Length;
-
-            //                for (int i = 0; i < stringLength; i += chunkSize)
-            //                {
-            //                    if (i + chunkSize > stringLength)
-            //                        chunkSize = stringLength - i;
-
-            //                    ssize.Add(s.Substring(i, chunkSize));
-
-            //                }
-
-            //                string cn = ssize[25] + ssize[26] + ssize[27] + ssize[28];
-            //                string cardNum = cn.TrimStart(new char[] { '0' });
-
-            //                //Add each data to card
-            //                c.B1_ = ssize[0];
-            //                c.B2_ = ssize[1];
-            //                c.B3_ = ssize[2];
-            //                c.B4_ = ssize[3];
-            //                c.B5_ = ssize[4];
-            //                c.I1_ = ssize[5];
-            //                c.I2_ = ssize[6];
-            //                c.I3_ = ssize[7];
-            //                c.I4_ = ssize[8];
-            //                c.I5_ = ssize[9];
-            //                c.N1_ = ssize[10];
-            //                c.N2_ = ssize[11];
-            //                c.N3_ = ssize[12];
-            //                c.N4_ = ssize[13];
-            //                c.N5_ = ssize[14];
-            //                c.G1_ = ssize[15];
-            //                c.G2_ = ssize[16];
-            //                c.G3_ = ssize[17];
-            //                c.G4_ = ssize[18];
-            //                c.G5_ = ssize[19];
-            //                c.O1_ = ssize[20];
-            //                c.O2_ = ssize[21];
-            //                c.O3_ = ssize[22];
-            //                c.O4_ = ssize[23];
-            //                c.O5_ = ssize[24];
-            //                c.CardNum_ = cardNum;
-
-            //                cardList.Add(c);
-            //                //App.cardDatabase.Add(c);
-            //            }
-
-            //            Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("PerfectPaperR", cardList);
-            //            temp_cardset.Add(newCardSet);
-            //        }// END IF PERFECT PAPER R
-            //        else
-            //        {
-            //            cardList = new List<Card>();
-            //            //FOR PUBLISHING
-            //            lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\UniMax.txt");
-
-            //            //lines = System.IO.File.ReadAllLines(@"Flashboard;Data/UniMax.txt");
-            //            //FOR TESTING
-            //            //lines = System.IO.File.ReadAllLines(@"../../../UniMax.txt");
-
-            //            foreach (string s in lines)
-            //            {
-            //                Card c = new Card();
-            //                string[] ssize = s.Split(null);
-
-            //                //Add each data to card
-            //                c.B1_ = ssize[0];
-            //                c.B2_ = ssize[1];
-            //                c.B3_ = ssize[2];
-            //                c.B4_ = ssize[3];
-            //                c.B5_ = ssize[4];
-            //                c.I1_ = ssize[5];
-            //                c.I2_ = ssize[6];
-            //                c.I3_ = ssize[7];
-            //                c.I4_ = ssize[8];
-            //                c.I5_ = ssize[9];
-            //                c.N1_ = ssize[10];
-            //                c.N2_ = ssize[11];
-            //                c.N3_ = ssize[12];
-            //                c.N4_ = ssize[13];
-            //                c.N5_ = ssize[14];
-            //                c.G1_ = ssize[15];
-            //                c.G2_ = ssize[16];
-            //                c.G3_ = ssize[17];
-            //                c.G4_ = ssize[18];
-            //                c.G5_ = ssize[19];
-            //                c.O1_ = ssize[20];
-            //                c.O2_ = ssize[21];
-            //                c.O3_ = ssize[22];
-            //                c.O4_ = ssize[23];
-            //                c.O5_ = ssize[24];
-            //                c.CardNum_ = ssize[25];
-
-            //                cardList.Add(c);
-            //                //App.cardDatabase.Add(c);
-            //            }
-
-            //            Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("UniMax", cardList);
-            //            temp_cardset.Add(newCardSet);
-            //        }
+                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("PerfectPaper", cardList);
+                        temp_cardset.Add(newCardSet);
+                    }// END IF PERFECT PAPER
+                    else if (cs.Card_Set_Name == "Perfect Paper R")
+                    {
+                        cardList = new List<Card>();
+                        //FOR PUBLISHING
+                        lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\Reliable.txt");
 
 
-            //    }
+                        //lines = System.IO.File.ReadAllLines(@"Flashboard;Data/Reliable.txt");
+                        //FOR TESTING
+                        //lines = System.IO.File.ReadAllLines(@"../Data/Reliable.txt");
+
+                        foreach (string s in lines)
+                        {
+                            Card c = new Card();
+                            List<string> ssize = new List<string>();
+
+                            int chunkSize = 2;
+                            int stringLength = s.Length;
+
+                            for (int i = 0; i < stringLength; i += chunkSize)
+                            {
+                                if (i + chunkSize > stringLength)
+                                    chunkSize = stringLength - i;
+
+                                ssize.Add(s.Substring(i, chunkSize));
+
+                            }
+
+                            string cn = ssize[25] + ssize[26] + ssize[27] + ssize[28];
+                            string cardNum = cn.TrimStart(new char[] { '0' });
+
+                            //Add each data to card
+                            c.B1 = ssize[0];
+                            c.B2 = ssize[1];
+                            c.B3 = ssize[2];
+                            c.B4 = ssize[3];
+                            c.B5 = ssize[4];
+                            c.I1 = ssize[5];
+                            c.I2 = ssize[6];
+                            c.I3 = ssize[7];
+                            c.I4 = ssize[8];
+                            c.I5 = ssize[9];
+                            c.N1 = ssize[10];
+                            c.N2 = ssize[11];
+                            c.N3 = ssize[12];
+                            c.N4 = ssize[13];
+                            c.N5 = ssize[14];
+                            c.G1 = ssize[15];
+                            c.G2 = ssize[16];
+                            c.G3 = ssize[17];
+                            c.G4 = ssize[18];
+                            c.G5 = ssize[19];
+                            c.O1 = ssize[20];
+                            c.O2 = ssize[21];
+                            c.O3 = ssize[22];
+                            c.O4 = ssize[23];
+                            c.O5 = ssize[24];
+                            c.Card_Number = cardNum;
+
+                            cardList.Add(c);
+                            //App.cardDatabase.Add(c);
+                        }
+
+                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("PerfectPaperR", cardList);
+                        temp_cardset.Add(newCardSet);
+                    }// END IF PERFECT PAPER R
+                    else
+                    {
+                        cardList = new List<Card>();
+                        //FOR PUBLISHING
+                        lines = System.IO.File.ReadAllLines(Environment.CurrentDirectory + @"\Data\UniMax.txt");
+
+                        //lines = System.IO.File.ReadAllLines(@"Flashboard;Data/UniMax.txt");
+                        //FOR TESTING
+                        //lines = System.IO.File.ReadAllLines(@"../../../UniMax.txt");
+
+                        foreach (string s in lines)
+                        {
+                            Card c = new Card();
+                            string[] ssize = s.Split(null);
+
+                            //Add each data to card
+                            c.B1 = ssize[0];
+                            c.B2 = ssize[1];
+                            c.B3 = ssize[2];
+                            c.B4 = ssize[3];
+                            c.B5 = ssize[4];
+                            c.I1 = ssize[5];
+                            c.I2 = ssize[6];
+                            c.I3 = ssize[7];
+                            c.I4 = ssize[8];
+                            c.I5 = ssize[9];
+                            c.N1 = ssize[10];
+                            c.N2 = ssize[11];
+                            c.N3 = ssize[12];
+                            c.N4 = ssize[13];
+                            c.N5 = ssize[14];
+                            c.G1 = ssize[15];
+                            c.G2 = ssize[16];
+                            c.G3 = ssize[17];
+                            c.G4 = ssize[18];
+                            c.G5 = ssize[19];
+                            c.O1 = ssize[20];
+                            c.O2 = ssize[21];
+                            c.O3 = ssize[22];
+                            c.O4 = ssize[23];
+                            c.O5 = ssize[24];
+                            c.Card_Number = ssize[25];
+
+                            cardList.Add(c);
+                            //App.cardDatabase.Add(c);
+                        }
+
+                        Tuple<string, List<Card>> newCardSet = new Tuple<string, List<Card>>("UniMax", cardList);
+                        temp_cardset.Add(newCardSet);
+                    }
+                }
         }
 
         //public void SelectCard(string cardNum)
@@ -584,31 +581,31 @@ namespace BingoFlashboard.View
             }
 
             //TODO: UPDATE PATTERN TO BE SELECTED FROM GAME
-            //if (App.SelectedGame is not null && App.SelectedGame.Game_Pattern is not null && App.SelectedGame.Game_Pattern.Pattern_ is not null)
-            //{
-            //    foreach (var pattern in App.SelectedGame.Pattern_.Pattern_)
-            //    {
-            //        bool patternMatch = true;
+            if (App.SelectedGame is not null && App.SelectedGame.Game_Pattern is not null && App.SelectedGame.Game_Pattern.Pattern_Design_List is not null)
+            {
+                //TODO
+                //foreach (var pattern in App.SelectedGame.Game_Pattern.Pattern_Design_List)
+                //{
+                //    bool patternMatch = true;
 
-            //        foreach (string p in pattern)
-            //        {
-            //            if (!tempList.Contains(p))
-            //            {
-            //                patternMatch = false;
-            //                break;
-            //            }
-            //        }
+                //    foreach (string p in pattern)
+                //    {
+                //        if (!tempList.Contains(p))
+                //        {
+                //            patternMatch = false;
+                //            break;
+                //        }
+                //    }
 
-            //        if (patternMatch)
-            //        {
-            //            //TODO Add pattern to winner list
-            //            success = true;
-            //            List<string> successfulPattern = pattern;
-            //            ColorWinner(pattern, lastCalled);
-
-            //        }
-            //    }
-            //}
+                //    if (patternMatch)
+                //    {
+                //        //TODO Add pattern to winner list
+                //        success = true;
+                //        List<string> successfulPattern = pattern;
+                //        ColorWinner(pattern, lastCalled);
+                //    }
+                //}
+            }
             return success;
         }
 

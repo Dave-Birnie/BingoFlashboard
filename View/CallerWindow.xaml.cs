@@ -221,8 +221,8 @@ namespace BingoFlashboard.View
                         a++;
                     }
                     //TODO GET ANIMATION WORKING
-                    //if (App.SelectedGame.Game_Pattern is not null && App.miniGrid is not null)
-                    //    App.miniGrid.StartAnimation(App.SelectedGame.Game_Pattern);
+                    if (App.SelectedGame.Game_Pattern is not null && App.miniGrid is not null)
+                        App.miniGrid.StartAnimation(App.SelectedGame.Game_Pattern);
 
                     if (App.SelectedGame is not null && App.callerWindowViewModel is not null)
                     {

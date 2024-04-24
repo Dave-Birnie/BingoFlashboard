@@ -68,7 +68,7 @@
                                        FontWeight="Bold"
                                        Foreground="White"
                                        Name="GameName"
-                                       Content="{Binding CurrentGame.Name_}" />
+                                       Content="{Binding CurrentGame.Game_Name}" />
 
                             </Grid>
 
@@ -88,7 +88,7 @@
                                        FontWeight="Bold"
                                        Foreground="White"
                                        Name="Pattern"
-                                       Content="{Binding CurrentGame.Pattern_.Pattern_Name_}" />
+                                       Content="{Binding CurrentGame.Game_Pattern.Pattern_Name}" />
                             </Grid>
                             <!--#endregion PATTERN NAME-->
 
@@ -134,15 +134,15 @@
                                                    HorizontalContentAlignment="Right"
                                                    FontSize="30"
                                                    FontWeight="Bold"
-                                                   Foreground="{Binding CurrentGame.Font_Color_.Color_Hash_}"
+                                                   Foreground="{Binding CurrentGame.Font_Color.Color_Hash}"
                                                    Content="$" />
                                             <Label HorizontalAlignment="Right"
                                                    VerticalAlignment="Top"
                                                    HorizontalContentAlignment="Right"
                                                    FontSize="30"
                                                    FontWeight="Bold"
-                                                   Foreground="{Binding CurrentGame.Font_Color_.Color_Hash_}"
-                                                   Content="{Binding CurrentGame.Prize_}" />
+                                                   Foreground="{Binding FontColor}"
+                                                   Content="{Binding CurrentGame.Prize}" />
 
                                         </StackPanel>
                                     </Grid>
@@ -154,7 +154,7 @@
                                                FontSize="20"
                                                FontWeight="Bold"
                                                Foreground="{Binding FontColor}"
-                                               Content="{Binding CurrentGame.Pattern_.Pattern_Name_}" />
+                                               Content="{Binding CurrentGame.Game_Pattern.Pattern_Name}" />
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -177,7 +177,7 @@
                                                    FontSize="30"
                                                    FontWeight="Bold"
                                                    Visibility="{Binding JackpotVisibility}"
-                                                   Foreground="{Binding CurrentGame.Font_Color_.Color_Hash_}"
+                                                   Foreground="{Binding FontColor}"
                                                    Content="$" />
                                             <Label Name="JackpotPrize"
                                                    VerticalAlignment="Top"
@@ -188,7 +188,7 @@
                                                    FontWeight="Bold"
                                                    Visibility="{Binding JackpotVisibility}"
                                                    Foreground="{Binding FontColor}"
-                                                   Content="{Binding CurrentGame.Jackpot_Prize_}" />
+                                                   Content="{Binding CurrentGame.Jackpot_Prize}" />
                                         </StackPanel>
                                     </Grid>
                                     <Grid Grid.Column="1">
@@ -200,7 +200,7 @@
                                                Foreground="{Binding FontColor}"
                                                Visibility="Visible"
                                                Name="JackpotLbL"
-                                               Content="{Binding CurrentGame.GameType_}">
+                                               Content="{Binding CurrentGame.Type.Game_Type_Name}">
                                         </Label>
                                     </Grid>
                                 </Grid>
@@ -232,7 +232,7 @@
                                    FontSize="40"
                                    Visibility="{Binding DesignatedMoneyBallLblVisibility}"
                                    FontFamily="Browallia New"
-                                   Content="{Binding CurrentGame.GameType_}" />
+                                   Content="{Binding CurrentGame.Type.Game_Type_Name}" />
                         </Grid>
 
                         <Grid Grid.Row="1">
@@ -258,7 +258,7 @@
                                    FontFamily="Browallia New"
                                    Grid.ColumnSpan="3"
                                    Visibility="{Binding DesignatedNumVisibility}"
-                                   Content="{Binding CurrentGame.Designated_Number_}"/>
+                                   Content="{Binding CurrentGame.Designated_Number}"/>
 
                             <Grid Grid.ColumnSpan="3"
                                   Name="UPikEm"

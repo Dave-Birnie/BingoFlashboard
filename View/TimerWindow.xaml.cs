@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Global_Models_Library.Flashboard_Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -201,6 +202,23 @@ namespace BingoFlashboard.View
                 //TODO TimerLogo should come from Hall.Logo -> insert proper logo change
                 //TimerLogo.Source = App.hall.ByteArrayToImage();
                 //}
+                if (App.hall is not null)
+                {
+                    byte[] imageBytes = Convert.FromBase64String(App.hall.Hall_Logo);
+
+                    BitmapImage bitmapImage = new BitmapImage();
+
+                    using (var ms = new MemoryStream(imageBytes))
+                    {
+                        bitmapImage = new BitmapImage();
+                        bitmapImage.BeginInit();
+                        bitmapImage.CacheOption = BitmapCacheOption.OnLoad; // Load the image data while the stream is open
+                        bitmapImage.StreamSource = ms;
+                        bitmapImage.EndInit();
+                        bitmapImage.Freeze(); // Optional: make the BitmapImage usable across threads
+                    }
+                    TimerLogo.Source = bitmapImage;
+                }
             }
         }
         public async void BreakLoop(string minutes, string selectedType)
@@ -327,7 +345,7 @@ namespace BingoFlashboard.View
         {
             _BreakLoop = false;
             List<string> words = new List<string> { "Welcome", "Get your cards ready!", "This is going to be fun!",
-            "We wish you good luck!", " see big wins coming!", "Grab a drink!", "Still time left!", "We will be starting soon", "You got this!"};
+            "We wish you good luck!", " see big wins coming!", "Grab a drink!", "Still time left!", "We will be starting soon", "You got this!", "Grab some Cornbread & Steak!"};
             int num = 0;
             while (true)
             {
@@ -348,7 +366,7 @@ namespace BingoFlashboard.View
         {
             _BreakLoop = false;
             List<string> words = new List<string> { "Take a break", "Get your cards ready!", "Relax, grab a drink!",
-            "Good luck on the rest of the game!", "Hope you are having a good time!", "Grab some popcorn!", "See you in a few!", "We will be starting soon", "Kiss your loved ones"};
+            "Good luck on the rest of the game!", "Hope you are having a good time!", "Grab some popcorn!", "See you in a few!", "We will be starting soon", "Kiss your loved ones", "Grab some Cornbread & Steak!"};
             int num = 0;
             while (true)
             {
