@@ -584,27 +584,27 @@ namespace BingoFlashboard.View
             if (App.SelectedGame is not null && App.SelectedGame.Game_Pattern is not null && App.SelectedGame.Game_Pattern.Pattern_Design_List is not null)
             {
                 //TODO
-                //foreach (var pattern in App.SelectedGame.Game_Pattern.Pattern_Design_List)
-                //{
-                //    bool patternMatch = true;
+                foreach (Design pattern in App.SelectedGame.Game_Pattern.Pattern_Design_List)
+                {
+                    bool patternMatch = true;
 
-                //    foreach (string p in pattern)
-                //    {
-                //        if (!tempList.Contains(p))
-                //        {
-                //            patternMatch = false;
-                //            break;
-                //        }
-                //    }
+                    foreach (string p in pattern.Design_Pattern_List)
+                    {
+                        if (!tempList.Contains(p))
+                        {
+                            patternMatch = false;
+                            break;
+                        }
+                    }
 
-                //    if (patternMatch)
-                //    {
-                //        //TODO Add pattern to winner list
-                //        success = true;
-                //        List<string> successfulPattern = pattern;
-                //        ColorWinner(pattern, lastCalled);
-                //    }
-                //}
+                    if (patternMatch)
+                    {
+                        //TODO Add pattern to winner list
+                        success = true;
+                        Design successfulPattern = pattern;
+                        ColorWinner(pattern, lastCalled);
+                    }
+                }
             }
             return success;
         }
@@ -658,7 +658,7 @@ namespace BingoFlashboard.View
         }
 
 
-        private void ColorWinner(List<string> list, string lastCalled)
+        private void ColorWinner(Design list, string lastCalled)
         {
             SolidColorBrush lastCalledColor = new SolidColorBrush(Colors.DodgerBlue); // or any other color you prefer
 
@@ -668,7 +668,7 @@ namespace BingoFlashboard.View
             // A helper action to set the background color of a label
             Action<Label, string> setColor = (label, labelName) =>
             {
-                if (list.Contains(labelName))
+                if (list.Design_Pattern_List.Contains(labelName))
                 {
                     label.Background = labelName == lastCalled ? lastCalledColor : standardColor;
                 }

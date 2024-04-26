@@ -94,10 +94,15 @@ namespace BingoFlashboard.View
         {
             if (App.hall is not null)
             {
-                if (App.hall.All_Sessions is not null && App.hall.All_Sessions.Count <= 1)
+                var test = App.hall;
+                if (App.hall.All_Sessions is not null && App.hall.All_Sessions.Count >= 1)
                 {
                     sessionsList.ItemsSource = App.hall.All_Sessions;
                     sessionsList.SelectedIndex = 0;
+                }
+                else
+                {
+                    MessageBox.Show("No sessions found");
                 }
             }
         }

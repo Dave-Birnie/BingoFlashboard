@@ -650,20 +650,20 @@ namespace BingoFlashboard.ViewModel
             }
         }
 
-        //private string? _hallFlashboardMessage = App.hall.Message_;
-        //public string? HallFlashboardMessage
-        //{
-        //    get
-        //    {
-        //        return _hallFlashboardMessage;
-        //    }
-        //    set
-        //    {
+        private string? _hallFlashboardMessage = App.SelectedProgram.Program_Message;
+        public string? HallFlashboardMessage
+        {
+            get
+            {
+                return _hallFlashboardMessage;
+            }
+            set
+            {
 
-        //        _hallFlashboardMessage = value;
-        //        OnPropertyChanged(nameof(HallFlashboardMessage));
-        //    }
-        //}
+                _hallFlashboardMessage = value;
+                OnPropertyChanged(nameof(HallFlashboardMessage));
+            }
+        }
 
         #endregion
 

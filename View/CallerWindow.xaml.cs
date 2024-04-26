@@ -703,7 +703,7 @@ namespace BingoFlashboard.View
                             string newText = st.Substring(1);
                             App.Calls.Add(newText);
                         }
-
+                        var test = App.Calls;
                         allowAdd = false;
                         response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
                         Ball.Text = "";
