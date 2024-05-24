@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Global_Models_Library.Flashboard_Models;
@@ -8,8 +9,11 @@ namespace BingoFlashboard.Data
 {
     public class LoadPatterns
     {
-        string fileName = @"C:\Temp\PatternsTest.txt";
+        //DEMO
+        //string fileName = @"C:\Temp\PatternsTest.txt";
+        string fileName = Environment.CurrentDirectory + @"\Data\PatternsTest.txt";
         public List<Pattern> patternList;
+
 
         public LoadPatterns()
         {

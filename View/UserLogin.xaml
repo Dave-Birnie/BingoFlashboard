@@ -27,7 +27,7 @@
                 BorderBrush="White">
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="{StaticResource C_AccentOrange}"
+                    <GradientStop Color="{StaticResource C_OxfordBlue}"
                                   Offset="0.0" />
                     <GradientStop Color="{StaticResource C_AccentGray}"
                                   Offset="0.8" />

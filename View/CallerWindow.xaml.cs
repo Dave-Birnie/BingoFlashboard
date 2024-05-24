@@ -701,7 +701,7 @@ namespace BingoFlashboard.View
                         if (st.StartsWith("0"))
                         {
                             string newText = st.Substring(1);
-                            App.Calls.Add(newText);
+                            App.Calls.Remove(newText);
                         }
                         var test = App.Calls;
                         allowAdd = false;
@@ -720,8 +720,6 @@ namespace BingoFlashboard.View
                     }
 
                     response = App.flashboardViewModel.UpdateFlashboardNumbers(Ball.Text);
-
-                    // Ball.Text = "";
                 }
                 if (response == "Success")
                 {
