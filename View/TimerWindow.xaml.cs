@@ -345,7 +345,7 @@ namespace BingoFlashboard.View
         {
             _BreakLoop = false;
             List<string> words = new List<string> { "Welcome", "Get your cards ready!", "This is going to be fun!",
-            "We wish you good luck!", " see big wins coming!", "Grab a drink!", "Still time left!", "We will be starting soon", "You got this!", "Grab some Cornbread & Steak!"};
+            "We wish you good luck!", "I see big wins coming!", "Grab some strawberry juice!", "Still time left!", "We will be starting soon", "You got this!", "Grab some Cornbread & Steak!"};
             int num = 0;
             while (true)
             {
@@ -353,10 +353,7 @@ namespace BingoFlashboard.View
                 if (App.timerWindow is not null)
                     App.timerWindow.writing.Content = words[num];
 
-                if (num == 8)
-                    num = 0;
-                else
-                    num++;
+                num = (num + 1) % words.Count;
 
                 if (_BreakLoop)
                     break;
@@ -365,7 +362,7 @@ namespace BingoFlashboard.View
         private async void RotateIntermission()
         {
             _BreakLoop = false;
-            List<string> words = new List<string> { "Take a break", "Get your cards ready!", "Relax, grab a drink!",
+            List<string> words = new List<string> { "Take a break", "Get your cards ready!", "Relax, grab a some strawberry juice!",
             "Good luck on the rest of the game!", "Hope you are having a good time!", "Grab some popcorn!", "See you in a few!", "We will be starting soon", "Kiss your loved ones", "Grab some Cornbread & Steak!"};
             int num = 0;
             while (true)
@@ -374,10 +371,7 @@ namespace BingoFlashboard.View
                 if (App.timerWindow is not null)
                     App.timerWindow.writing.Content = words[num];
 
-                if (num == 8)
-                    num = 0;
-                else
-                    num++;
+                num = (num + 1) % words.Count;
 
                 if (_BreakLoop)
                     break;
@@ -394,14 +388,14 @@ namespace BingoFlashboard.View
                 if (App.timerWindow is not null)
                     App.timerWindow.writing.Content = words[num];
 
-                if (num == 8)
-                    num = 0;
-                else
-                    num++;
+                num = (num + 1) % words.Count;
+
+                if (_BreakLoop)
+                    break;
             }
         }//End RotateNextGame()
 
-        private void OnClose(object sender, System.ComponentModel.CancelEventArgs e)
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
         }

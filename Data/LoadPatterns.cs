@@ -10,8 +10,8 @@ namespace BingoFlashboard.Data
     public class LoadPatterns
     {
         //DEMO
-        //string fileName = @"C:\Temp\PatternsTest.txt";
-        string fileName = Environment.CurrentDirectory + @"\Data\PatternsTest.txt";
+        //string fileName = @"C:\Temp\PatternsTest2.txt";
+        string fileName = Environment.CurrentDirectory + @"\Data\PatternsTest2.txt";
         public List<Pattern> patternList;
 
 

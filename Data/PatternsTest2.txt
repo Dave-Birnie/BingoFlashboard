@@ -1,0 +1,9624 @@
+[
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Any Single Line",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I2 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I2",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 G2 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"G2",
+					"N3",
+					"I4",
+					"B5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Letter X",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I2 N3 G4 O5 O1 G2 I4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I2",
+					"N3",
+					"G4",
+					"O5",
+					"O1",
+					"G2",
+					"I4",
+					"B5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Full Card",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 I5 I4 I3 I2 I1 N1 N2 N3 N4 N5 G4 G5 G3 G2 G1 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"I5",
+					"I4",
+					"I3",
+					"I2",
+					"I1",
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"G4",
+					"G5",
+					"G3",
+					"G2",
+					"G1",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Any Double Line",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B2 B3 B4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B2",
+					"B3",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 I2 I3 I4 I5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"I2",
+					"I3",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 I2 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"I2",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 G2 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"G2",
+					"N3",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B1 B3 B4 B5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B1",
+					"B3",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 I1 I3 I4 I5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"I1",
+					"I3",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 N1 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"N1",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 G1 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"G1",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 O1 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"O1",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B1 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B1",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 G2 N2 O2 O1 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"G2",
+					"N2",
+					"O2",
+					"O1",
+					"N3",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 B1 B2 B4 B5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"B1",
+					"B2",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 I1 I2 I4 I5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"I1",
+					"I2",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 N1 N2 N4 N5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"N1",
+					"N2",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 G1 G2 G4 G5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"G1",
+					"G2",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 O1 O2 O4 O5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"O1",
+					"O2",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 B1 I2 G4 O5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"B1",
+					"I2",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 O1 G2 I4 B5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"O1",
+					"G2",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 B1 B2 B3 B5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"B1",
+					"B2",
+					"B3",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 I1 I2 I3 I5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"I1",
+					"I2",
+					"I3",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 N1 N2 N3 N5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"N1",
+					"N2",
+					"N3",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 G1 G2 G3 G5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"G1",
+					"G2",
+					"G3",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 O1 O2 O3 O5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"O1",
+					"O2",
+					"O3",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 B1 I2 N3 O5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"B1",
+					"I2",
+					"N3",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 O1 G2 N3 B5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"O1",
+					"G2",
+					"N3",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 B1 B2 B3 B4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"B1",
+					"B2",
+					"B3",
+					"B4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 I1 I2 I3 I4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"I1",
+					"I2",
+					"I3",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 N1 N2 N3 N4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"N1",
+					"N2",
+					"N3",
+					"N4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 G1 G2 G3 G4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"G1",
+					"G2",
+					"G3",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 O1 O2 O3 O4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"O1",
+					"O2",
+					"O3",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 B1 I2 N3 G4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"B1",
+					"I2",
+					"N3",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 O1 G2 N3 I4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"O1",
+					"G2",
+					"N3",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 G1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 I2 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"I2",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 O1 G2 N3 I4 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"O1",
+					"G2",
+					"N3",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 B1 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"B1",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 O1 G2 N3 B5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"O1",
+					"G2",
+					"N3",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 B1 I2 G4 O5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"B1",
+					"I2",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 O1 G2 I4 B5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"O1",
+					"G2",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 G4 G5 B1 I2 N3 O5 ",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5",
+					"B1",
+					"I2",
+					"N3",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 G4 G5 O1 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5",
+					"O1",
+					"N3",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 O2 O3 O4 O5 B1 I2 N3 G4 ",
+				"Design_Pattern_List": [
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5",
+					"B1",
+					"I2",
+					"N3",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 O2 O3 O4 O5 G2 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5",
+					"G2",
+					"N3",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I2 N3 G4 O5 O1 G2 I4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I2",
+					"N3",
+					"G4",
+					"O5",
+					"O1",
+					"G2",
+					"I4",
+					"B5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Roving Block Of Nine",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 N2 I2 B2 B3 I3 N3 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"N2",
+					"I2",
+					"B2",
+					"B3",
+					"I3",
+					"N3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 N1 G1 G2 G3 N3 I3 I2 N2 ",
+				"Design_Pattern_List": [
+					"I1",
+					"N1",
+					"G1",
+					"G2",
+					"G3",
+					"N3",
+					"I3",
+					"I2",
+					"N2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 G3 O3 O2 O1 G1 G2 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"G3",
+					"O3",
+					"O2",
+					"O1",
+					"G1",
+					"G2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N2 G2 O2 O3 O4 G4 N4 N3 G3 ",
+				"Design_Pattern_List": [
+					"N2",
+					"G2",
+					"O2",
+					"O3",
+					"O4",
+					"G4",
+					"N4",
+					"N3",
+					"G3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N3 G3 O3 O4 O5 G5 N5 N4 G4 ",
+				"Design_Pattern_List": [
+					"N3",
+					"G3",
+					"O3",
+					"O4",
+					"O5",
+					"G5",
+					"N5",
+					"N4",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G3 G4 G5 N5 I5 I4 I3 N3 N4 ",
+				"Design_Pattern_List": [
+					"G3",
+					"G4",
+					"G5",
+					"N5",
+					"I5",
+					"I4",
+					"I3",
+					"N3",
+					"N4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N5 I5 B5 B4 B3 I3 N3 N4 I4 ",
+				"Design_Pattern_List": [
+					"N5",
+					"I5",
+					"B5",
+					"B4",
+					"B3",
+					"I3",
+					"N3",
+					"N4",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 N3 N2 I2 B2 B3 I3 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"N3",
+					"N2",
+					"I2",
+					"B2",
+					"B3",
+					"I3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I2 N2 G2 G3 G4 N4 I4 I3 N3 ",
+				"Design_Pattern_List": [
+					"I2",
+					"N2",
+					"G2",
+					"G3",
+					"G4",
+					"N4",
+					"I4",
+					"I3",
+					"N3"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Rotating T",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 O2 O1 O4 O5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"O2",
+					"O1",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 O5 G5 N5 I5 B5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"O5",
+					"G5",
+					"N5",
+					"I5",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 B4 B3 B2 B1 I3 N3 G3 O3 ",
+				"Design_Pattern_List": [
+					"B5",
+					"B4",
+					"B3",
+					"B2",
+					"B1",
+					"I3",
+					"N3",
+					"G3",
+					"O3"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Letter H",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 O1 O2 O3 O4 O5 G3 N3 I3 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5",
+					"G3",
+					"N3",
+					"I3"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Inside Square",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I2 I3 I4 N4 G4 G3 G2 N2 ",
+				"Design_Pattern_List": [
+					"I2",
+					"I3",
+					"I4",
+					"N4",
+					"G4",
+					"G3",
+					"G2",
+					"N2"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Inside Square or Letter H",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I2 I3 I4 N4 G4 G3 G2 N2 ",
+				"Design_Pattern_List": [
+					"I2",
+					"I3",
+					"I4",
+					"N4",
+					"G4",
+					"G3",
+					"G2",
+					"N2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 I3 N3 G3 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"I3",
+					"N3",
+					"G3",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Hour Glass",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 G2 N2 I2 N3 N4 I4 G4 O5 G5 N5 I5 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"G2",
+					"N2",
+					"I2",
+					"N3",
+					"N4",
+					"I4",
+					"G4",
+					"O5",
+					"G5",
+					"N5",
+					"I5",
+					"B5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Outside Square",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B5 B4 N5 I5 G5 O5 O4 O3 O2 O1 G1 N1 I1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B5",
+					"B4",
+					"N5",
+					"I5",
+					"G5",
+					"O5",
+					"O4",
+					"O3",
+					"O2",
+					"O1",
+					"G1",
+					"N1",
+					"I1"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Inside Square or Outside Square",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B5 B4 I5 N5 G5 O5 O4 O3 O2 O1 G1 N1 I1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B5",
+					"B4",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"O4",
+					"O3",
+					"O2",
+					"O1",
+					"G1",
+					"N1",
+					"I1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I2 I3 I4 N4 G4 G3 G2 N2 ",
+				"Design_Pattern_List": [
+					"I2",
+					"I3",
+					"I4",
+					"N4",
+					"G4",
+					"G3",
+					"G2",
+					"N2"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "4 Corners",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 B1 B5 O5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"B1",
+					"B5",
+					"O5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Letter T",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Letter L",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Letter T or Letter L",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Letter X or Letter H",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 G2 N3 I4 B5 B1 I2 G4 O5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"G2",
+					"N3",
+					"I4",
+					"B5",
+					"B1",
+					"I2",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 I3 N3 G3 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"I3",
+					"N3",
+					"G3",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Top 2 Lines",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Top and Bottom",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 G1 N1 O1 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"G1",
+					"N1",
+					"O1",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Hardway",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Double Postage",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 B1 B2 I2 G1 O1 O2 G2 ",
+				"Design_Pattern_List": [
+					"I1",
+					"B1",
+					"B2",
+					"I2",
+					"G1",
+					"O1",
+					"O2",
+					"G2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I2 B2 B1 I1 G5 G4 O4 O5 ",
+				"Design_Pattern_List": [
+					"I2",
+					"B2",
+					"B1",
+					"I1",
+					"G5",
+					"G4",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 B1 I1 I2 I4 I5 B5 B4 ",
+				"Design_Pattern_List": [
+					"B2",
+					"B1",
+					"I1",
+					"I2",
+					"I4",
+					"I5",
+					"B5",
+					"B4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 O1 O2 G2 O4 O5 G5 G4 ",
+				"Design_Pattern_List": [
+					"G1",
+					"O1",
+					"O2",
+					"G2",
+					"O4",
+					"O5",
+					"G5",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G2 G1 O1 O2 I5 B5 B4 I4 ",
+				"Design_Pattern_List": [
+					"G2",
+					"G1",
+					"O1",
+					"O2",
+					"I5",
+					"B5",
+					"B4",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O4 O5 G5 G4 I5 B5 B4 I4 ",
+				"Design_Pattern_List": [
+					"O4",
+					"O5",
+					"G5",
+					"G4",
+					"I5",
+					"B5",
+					"B4",
+					"I4"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Floating 6 Pack",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 N2 I2 B2 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"N2",
+					"I2",
+					"B2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 N1 G1 G2 N2 I2 ",
+				"Design_Pattern_List": [
+					"I1",
+					"N1",
+					"G1",
+					"G2",
+					"N2",
+					"I2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 G1 O1 O2 G2 N2 ",
+				"Design_Pattern_List": [
+					"N1",
+					"G1",
+					"O1",
+					"O2",
+					"G2",
+					"N2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 I2 B3 I3 B2 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"I2",
+					"B3",
+					"I3",
+					"B2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 N3 N2 N1 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"N3",
+					"N2",
+					"N1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 G3 G2 G1 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"G3",
+					"G2",
+					"G1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 O3 O2 O1 ",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"O3",
+					"O2",
+					"O1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 B3 N3 I3 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"B3",
+					"N3",
+					"I3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I2 I3 N3 N2 G2 G3 ",
+				"Design_Pattern_List": [
+					"I2",
+					"I3",
+					"N3",
+					"N2",
+					"G2",
+					"G3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N3 N2 G2 G3 O3 O2 ",
+				"Design_Pattern_List": [
+					"N3",
+					"N2",
+					"G2",
+					"G3",
+					"O3",
+					"O2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 I3 I4 B4 B3 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"I3",
+					"I4",
+					"B4",
+					"B3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I2 N2 N3 N4 I4 I3 ",
+				"Design_Pattern_List": [
+					"I2",
+					"N2",
+					"N3",
+					"N4",
+					"I4",
+					"I3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N2 G2 G3 G4 N4 N3 ",
+				"Design_Pattern_List": [
+					"N2",
+					"G2",
+					"G3",
+					"G4",
+					"N4",
+					"N3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G2 O2 O3 O4 G4 G3 ",
+				"Design_Pattern_List": [
+					"G2",
+					"O2",
+					"O3",
+					"O4",
+					"G4",
+					"G3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 N4 I4 B4 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"N4",
+					"I4",
+					"B4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I3 N3 G3 G4 N4 I4 ",
+				"Design_Pattern_List": [
+					"I3",
+					"N3",
+					"G3",
+					"G4",
+					"N4",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N3 G3 O3 O4 G4 N4 ",
+				"Design_Pattern_List": [
+					"N3",
+					"G3",
+					"O3",
+					"O4",
+					"G4",
+					"N4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 I4 B4 B5 I5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"I4",
+					"B4",
+					"B5",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I3 N3 N4 N5 I5 I4 ",
+				"Design_Pattern_List": [
+					"I3",
+					"N3",
+					"N4",
+					"N5",
+					"I5",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N3 G3 G4 G5 N5 N4 ",
+				"Design_Pattern_List": [
+					"N3",
+					"G3",
+					"G4",
+					"G5",
+					"N5",
+					"N4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G3 O3 O4 O5 G5 G4 ",
+				"Design_Pattern_List": [
+					"G3",
+					"O3",
+					"O4",
+					"O5",
+					"G5",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 N5 I5 B5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"N5",
+					"I5",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I4 N4 G4 G5 N5 I5 ",
+				"Design_Pattern_List": [
+					"I4",
+					"N4",
+					"G4",
+					"G5",
+					"N5",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N4 G4 O4 O5 G5 N5 ",
+				"Design_Pattern_List": [
+					"N4",
+					"G4",
+					"O4",
+					"O5",
+					"G5",
+					"N5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Large Diamond",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 I2 B3 I4 N5 G4 O3 G2 ",
+				"Design_Pattern_List": [
+					"N1",
+					"I2",
+					"B3",
+					"I4",
+					"N5",
+					"G4",
+					"O3",
+					"G2"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Lucky 7",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 G2 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"G2",
+					"N3",
+					"I4",
+					"B5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Large Kite Rotating",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 N2 I2 B2 B3 I3 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"N2",
+					"I2",
+					"B2",
+					"B3",
+					"I3",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 G1 O1 O2 O3 G3 N3 N2 G2 I4 B5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"G1",
+					"O1",
+					"O2",
+					"O3",
+					"G3",
+					"N3",
+					"N2",
+					"G2",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O3 O4 O5 N5 G5 N4 N3 G3 G4 I2 B1 ",
+				"Design_Pattern_List": [
+					"O3",
+					"O4",
+					"O5",
+					"N5",
+					"G5",
+					"N4",
+					"N3",
+					"G3",
+					"G4",
+					"I2",
+					"B1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 N4 N5 I5 B5 B4 I4 G2 O1 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"N4",
+					"N5",
+					"I5",
+					"B5",
+					"B4",
+					"I4",
+					"G2",
+					"O1"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Plus",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 B3 I3 G3 O3 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"B3",
+					"I3",
+					"G3",
+					"O3"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Brackets",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 B1 I1 G1 O1 O2 O4 O5 G5 I5 B5 B4 ",
+				"Design_Pattern_List": [
+					"B2",
+					"B1",
+					"I1",
+					"G1",
+					"O1",
+					"O2",
+					"O4",
+					"O5",
+					"G5",
+					"I5",
+					"B5",
+					"B4"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Double Hardway",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B2 B3 B4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B2",
+					"B3",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 I2 I3 I4 I5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"I2",
+					"I3",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B1 B3 B4 B5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B1",
+					"B3",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 I1 I3 I4 I5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"I1",
+					"I3",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 G1 G3 G5 G4 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"G1",
+					"G3",
+					"G5",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 O1 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"O1",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 B1 B2 B3 B5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"B1",
+					"B2",
+					"B3",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 I1 I2 I3 I5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"I1",
+					"I2",
+					"I3",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 G1 G2 G3 G5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"G1",
+					"G2",
+					"G3",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 O1 O2 O3 O5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"O1",
+					"O2",
+					"O3",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 B1 B2 B3 B4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"B1",
+					"B2",
+					"B3",
+					"B4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 I1 I2 I3 I4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"I1",
+					"I2",
+					"I3",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 G1 G2 G3 G4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"G1",
+					"G2",
+					"G3",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 O1 O2 O3 O4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"O1",
+					"O2",
+					"O3",
+					"O4"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Crazy Pyramid",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I2 N3 G2 O1 G1 N1 I1 N2 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I2",
+					"N3",
+					"G2",
+					"O1",
+					"G1",
+					"N1",
+					"I1",
+					"N2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N3 G2 O1 O2 O3 O4 O5 G4 G3 ",
+				"Design_Pattern_List": [
+					"N3",
+					"G2",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5",
+					"G4",
+					"G3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O5 G5 N5 I5 B5 I4 N3 N4 G4 ",
+				"Design_Pattern_List": [
+					"O5",
+					"G5",
+					"N5",
+					"I5",
+					"B5",
+					"I4",
+					"N3",
+					"N4",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I4 N3 I2 B1 B3 B2 B4 I3 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I4",
+					"N3",
+					"I2",
+					"B1",
+					"B3",
+					"B2",
+					"B4",
+					"I3"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Sputnik",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B5 O5 O1 G2 N2 I2 I3 I4 N4 G4 G3 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B5",
+					"O5",
+					"O1",
+					"G2",
+					"N2",
+					"I2",
+					"I3",
+					"I4",
+					"N4",
+					"G4",
+					"G3"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Letter C",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 G1 N1 I1 B1 B2 B3 B4 B5 I5 N5 O5 G5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"G1",
+					"N1",
+					"I1",
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"I5",
+					"N5",
+					"O5",
+					"G5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Crazy Arrow",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I2 N1 I1 B1 B2 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I2",
+					"N1",
+					"I1",
+					"B1",
+					"B2",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 G1 O1 O2 O3 G2 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"G1",
+					"O1",
+					"O2",
+					"O3",
+					"G2",
+					"N3",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O4 O3 O5 G5 N5 G4 N3 I2 B1 ",
+				"Design_Pattern_List": [
+					"O4",
+					"O3",
+					"O5",
+					"G5",
+					"N5",
+					"G4",
+					"N3",
+					"I2",
+					"B1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N5 I5 B5 B4 B3 I4 N3 G2 O1 ",
+				"Design_Pattern_List": [
+					"N5",
+					"I5",
+					"B5",
+					"B4",
+					"B3",
+					"I4",
+					"N3",
+					"G2",
+					"O1"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Bell",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 I2 I3 N3 G3 G2 O4 N4 G4 I4 B4 N5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"I2",
+					"I3",
+					"N3",
+					"G3",
+					"G2",
+					"O4",
+					"N4",
+					"G4",
+					"I4",
+					"B4",
+					"N5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Christmas Tree",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 I2 B3 I3 N3 G3 O3 G2 N4 N5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"I2",
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"G2",
+					"N4",
+					"N5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Rotating T or Sputnik",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I2 N2 G2 G3 G4 N4 I4 I3 B5 B1 O1 O5 ",
+				"Design_Pattern_List": [
+					"I2",
+					"N2",
+					"G2",
+					"G3",
+					"G4",
+					"N4",
+					"I4",
+					"I3",
+					"B5",
+					"B1",
+					"O1",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 O2 O3 O4 O5 G3 N3 I3 B3 ",
+				"Design_Pattern_List": [
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5",
+					"G3",
+					"N3",
+					"I3",
+					"B3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B5 O5 O1 I2 I3 I4 N4 G4 G3 G2 N2 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B5",
+					"O5",
+					"O1",
+					"I2",
+					"I3",
+					"I4",
+					"N4",
+					"G4",
+					"G3",
+					"G2",
+					"N2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O5 G5 N5 I5 B5 N4 N3 N2 N1 ",
+				"Design_Pattern_List": [
+					"O5",
+					"G5",
+					"N5",
+					"I5",
+					"B5",
+					"N4",
+					"N3",
+					"N2",
+					"N1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I4 N4 G4 O5 O1 B1 I2 N2 G2 G3 I3 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I4",
+					"N4",
+					"G4",
+					"O5",
+					"O1",
+					"B1",
+					"I2",
+					"N2",
+					"G2",
+					"G3",
+					"I3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 B4 B3 B2 B1 I3 N3 G3 O3 ",
+				"Design_Pattern_List": [
+					"B5",
+					"B4",
+					"B3",
+					"B2",
+					"B1",
+					"I3",
+					"N3",
+					"G3",
+					"O3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 O5 O1 B1 I2 I3 I4 N4 G4 G3 G2 N2 ",
+				"Design_Pattern_List": [
+					"B5",
+					"O5",
+					"O1",
+					"B1",
+					"I2",
+					"I3",
+					"I4",
+					"N4",
+					"G4",
+					"G3",
+					"G2",
+					"N2"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "One Line or 4 Corners",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B5 O5 O1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B5",
+					"O5",
+					"O1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I5 I4 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I5",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 O5 O1 B1 ",
+				"Design_Pattern_List": [
+					"B5",
+					"O5",
+					"O1",
+					"B1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 O5 O1 B1 ",
+				"Design_Pattern_List": [
+					"B5",
+					"O5",
+					"O1",
+					"B1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O5 O1 B1 B5 ",
+				"Design_Pattern_List": [
+					"O5",
+					"O1",
+					"B1",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O5 O1 B1 B5 ",
+				"Design_Pattern_List": [
+					"O5",
+					"O1",
+					"B1",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B5 O5 O1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B5",
+					"O5",
+					"O1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B5 O5 O1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B5",
+					"O5",
+					"O1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 O5 O1 B1 ",
+				"Design_Pattern_List": [
+					"B5",
+					"O5",
+					"O1",
+					"B1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O5 O1 B1 B5 ",
+				"Design_Pattern_List": [
+					"O5",
+					"O1",
+					"B1",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O5 O1 B1 B5 ",
+				"Design_Pattern_List": [
+					"O5",
+					"O1",
+					"B1",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I2 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I2",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B5 O5 O1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B5",
+					"O5",
+					"O1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 G2 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"G2",
+					"N3",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O5 O1 B1 B5 ",
+				"Design_Pattern_List": [
+					"O5",
+					"O1",
+					"B1",
+					"B5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Little Joe",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I2 I3 I4 N4 G4 G3 G2 N2 B1 O5 ",
+				"Design_Pattern_List": [
+					"I2",
+					"I3",
+					"I4",
+					"N4",
+					"G4",
+					"G3",
+					"G2",
+					"N2",
+					"B1",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I2 I3 I4 N4 G4 G3 G2 N2 O1 B5 ",
+				"Design_Pattern_List": [
+					"I2",
+					"I3",
+					"I4",
+					"N4",
+					"G4",
+					"G3",
+					"G2",
+					"N2",
+					"O1",
+					"B5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Barrel",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 N1 G1 O2 O3 O4 G5 N5 I5 B4 B3 B2 ",
+				"Design_Pattern_List": [
+					"I1",
+					"N1",
+					"G1",
+					"O2",
+					"O3",
+					"O4",
+					"G5",
+					"N5",
+					"I5",
+					"B4",
+					"B3",
+					"B2"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Layer Cake",
+		"Rotating": false,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Crazy Small Triangle",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 I2 B2 B3 N1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"I2",
+					"B2",
+					"B3",
+					"N1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 G2 O3 O2 O1 G1 ",
+				"Design_Pattern_List": [
+					"N1",
+					"G2",
+					"O3",
+					"O2",
+					"O1",
+					"G1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O3 G4 N5 G5 O5 O4 ",
+				"Design_Pattern_List": [
+					"O3",
+					"G4",
+					"N5",
+					"G5",
+					"O5",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N5 I4 B3 B4 B5 I5 ",
+				"Design_Pattern_List": [
+					"N5",
+					"I4",
+					"B3",
+					"B4",
+					"B5",
+					"I5"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "6 Pack No Free",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 N2 I2 B2 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"N2",
+					"I2",
+					"B2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 N2 G2 G1 N1 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"N2",
+					"G2",
+					"G1",
+					"N1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 G2 O2 O1 G1 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"G2",
+					"O2",
+					"O1",
+					"G1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 O1 O2 O3 G3 G2 ",
+				"Design_Pattern_List": [
+					"G1",
+					"O1",
+					"O2",
+					"O3",
+					"G3",
+					"G2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G2 O2 O3 G3 G4 O4 ",
+				"Design_Pattern_List": [
+					"G2",
+					"O2",
+					"O3",
+					"G3",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G3 O3 O5 O4 G4 G5 ",
+				"Design_Pattern_List": [
+					"G3",
+					"O3",
+					"O5",
+					"O4",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O4 O5 G5 N5 N4 G4 ",
+				"Design_Pattern_List": [
+					"O4",
+					"O5",
+					"G5",
+					"N5",
+					"N4",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G5 N5 I5 I4 N4 G4 ",
+				"Design_Pattern_List": [
+					"G5",
+					"N5",
+					"I5",
+					"I4",
+					"N4",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N5 I5 B5 B4 I4 N4 ",
+				"Design_Pattern_List": [
+					"N5",
+					"I5",
+					"B5",
+					"B4",
+					"I4",
+					"N4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I5 B5 B4 I4 I3 B3 ",
+				"Design_Pattern_List": [
+					"I5",
+					"B5",
+					"B4",
+					"I4",
+					"I3",
+					"B3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 I3 B3 B2 I2 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"I3",
+					"B3",
+					"B2",
+					"I2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 I2 B2 B3 I3 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"I2",
+					"B2",
+					"B3",
+					"I3"
+				]
+			}
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Triple Bingo",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 B1 B2 B3 B4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 B1 B2 B3 B4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 B1 B2 B3 B4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B5 I5 N5 G5 O5 B1 B2 B3 B4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B5 I5 N5 G5 O5 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B5 I5 N5 G5 O5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B5 I5 N5 G5 O5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B5 I5 N5 G5 O5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B5 I5 N5 G5 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B5 I5 N5 G5 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B1 B2 B3 B4 B5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B1 B2 B3 B4 B5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B1 B2 B3 B4 B5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B1 B2 B3 B4 B5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 I1 I2 I3 I4 I5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 I1 I2 I3 I4 I5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 I1 I2 I3 I4 I5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 N1 N2 N3 N4 N5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 N1 N2 N3 N4 N5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 G1 G2 G3 G4 G5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 G1 G2 G3 G4 G5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 O1 O2 O3 O4 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 O1 O2 O3 O4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 I1 N1 G1 O1 B1 I2 N3 G4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "I1",
+        "N1",
+        "G1",
+        "O1",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 B1 B2 B3 B4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 B1 B2 B3 B4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 B1 B2 B3 B4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B1 B2 B3 B4 B5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B1 B2 B3 B4 B5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B1 B2 B3 B4 B5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B1 B2 B3 B4 B5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 I1 I2 I3 I4 I5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 I1 I2 I3 I4 I5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 I1 I2 I3 I4 I5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 N1 N2 N3 N4 N5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 N1 N2 N3 N4 N5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 G1 G2 G3 G4 G5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 G1 G2 G3 G4 G5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 O1 O2 O3 O4 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 O1 O2 O3 O4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B2 I2 N2 G2 O2 B1 I2 N3 G4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B2",
+        "I2",
+        "N2",
+        "G2",
+        "O2",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 B1 B2 B3 B4 B5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 B1 B2 B3 B4 B5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B1 B2 B3 B4 B5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B1 B2 B3 B4 B5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B1 B2 B3 B4 B5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B1 B2 B3 B4 B5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 I1 I2 I3 I4 I5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 I1 I2 I3 I4 I5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 I1 I2 I3 I4 I5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 N1 N2 N3 N4 N5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 N1 N2 N3 N4 N5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 G1 G2 G3 G4 G5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 G1 G2 G3 G4 G5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 O1 O2 O3 O4 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 O1 O2 O3 O4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B3 I3 N3 G3 O3 B1 I2 N3 G4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B3",
+        "I3",
+        "N3",
+        "G3",
+        "O3",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 B1 B2 B3 B4 B5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B1 B2 B3 B4 B5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B1 B2 B3 B4 B5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B1 B2 B3 B4 B5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B1 B2 B3 B4 B5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 I1 I2 I3 I4 I5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 I1 I2 I3 I4 I5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 I1 I2 I3 I4 I5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 N1 N2 N3 N4 N5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 N1 N2 N3 N4 N5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 G1 G2 G3 G4 G5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 G1 G2 G3 G4 G5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 O1 O2 O3 O4 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 O1 O2 O3 O4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B4 I4 N4 G4 O4 B1 I2 N3 G4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B4",
+        "I4",
+        "N4",
+        "G4",
+        "O4",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 B1 B2 B3 B4 B5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 B1 B2 B3 B4 B5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 B1 B2 B3 B4 B5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 B1 B2 B3 B4 B5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 I1 I2 I3 I4 I5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 I1 I2 I3 I4 I5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 I1 I2 I3 I4 I5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 N1 N2 N3 N4 N5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 N1 N2 N3 N4 N5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 G1 G2 G3 G4 G5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 G1 G2 G3 G4 G5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 O1 O2 O3 O4 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 O1 O2 O3 O4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B5 I5 N5 G5 O5 B1 I2 N3 G4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B5",
+        "I5",
+        "N5",
+        "G5",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 G1 G2 G3 G4 G5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 G1 G2 G3 G4 G5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 O1 O2 O3 O4 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 O1 O2 O3 O4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "B1 B2 B3 B4 B5 B1 I2 N3 G4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 ",
+    "Design_Pattern_List": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "I1 I2 I3 I4 I5 O1 O2 O3 O4 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "I1 I2 I3 I4 I5 O1 O2 O3 O4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "I1 I2 I3 I4 I5 B1 I2 N3 G4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "I5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 ",
+    "Design_Pattern_List": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "N1 N2 N3 N4 N5 B1 I2 N3 G4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 B1 I2 N3 G4 O5 ",
+    "Design_Pattern_List": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "G1 G2 G3 G4 G5 B1 I2 N3 G4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+},
+{
+    "Design_Id": null,
+    "Design_Pattern": "O1 O2 O3 O4 O5 B1 I2 N3 G4 O5 O1 G2 N3 I4 B5 ",
+    "Design_Pattern_List": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "B1",
+        "I2",
+        "N3",
+        "G4",
+        "O5",
+        "O1",
+        "G2",
+        "N3",
+        "I4",
+        "B5"
+    ]
+}
+
+		],
+		"Alias_List": null
+	},
+	{
+		"Pattern_Id": null,
+		"Pattern_Hall_Id": 0,
+		"Pattern_Name": "Double Line + Corners",
+		"Rotating": true,
+		"Pattern_Design_List": [
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B2 I2 N2 G2 O2 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B3 I3 N3 G3 O3 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B2 B3 B4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B2",
+					"B3",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 I2 I3 I4 I5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"I2",
+					"I3",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 I2 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"I2",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 G2 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"G2",
+					"N3",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B3 I3 N3 G3 O3 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B1 B3 B4 B5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B1",
+					"B3",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 I1 I3 I4 I5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"I1",
+					"I3",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 N1 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"N1",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 G1 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"G1",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 O1 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"O1",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B1 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B1",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 G2 N2 O2 O1 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"G2",
+					"N2",
+					"O2",
+					"O1",
+					"N3",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 B4 I4 N4 G4 O4 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 B1 B2 B4 B5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"B1",
+					"B2",
+					"B4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 I1 I2 I4 I5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"I1",
+					"I2",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 N1 N2 N4 N5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"N1",
+					"N2",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 G1 G2 G4 G5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"G1",
+					"G2",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 O1 O2 O4 O5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"O1",
+					"O2",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 B1 I2 G4 O5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"B1",
+					"I2",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 O1 G2 I4 B5 ",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"O1",
+					"G2",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 B5 I5 N5 G5 O5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 B1 B2 B3 B5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"B1",
+					"B2",
+					"B3",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 I1 I2 I3 I5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"I1",
+					"I2",
+					"I3",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 N1 N2 N3 N5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"N1",
+					"N2",
+					"N3",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 G1 G2 G3 G5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"G1",
+					"G2",
+					"G3",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 O1 O2 O3 O5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"O1",
+					"O2",
+					"O3",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 B1 I2 N3 O5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"B1",
+					"I2",
+					"N3",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 O1 G2 N3 B5 ",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"O1",
+					"G2",
+					"N3",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 B1 B2 B3 B4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"B1",
+					"B2",
+					"B3",
+					"B4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 I1 I2 I3 I4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"I1",
+					"I2",
+					"I3",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 N1 N2 N3 N4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"N1",
+					"N2",
+					"N3",
+					"N4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 G1 G2 G3 G4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"G1",
+					"G2",
+					"G3",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 O1 O2 O3 O4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"O1",
+					"O2",
+					"O3",
+					"O4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 B1 I2 N3 G4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"B1",
+					"I2",
+					"N3",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 O1 G2 N3 I4 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"O1",
+					"G2",
+					"N3",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 I1 I2 I3 I4 I5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 N1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 G1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 I2 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"I2",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 O1 G2 N3 I4 ",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"O1",
+					"G2",
+					"N3",
+					"I4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 N1 N2 N3 N4 N5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 G1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 B1 N3 G4 O5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"B1",
+					"N3",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 O1 G2 N3 B5 ",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"O1",
+					"G2",
+					"N3",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 G1 G2 G3 G4 G5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 B1 I2 G4 O5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"B1",
+					"I2",
+					"G4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 O1 G2 I4 B5 ",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"O1",
+					"G2",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 G4 G5 O1 O2 O3 O4 O5 ",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5",
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 G4 G5 B1 I2 N3 O5 ",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5",
+					"B1",
+					"I2",
+					"N3",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 G4 G5 O1 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5",
+					"O1",
+					"N3",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 O2 O3 O4 O5 B1 I2 N3 G4 ",
+				"Design_Pattern_List": [
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5",
+					"B1",
+					"I2",
+					"N3",
+					"G4"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 O2 O3 O4 O5 G2 N3 I4 B5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5",
+					"G2",
+					"N3",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I2 N3 G4 O5 O1 G2 I4 B5 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I2",
+					"N3",
+					"G4",
+					"O5",
+					"O1",
+					"G2",
+					"I4",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I1 N1 G1 O1 B5 O5",
+				"Design_Pattern_List": [
+					"B1",
+					"I1",
+					"N1",
+					"G1",
+					"O1",
+					"B5",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B2 I2 N2 G2 O2 B1 B5 O1 O5",
+				"Design_Pattern_List": [
+					"B2",
+					"I2",
+					"N2",
+					"G2",
+					"O2",
+					"B1",
+					"B5",
+					"O1",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B3 I3 N3 G3 O3 B1 B5 O1 O5",
+				"Design_Pattern_List": [
+					"B3",
+					"I3",
+					"N3",
+					"G3",
+					"O3",
+					"B1",
+					"B5",
+					"O1",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B4 I4 N4 G4 O4 B1 B5 O1 O5",
+				"Design_Pattern_List": [
+					"B4",
+					"I4",
+					"N4",
+					"G4",
+					"O4",
+					"B1",
+					"B5",
+					"O1",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B5 I5 N5 G5 O5 B1 O1 ",
+				"Design_Pattern_List": [
+					"B5",
+					"I5",
+					"N5",
+					"G5",
+					"O5",
+					"B1",
+					"O1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 B2 B3 B4 B5 O1 O5",
+				"Design_Pattern_List": [
+					"B1",
+					"B2",
+					"B3",
+					"B4",
+					"B5",
+					"O1",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "I1 I2 I3 I4 I5 B1 B5 O1 O5",
+				"Design_Pattern_List": [
+					"I1",
+					"I2",
+					"I3",
+					"I4",
+					"I5",
+					"B1",
+					"B5",
+					"O1",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "N1 N2 N3 N4 N5 B1 B5 O1 O5",
+				"Design_Pattern_List": [
+					"N1",
+					"N2",
+					"N3",
+					"N4",
+					"N5",
+					"B1",
+					"B5",
+					"O1",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "G1 G2 G3 G4 G5 B1 B5 O1 O5",
+				"Design_Pattern_List": [
+					"G1",
+					"G2",
+					"G3",
+					"G4",
+					"G5",
+					"B1",
+					"B5",
+					"O1",
+					"O5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 O2 O3 O4 O5 B1 B5 ",
+				"Design_Pattern_List": [
+					"O1",
+					"O2",
+					"O3",
+					"O4",
+					"O5",
+					"B1",
+					"B5"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "B1 I2 N3 G4 O5 B5 O1 ",
+				"Design_Pattern_List": [
+					"B1",
+					"I2",
+					"N3",
+					"G4",
+					"O5",
+					"B5",
+					"O1"
+				]
+			},
+			{
+				"Design_Id": null,
+				"Design_Pattern": "O1 G2 N3 I4 B5 B1 O5",
+				"Design_Pattern_List": [
+					"O1",
+					"G2",
+					"N3",
+					"I4",
+					"B5",
+					"B1",
+					"O5"
+				]
+			}
+		],
+		"Alias_List": null
+	}
+]
+
+
+
+

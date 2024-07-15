@@ -6,9 +6,8 @@ using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel; // Added for ObservableCollection
 using System.Linq;
-using System.Numerics;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -21,226 +20,218 @@ namespace BingoFlashboard.Data
         private List<string> messages = new List<string>() { "Welcome to Bingo Flashboard" };
         private bool HadConnection = false;
         private bool NotifiedLostConnection = false;
-        bool failedServer = true;
+        private bool failedServer = true;
         #endregion PROPERTIES
 
-        #region SET CONNECTION
+        #region CONSTRUCTOR
 
+        /// <summary>
+        /// Initializes the server connection, sets up the SignalR connection and listener.
+        /// </summary>
         public ServerConnection()
         {
+            // Initialize the HubConnection
             hubConnection = new HubConnectionBuilder()
-            //PRODUCTION
-            //.WithUrl("https://bingoappservice.azurewebsites.net/GameHub")
+                //PRODUCTION
+                .WithUrl("https://bingoappservice.azurewebsites.net/GameHub")
+                //DEVELOPMENT
+                //.WithUrl("http://192.168.2.16:7226/GameHub") // Update with the appropriate URL
+                .WithAutomaticReconnect()
+                .Build();
 
-            //DEVELOPMENT
-            .WithUrl("http://192.168.2.16:7226/GameHub") // Replace with the appropriate URL
-            //.WithUrl("https://localhost:7226/GameHub") // Replace with the appropriate URL
-
-
-            .WithAutomaticReconnect()
-            .Build();
-
-            ///LISTENER
+            // Start the connection and set up a listener
             StartAsync();
 
-            System.Timers.Timer timer = new System.Timers.Timer(3000);
-            timer.Elapsed += (sender, e) =>
-            {
-                if (HadConnection)
-                {
-                    if (hubConnection.State != HubConnectionState.Connected)
-                    {
-                        // Use the Dispatcher to run the MessageBox.Show on the UI thread
-                        if (!NotifiedLostConnection && App.callerWindowViewModel is not null)
-                        {
-                            Application.Current.Dispatcher.Invoke(() =>
-                            {
-                                App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("Off");
-                                MessageBox.Show("Connection lost!");
-                            });
-                            NotifiedLostConnection = true;
-                        }
-                    }
-                }
-            };
-
+            // Monitor connection status
+            var timer = new System.Timers.Timer(3000);
+            timer.Elapsed += CheckConnectionStatus;
             timer.Start();
+        }
 
-        }//END Constructor
+        #endregion CONSTRUCTOR
 
+        #region CONNECTION METHODS
+
+        /// <summary>
+        /// Starts the SignalR connection and sets up the listener for host responses.
+        /// </summary>
         private async void StartAsync()
         {
-            hubConnection.On<DataTransfer>("HostResponse", responseMessage =>
-            {
-                try
-                {
-                    if (responseMessage.Success_ is not null && (bool) responseMessage.Success_ && App.callerWindowViewModel is not null)
-                    {
-                        Application.Current.Dispatcher.Invoke(async () =>
-                        {
-                            // Handle the response message received from the server
-                            switch (responseMessage.TransferMessage_)
-                            {
-                                case "Game Connected":
-                                    {
-                                        HadConnection = true;
-                                        App.callerWindowViewModel.AddServerMessage(responseMessage.SecondaryMessage_.ToString());
-                                        MessageBox.Show(responseMessage.SecondaryMessage_);
-                                        App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("On");
-                                        if (App.callerWindow is not null)
-                                            await App.callerWindow.SendGameInfo();
-                                        break;
-                                    }
-                                case "Player Joined":
-                                    {
-                                        App.callerWindowViewModel.AddServerMessage(responseMessage.SecondaryMessage_.ToString());
-                                        App.playerList.Add(JsonConvert.DeserializeObject<Player>(responseMessage.JsonString_));
-                                        break;
-                                    }
-                                default:
-                                    {
-                                        App.callerWindowViewModel.AddServerMessage(responseMessage.TransferMessage_.ToString());
-                                        //MessageBox.Show(responseMessage.TransferMessage_);
-                                        break;
-                                    }
-                            }//END SWITCH
-                        });//END DISPATCHER
+            // Set up the SignalR listener
+            hubConnection.On<DataTransfer>("HostResponse", HandleHostResponse);
 
-                    }//END IF SUCCESS
-                    else if (responseMessage.Success_ is not null && !(bool) responseMessage.Success_ && App.callerWindowViewModel is not null)
-                    {
-                        App.callerWindowViewModel.AddServerMessage(responseMessage.TransferMessage_.ToString());
-                        MessageBox.Show(responseMessage.TransferMessage_);
-                    }//END IF SUCCESS FALSE
-                    else
-                    {
-                        try
-                        {
-                            switch (responseMessage.TransferMessage_)
-                            {
-                                case "Bingo Called":
-                                    {
-                                        Application.Current.Dispatcher.InvokeAsync(async () =>
-                                        {
-                                            if (responseMessage.SecondaryMessage_ is not null && responseMessage.SecondaryMessage_ is not "")
-                                            {
-                                                //TODO Check Success
-                                                bool goodBingo = await App.SharedVerificationPage.CheckMobileWinner(responseMessage.SecondaryMessage_, "");
-
-                                                if (goodBingo && App.callerWindowViewModel is not null)
-                                                {
-                                                    //TODO add winner to winner List
-                                                    CalledBingos cbs = new();
-                                                    cbs.CardNum_ = responseMessage.SecondaryMessage_;
-                                                    cbs.Source_ = "Phone App";
-                                                    cbs.GoodBingo_ = true;
-                                                    cbs.PlayerName_ = "";
-
-                                                    if (App.callerWindowViewModel.Bingos_ is null)
-                                                        App.callerWindowViewModel.Bingos_ = new();
-
-                                                    App.callerWindowViewModel.Bingos_.Add(cbs);
-                                                    Winner win = new();
-                                                    win.Winner_Time = DateTime.Now.ToString();
-                                                    //win.PlayerInfo_ = cbs;
-                                                    App.winnerList.Add(win);
-
-                                                    App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
-
-                                                    if (!App.BingoCalled)
-                                                    {
-                                                        BingoCalledWindow bingoCalledWindow = new BingoCalledWindow(responseMessage.SecondaryMessage_);
-                                                        bingoCalledWindow.Show();
-                                                        App.BingoCalled = true;
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    //TODO return BAD BINGO
-                                                }
-                                                //TODO return response to Player Good or Bad Bingo)
-                                            }
-                                            else
-                                            {
-                                                if (App.callerWindow is not null && !App.BingoCalled)
-                                                    App.callerWindow.StartFlashing();
-                                            }
-                                        });//END DISPATCHER
-                                        break;
-                                    }
-                                default:
-                                    {
-                                        MessageBox.Show(responseMessage.TransferMessage_);
-                                        break;
-                                    }
-                            }//END SWITCH
-                        }
-                        catch (Exception ex)
-                        {
-
-                        }
-                    }//END SUCCESS NULL
-                }
-                catch (Exception ex)
-                {
-                    if (App.callerWindowViewModel is not null)
-                        App.callerWindowViewModel.AddServerMessage(responseMessage.SecondaryMessage_.ToString());
-                    MessageBox.Show(ex.Message);
-                }
-            });
             // Start the SignalR connection
             try
             {
                 await hubConnection.StartAsync();
-
-                if (App.callerWindowViewModel is not null)
-                {
-                    App.callerWindowViewModel.AddServerMessage("Connected to server");
-                    App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("On");
-                }
+                NotifyConnectionStatus("Connected to server", "On");
             }
             catch (Exception ex)
             {
-                if (App.callerWindowViewModel is not null)
-                {
-                    messages.Add("Unable to connect to server.");
-                    messages.Add(ex.Message);
-                    App.callerWindowViewModel.AddServerMessage("Unable to connect to server");
-                    App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Off");
-                }
+                NotifyConnectionStatus("Unable to connect to server", "Off");
+                LogError("Unable to connect to server", ex);
             }
         }
 
-        #endregion SET CONNECTION
-
-        #region GET/CLOSE CONNECTION    
-        public HubConnection GetHubConnection()
+        /// <summary>
+        /// Checks the connection status and notifies if the connection is lost.
+        /// </summary>
+        private void CheckConnectionStatus(object sender, System.Timers.ElapsedEventArgs e)
         {
-            return hubConnection;
+            if (HadConnection && hubConnection.State != HubConnectionState.Connected && !NotifiedLostConnection)
+            {
+                NotifyConnectionStatus("Connection lost!", "Off");
+                NotifiedLostConnection = true;
+            }
         }
 
+        /// <summary>
+        /// Retrieves the current HubConnection.
+        /// </summary>
+        public HubConnection GetHubConnection() => hubConnection;
+
+        /// <summary>
+        /// Closes the SignalR connection and updates the connection status.
+        /// </summary>
         public async void CloseConnection()
         {
             await hubConnection.StopAsync();
             await hubConnection.DisposeAsync();
+            NotifyConnectionStatus("Disconnected from server", "Off");
+        }
 
-            if (App.callerWindowViewModel is not null)
+        #endregion CONNECTION METHODS
+
+        #region LISTENER METHODS
+
+        /// <summary>
+        /// Handles responses from the host.
+        /// </summary>
+        private void HandleHostResponse(DataTransfer responseMessage)
+        {
+            try
             {
-                App.callerWindowViewModel.AddServerMessage("Disconnected from server");
-                App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet("Off");
+                if (responseMessage.Success_ == true)
+                {
+                    Application.Current.Dispatcher.Invoke(async () =>
+                    {
+                        ProcessSuccessResponse(responseMessage);
+                    });
+                }
+                else if (responseMessage.Success_ == false)
+                {
+                    NotifyServerMessage(responseMessage.TransferMessage_);
+                }
+                else
+                {
+                    HandleSpecialCases(responseMessage);
+                }
+            }
+            catch (Exception ex)
+            {
+                NotifyServerMessage(responseMessage.SecondaryMessage_);
+                LogError("Error processing host response", ex);
             }
         }
 
-        #endregion GET/CLOSE CONNECTION
+        /// <summary>
+        /// Processes successful responses from the host.
+        /// </summary>
+        private void ProcessSuccessResponse(DataTransfer responseMessage)
+        {
+            switch (responseMessage.TransferMessage_)
+            {
+                case "Game Connected":
+                HadConnection = true;
+                NotifyServerMessage(responseMessage.SecondaryMessage_);
+                App.callerWindowViewModel.HostingStatus.HostingGameStatusSet("On");
+                App.callerWindow?.SendGameInfo();
+                break;
+
+                case "Player Joined":
+                NotifyServerMessage(responseMessage.SecondaryMessage_);
+                App.playerList.Add(JsonConvert.DeserializeObject<Player>(responseMessage.JsonString_));
+                break;
+
+                default:
+                NotifyServerMessage(responseMessage.TransferMessage_);
+                break;
+            }
+        }
+
+        /// <summary>
+        /// Handles special case responses from the host.
+        /// </summary>
+        private void HandleSpecialCases(DataTransfer responseMessage)
+        {
+            switch (responseMessage.TransferMessage_)
+            {
+                case "Bingo Called":
+                Application.Current.Dispatcher.InvokeAsync(async () =>
+                {
+                    await ProcessBingoCall(responseMessage);
+                });
+                break;
+
+                default:
+                MessageBox.Show(responseMessage.TransferMessage_);
+                break;
+            }
+        }
+
+        /// <summary>
+        /// Processes bingo call responses.
+        /// </summary>
+        private async Task ProcessBingoCall(DataTransfer responseMessage)
+        {
+            if (!string.IsNullOrEmpty(responseMessage.SecondaryMessage_))
+            {
+                bool goodBingo = await App.SharedVerificationPage.CheckMobileWinner(responseMessage.SecondaryMessage_, "");
+
+                if (goodBingo)
+                {
+                    var cbs = new CalledBingos
+                    {
+                        CardNum_ = responseMessage.SecondaryMessage_,
+                        Source_ = "Phone App",
+                        GoodBingo_ = true
+                    };
+                    App.callerWindowViewModel.Bingos_ ??= new ObservableCollection<CalledBingos>(); // Ensure Bingos_ is an ObservableCollection
+                    App.callerWindowViewModel.Bingos_.Add(cbs);
+
+                    var win = new Winner { Winner_Time = DateTime.Now.ToString() };
+                    App.winnerList.Add(win);
+                    App.callerWindowViewModel.CardNum_ = responseMessage.SecondaryMessage_;
+
+                    if (!App.BingoCalled)
+                    {
+                        new BingoCalledWindow(responseMessage.SecondaryMessage_).Show();
+                        App.BingoCalled = true;
+                    }
+                }
+                else
+                {
+                    // Handle bad bingo case
+                }
+            }
+            else
+            {
+                App.callerWindow?.StartFlashing();
+            }
+        }
+
+        #endregion LISTENER METHODS
 
         #region GAME METHODS
 
-        //Allows the flashboard app to host a new game for players to join
+        /// <summary>
+        /// Hosts a new game.
+        /// </summary>
         public async Task HostNewGame()
         {
             try
             {
-                if (hubConnection.ConnectionId is null)
+                if (hubConnection.ConnectionId == null)
                 {
                     App.server = new();
                     return;
@@ -249,150 +240,96 @@ namespace BingoFlashboard.Data
                 if (hubConnection.State == HubConnectionState.Disconnected)
                     await hubConnection.StartAsync();
 
-                //TODO
-                //if (App.hall is not null)
-                //{
-                //    Hall partialHall = new Hall()
-                //    {
-                //        Id_ = App.hall.Id_,
-                //        Name_ = App.hall.Name_,
-                //        Logo_ = App.hall.Logo_,
-                //        Address_ = App.hall.Address_,
-                //        City_ = App.hall.City_,
-                //        Postal_ = App.hall.Postal_,
-                //        Country_ = App.hall.Country_,
-                //        Province_ = App.hall.Province_,
-                //        Phone_ = App.hall.Phone_,
-                //        Website_ = App.hall.Website_,
-                //        Email_ = App.hall.Email_,
-                //        Username_ = App.hall.Username_,
-                //        Login_Password_ = App.hall.Login_Password_,
-                //        Temp_Login_Password_ = App.hall.Temp_Login_Password_,
-                //        Comport_ = App.hall.Comport_,
-                //        Auto_Caller_ = App.hall.Auto_Caller_,
-                //        Message_ = App.hall.Message_,
-                //        Master_ = App.hall.Master_,
-                //        Active_ = App.hall.Active_,
-                //        AllSessions_ = null
-                //    };
-
-                //    DataTransfer dt = new()
-                //    {
-                //        TransferMessage_ = "Hall",
-                //        JsonString_ = JsonConvert.SerializeObject(partialHall, Formatting.Indented)
-                //    };
-
-                //    await hubConnection.SendAsync("HostNewGame", dt);
-                //}
+                // Example of sending a new game to the server
+                // Uncomment and implement according to your needs
             }
             catch (Exception ex)
             {
-                if (App.callerWindowViewModel is not null)
-                {
-                    //messages.Add("Server Unavailable, please contact administrator.\n" + ex.Message);
-                    App.callerWindowViewModel.AddServerMessage("Server Unavailable, please contact administrator.\n" + ex.Message);
-                }
+                NotifyServerMessage("Server Unavailable, please contact administrator.\n" + ex.Message);
+                LogError("Error hosting new game", ex);
             }
         }
 
-        //Allows flashboard app to send the game info to the server
+        /// <summary>
+        /// Sends game information to the server.
+        /// </summary>
         public async Task SendGameInfo(Game game)
         {
-            //TODO
-            //if (App.hall is not null && App.hall.Name_ is not null)
-            //{
-            //    PartialGame pt = new()
-            //    {
-            //        Id_ = game.Id_,
-            //        HallName_ = App.hall.Name_,
-            //        DateTimeStart_ = App.StartTime,
-            //        GameName_ = game.Name_,
-            //        Border_Color_ = game.Border_Color_,
-            //        Font_Color_ = game.Font_Color_,
-            //        GameType_ = game.GameType_,
-            //        Pattern_ = game.Pattern_,
-            //        Prize_ = game.Prize_,
-            //        Jackpot_Prize_ = game.Jackpot_Prize_,
-            //        Designated_Number_ = game.Designated_Number_,
-            //        Four_Ball_ = game.Four_Ball_,
-            //        Four_Ball_Prize_ = game.Four_Ball_Prize_,
-            //    };
-            //    DataTransfer dt = new()
-            //    {
-            //        TransferMessage_ = "Game",
-            //        JsonString_ = JsonConvert.SerializeObject(game, Formatting.Indented),
-            //        SecondaryMessage_ = JsonConvert.SerializeObject(pt, Formatting.Indented)
-            //    };
-
-            //    await hubConnection.SendAsync("NewGameInfo", dt);
-            //}
+            // Example of sending game info to the server
+            // Uncomment and implement according to your needs
         }
 
+        /// <summary>
+        /// Sends the called ball information to the server.
+        /// </summary>
         public async Task SendCalledBall(string ballnum)
         {
-            if (App.hall is not null && App.hall.Hall_Name is not null)
+            if (App.hall != null && App.hall.Hall_Name != null)
             {
-                DataTransfer dt = new()
+                var dt = new DataTransfer
                 {
                     TransferMessage_ = "BallCalled",
                     JsonString_ = ballnum,
                     SecondaryMessage_ = App.flashboardViewModel.BallCount.ToString()
                 };
 
-                if (App.server is not null && App.server.hubConnection.State == HubConnectionState.Connected)
+                if (hubConnection.State == HubConnectionState.Connected)
                 {
                     await hubConnection.SendAsync("BallCalled", dt);
                 }
                 else
                 {
-                    if (App.callerWindowViewModel is not null && !failedServer)
-                        App.callerWindowViewModel.AddServerMessage("Server not connected, please try to reconnect if you are running a live game.");
+                    NotifyServerMessage("Server not connected, please try to reconnect if you are running a live game.");
                 }
             }
         }
 
+        /// <summary>
+        /// Kills the current connection.
+        /// </summary>
         public async Task KillConnection()
         {
-            if (App.hall is not null && App.hall.Hall_Name is not null)
-            {
-
-                //TODO
-                //Hall partialHall = new Hall()
-                //{
-                //    Id_ = App.hall.Id_,
-                //    Name_ = App.hall.Name_,
-                //    Logo_ = App.hall.Logo_,
-                //    Address_ = App.hall.Address_,
-                //    City_ = App.hall.City_,
-                //    Postal_ = App.hall.Postal_,
-                //    Country_ = App.hall.Country_,
-                //    Province_ = App.hall.Province_,
-                //    Phone_ = App.hall.Phone_,
-                //    Website_ = App.hall.Website_,
-                //    Email_ = App.hall.Email_,
-                //    Username_ = App.hall.Username_,
-                //    Login_Password_ = App.hall.Login_Password_,
-                //    Temp_Login_Password_ = App.hall.Temp_Login_Password_,
-                //    Comport_ = App.hall.Comport_,
-                //    Auto_Caller_ = App.hall.Auto_Caller_,
-                //    Message_ = App.hall.Message_,
-                //    Master_ = App.hall.Master_,
-                //    Active_ = App.hall.Active_,
-                //    AllSessions_ = null
-                //};
-
-                //DataTransfer dt = new()
-                //{
-                //    TransferMessage_ = "Hall",
-                //    JsonString_ = JsonConvert.SerializeObject(partialHall, Formatting.Indented)
-                //};
-
-                //if (App.server is not null && App.server.hubConnection.State == HubConnectionState.Connected)
-                //    await hubConnection.SendAsync("KillConnection", dt);
-            }
+            // Example of killing the connection
+            // Uncomment and implement according to your needs
         }
 
         #endregion GAME METHODS
 
+        #region HELPER METHODS
+
+        /// <summary>
+        /// Notifies the application about the connection status.
+        /// </summary>
+        private void NotifyConnectionStatus(string message, string status)
+        {
+            if (App.callerWindowViewModel != null)
+            {
+                App.callerWindowViewModel.AddServerMessage(message);
+                App.callerWindowViewModel.BroadcastingStatus.BroadcastingStatusSet(status);
+            }
+        }
+
+        /// <summary>
+        /// Notifies the application about a server message.
+        /// </summary>
+        private void NotifyServerMessage(string message)
+        {
+            if (App.callerWindowViewModel != null)
+            {
+                App.callerWindowViewModel.AddServerMessage(message);
+            }
+            MessageBox.Show(message);
+        }
+
+        /// <summary>
+        /// Logs an error message.
+        /// </summary>
+        private void LogError(string message, Exception ex)
+        {
+            // Implement logging framework or method to log errors
+            Console.WriteLine($"{message}: {ex.Message}");
+        }
+
+        #endregion HELPER METHODS
     }
 }

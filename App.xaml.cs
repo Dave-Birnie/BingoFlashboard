@@ -60,6 +60,54 @@ namespace BingoFlashboard
         public static FlashboardViewModel? flashboardViewModel;
         #endregion VIEWMODELS
 
+
+        #region GLOBAL DB CALLS
+
+        public static void LoadHallInformation(int hallID)
+        {
+            {
+                if (hall is not null)
+                {
+                    //ADDS SESSIONS
+                    if (hall.All_Sessions is null)
+                    {
+                        MessageBox.Show("No Sessions found in the hall data");
+                        return;
+                    }
+
+                    //ADDS PROGRAMS
+                    if (hall.All_Programs is null)
+                    {
+                        hall.All_Programs = new List<Program>();
+                        foreach (Session session in hall.All_Sessions)
+                        {
+                            foreach (Program program in session.Program_List)
+                            {
+                                hall.All_Programs.Add(program);
+                            }
+                        }
+                    }
+                    //ADDS GAMES
+                    if (hall.All_Games is null)
+                    {
+                        hall.All_Games = new List<Game>();
+                        //allGames = new();
+
+                        foreach (Program program in hall.All_Programs)
+                        {
+                            foreach (Game game in program.Games_List)
+                            {
+                                hall.All_Games.Add(game);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #endregion GLOBAL DB CALLS
+
+
         #region METHODS
 
         public static void SaveStartupFile()

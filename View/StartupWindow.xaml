@@ -37,6 +37,7 @@
         </Border>
 
         <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
             <Button Style="{StaticResource TopMenuBtn}"
                     HorizontalAlignment="Left"
                     Margin="20,0"
@@ -51,6 +52,14 @@
                                                 VerticalAlignment="Center" />
                 </Grid>
             </Button>
+                <Label FontSize="20"
+                       Name="MessageBoard"
+                       Foreground="{StaticResource FontLight}"
+                       FontFamily="Helvetica"
+                       HorizontalAlignment="Center"
+                       Padding="10"
+                       Content="" />
+            </StackPanel>
         </Grid>
 
         <StackPanel VerticalAlignment="Center"

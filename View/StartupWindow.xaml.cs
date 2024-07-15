@@ -31,6 +31,11 @@ namespace BingoFlashboard.View
                 InitializeComponent();
                 App.LoadStartupFile();
                 App.startupWindow = this;
+
+                if(App.hall?.All_Sessions is not null)
+                {
+                    sessionsList.ItemsSource = App.hall.All_Sessions;
+                }
             }
             catch (Exception ex)
             {
@@ -38,6 +43,11 @@ namespace BingoFlashboard.View
             }
         }
 
+
+        public void UpdateMessageBoard(string message)
+        {
+            MessageBoard.Content = message;
+        }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

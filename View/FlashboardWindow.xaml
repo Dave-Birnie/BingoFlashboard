@@ -16,7 +16,7 @@
     </Window.DataContext>-->
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="\Images\background.png"></ImageBrush>
+            <ImageBrush ImageSource="\Images\background2.png"></ImageBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
