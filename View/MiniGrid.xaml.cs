@@ -102,127 +102,127 @@ namespace BingoFlashboard.View
                 {
                     case "B1":
                         {
-                            B1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            B1.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "B2":
                         {
-                            B2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            B2.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "B3":
                         {
-                            B3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            B3.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "B4":
                         {
-                            B4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            B4.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "B5":
                         {
-                            B5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            B5.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "I1":
                         {
-                            I1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            I1.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "I2":
                         {
-                            I2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            I2.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "I3":
                         {
-                            I3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            I3.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "I4":
                         {
-                            I4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            I4.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "I5":
                         {
-                            I5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            I5.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "N1":
                         {
-                            N1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            N1.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "N2":
                         {
-                            N2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            N2.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "N3":
                         {
-                            N3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            N3.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "N4":
                         {
-                            N4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            N4.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "N5":
                         {
-                            N5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            N5.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "G1":
                         {
-                            G1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            G1.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "G2":
                         {
-                            G2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            G2.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "G3":
                         {
-                            G3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            G3.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "G4":
                         {
-                            G4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            G4.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "G5":
                         {
-                            G5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            G5.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "O1":
                         {
-                            O1.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            O1.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "O2":
                         {
-                            O2.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            O2.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "O3":
                         {
-                            O3.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            O3.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "O4":
                         {
-                            O4.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            O4.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                     case "O5":
                         {
-                            O5.Background = new SolidColorBrush(Colors.DarkGoldenrod);
+                            O5.Background = new SolidColorBrush(Colors.LimeGreen);
                             break;
                         }
                 }
