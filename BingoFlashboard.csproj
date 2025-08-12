@@ -31,7 +31,7 @@
 
   <ItemGroup>
     <Content Include="Data\PatternsTest2.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\PerfectPaper.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
